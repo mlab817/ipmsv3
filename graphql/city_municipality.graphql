@@ -1,0 +1,17 @@
+extend type Query {
+    "Get all cities and municipalities"
+    city_municipalities: [CityMunicipality] @all
+}
+
+type CityMunicipality {
+    id: ID!
+    name: String!
+    city_municipality_name: String
+    population_2015: Float
+    area_km2: Float
+    population_density: Float
+    barangay: Float
+    province_id: ID
+    province: Province @belongsTo
+    class: String
+}

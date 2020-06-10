@@ -1,0 +1,20 @@
+type Review {
+	id: ID
+	project_id: ID
+	project: Project
+	pip: Boolean
+	typology_id: ID
+	typology: Typology
+	cip: Boolean
+	cip_type_id: ID
+	cip_type: CipType
+	trip: Boolean
+	within_period: Boolean
+	readiness_id: ID
+	readiness: Readiness
+	remarks: String
+	created_at: String
+	updated_at: String
+	reviewed_by: ID
+	reviewer: User @belongsTo
+}

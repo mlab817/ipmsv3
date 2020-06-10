@@ -1,0 +1,22 @@
+extend type Query {
+  funding_sources: [FundingSource!]! @all
+}
+
+type FundingSource {
+  id: ID!
+  name: String!
+  projects: [Project!]! @belongsToMany @guard(with:"api")
+  pivot: ProjectFundingSourcePivot
+}
+
+type ProjectFundingSourcePivot {
+  target_2016: Float
+  target_2017: Float
+  target_2018: Float
+  target_2019: Float
+  target_2020: Float
+  target_2021: Float
+  target_2022: Float
+  target_2023: Float
+  target_total: Float
+}

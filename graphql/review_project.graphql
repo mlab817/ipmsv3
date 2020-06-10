@@ -1,0 +1,46 @@
+extend type Mutation {
+	reviewProject(input: ReviewProjectInput @spread): 
+    Project 
+    @update 
+    @inject(context: "user.id", name: "reviewed_by")
+    @can(ability: "review", find: "id")
+    @guard(with:"api")
+}
+
+input ReviewProjectInput {
+	id: ID!
+	ten_point_agenda: UpdateTenPointAgendaRelation
+  sustainable_development_goals: UpdateSustainableDevelopmentGoalRelation
+  bases: UpdateBasisRelation
+  paradigms: UpdateParadigmsRelation
+  pdp_chapters: UpdatePdpChaptersRelation
+  pdp_indicators: UpdatePdpIndicatorsRelation
+  review: ProjectReviewBelongsTo
+}
+
+input ProjectReviewBelongsTo {
+	upsert: ProjectReview
+}
+
+input ProjectReview {
+  id: ID
+  typology_id: ID
+  cip: Boolean
+  cip_type_id: ID
+  trip: Boolean
+  within_period: Boolean
+  readiness_id: ID
+  remarks: String
+}
+
+input UpdateParadigmsRelation {
+  sync: [ID]
+}
+
+input UpdatePdpChaptersRelation {
+  sync: [ID]
+}
+
+input UpdatePdpIndicatorsRelation {
+  sync: [ID]
+}

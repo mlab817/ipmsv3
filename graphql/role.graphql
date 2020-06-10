@@ -1,0 +1,14 @@
+extend type Query {
+  roles: [Role!]! @all
+}
+
+type Role {
+  id: ID!
+  name: String!
+  ident: String!
+  color: String
+  description: String
+  active: Boolean
+  # users: [User!]! @belongsToMany
+  users: [User] @belongsTo
+}

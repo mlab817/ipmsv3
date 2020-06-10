@@ -1,0 +1,9 @@
+extend type Query {
+  sustainable_development_goals: [SustainableDevelopmentGoal!]! @all
+}
+
+type SustainableDevelopmentGoal {
+  id: ID!
+  name: String!
+  projects: [Project!]! @belongsToMany @guard(with:"api")
+}

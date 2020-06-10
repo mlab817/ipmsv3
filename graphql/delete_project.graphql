@@ -1,0 +1,8 @@
+extend type Mutation @middleware(checks:["auth:api"]) {
+  deleteProject(id: ID!): Project
+    @field(resolver:"ProjectMutator@delete")
+
+  forceDeleteProject(id: ID!):
+    Project
+    @forceDelete
+}

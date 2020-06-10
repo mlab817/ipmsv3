@@ -1,0 +1,9 @@
+extend type Query {
+  ten_point_agenda: [TenPointAgenda!]! @all
+}
+
+type TenPointAgenda {
+  id: ID!
+  name: String
+  projects: [Project!]! @belongsToMany @guard(with:"api")
+}

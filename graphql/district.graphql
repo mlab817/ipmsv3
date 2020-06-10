@@ -1,0 +1,11 @@
+extend type Query {
+	districts: [District!]! @all
+}
+
+type District {
+	id: ID!
+	name: String!
+  province_id: ID
+	province: Province! @belongsTo
+	projects: [Project!] @belongsToMany
+}

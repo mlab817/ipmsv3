@@ -1,0 +1,63 @@
+extend type Query {
+  operating_units: [OperatingUnit] @all @orderBy(columns:["id"])
+}
+
+extend type Mutation {
+  "Create a new operating unit"
+  createOperatingUnit(
+    name: String!
+    acronym: String!
+    address: String
+    image: String
+    agency_head_name: String
+    agency_head_designation: String
+    telephone_number: String
+    fax_number: String
+    email: String
+    operating_unit_type_id: ID
+  ): OperatingUnit @create
+
+  "Update operating unit"
+  updateOperatingUnit(
+      id: ID!
+      name: String!
+      acronym: String!
+      address: String
+      image: String
+      agency_head_name: String
+      agency_head_designation: String
+      telephone_number: String
+      fax_number: String
+      email: String
+      operating_unit_type_id: ID
+  ): OperatingUnit @update
+
+  "Delete operating unit"
+  deleteOperatingUnit(id:ID!): OperatingUnit @delete
+
+  updateOperatingUnitImage(
+    id: ID!
+    image: Upload!
+  ): OperatingUnit @field(resolver:"UpdateOperatingUnitImageMutation")
+}
+
+type OperatingUnit {
+  id: ID
+  name: String
+  acronym: String
+  image: String
+  address: String
+  agency_head_name: String
+  agency_head_designation: String
+  telephone_number: String
+  fax_number: String
+  email: String
+  focals: [User] @hasMany
+  operating_unit_type_id: ID
+  operating_unit_type: OperatingUnitType @belongsTo
+  projects(first: Int!, after: String): [Project!]! @hasMany(type:"connection", defaultCount:10, maxCount: 25)
+  count_project: Int @middleware(checks:["auth:api"])
+  total_investment: Float
+  reviewers: [User] @belongsToMany
+  viewers: [User] @belongsToMany
+}

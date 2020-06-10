@@ -1,0 +1,28 @@
+extend type Query {
+  spatial_coverages: [SpatialCoverage] @all
+}
+
+extend type Mutation {
+  createSpatialCoverage(
+    name: String!
+  ): SpatialCoverage @create
+
+  updateSpatialCoverage(
+    id: ID!
+    name: String!
+  ): SpatialCoverage @update
+
+  deleteSpatialCoverage(
+    id: ID!
+  ): SpatialCoverage @delete
+
+  restoreSpatialCoverage(
+    id: ID!
+  ): SpatialCoverage @restore
+}
+
+type SpatialCoverage {
+  id: ID!
+  name: String!
+  projects: [Project!]! @hasMany
+}

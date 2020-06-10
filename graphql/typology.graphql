@@ -1,0 +1,9 @@
+extend type Query {
+  typologies: [Typology!]! @all
+}
+
+type Typology {
+  id: ID!
+  name: String!
+  projects: [Project!]! @hasMany @guard(with:"api")
+}

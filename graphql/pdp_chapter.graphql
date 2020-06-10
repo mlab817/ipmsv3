@@ -1,0 +1,9 @@
+extend type Query {
+	pdp_chapters: [PdpChapter] @all
+}
+
+type PdpChapter {
+	id: ID!
+	name: String
+	projects: [Project] @belongsToMany
+}

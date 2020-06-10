@@ -1,0 +1,9 @@
+extend type Query {
+  technical_readinesses: [TechnicalReadiness!]! @all  
+}
+
+type TechnicalReadiness {
+  id: ID!
+  name: String!
+  projects: [Project!]! @belongsToMany
+}

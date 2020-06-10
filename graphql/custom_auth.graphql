@@ -1,0 +1,16 @@
+input EmailInput {
+    email: String! @rules(apply: ["required", "email"])
+}
+
+extend type Query @middleware(checks:["auth:api"]) {
+  "Get current user"
+  getCurrentUser: User @auth(guard:"api")
+}
+
+type RESEND_EMAIL_VERIFICATION_RESPONSE {
+    message: String!
+}
+
+extend type Mutation {
+    resendEmailVerification(input: EmailInput @spread): RESEND_EMAIL_VERIFICATION_RESPONSE! @field(resolver:"ResendEmailVerification")
+}

@@ -1,0 +1,9 @@
+extend type Query {
+  operating_unit_types: [OperatingUnitType!]! @all
+}
+
+type OperatingUnitType {
+  id: ID
+  name: String
+  operating_units: [OperatingUnit!]! @hasMany
+}

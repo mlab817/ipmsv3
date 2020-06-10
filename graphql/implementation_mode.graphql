@@ -1,0 +1,9 @@
+extend type Query {
+  implementation_modes: [ImplementationMode] @all
+}
+
+type ImplementationMode {
+  id: ID
+  name: String
+  projects: [Project!]! @hasMany @guard(with:"api")
+}
