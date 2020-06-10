@@ -2,6 +2,11 @@
 
 namespace App\Providers;
 
+use App\Events\ProjectCreatedEvent;
+use App\Listeners\AssignDefaultRole;
+use App\Listeners\CreateUserAvatar;
+use App\Listeners\SendCompleteUserProfileNotification;
+use App\Listeners\SendProjectCreatedNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -16,8 +21,16 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         Registered::class => [
-            SendEmailVerificationNotification::class,
+            // CreateUserAvatar::class,
+            AssignDefaultRole::class,
+            SendCompleteUserProfileNotification::class
         ],
+        ProjectCreatedEvent::class => [
+          SendProjectCreatedNotification::class
+        ],
+        'App\Events\RoleChanged' => [
+            'App\Listeners\SendRoleChangedNotification'
+        ]
     ];
 
     /**
