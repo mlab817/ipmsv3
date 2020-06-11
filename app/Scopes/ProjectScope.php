@@ -39,7 +39,7 @@ class ProjectScope implements Scope
 
             // Check if user is reviewer
             if ($user->role->name == 'reviewer') {
-                $reviews = $user->reviews;
+                $reviews = $user->reviews()->pluck('operating_units.id');
                 // Get projects of operating unit being reviewed where status is endorsed
                 $builder->whereIn('operating_unit_id',$reviews);
             }
