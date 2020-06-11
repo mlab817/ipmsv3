@@ -267,7 +267,7 @@ class Project extends Model
       return $this->belongsToMany(OperatingUnit::class,'project_implementing_agency','project_id','operating_unit_id');
     }
 
-    public function submission_status(): BelongsTo
+    public function paradigms(): BelongsToMany
     {
       return $this->belongsToMany(Paradigm::class,'project_paradigm','project_id','paradigm_id');
     }
