@@ -24,7 +24,7 @@ class DateDirective extends BaseDirective implements ArgTransformerDirective
      * @param  string  $argumentValue
      * @return mixed
      */
-    public function transform($argumentValue): string
+    public function transform($argumentValue)
     {
         if (!$argumentValue) {
             return null;
