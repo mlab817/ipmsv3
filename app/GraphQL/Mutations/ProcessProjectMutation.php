@@ -38,6 +38,9 @@ class ProcessProjectMutation
         ]);
         // TODO implement the resolver
 
+        $project->processing_status_id = $args['processing_status_id'];
+        $project->save();
+
         return $project;
     }
 }
