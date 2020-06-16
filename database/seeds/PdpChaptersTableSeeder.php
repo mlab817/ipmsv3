@@ -12,6 +12,10 @@ class PdpChaptersTableSeeder extends Seeder
     public function run()
     {
         DB::table('pdp_chapters')->insert([
+          [
+            'id' => 0,
+            'name' => 'No chapter'
+          ],
         	[
         		"id" => 5,
         		"name" => "Chapter 5  Ensuring People-Centered, Clean and Efficient Governance"
@@ -75,7 +79,11 @@ class PdpChaptersTableSeeder extends Seeder
       		[
       			"id" => 20,
       			"name" => "Chapter 20 Ensuring Ecological Integrity, Clean and Healthy Environment"
-      		]
+      		],
+          [
+            'id' => 99,
+            'name' => 'Administrative Building'
+          ]
       ]);
     }
 }

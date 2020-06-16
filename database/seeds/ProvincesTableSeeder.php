@@ -1,10 +1,17 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use Flynsarmy\CsvSeeder\CsvSeeder;
 
-class ProvincesTableSeeder extends Seeder
+class ProvincesTableSeeder extends CsvSeeder
 {
+    public function __construct()
+    {
+        $this->table = 'provinces';
+        $this->csv_delimiter = ',';
+        $this->filename = base_path().'/database/seeds/csvs/provinces.csv';
+    }
+
     /**
      * Run the database seeds.
      *
@@ -12,129 +19,12 @@ class ProvincesTableSeeder extends Seeder
      */
     public function run()
     {
-      $provinces = [
-        [ "psgc_code" => "144400000", "name" => "MOUNTAIN PROVINCE", "region_psgc_code" => "140000000", "region_id" => 14 ],
-        [ "psgc_code" => "142700000", "name" => "IFUGAO", "region_psgc_code" => "140000000", "region_id" => 14 ],
-        [ "psgc_code" => "141100000", "name" => "BENGUET", "region_psgc_code" => "140000000", "region_id" => 14 ],
-        [ "psgc_code" => "140100000", "name" => "ABRA", "region_psgc_code" => "140000000", "region_id" => 14 ],
-        [ "psgc_code" => "148100000", "name" => "APAYAO", "region_psgc_code" => "140000000", "region_id" => 14 ],
-        [ "psgc_code" => "143200000", "name" => "KALINGA", "region_psgc_code" => "140000000", "region_id" => 14 ],
-        [ "psgc_code" => "013300000", "name" => "LA UNION", "region_psgc_code" => "010000000", "region_id" => 1 ],
-        [ "psgc_code" => "012800000", "name" => "ILOCOS NORTE", "region_psgc_code" => "010000000", "region_id" => 1 ],
-        [ "psgc_code" => "012900000", "name" => "ILOCOS SUR", "region_psgc_code" => "010000000", "region_id" => 1 ],
-        [ "psgc_code" => "015500000", "name" => "PANGASINAN", "region_psgc_code" => "010000000", "region_id" => 1 ],
-        [ "psgc_code" => "025000000", "name" => "NUEVA VIZCAYA", "region_psgc_code" => "020000000", "region_id" => 2 ],
-        [ "psgc_code" => "021500000", "name" => "CAGAYAN", "region_psgc_code" => "020000000", "region_id" => 2 ],
-        [ "psgc_code" => "023100000", "name" => "ISABELA", "region_psgc_code" => "020000000", "region_id" => 2 ],
-        [ "psgc_code" => "025700000", "name" => "QUIRINO", "region_psgc_code" => "020000000", "region_id" => 2 ],
-        [ "psgc_code" => "020900000", "name" => "BATANES", "region_psgc_code" => "020000000", "region_id" => 2 ],
-        [ "psgc_code" => "030800000", "name" => "BATAAN", "region_psgc_code" => "030000000", "region_id" => 3 ],
-        [ "psgc_code" => "037100000", "name" => "ZAMBALES", "region_psgc_code" => "030000000", "region_id" => 3 ],
-        [ "psgc_code" => "036900000", "name" => "TARLAC", "region_psgc_code" => "030000000", "region_id" => 3 ],
-        [ "psgc_code" => "035400000", "name" => "PAMPANGA", "region_psgc_code" => "030000000", "region_id" => 3 ],
-        [ "psgc_code" => "031400000", "name" => "BULACAN", "region_psgc_code" => "030000000", "region_id" => 3 ],
-        [ "psgc_code" => "034900000", "name" => "NUEVA ECIJA", "region_psgc_code" => "030000000", "region_id" => 3 ],
-        [ "psgc_code" => "037700000", "name" => "AURORA", "region_psgc_code" => "030000000", "region_id" => 3 ],
-        [ "psgc_code" => "045800000", "name" => "RIZAL", "region_psgc_code" => "040000000", "region_id" => 4 ],
-        [ "psgc_code" => "042100000", "name" => "CAVITE", "region_psgc_code" => "040000000", "region_id" => 4 ],
-        [ "psgc_code" => "043400000", "name" => "LAGUNA", "region_psgc_code" => "040000000", "region_id" => 4 ],
-        [ "psgc_code" => "041000000", "name" => "BATANGAS", "region_psgc_code" => "040000000", "region_id" => 4 ],
-        [ "psgc_code" => "045600000", "name" => "QUEZON", "region_psgc_code" => "040000000", "region_id" => 4 ],
-        [ "psgc_code" => "175100000", "name" => "OCCIDENTAL MINDORO", "region_psgc_code" => "170000000", "region_id" => 17 ],
-        [ "psgc_code" => "175200000", "name" => "ORIENTAL MINDORO", "region_psgc_code" => "170000000", "region_id" => 17 ],
-        [ "psgc_code" => "175900000", "name" => "ROMBLON", "region_psgc_code" => "170000000", "region_id" => 17 ],
-        [ "psgc_code" => "175300000", "name" => "PALAWAN", "region_psgc_code" => "170000000", "region_id" => 17 ],
-        [ "psgc_code" => "174000000", "name" => "MARINDUQUE", "region_psgc_code" => "170000000", "region_id" => 17 ],
-        [ "psgc_code" => "052000000", "name" => "CATANDUANES", "region_psgc_code" => "050000000", "region_id" => 5 ],
-        [ "psgc_code" => "051600000", "name" => "CAMARINES NORTE", "region_psgc_code" => "050000000", "region_id" => 5 ],
-        [ "psgc_code" => "056200000", "name" => "SORSOGON", "region_psgc_code" => "050000000", "region_id" => 5 ],
-        [ "psgc_code" => "050500000", "name" => "ALBAY", "region_psgc_code" => "050000000", "region_id" => 5 ],
-        [ "psgc_code" => "054100000", "name" => "MASBATE", "region_psgc_code" => "050000000", "region_id" => 5 ],
-        [ "psgc_code" => "051700000", "name" => "CAMARINES SUR", "region_psgc_code" => "050000000", "region_id" => 5 ],
-        [ "psgc_code" => "061900000", "name" => "CAPIZ", "region_psgc_code" => "060000000", "region_id" => 6 ],
-        [ "psgc_code" => "060400000", "name" => "AKLAN", "region_psgc_code" => "060000000", "region_id" => 6 ],
-        [ "psgc_code" => "060600000", "name" => "ANTIQUE", "region_psgc_code" => "060000000", "region_id" => 6 ],
-        [ "psgc_code" => "064500000", "name" => "NEGROS OCCIDENTAL", "region_psgc_code" => "060000000", "region_id" => 6 ],
-        [ "psgc_code" => "063000000", "name" => "ILOILO", "region_psgc_code" => "060000000", "region_id" => 6 ],
-        [ "psgc_code" => "067900000", "name" => "GUIMARAS", "region_psgc_code" => "060000000", "region_id" => 6 ],
-        [ "psgc_code" => "074600000", "name" => "NEGROS ORIENTAL", "region_psgc_code" => "070000000", "region_id" => 7 ],
-        [ "psgc_code" => "072200000", "name" => "CEBU", "region_psgc_code" => "070000000", "region_id" => 7 ],
-        [ "psgc_code" => "071200000", "name" => "BOHOL", "region_psgc_code" => "070000000", "region_id" => 7 ],
-        [ "psgc_code" => "076100000", "name" => "SIQUIJOR", "region_psgc_code" => "070000000", "region_id" => 7 ],
-        [ "psgc_code" => "086400000", "name" => "SOUTHERN LEYTE", "region_psgc_code" => "080000000", "region_id" => 8 ],
-        [ "psgc_code" => "082600000", "name" => "EASTERN SAMAR", "region_psgc_code" => "080000000", "region_id" => 8 ],
-        [ "psgc_code" => "084800000", "name" => "NORTHERN SAMAR", "region_psgc_code" => "080000000", "region_id" => 8 ],
-        [ "psgc_code" => "086000000", "name" => "SAMAR (WESTERN SAMAR)", "region_psgc_code" => "080000000", "region_id" => 8 ],
-        [ "psgc_code" => "083700000", "name" => "LEYTE", "region_psgc_code" => "080000000", "region_id" => 8 ],
-        [ "psgc_code" => "087800000", "name" => "BILIRAN", "region_psgc_code" => "080000000", "region_id" => 8 ],
-        [ "psgc_code" => "098300000", "name" => "ZAMBOANGA SIBUGAY", "region_psgc_code" => "090000000", "region_id" => 9 ],
-        [ "psgc_code" => "097200000", "name" => "ZAMBOANGA DEL NORTE", "region_psgc_code" => "090000000", "region_id" => 9 ],
-        [ "psgc_code" => "097300000", "name" => "ZAMBOANGA DEL SUR", "region_psgc_code" => "090000000", "region_id" => 9 ],
-        [ "psgc_code" => "104200000", "name" => "MISAMIS OCCIDENTAL", "region_psgc_code" => "100000000", "region_id" => 10 ],
-        [ "psgc_code" => "101300000", "name" => "BUKIDNON", "region_psgc_code" => "100000000", "region_id" => 10 ],
-        [ "psgc_code" => "103500000", "name" => "LANAO DEL NORTE", "region_psgc_code" => "100000000", "region_id" => 10 ],
-        [ "psgc_code" => "104300000", "name" => "MISAMIS ORIENTAL", "region_psgc_code" => "100000000", "region_id" => 10 ],
-        [ "psgc_code" => "101800000", "name" => "CAMIGUIN", "region_psgc_code" => "100000000", "region_id" => 10 ],
-        [ "psgc_code" => "112500000", "name" => "DAVAO ORIENTAL", "region_psgc_code" => "110000000", "region_id" => 11 ],
-        [ "psgc_code" => "118200000", "name" => "COMPOSTELA VALLEY", "region_psgc_code" => "110000000", "region_id" => 11 ],
-        [ "psgc_code" => "112400000", "name" => "DAVAO DEL SUR", "region_psgc_code" => "110000000", "region_id" => 11 ],
-        [ "psgc_code" => "118600000", "name" => "DAVAO OCCIDENTAL", "region_psgc_code" => "110000000", "region_id" => 11 ],
-        [ "psgc_code" => "112300000", "name" => "DAVAO DEL NORTE", "region_psgc_code" => "110000000", "region_id" => 11 ],
-        [ "psgc_code" => "126300000", "name" => "SOUTH COTABATO", "region_psgc_code" => "120000000", "region_id" => 12 ],
-        [ "psgc_code" => "126500000", "name" => "SULTAN KUDARAT", "region_psgc_code" => "120000000", "region_id" => 12 ],
-        [ "psgc_code" => "124700000", "name" => "COTABATO (NORTH COTABATO)", "region_psgc_code" => "120000000", "region_id" => 12 ],
-        [ "psgc_code" => "128000000", "name" => "SARANGANI", "region_psgc_code" => "120000000", "region_id" => 12 ],
-        [ "psgc_code" => "160200000", "name" => "AGUSAN DEL NORTE", "region_psgc_code" => "160000000", "region_id" => 16 ],
-        [ "psgc_code" => "160300000", "name" => "AGUSAN DEL SUR", "region_psgc_code" => "160000000", "region_id" => 16 ],
-        [ "psgc_code" => "166800000", "name" => "SURIGAO DEL SUR", "region_psgc_code" => "160000000", "region_id" => 16 ],
-        [ "psgc_code" => "166700000", "name" => "SURIGAO DEL NORTE", "region_psgc_code" => "160000000", "region_id" => 16 ],
-        [ "psgc_code" => "168500000", "name" => "DINAGAT ISLANDS", "region_psgc_code" => "160000000", "region_id" => 16 ],
-        [ "psgc_code" => "157000000", "name" => "TAWI-TAWI", "region_psgc_code" => "150000000", "region_id" => 15 ],
-        [ "psgc_code" => "150700000", "name" => "BASILAN", "region_psgc_code" => "150000000", "region_id" => 15 ],
-        [ "psgc_code" => "156600000", "name" => "SULU", "region_psgc_code" => "150000000", "region_id" => 15 ],
-        [ "psgc_code" => "153800000", "name" => "MAGUINDANAO", "region_psgc_code" => "150000000", "region_id" => 15 ],
-        [ "psgc_code" => "153600000", "name" => "LANAO DEL SUR", "region_psgc_code" => "150000000", "region_id" => 15 ],
-        [ "psgc_code" => "133900000", "name" => "NCR, CITY OF MANILA, FIRST DISTRICT (Not a Province)", "region_psgc_code" => "130000000", "region_id" => 13 ],
-        [ "psgc_code" => "137400000", "name" => "NCR, SECOND DISTRICT (Not a Province)", "region_psgc_code" => "130000000", "region_id" => 13 ],
-        [ "psgc_code" => "137500000", "name" => "NCR, THIRD DISTRICT (Not a Province)", "region_psgc_code" => "130000000", "region_id" => 13 ],
-        [ "psgc_code" => "137600000", "name" => "NCR, FOURTH DISTRICT (Not a Province)", "region_psgc_code" => "130000000", "region_id" => 13 ],
-        [ "psgc_code" => "097332000", "name" => "ZAMBOANGA CITY", "region_psgc_code" => "090000000", "region_id" => 9 ],
-        [ "psgc_code" => "112402000", "name" => "DAVAO CITY", "region_psgc_code" => "110000000", "region_id" => 11 ],
-        [ "psgc_code" => "063022000", "name" => "ILOILO CITY", "region_psgc_code" => "060000000", "region_id" => 6 ],
-        [ "psgc_code" => "023135000", "name" => "SANTIAGO CITY", "region_psgc_code" => "020000000", "region_id" => 2 ],
-        [ "psgc_code" => "160202000", "name" => "BUTUAN CITY", "region_psgc_code" => "160000000", "region_id" => 16 ],
-        [ "psgc_code" => "126303000", "name" => "GENERAL SANTOS CITY", "region_psgc_code" => "120000000", "region_id" => 12 ],
-        [ "psgc_code" => "103504000", "name" => "ILIGAN CITY", "region_psgc_code" => "100000000", "region_id" => 10 ],
-        [ "psgc_code" => "104305000", "name" => "CAGAYAN DE ORO CITY", "region_psgc_code" => "100000000", "region_id" => 10 ],
-        [ "psgc_code" => "175316000", "name" => "PUERTO PRINCESA CITY", "region_psgc_code" => "170000000", "region_id" => 17 ],
-        // [ "psgc_code" => "140000000", "name" => "Regionwide (CAR)", "region_psgc_code" => "140000000", "region_id" => 14 ],
-        // [ "psgc_code" => "010000000", "name" => "Regionwide (1)", "region_psgc_code" => "010000000", "region_id" => 1 ],
-        // [ "psgc_code" => "020000000", "name" => "Regionwide (2)", "region_psgc_code" => "020000000", "region_id" => 12 ],
-        // [ "psgc_code" => "030000000", "name" => "Regionwide (3)", "region_psgc_code" => "030000000" ],
-        // [ "psgc_code" => "040000000", "name" => "Regionwide (4A)", "region_psgc_code" => "040000000" ],
-        // [ "psgc_code" => "050000000", "name" => "Regionwide (5)", "region_psgc_code" => "050000000" ],
-        // [ "psgc_code" => "060000000", "name" => "Regionwide (6)", "region_psgc_code" => "060000000" ],
-        // [ "psgc_code" => "070000000", "name" => "Regionwide (7)", "region_psgc_code" => "070000000" ],
-        // [ "psgc_code" => "080000000", "name" => "Regionwide (8)", "region_psgc_code" => "080000000" ],
-        // [ "psgc_code" => "090000000", "name" => "Regionwide (9)", "region_psgc_code" => "090000000" ],
-        // [ "psgc_code" => "100000000", "name" => "Regionwide (10)", "region_psgc_code" => "100000000" ],
-        // [ "psgc_code" => "110000000", "name" => "Regionwide (11)", "region_psgc_code" => "110000000" ],
-        // [ "psgc_code" => "120000000", "name" => "Regionwide (12)", "region_psgc_code" => "120000000" ],
-        // [ "psgc_code" => "160000000", "name" => "Regionwide (CARAGA)", "region_psgc_code" => "160000000" ],
-        // [ "psgc_code" => "150000000", "name" => "Regionwide (ARMM)", "region_psgc_code" => "150000000" ],
-        // [ "psgc_code" => "170000000", "name" => "Regionwide (4B)", "region_psgc_code" => "170000000" ],
-        // [ "psgc_code" => "9980000000", "name" => "Inter-regional", "region_psgc_code" => "9980000000" ],
-        // [ "psgc_code" => "9990000000", "name" => "Nationwide", "region_psgc_code" => "9990000000" ]
-    ];
-    
-    foreach ($provinces as $province) {
-      DB::table('provinces')->insert([
-        // 'psgc_code' => $province['psgc_code'],
-        'name' => $province['name'],
-        'label' => $province['name'],
-        // 'region_psgc_code' => $province['region_psgc_code']
-        'region_id' => $province['region_id']
-      ]);
-    }
+        // Recommended when importing larger CSVs
+        DB::disableQueryLog();
+
+        // Uncomment the below to wipe the table clean before populating
+        DB::table($this->table)->truncate();
+
+        parent::run();
     }
 }

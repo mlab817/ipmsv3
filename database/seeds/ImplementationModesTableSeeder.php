@@ -12,28 +12,29 @@ class ImplementationModesTableSeeder extends Seeder
      */
     public function run()
     {
+        // Updated id's to much PIPOL system
         DB::table('implementation_modes')->insert([
-          'id' => 1,
+          'id' => 74,
           'name' => 'Through Local Funds in accordance with RA 9184 or the Government Procurement Act'
         ]);
 
         DB::table('implementation_modes')->insert([
-          'id' => 2,
+          'id' => 75,
           'name' => 'Through ODA pursuant to RA 8182 or the ODA Act of 1996'
         ]);
 
         DB::table('implementation_modes')->insert([
-          'id' => 3,
+          'id' => 76,
           'name' => 'Through PPP under the Amended BOT Law and Its IRR'
         ]);
 
         DB::table('implementation_modes')->insert([
-          'id' => 4,
+          'id' => 77,
           'name' => 'Through Joint Venture Arrangement'
         ]);
 
         DB::table('implementation_modes')->insert([
-          'id' => 5,
+          'id' => 78,
           'name' => 'Others'
         ]);
     }
