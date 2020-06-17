@@ -15,24 +15,25 @@ class OfficialProjectsTableSeeder extends Seeder
     public function run()
     {
 
-    		DB::table('projects')->truncate();
+		DB::table('projects')->truncate();
 
-    		$json = \Illuminate\Support\Facades\File::get('database/data/projects.json');
+		$json = \Illuminate\Support\Facades\File::get('database/seeds/json/pip.json');
+
         $data = json_decode($json);
 
         // dd($data);
 
         foreach ($data as $obj) {
 
-        		$ouId = null;
+    		$ouId = null;
 
-        		$ou = \App\Models\OperatingUnit::where('acronym',$obj->attached_agency)->first();
+    		$ou = \App\Models\OperatingUnit::where('acronym',$obj->attached_agency)->first();
 
-        		if (!$ou) {
-        			$ouId = null;
-        		} else {
-        			$ouId = $ou->id;
-        		}
+    		if (!$ou) {
+    			$ouId = null;
+    		} else {
+    			$ouId = $ou->id;
+    		}
 
             \App\Models\Project::updateOrCreate([
             			'id' => $obj->id,

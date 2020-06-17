@@ -31,7 +31,7 @@ extend type Query @middleware(checks:["auth:api"]) {
 
   encodedProjects: [Project] @paginate(scopes:["encoded"])
 
-  projects(processing_status_id: ID! @scope(name: "whereProcessingStatus")): [Project] @paginate
+  projects(processing_status_id: ID! @scope(name: "whereProcessingStatus")): [Project] @paginate(type:"paginator", defaultCount: 10, maxCount:25)
 
   "Gets project information based on id"
   project(id: ID! @eq): Project
@@ -78,6 +78,7 @@ type Project {
     gad: Gad @belongsTo
     type: Type @belongsTo
     type_id: ID
+    regular: Boolean
     spatial_coverage_id: ID
     spatial_coverage: SpatialCoverage @belongsTo
     region_id: ID
@@ -127,6 +128,9 @@ type Project {
     neda_secretariat_review_date: Date
     neda_board: Boolean
     neda_board_date: Date
+    rdc_required: Boolean
+    rdc_endorsed: Boolean
+    rdc_endorsed_date: Date
     icc_endorsed: Boolean
     icc_endorsed_date: Date
     icc_approved: Boolean
@@ -266,6 +270,8 @@ type Project {
     processing_status: ProcessingStatus @belongsTo
     gad_form: GadForm @belongsTo
     gad_form_id: ID
+    technical_readiness_id: ID
+    technical_readiness: TechnicalReadiness @belongsTo
 }
 
 type CanUpdateResponse {

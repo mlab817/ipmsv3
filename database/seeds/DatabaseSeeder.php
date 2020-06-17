@@ -50,5 +50,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CipTypesTableSeeder::class);
         $this->call(PdpChaptersTableSeeder::class);
         $this->call(PdpIndicatorsTableSeeder::class);
+        $this->call(FsStatusesTableSeeder::class);
     }
 }

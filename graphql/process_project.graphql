@@ -7,6 +7,27 @@ extend type Mutation {
 	): Project
     @field(resolver:"ProcessProjectMutation")
     @guard(with:"api")
+
+  validateProject(
+    project_id: ID!
+    remarks: String
+  ): Project
+    @field(resolver:"ValidateProjectMutation")
+    @guard(with:"api")
+
+  returnProject(
+    project_id: ID!
+    remarks: String
+  ): Project
+    @field(resolver:"ReturnProjectMutation")
+    @guard(with:"api")
+
+  finalizeProject(
+    project_id: ID!
+    remarks: String
+  ): Project 
+    @field(resolver:"FinalizeProjectMutation")
+    @guard(with:"api")
 }
 
 type Query {

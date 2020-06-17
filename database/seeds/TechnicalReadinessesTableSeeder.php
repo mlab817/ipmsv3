@@ -15,32 +15,36 @@ class TechnicalReadinessesTableSeeder extends Seeder
         DB::table('technical_readinesses')->insert([
           [
             'id' => 1,
-            'name' => 'Concept Note'
-          ],
-          [
-            'id' => 2,
-            'name' => 'Project Proposal'
-          ],
-          [
-            'id' => 3,
-            'name' => 'Detailed Engineering Design'
-          ],
-          [
-            'id' => 4,
-            'name' => 'Business Plan'
-          ],
-          [
-            'id' => 5,
             'name' => 'Feasibility Studies'
           ],
           [
+            'id' => 2,
+            'name' => 'Business Case/Plan'
+          ],
+          [
+            'id' => 3,
+            'name' => 'Project Proposal'
+          ],
+          [
+            'id' => 4,
+            'name' => 'Concept Note'
+          ],
+          [
             'id' => 6,
-            'name' => 'Right of Way'
+            'name' => 'Detailed Engineering Design'
           ],
           [
             'id' => 7,
+            'name' => 'Right of Way'
+          ],
+          [
+            'id' => 8,
             'name' => 'Resettlement Action Plan'
           ],
+          [
+            'id' => 5,
+            'name' => 'Others'
+          ]
         ]);
     }
 }

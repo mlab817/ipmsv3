@@ -50,7 +50,6 @@ type Subscription
 #import currency.graphql
 #import submission_status.graphql
 #import endorse_projects.graphql
-#import finalize_project.graphql
 #import process_project.graphql
 #import notifications.graphql
 #import gad.graphql

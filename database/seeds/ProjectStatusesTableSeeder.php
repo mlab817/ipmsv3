@@ -12,34 +12,40 @@ class ProjectStatusesTableSeeder extends Seeder
      */
     public function run()
     {
+        /**
+         * Equivalent of Implementation Readiness in PIPOL
+         * 
+         * $project->project_status_id
+         */
         DB::table('project_statuses')->insert([
           [
             'id' => 1,
-            'name' => 'Conceptual Stage'
+            'name' => 'Ongoing' // 1
           ],
           [
             'id' => 2,
-            'name' => 'Proposed'
+            'name' => 'Proposed' // 2
           ],
           [
             'id' => 3,
-            'name' => 'Approved but not yet ongoing'
+            'name' => 'Completed' // 3
           ],
           [
             'id' => 4,
-            'name' => 'Ongoing'
+            'name' => 'Conceptual Stage'
           ],
           [
             'id' => 5,
+            'name' => 'Approved but not yet ongoing'
+          ],
+          
+          [
+            'id' => 6,
             'name' => 'Temporarily Stopped'
           ],
           [
-            'id' => 6,
-            'name' => 'Cancelled/Terminated'
-          ],
-          [
             'id' => 7,
-            'name' => 'Completed'
+            'name' => 'Cancelled/Terminated'
           ],
           [
             'id' => 8,

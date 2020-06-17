@@ -4,11 +4,10 @@ namespace App\GraphQL\Mutations;
 
 use App\Models\Project;
 use App\Models\ProjectProcessingStatus;
-use Carbon\Carbon;
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
-class FinalizeProjectMutation
+class ValidateProjectMutation
 {
     /**
      * Return a value for the field.
@@ -21,25 +20,30 @@ class FinalizeProjectMutation
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        // TODO implement the resolver
-        $project = Project::find($args['project_id']);
+        // Let's check if the user is a reviewer
+        $user = $context->user();
 
-        if (!$project) {
-            return null;    
+        if ($user->role->name !== 'reviewer') {
+            return null;
         } else {
-            $project->processing_status_id = 2;
-            $project->processed_by = $context->user()->id;
-            $project->save();
+            $project = Project::find($args['project_id']);
 
-            ProjectProcessingStatus::create([
-                'project_id' => $args['project_id'],
-                'processing_status_id' => 2,
-                'processed_by' => $context->user()->id,
-                'remarks' => $args['remarks']
-            ]);
+            if (!$project) {
+                return null;
+            } else {
+                $project->processing_status_id = 5;
+                $project->processed_by = $user->id;
+                $project->save();
 
-            return $project;
+                ProjectProcessingStatus::create([
+                    'project_id' => $project->id,
+                    'processing_status_id' => 5,
+                    'processed_by' => $user->id,
+                    'remarks' => $args['remarks']
+                ]);
+
+                return $project;
+            }
         }
     }
-
 }

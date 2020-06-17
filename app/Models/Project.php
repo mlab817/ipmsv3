@@ -54,6 +54,7 @@ class Project extends Model
       "pcip",
       "title",
       "type_id",
+      "regular",
       "infrastructure",
       "operating_unit_id",
       "main_funding_source_id",
@@ -119,12 +120,7 @@ class Project extends Model
       'row_target_2021',
       'row_target_2022',
       'row_target_total',
-      'row_affected_2017',
-      'row_affected_2018',
-      'row_affected_2019',
-      'row_affected_2020',
-      'row_affected_2021',
-      'row_affected_2022',
+      'row_affected',
       "has_rap",
       'rap_target_2017',
       'rap_target_2018',
@@ -133,12 +129,7 @@ class Project extends Model
       'rap_target_2021',
       'rap_target_2022',
       'rap_target_total',
-      'rap_affected_2017',
-      'rap_affected_2018',
-      'rap_affected_2019',
-      'rap_affected_2020',
-      'rap_affected_2021',
-      'rap_affected_2022',
+      'rap_affected',
       'investment_target_2016',
       'investment_target_2017',
       'investment_target_2018',
@@ -194,7 +185,11 @@ class Project extends Model
       "gad_form_id",
       "updates",
       "updates_date",
-      'created_by'
+      'created_by',
+      'technical_readiness_id',
+      'rdc_endorsed',
+      'rdc_endorsed_date',
+      'rdc_required'
     ];
 
     protected $casts = [
@@ -310,6 +305,11 @@ class Project extends Model
     public function sustainable_development_goals(): BelongsToMany
     {
       return $this->belongsToMany(SustainableDevelopmentGoal::class,'project_sdg','project_id','sdg_id','id','id');
+    }
+
+    public function technical_readiness(): BelongsTo
+    {
+      return $this->belongsTo(TechnicalReadiness::class);
     }
 
     public function technical_readinesses(): BelongsToMany

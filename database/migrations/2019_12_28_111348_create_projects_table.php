@@ -26,13 +26,14 @@ class CreateProjectsTable extends Migration
             $table->boolean("pcip")->default(0);
             $table->text("title");
             $table->unsignedBigInteger("type_id")->nullable();
+            $table->boolean('regular')->nullable()->default(false);
             $table->unsignedBigInteger("operating_unit_id")->nullable();
             $table->unsignedBigInteger('main_funding_source_id')->nullable();
             $table->unsignedBigInteger('funding_institution_id')->nullable();
             $table->unsignedBigInteger("implementation_mode_id")->nullable();
             $table->unsignedBigInteger("priority_ranking")->nullable();
             $table->unsignedBigInteger("project_status_id")->nullable();
-            $table->boolean("infrastructure")->default(0);
+            $table->boolean("infrastructure")->default(0)->nullable();
             $table->unsignedBigInteger("typology_id")->nullable();
             $table->unsignedBigInteger("tier_id")->nullable();
             $table->unsignedBigInteger("spatial_coverage_id")->nullable();
@@ -53,26 +54,35 @@ class CreateProjectsTable extends Migration
             $table->bigInteger("target_end_year")->nullable();
             $table->date("implementation_start_date")->nullable();
             $table->date("implementation_end_date")->nullable();
-            $table->decimal("total_project_cost",14,2)->default(0);
+            $table->decimal("total_project_cost",14,2)->default(0)->nullable();
             $table->unsignedBigInteger('currency_id')->nullable();
-            $table->boolean('clearinghouse')->default(0);
+            $table->boolean('clearinghouse')->default(0)->nullable();
             $table->date('clearinghouse_date')->nullable();
             // from table cip_processing
-            $table->boolean('has_row')->default(0);
-            $table->boolean('has_rap')->default(0);
-            $table->boolean('has_fs')->default(0);
-            $table->boolean('rdc_endorsed')->default(0);
+            $table->boolean('has_row')->default(0)->nullable();
+            $table->boolean('has_rap')->default(0)->nullable();
+            $table->boolean('has_row_rap')->default(0)->nullable();
+            
+            $table->boolean('rdc_required')->default(0)->nullable();
+            $table->boolean('rdc_endorsed')->default(0)->nullable();
             $table->date('rdc_endorsed_date')->nullable();
             $table->boolean('neda_submission')->default(0);
             $table->date('neda_submission_date')->nullable();
-            $table->boolean('neda_secretariat_review')->default(0);
+            $table->boolean('neda_secretariat_review')->default(0)->nullable();
             $table->date('neda_secretariat_review_date')->nullable();
-            $table->boolean('icc_endorsed')->default(0);
+            $table->boolean('icc_required')->default(0)->nullable();
+            $table->boolean('icc_endorsed')->default(0)->nullable();
             $table->date('icc_endorsed_date')->nullable();
-            $table->boolean('icc_approved')->default(0);
+            $table->boolean('icc_approved')->default(0)->nullable();
             $table->date('icc_approved_date')->nullable();
-            $table->boolean('neda_board')->default(0);
+            $table->boolean('neda_board')->default(0)->nullable();
             $table->date('neda_board_date')->nullable();
+
+            $table->boolean('has_fs')->default(0)->nullable();
+            $table->boolean('fs_assistance')->default(0)->nullable();
+            $table->unsignedBigInteger('fs_status_id')->nullable();
+            $table->date('fs_start_date')->nullable();
+            $table->date('fs_end_date')->nullable();
             $table->decimal('fs_target_2017',14,2)->nullable()->default(0);
             $table->decimal('fs_target_2018',14,2)->nullable()->default(0);
             $table->decimal('fs_target_2019',14,2)->nullable()->default(0);
@@ -97,12 +107,7 @@ class CreateProjectsTable extends Migration
             $table->decimal('row_target_2021',14,2)->nullable()->default(0);
             $table->decimal('row_target_2022',14,2)->nullable()->default(0);
             $table->decimal('row_target_total',14,2)->nullable()->default(0);
-            $table->unsignedBigInteger('row_affected_2017')->nullable();
-            $table->unsignedBigInteger('row_affected_2018')->nullable();
-            $table->unsignedBigInteger('row_affected_2019')->nullable();
-            $table->unsignedBigInteger('row_affected_2020')->nullable();
-            $table->unsignedBigInteger('row_affected_2021')->nullable();
-            $table->unsignedBigInteger('row_affected_2022')->nullable();
+            $table->string('row_affected')->nullable();
             $table->decimal('rap_target_2017',14,2)->nullable()->default(0);
             $table->decimal('rap_target_2018',14,2)->nullable()->default(0);
             $table->decimal('rap_target_2019',14,2)->nullable()->default(0);
@@ -110,12 +115,7 @@ class CreateProjectsTable extends Migration
             $table->decimal('rap_target_2021',14,2)->nullable()->default(0);
             $table->decimal('rap_target_2022',14,2)->nullable()->default(0);
             $table->decimal('rap_target_total',14,2)->nullable()->default(0);
-            $table->unsignedBigInteger('rap_affected_2017')->nullable();
-            $table->unsignedBigInteger('rap_affected_2018')->nullable();
-            $table->unsignedBigInteger('rap_affected_2019')->nullable();
-            $table->unsignedBigInteger('rap_affected_2020')->nullable();
-            $table->unsignedBigInteger('rap_affected_2021')->nullable();
-            $table->unsignedBigInteger('rap_affected_2022')->nullable();
+            $table->string('rap_affected')->nullable();
             $table->string("estimated_project_life")->nullable();
             $table->decimal("financial_benefit_cost_ratio",14,2)->nullable()->default(0);
             $table->decimal("financial_internal_rate_return",14,2)->nullable()->default(0);
@@ -169,8 +169,9 @@ class CreateProjectsTable extends Migration
             $table->decimal('disbursement_2023',14,2)->nullable()->default(0);
             $table->decimal('disbursement_total',14,2)->nullable()->default(0);
             $table->text('image_url')->nullable();
+            $table->unsignedBigInteger('technical_readiness_id')->nullable(); // equivalent of project preparation details
+            $table->string('technical_readiness_others')->nullable();
 
-            // $table->unsignedBigInteger('submission_status_id')->default(1);
             $table->unsignedBigInteger("created_by")->nullable();
             $table->unsignedBigInteger("updated_by")->nullable();
             $table->timestamps();
@@ -179,18 +180,6 @@ class CreateProjectsTable extends Migration
             $table->unsignedBigInteger('endorsed_by')->nullable();
             $table->timestamp('endorsed_at')->nullable();
             $table->unsignedBigInteger('endorsement_id')->nullable();
-//            $table->unsignedBigInteger('validated_by')->nullable();
-//            $table->timestamp('validated_at')->nullable();
-//            $table->unsignedBigInteger('returned_by')->nullable();
-//            $table->timestamp('returned_at')->nullable();
-//            $table->unsignedBigInteger("reviewed_by")->nullable();
-//            $table->timestamp("reviewed_at")->nullable();
-//            $table->unsignedBigInteger("accepted_by")->nullable();
-//            $table->timestamp("accepted_at")->nullable();
-//            $table->unsignedBigInteger("approved_by")->nullable();
-//            $table->timestamp("approved_at")->nullable();
-//            $table->unsignedBigInteger("encoded_by")->nullable();
-//            $table->timestamp("encoded_at")->nullable();
             $table->unsignedBigInteger("deleted_by")->nullable();
             $table->softDeletes();
 
@@ -214,6 +203,7 @@ class CreateProjectsTable extends Migration
 //            $table->foreign('finalized_by')->references('id')->on('users');
 //            $table->foreign('validated_by')->references('id')->on('users');
             $table->foreign('endorsement_id')->references('id')->on('endorsements')->onDelete('set null');
+            $table->foreign('technical_readiness_id')->references('id')->on('technical_readinesses')->onDelete('set null');
         });
     }
 

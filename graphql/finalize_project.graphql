@@ -1,3 +1,0 @@
-extend type Mutation {
-	finalizeProject(id:ID!): Project @field(resolver:"FinalizeProjectMutation") @guard(with:"api")
-}

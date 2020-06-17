@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use Illuminate\Str;
 use App\Models\ProcessingStatus;
 use App\Models\Project;
 use App\Notifications\ProjectCreated;
@@ -12,21 +13,17 @@ class ProjectObserver
 {
     public function creating(Project $project)
     {
-      // do nothing
-      // $user = auth()->user();
-
-      // if (! $user) {
-      //   $project->created_by = 1;
-      // }
-      // else {
-      //   $project->created_by = $user->id;
-      // }
+        // Do nothing
     }
 
     public function created(Project $project)
     {
       // set processing status id to 'draft'
       $project->processing_status_id = 1;
+
+      $uuid = Str::uuid();
+
+      $project->uuid = $uuid;
     }
 
     public function updating(Project $project)
