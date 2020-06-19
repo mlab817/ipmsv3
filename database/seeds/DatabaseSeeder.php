@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TypologiesTableSeeder::class);
         $this->call(RegionsTableSeeder::class);
         $this->call(ProvincesTableSeeder::class);
-        $this->call(DistrictsTableSeeder::class);
+        // $this->call(DistrictsTableSeeder::class);
         $this->call(TypesTableSeeder::class);
         // $this->call(UserRolesTableSeeder::class);
         $this->call(SpatialCoveragesTableSeeder::class);
@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(ProfilesTableSeeder::class);
         $this->call(YearsTableSeeder::class);
         $this->call(GadsTableSeeder::class);
-        $this->call(CityMunicipalitiesTableSeeder::class);
+        // $this->call(CityMunicipalitiesTableSeeder::class);
         $this->call(GadQuestionsTableSeeder::class);
         $this->call(GadSubquestionsTableSeeder::class);
         $this->call(GadChoicesTableSeeder::class);
@@ -51,5 +51,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PdpChaptersTableSeeder::class);
         $this->call(PdpIndicatorsTableSeeder::class);
         $this->call(FsStatusesTableSeeder::class);
+        $this->call(VersionsTableSeeder::class);
     }
 }
