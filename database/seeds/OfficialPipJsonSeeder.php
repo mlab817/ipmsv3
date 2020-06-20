@@ -14,11 +14,13 @@ class OfficialPipJsonSeeder extends Seeder
     public function run()
     {
         $json = File::get(base_path().'/database/seeds/json/laravel-seeder.json');
+        
         $data = json_decode($json);
 
         DB::table('projects')->truncate();
 
         foreach ($data as $obj) {
+            $regions = $this->stringToArray($obj->states_id);
             $project = Project::create([
             	'pipol_url' => $obj->pipol_url,
             	'pipol_id' => $obj->id,
@@ -332,32 +334,30 @@ class OfficialPipJsonSeeder extends Seeder
             	'total_project_cost' => $obj->total_project_cost
             ]);
             
-            $re = '/[\[\]\']+/';
+            $project->bases()->sync($this->stringToArray($obj->bases));
 
-            $project->bases()->sync(explode(',',preg_replace($re,'',$obj->bases)));
+            $project->sustainable_development_goals()->sync($this->stringToArray($obj->sdg));
 
-            $project->sustainable_development_goals()->sync(explode(',',preg_replace($re,'',$obj->sdg)));
-
-            $provinces = explode(',',preg_replace($re,'',$obj->provinces_id));
-
-            foreach ($provinces as $key => $value) {
-                  if ($value != '') {
-                        $project->provinces()->sync($key, $value);
-                  }
-            }
+            $project->provinces()->sync($this->stringToArray($obj->provinces_id));
             
-            if ($regions != '[]') {
-                  $regions = explode(',',preg_replace($re,'',$obj->states_id));
-
-                  foreach ($regions as $key => $value) {
-                        if ($value != '' && $value > 0) {
-                              $project->regions()->sync($key, $value);
-                        }
-                  }
-            }
+            $project->regions()->sync($this->stringToArray($obj->states_id));
             
-            
-            $project->ten_point_agenda()->sync(explode(',',preg_replace($re,'',$obj->agenda)));
+            $project->ten_point_agenda()->sync($this->stringToArray($obj->agenda));
         }
     }
+
+    public function stringToArray($str) {
+
+          $array = array();
+          
+          $arr = str_replace(array('\"','\'','[',']',' '),'',$str);
+
+          if ($arr) {
+            $arr_explode = explode(',',$arr);
+
+            var_dump($arr_explode);
+          }
+
+          return null;
+      }
 }
