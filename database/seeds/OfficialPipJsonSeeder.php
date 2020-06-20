@@ -349,7 +349,7 @@ class OfficialPipJsonSeeder extends Seeder
             $regions = explode(',',preg_replace($re,'',$obj->states_id));
 
             foreach ($regions as $key => $value) {
-                  if ($value != '' && $value != 0) {
+                  if ($value != '' && $value > 0) {
                         $project->regions()->sync($key, $value);
                   }
             }
