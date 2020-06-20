@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/run', 'API\PythonController@run');
+
+Route::get('/python','PythonController@run');

@@ -17,6 +17,7 @@ class CreateProjectsTable extends Migration
             $table->bigIncrements('id');
             $table->uuid('uuid')->nullable()->unique();
             $table->string("pipol_url")->nullable();
+            $table->unsignedBigInteger('pipol_id')->nullable();
             $table->string("pipol_code")->nullable();
             $table->boolean("pip")->default(0);
             $table->boolean("cip")->default(0);
@@ -27,6 +28,7 @@ class CreateProjectsTable extends Migration
             $table->text("title");
             $table->unsignedBigInteger("type_id")->nullable();
             $table->boolean('regular')->nullable()->default(false);
+            $table->boolean('research')->nullable()->default(false);
             $table->unsignedBigInteger("operating_unit_id")->nullable();
             $table->unsignedBigInteger('main_funding_source_id')->nullable();
             $table->unsignedBigInteger('funding_institution_id')->nullable();

@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use Illuminate\Str;
+use Illuminate\Support\Str;
 use App\Models\ProcessingStatus;
 use App\Models\Project;
 use App\Notifications\ProjectCreated;

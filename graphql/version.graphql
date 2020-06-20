@@ -2,6 +2,8 @@ type Query {
 	versions: [Version] @all
 
 	version(id: ID! @eq): Version @find
+
+	currentVersion: Version @field(resolver:"CurrentVersion")
 }
 
 type Mutation {
@@ -10,8 +12,6 @@ type Mutation {
 	updateVersion(input: UpdateVersionInput!): Version @update @inject(context:"user.id",name:"user_id")
 
 	deleteVersion(id: ID!): Version @delete @inject(context:"user.id",name:"user_id")
-
-	currentVersion: Version @field(resolver:"CurrentVersion")
 }
 
 type Version {

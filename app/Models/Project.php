@@ -44,6 +44,8 @@ class Project extends Model
     }
 
     protected $fillable = [
+      'pipol_id',
+      'research',
       "pipol_url",
       "pipol_code",
       "afmip",
