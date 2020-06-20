@@ -346,13 +346,16 @@ class OfficialPipJsonSeeder extends Seeder
                   }
             }
             
-            $regions = explode(',',preg_replace($re,'',$obj->states_id));
+            if ($regions != '[]') {
+                  $regions = explode(',',preg_replace($re,'',$obj->states_id));
 
-            foreach ($regions as $key => $value) {
-                  if ($value != '' && $value > 0) {
-                        $project->regions()->sync($key, $value);
+                  foreach ($regions as $key => $value) {
+                        if ($value != '' && $value > 0) {
+                              $project->regions()->sync($key, $value);
+                        }
                   }
             }
+            
             
             $project->ten_point_agenda()->sync(explode(',',preg_replace($re,'',$obj->agenda)));
         }
