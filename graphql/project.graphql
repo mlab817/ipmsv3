@@ -15,7 +15,7 @@ extend type Query @middleware(checks:["auth:api"]) {
 
   draftProjects: [Project] @paginate(scopes:["draft"])
 
-  finalizedProjects: [Project] @paginate(scopes:["finalized"])
+  finalizedProjects: [Project] @paginate(scopes:["finalized"], defaultCount: 25)
 
   endorsedProjects: [Project] @paginate(scopes:["endorsed"])
 
@@ -38,6 +38,7 @@ extend type Query @middleware(checks:["auth:api"]) {
     @find
     @can(ability: "view", find: "id")
     @guard(with:"api")
+
 }
 
 type Project {
