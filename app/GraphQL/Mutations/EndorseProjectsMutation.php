@@ -4,7 +4,7 @@ namespace App\GraphQL\Mutations;
 
 use App\Models\Endorsement;
 use App\Models\Project;
-use App\Notifications\ProjectEndorsed;
+use App\Notifications\DatabaseNotification;
 use GraphQL\Type\Definition\ResolveInfo;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
@@ -49,13 +49,14 @@ class EndorseProjectsMutation
 
         foreach ($projects as $project) {
             $project->endorsement_id = $endorsement->id;
-            $project->submission_status_id = 3; // set submission status to endorsed
+            $project->processing_status_id = 3; // set submission status to endorsed
             $project->save();
         }
 
         $endorsement->projects()->saveMany($projects);
 
         $data = [
+          'type' => 'Projects Endorsed',
           'from' => $context->user()->email,
           'title' => 'Projects Endorsed',
           'body' => $projects->count() . ' projects endorsed',
@@ -63,7 +64,7 @@ class EndorseProjectsMutation
           'actionURL' => '/projects/review'
         ];
 
-        Notification::send($context->user(), new ProjectEndorsed($data));
+        Notification::send($context->user(), new DatabaseNotification($data));
 
         return $endorsement;
     }
