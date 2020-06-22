@@ -344,6 +344,11 @@ class Project extends Model
       return $this->belongsTo(User::class,'updated_by','id');
     }
 
+    public function shares(): HasMany
+    {
+      return $this-hasMany(Project::class,'project_id','id');
+    }
+
     /**
      * Accessors for many-to-many relations
      *
