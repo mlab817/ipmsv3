@@ -2,6 +2,8 @@
 
 namespace App\GraphQL\Queries;
 
+use App\Models\Share;
+use App\Models\Project;
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
@@ -18,6 +20,17 @@ class SharedProjectQuery
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        // TODO implement the resolver
+        $project = Project::withoutGlobalScopes()->find($args['id']);
+
+        $share = Share::where([
+          'project_id' => $args['id'],
+          'token' => $args['token']
+        ])->first();
+
+        if (!$share) {
+          return null;
+        }
+
+        return $project;
     }
 }
