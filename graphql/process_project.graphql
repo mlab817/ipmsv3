@@ -28,6 +28,15 @@ extend type Mutation {
   ): Project 
     @field(resolver:"FinalizeProjectMutation")
     @guard(with:"api")
+
+  encodeProject(
+    project_id: ID!
+    pipol_id: Int!
+    pipol_code: String!
+    remarks: String!
+  ): Project
+    @field(resolver:"EncodeProjectMutation")
+    @guard(with:"api")
 }
 
 type Query {
