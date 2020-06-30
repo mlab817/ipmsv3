@@ -14,6 +14,7 @@ class OperatingUnitsTableSeeder extends Seeder
      */
     public function run()
     {
+      DB::table('operating_units')->truncate();
 
       $json = \Illuminate\Support\Facades\File::get('database/data/operating_units.json');
       $data = json_decode($json);
