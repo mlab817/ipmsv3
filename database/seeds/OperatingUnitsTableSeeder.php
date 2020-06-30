@@ -38,7 +38,7 @@ class OperatingUnitsTableSeeder extends Seeder
       }
 
       $maxId = DB::table('operating_units')->max('id');
-      DB::statement('ALTER TABLE operating_units AUTO_INCREMENT=' . intval($maxId + 1) . ';');
+      DB::statement('ALTER SEQUENCE operating_units_id_seq RESTART WITH ' . intval($maxId + 1) . ';');
 
     }
 }
