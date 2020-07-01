@@ -421,6 +421,11 @@ class Project extends Model
       return $this->morphMany(\Spatie\Activitylog\Models\Activity::class,'subject');
     }
 
+    public function attachments(): HasMany
+    {
+      return $this->hasMany(Attachment::class,'project_id','id');
+    }
+
     public function city_municipality(): BelongsTo
     {
       return $this->belongsTo(CityMunicipality::class);

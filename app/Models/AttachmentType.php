@@ -10,4 +10,9 @@ class AttachmentType extends Model
       'id',
       'name'
     ];
+
+    public function attachments()
+    {
+    	return $this->hasMany(Attachment::class);
+    }
 }
