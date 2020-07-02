@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectAttachmentTable extends Migration
+class CreateAttachmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProjectAttachmentTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_attachment', function (Blueprint $table) {
+        Schema::create('attachments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('uuid')->nullable();
             $table->unsignedBigInteger('project_id');
@@ -43,6 +43,6 @@ class CreateProjectAttachmentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_attachment');
+        Schema::dropIfExists('attachments');
     }
 }
