@@ -39,6 +39,14 @@ class UploadAttachment
         // $uploadedFile = $file->storePublicly('uploads');
         $uploadedFile = Storage::disk('dropbox')->put('attachments',$file);
 
+        $link = Storage::disk('dropbox')
+          ->getDriver() // `\League\Flysystem\Flysystem` instance
+          ->getAdapter() // `\Spatie\FlysystemDropbox\DropboxAdapter` instance
+          ->getClient() // `\Spatie\Dropbox\Client` instance
+          ->createSharedLinkWithSettings($uploadedFile);
+        $url = $link['url'];
+        $rawUrl = Str::replaceLast("dl=0","raw=1",$url);
+
         $attachment = Attachment::create([
             'uuid' => Str::uuid(),
             'project_id' => $args['project_id'],
@@ -48,6 +56,7 @@ class UploadAttachment
             'file_extension' => $originalExtension,
             'file_type' => $fileType,
             'file_path' => $uploadedFile,
+            'dropbox_link' => $rawUrl,
             'uploaded_by' => $user->id
         ]);
 
