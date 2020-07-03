@@ -42,7 +42,7 @@ class UploadUserAvatarMutation
             'type' => 'avatars',
             'mime_type' => $file->getClientMimeType(),
             'extension' => $file->getClientOriginalExtension(),
-            'size' => $file->getClientSize(),
+            'size' => $file->getSize(),
             'dropbox_path' => $uploadedFile,
             'dropbox_link' => $rawUrl,
             'uploader_id' => $userId,
