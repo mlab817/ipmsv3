@@ -43,7 +43,8 @@ class SendEmailToCreatedUser extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Your request has been approved. You may now login using this email. Your password is <strong>'. $this->password . '</strong>. Please make sure to change your password immediately from the Security page.')
+                    ->subject('Your IPMS Account')
+                    ->line('Your request for an IPMS has been approved. You may now login using this email. Your password is '. $this->password . '. Please make sure to change your password immediately from the Security page.')
                     ->action('Login', env('FRONT_URL') . '/login')
                     ->line('Thank you for using our application!');
     }

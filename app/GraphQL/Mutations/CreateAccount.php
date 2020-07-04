@@ -52,6 +52,7 @@ class CreateAccount
                     $status = 'SUCCESS';
                     $message = 'Successfully created user';
 
+                    // send email to newly created user
                     $createdUser->notify(new SendEmailToCreatedUser($password));
                 } else {
                     $message = 'Something went wrong.';
