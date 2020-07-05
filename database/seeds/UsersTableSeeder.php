@@ -45,6 +45,15 @@ class UsersTableSeeder extends Seeder
 
         DB::table('users')->insert([
           [
+            'name' => 'encoder',
+            'email' => 'encoder@gmail.com',
+            'password' => Hash::make('password'),
+            'role_id' => 4
+          ]
+        ]);
+
+        DB::table('users')->insert([
+          [
             'name' => 'viewer',
             'email' => 'viewer@gmail.com',
             'password' => Hash::make('password'),
@@ -54,10 +63,19 @@ class UsersTableSeeder extends Seeder
 
         DB::table('users')->insert([
           [
-            'name' => 'encoder',
-            'email' => 'encoder@gmail.com',
+            'name' => 'lead',
+            'email' => 'lead@gmail.com',
             'password' => Hash::make('password'),
-            'role_id' => 4
+            'role_id' => 6
+          ]
+        ]);
+
+        DB::table('users')->insert([
+          [
+            'name' => 'chief',
+            'email' => 'chief@gmail.com',
+            'password' => Hash::make('password'),
+            'role_id' => 7
           ]
         ]);
 
