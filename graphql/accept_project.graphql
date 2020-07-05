@@ -5,4 +5,11 @@ extend type Mutation {
 	): Project 
 		@field(resolver:"AcceptProject") 
 		@guard(with:["api"])
+
+	approveProject(
+		id: ID!
+		remarks: String!
+	): Project 
+		@field(resolver:"ApproveProject") 
+		@guard(with:["api"])
 }
