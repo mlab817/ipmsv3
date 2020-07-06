@@ -10,6 +10,7 @@ use App\Models\Project;
 use App\Models\ProjectProcessingStatus;
 use App\Models\Role;
 use App\Notifications\ResetPassword;
+use App\Notifications\ResetPasswordNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -185,5 +186,16 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getAvatarAttribute()
     {
       return $this->image ? $this->image->dropbox_link: null;
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 }
