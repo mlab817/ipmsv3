@@ -23,7 +23,7 @@ class RegionFinancial extends Model
 
     public function region(): BelongsTo
     {
-        return $this->belongsTo(FundingSource::class);
+        return $this->belongsTo(Region::class);
     }
 
     public function project(): BelongsTo
