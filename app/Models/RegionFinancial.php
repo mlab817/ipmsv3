@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relation\BelongsTo;
 
 class RegionFinancial extends Model
 {
@@ -19,4 +20,14 @@ class RegionFinancial extends Model
     	'target_2023',
     	'target_total',
     ];
+
+    public function region(): BelongsTo
+    {
+        return $this->belongsTo(FundingSource::class);
+    }
+
+    public function project(): BelongsTo
+    {
+        return $this->belongsTo(Project::class);
+    }
 }
