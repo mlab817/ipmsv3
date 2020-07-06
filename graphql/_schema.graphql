@@ -65,5 +65,7 @@ type Subscription
 #import gad_form.graphql
 #import version.graphql
 #import share_project.graphql
+#import attachment.graphql
+#import accept_project.graphql
 
 #import upload.graphql

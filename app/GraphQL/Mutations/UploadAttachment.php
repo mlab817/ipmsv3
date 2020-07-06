@@ -2,14 +2,14 @@
 
 namespace App\GraphQL\Mutations;
 
-use App\Models\Image;
-use App\User;
+use App\Models\Attachment;
+use App\Models\Project;
 use GraphQL\Type\Definition\ResolveInfo;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
-class UploadUserAvatarMutation
+class UploadAttachment
 {
     /**
      * Return a value for the field.
@@ -22,12 +22,22 @@ class UploadUserAvatarMutation
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        // TODO implement the resolver
-        $userId = $context->user->id;
+        $project = Project::find($args['project_id']);
 
-        $file = $args['image'];
+        if (!$project) {
+            return null;
+        }
 
-        $uploadedFile = Storage::disk('dropbox')->putFile('user_' . $userId.'/avatars', $file);
+        $file = $args['file'];
+        $user = $context->user();
+
+        $originalName = $file->getClientOriginalName();
+        $originalExtension = $file->getClientOriginalExtension();
+        $size = $file->getSize();
+        $fileType = $file->getMimeType();
+
+        // $uploadedFile = $file->storePublicly('uploads');
+        $uploadedFile = Storage::disk('dropbox')->put('attachments',$file);
 
         $link = Storage::disk('dropbox')
           ->getDriver() // `\League\Flysystem\Flysystem` instance
@@ -37,22 +47,19 @@ class UploadUserAvatarMutation
         $url = $link['url'];
         $rawUrl = Str::replaceLast("dl=0","raw=1",$url);
 
-        $image = Image::create([
-            'name' => $file->getClientOriginalName(),
-            'type' => 'avatars',
-            'mime_type' => $file->getClientMimeType(),
-            'extension' => $file->getClientOriginalExtension(),
-            'size' => $file->getSize(),
-            'dropbox_path' => $uploadedFile,
+        $attachment = Attachment::create([
+            'uuid' => Str::uuid(),
+            'project_id' => $args['project_id'],
+            'attachment_type_id' => $args['attachment_type_id'],
+            'file_name' => $originalName,
+            'file_size' => $size,
+            'file_extension' => $originalExtension,
+            'file_type' => $fileType,
+            'file_path' => $uploadedFile,
             'dropbox_link' => $rawUrl,
-            'uploader_id' => $userId,
+            'uploaded_by' => $user->id
         ]);
 
-        $user = $context->user();
-
-        $user->image_id = $image->id;
-        $user->save();
-
-        return $user;
+        return $attachment;
     }
 }

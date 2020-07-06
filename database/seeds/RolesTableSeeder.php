@@ -58,6 +58,24 @@ class RolesTableSeeder extends Seeder
         ]);
 
         DB::table('roles')->insert([
+            'id' => 6,
+            'name' => 'lead',
+            'ident' => 'lead',
+            'description' => 'Accepts projects',
+            'active' => 1,
+            'level' => 99
+        ]);
+
+        DB::table('roles')->insert([
+            'id' => 7,
+            'name' => 'chief',
+            'ident' => 'chief',
+            'description' => 'Approve projects',
+            'active' => 1,
+            'level' => 99
+        ]);
+
+        DB::table('roles')->insert([
           'id' => 99,
           'name' => 'guest',
           'ident' => 'guest',

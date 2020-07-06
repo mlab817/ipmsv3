@@ -52,5 +52,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PdpIndicatorsTableSeeder::class);
         $this->call(FsStatusesTableSeeder::class);
         $this->call(VersionsTableSeeder::class);
+        $this->call(AttachmentTypesTableSeeder::class);
     }
 }
