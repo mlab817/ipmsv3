@@ -3,17 +3,19 @@
 namespace App\Observers;
 
 use Illuminate\Support\Str;
+use App\Models\ProjectProcessingStatus;
 use App\Models\ProcessingStatus;
 use App\Models\Project;
 use App\Notifications\ProjectCreated;
 use App\Notifications\ProjectDeleted;
+use Carbon\Carbon;
 use App\User;
 
 class ProjectObserver
 {
     public function creating(Project $project)
     {
-        // Do nothing
+        $project->processed_by = auth()->user()->id;
     }
 
     public function created(Project $project)
@@ -24,6 +26,13 @@ class ProjectObserver
       $uuid = Str::uuid();
 
       $project->uuid = $uuid;
+
+      ProjectProcessingStatus::create([
+          'processing_status_id' => 1,
+          'processed_by' => $project->created_by,
+          'remarks' => 'new project',
+          'processed_at' => Carbon::now()
+      ]);
     }
 
     public function updating(Project $project)
