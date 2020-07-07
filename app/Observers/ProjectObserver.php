@@ -28,6 +28,7 @@ class ProjectObserver
       $project->uuid = $uuid;
 
       ProjectProcessingStatus::create([
+          'project_id' => $project->id,
           'processing_status_id' => 1,
           'processed_by' => $project->created_by,
           'remarks' => 'new project',
