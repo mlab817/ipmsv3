@@ -2,9 +2,11 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Models\ProjectProcessingStatus;
 use App\Models\Endorsement;
 use App\Models\Project;
 use App\Notifications\DatabaseNotification;
+use Carbon\Carbon;
 use GraphQL\Type\Definition\ResolveInfo;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
@@ -51,6 +53,14 @@ class EndorseProjectsMutation
             $project->endorsement_id = $endorsement->id;
             $project->processing_status_id = 3; // set submission status to endorsed
             $project->save();
+
+            ProjectProcessingStatus::create([
+              'project_id' => $project->id,
+              'processed_by' => $context->user()->id,
+              'processed_at' => Carbon::now(),
+              'remarks' => 'endorsed',
+              'processing_status_id' = 3
+            ]);
         }
 
         $endorsement->projects()->saveMany($projects);
