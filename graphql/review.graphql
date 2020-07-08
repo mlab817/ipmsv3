@@ -1,3 +1,9 @@
+extend type Query {
+	reviews: [Review] @all
+
+	review(id: ID! @eq): Review @find
+}
+
 type Review {
 	id: ID
 	project_id: ID
