@@ -16,12 +16,12 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('project_id');
-            $table->boolean('pip')->default(0);
+            $table->boolean('pip')->default(0)->nullable();
             $table->unsignedBigInteger('typology_id')->nullable();
-            $table->boolean('cip')->default(0);
+            $table->boolean('cip')->default(0)->nullable();
             $table->unsignedBigInteger('cip_type_id')->nullable();
-            $table->boolean('trip')->default(0);
-            $table->boolean('within_period')->default(0);
+            $table->boolean('trip')->default(0)->nullable();
+            $table->boolean('within_period')->default(0)->nullable();
             $table->unsignedBigInteger('readiness_id')->nullable();
             $table->text('remarks')->nullable();
             $table->unsignedBigInteger('reviewed_by')->nullable();
