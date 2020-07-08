@@ -80,7 +80,7 @@ class EndorseProjectsMutation
         // notification should be sent to reviewers: how to get?
 
         $ou = OperatingUnit::where('id', $user->operating_unit_id)->first();
-        $reviewers = $ou->reviewers();
+        $reviewers = $ou->reviewers()->get();
 
         Notification::send($reviewers, new DatabaseNotification($data));
 
