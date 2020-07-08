@@ -21,12 +21,18 @@ input ReviewProjectInput {
   within_period: Boolean
   readiness_id: ID
   remarks: String
-	ten_point_agenda: UpdateTenPointAgendaRelation
-  sustainable_development_goals: UpdateSustainableDevelopmentGoalRelation
-  bases: UpdateBasisRelation
-  paradigms: UpdateParadigmsRelation
-  pdp_chapters: UpdatePdpChaptersRelation
-  pdp_indicators: UpdatePdpIndicatorsRelation
+  ten_point_agenda: [ID]
+  sustainable_development_goals: [ID]
+  bases: [ID]
+  paradigms: [ID]
+  pdp_chapters: [ID]
+  pdp_indicators: [ID]
+	#ten_point_agenda: UpdateTenPointAgendaRelation
+  #sustainable_development_goals: UpdateSustainableDevelopmentGoalRelation
+  #bases: UpdateBasisRelation
+  #paradigms: UpdateParadigmsRelation
+  #pdp_chapters: UpdatePdpChaptersRelation
+  #pdp_indicators: UpdatePdpIndicatorsRelation
 }
 
 input UpdateTenPointAgendaRelation {
