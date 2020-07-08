@@ -17,4 +17,10 @@ type Review {
 	updated_at: String
 	reviewed_by: ID
 	reviewer: User @belongsTo
+	sustainable_development_goals: [SustainableDevelopmentGoal] @belongsToMany
+	ten_point_agenda: [TenPointAgenda] @belongsToMany
+	bases: [Basis] @belongsToMany
+	paradigms: [Paradigm] @belongsToMany
+	pdp_indicators: [PdpIndicator] @belongsToMany
+	pdp_chapters: [PdpChapter] @belongsToMany
 }

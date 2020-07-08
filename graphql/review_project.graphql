@@ -14,21 +14,6 @@ extend type Mutation {
 
 input ReviewProjectInput {
 	id: ID!
-	ten_point_agenda: UpdateTenPointAgendaRelation
-  sustainable_development_goals: UpdateSustainableDevelopmentGoalRelation
-  bases: UpdateBasisRelation
-  paradigms: UpdateParadigmsRelation
-  pdp_chapters: UpdatePdpChaptersRelation
-  pdp_indicators: UpdatePdpIndicatorsRelation
-  review: ProjectReviewBelongsTo
-}
-
-input ProjectReviewBelongsTo {
-	upsert: ProjectReview
-}
-
-input ProjectReview {
-  id: ID
   typology_id: ID
   cip: Boolean
   cip_type_id: ID
@@ -36,6 +21,22 @@ input ProjectReview {
   within_period: Boolean
   readiness_id: ID
   remarks: String
+	ten_point_agenda: UpdateTenPointAgendaRelation
+  sustainable_development_goals: UpdateSustainableDevelopmentGoalRelation
+  bases: UpdateBasisRelation
+  paradigms: UpdateParadigmsRelation
+  pdp_chapters: UpdatePdpChaptersRelation
+  pdp_indicators: UpdatePdpIndicatorsRelation
+}
+
+input UpdateTenPointAgendaRelation {
+  sync: [ID]
+}
+input UpdateSustainableDevelopmentGoalRelation {
+  sync: [ID]
+}
+input UpdateBasisRelation {
+  sync: [ID]
 }
 
 input UpdateParadigmsRelation {
