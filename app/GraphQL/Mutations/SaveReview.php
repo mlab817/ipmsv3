@@ -45,12 +45,12 @@ class SaveReview
             ]);
 
             if ($review) {
-                $review->sync($args['sustainable_development_goals']);
-                $review->sync($args['ten_point_agenda']);
-                $review->sync($args['bases']);
-                $review->sync($args['paradigms']);
-                $review->sync($args['pdp_indicators']);
-                $review->sync($args['pdp_indicators']);
+                $review->sustainable_development_goals()->sync($args['sustainable_development_goals']);
+                $review->ten_point_agenda()->sync($args['ten_point_agenda']);
+                $review->bases()->sync($args['bases']);
+                $review->paradigms()->sync($args['paradigms']);
+                $review->pdp_indicators()->sync($args['pdp_indicators']);
+                $review->pdp_indicators()->sync($args['pdp_indicators']);
 
                 $message = 'Successfully saved review';
                 $status = 'SUCCESS';
