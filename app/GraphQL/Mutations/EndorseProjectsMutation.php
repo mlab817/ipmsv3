@@ -59,7 +59,7 @@ class EndorseProjectsMutation
               'processed_by' => $context->user()->id,
               'processed_at' => Carbon::now(),
               'remarks' => 'endorsed',
-              'processing_status_id' = 3
+              'processing_status_id' => 3
             ]);
         }
 
