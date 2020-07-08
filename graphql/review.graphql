@@ -29,4 +29,10 @@ type Review {
 	paradigms: [Paradigm] @belongsToMany
 	pdp_indicators: [PdpIndicator] @belongsToMany
 	pdp_chapters: [PdpChapter] @belongsToMany
+	selected_sustainable_development_goals: [ID]
+	selected_ten_point_agenda: [ID]
+	selected_paradigms: [ID]
+	selected_pdp_chapters: [ID]
+	selected_pdp_indicators: [ID]
+	selected_bases: [ID]
 }

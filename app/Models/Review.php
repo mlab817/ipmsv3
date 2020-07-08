@@ -49,31 +49,61 @@ class Review extends Model
 		// BelongsToMany Relations
 		public function sustainable_development_goals(): BelongsToMany
 		{
-			return $this->belongsToMany(SustainableDevelopmentGoal::class,'review_sdg','sdg_id','review_id');
+			return $this->belongsToMany(SustainableDevelopmentGoal::class,'review_sdg','review_id','sdg_id');
 		}
 
 		public function ten_point_agenda(): BelongsToMany
 		{
-			return $this->belongsToMany(TenPointAgenda::class,'review_tpa','tpa_id','review_id');
+			return $this->belongsToMany(TenPointAgenda::class,'review_tpa','review_id','tpa_id');
 		}
 
 		public function bases(): BelongsToMany
 		{
-			return $this->belongsToMany(Basis::class,'review_basis','basis_id','review_id');
+			return $this->belongsToMany(Basis::class,'review_basis','review_id','basis_id');
 		}
 
 		public function paradigms(): BelongsToMany
 		{
-			return $this->belongsToMany(Paradigm::class,'review_paradigm','paradigm_id','review_id');
+			return $this->belongsToMany(Paradigm::class,'review_paradigm','review_id','paradigm_id');
 		}
 
 		public function pdp_indicators(): BelongsToMany
 		{
-			return $this->belongsToMany(PdpIndicator::class,'review_pdp_indicator','pdp_indicator_id','review_id');
+			return $this->belongsToMany(PdpIndicator::class,'review_pdp_indicator','review_id','pdp_indicator_id');
 		}
 
 		public function pdp_chapters(): BelongsToMany
 		{
-			return $this->belongsToMany(PdpChapter::class,'review_pdp_chapter','pdp_chapter_id','review_id');
+			return $this->belongsToMany(PdpChapter::class,'review_pdp_chapter','review_id','pdp_chapter_id');
 		}
+
+		public function getSelectedBasesAttribute()
+	    {
+	      return $this->bases ?? $this->bases->pluck('id');
+	    }
+	    
+		public function getSelectedSustainableDevelopmentGoalsAttribute()
+	    {
+	      return $this->sustainable_development_goals ?? $this->sustainable_development_goals->pluck('id');
+	    }
+
+		public function getSelectedParadigmsAttribute()
+	    {
+	      return $this->paradigms ?? $this->paradigms->pluck('id');
+	    }
+
+		public function getSelectedTenPointAgendaAttribute()
+	    {
+	      return $this->ten_point_agenda ?? $this->ten_point_agenda->pluck('id');
+	    }
+
+		public function getSelectedPdpChaptersAttribute()
+	    {
+	      return $this->pdp_chapters ?? $this->pdp_chapters->pluck('id');
+	    }
+
+		public function getSelectedPdpIndicatorsAttribute()
+	    {
+	      return $this->pdp_indicators ?? $this->pdp_indicators->pluck('id');
+	    }
 }

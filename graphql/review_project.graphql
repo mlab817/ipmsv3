@@ -1,14 +1,15 @@
 extend type Mutation {
-	reviewProject(input: ReviewProjectInput @spread): 
-    Project 
-    @update 
-    @inject(context: "user.id", name: "reviewed_by")
-    @can(ability: "review", find: "id")
-    @guard(with:["api"])
-
-  saveReview(input: ReviewProjectInput @spread):
+	saveReview(input: ReviewProjectInput @spread):
     ReviewProjectResponse!
     @field(resolver:"SaveReview")
+    @guard(with:["api"])
+
+  submitReview(
+    id: ID!
+    remarks: String!
+    ): 
+    SubmitReviewResponse 
+    @field(resolver:"SubmitReview")
     @guard(with:["api"])
 }
 
@@ -27,38 +28,16 @@ input ReviewProjectInput {
   paradigms: [ID]
   pdp_chapters: [ID]
   pdp_indicators: [ID]
-	#ten_point_agenda: UpdateTenPointAgendaRelation
-  #sustainable_development_goals: UpdateSustainableDevelopmentGoalRelation
-  #bases: UpdateBasisRelation
-  #paradigms: UpdateParadigmsRelation
-  #pdp_chapters: UpdatePdpChaptersRelation
-  #pdp_indicators: UpdatePdpIndicatorsRelation
-}
-
-input UpdateTenPointAgendaRelation {
-  sync: [ID]
-}
-input UpdateSustainableDevelopmentGoalRelation {
-  sync: [ID]
-}
-input UpdateBasisRelation {
-  sync: [ID]
-}
-
-input UpdateParadigmsRelation {
-  sync: [ID]
-}
-
-input UpdatePdpChaptersRelation {
-  sync: [ID]
-}
-
-input UpdatePdpIndicatorsRelation {
-  sync: [ID]
 }
 
 type ReviewProjectResponse {
   review: Review
+  status: String
+  message: String
+}
+
+type SubmitReviewResponse {
+  project: Project
   status: String
   message: String
 }
