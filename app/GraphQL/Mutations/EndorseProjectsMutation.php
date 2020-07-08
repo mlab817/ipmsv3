@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Models\OperatingUnit;
 use App\Models\ProjectProcessingStatus;
 use App\Models\Endorsement;
 use App\Models\Project;
@@ -30,6 +31,8 @@ class EndorseProjectsMutation
 
         $projectsToEndorse = $args['projects'];
         $file = $args['file'];
+
+        $user = $context->user();
 
         $uploadedFile = Storage::disk('dropbox')->put('endorsements', $file);
         $link = Storage::disk('dropbox')->getDriver()->getAdapter()->getClient()->createSharedLinkWithSettings($uploadedFile);
@@ -74,7 +77,12 @@ class EndorseProjectsMutation
           'actionURL' => '/projects/review'
         ];
 
-        Notification::send($context->user(), new DatabaseNotification($data));
+        // notification should be sent to reviewers: how to get?
+
+        $ou = OperatingUnit::where('id', $user->operating_unit_id)->first();
+        $reviewers = $ou->reviewers();
+
+        Notification::send($reviewers, new DatabaseNotification($data));
 
         return $endorsement;
     }
