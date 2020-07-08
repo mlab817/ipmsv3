@@ -4,7 +4,12 @@ extend type Mutation {
     @update 
     @inject(context: "user.id", name: "reviewed_by")
     @can(ability: "review", find: "id")
-    @guard(with:"api")
+    @guard(with:["api"])
+
+  saveReview(input: ReviewProjectInput @spread):
+    ReviewProjectResponse!
+    @field(resolver:"SaveReview")
+    @guard(with:["api"])
 }
 
 input ReviewProjectInput {
@@ -43,4 +48,10 @@ input UpdatePdpChaptersRelation {
 
 input UpdatePdpIndicatorsRelation {
   sync: [ID]
+}
+
+type ReviewProjectResponse {
+  review: Review
+  status: String
+  message: String
 }
