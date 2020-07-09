@@ -20,8 +20,9 @@ class SearchProject
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
         $search = $args['search'];
+        $projects = [];
 
-        $projects = Project::where('title','like','%' . $search .'%')->take(10)->get();
+        $projects = Project::where('LOWER(title)','like','%' . strtolower($search) .'%')->take(10)->get();
 
         return $projects;
     }
