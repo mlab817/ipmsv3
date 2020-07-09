@@ -1,5 +1,8 @@
 extend type Query {
-  activities: [Activity] @field(resolver: "FetchActivitiesQuery") @guard(with:"api")
+  activities(first: Int!,page: Int): 
+    ActivityPaginator
+    @field(resolver: "FetchActivitiesQuery") 
+    @guard(with:"api")
 }
 
 type Activity @modelClass(class: "\\Spatie\\Activitylog\\Models\\Activity") {
@@ -21,4 +24,9 @@ type Subject {
 type Causer {
   id: ID
   name: String
+}
+
+type ActivityPaginator {
+  data: [Activity]
+  paginatorInfo: PaginatorInfo
 }

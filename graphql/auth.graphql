@@ -25,7 +25,7 @@ type User {
     unreadNotifications: [Notification] @morphMany
     reviews: [OperatingUnit] @belongsToMany
     views: [OperatingUnit] @belongsToMany
-    activities: [Activity] @morphMany
+    activities: [Activity] @morphMany(type:"paginator")
     created_at: DateTime
     reviewed: [Project!]! @hasMany(relation:"reviewed")
     project_processing_statuses: [ProjectProcessingStatus] @hasMany
