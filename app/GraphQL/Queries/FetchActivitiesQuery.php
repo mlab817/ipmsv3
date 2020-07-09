@@ -29,7 +29,7 @@ class FetchActivitiesQuery
 
         $user = $context->user();
 
-        $activities = $user->activities()->paginate($first,['*'],'page',$page);
+        $activities = $user->activities()->paginate($first);
 
         Log::debug($activities);
 

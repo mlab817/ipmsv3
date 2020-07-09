@@ -6,7 +6,7 @@ extend type Query {
 }
 
 type Activity @modelClass(class: "\\Spatie\\Activitylog\\Models\\Activity") {
-  id: ID!
+  id: ID
   description: String
   subject: Subject @morphTo
   causer: Causer @morphTo
