@@ -22,7 +22,11 @@ class SearchProject
         $search = $args['search'];
         $projects = [];
 
-        $projects = Project::where('LOWER(title)','like','%' . strtolower($search) .'%')->take(10)->get();
+        if (env('DB_CONNECTION') == 'pgsql') {
+            $projects = Project::where('title','ilike','%' . strtolower($search) .'%')->take(10)->get();
+        } else {
+            $projects = Project::where('title','like','%' . strtolower($search) .'%')->take(10)->get();
+        }
 
         return $projects;
     }
