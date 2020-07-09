@@ -40,7 +40,9 @@ class Project extends Model
           $project->uuid = Str::uuid();
       });
 
-      static::addGlobalScope(new ProjectScope);
+      if (!(auth()->user()->role->name == 'lead' || auth()->user()->role->name == 'chief')) {
+        static::addGlobalScope(new ProjectScope);
+      } 
     }
 
     protected $fillable = [
