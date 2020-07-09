@@ -40,7 +40,9 @@ class Project extends Model
           $project->uuid = Str::uuid();
       });
 
-      if (!(auth()->user()->role->name == 'lead' || auth()->user()->role->name == 'chief')) {
+      $role = auth()->user() ? auth()->user()->role->name : '';
+
+      if (!($role == 'lead' || $role == 'chief')) {
         static::addGlobalScope(new ProjectScope);
       } 
     }
