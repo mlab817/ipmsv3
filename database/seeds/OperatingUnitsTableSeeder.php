@@ -37,8 +37,11 @@ class OperatingUnitsTableSeeder extends Seeder
         ]);
       }
 
-      $maxId = DB::table('operating_units')->max('id');
-      DB::statement('ALTER SEQUENCE operating_units_id_seq RESTART WITH ' . intval($maxId + 1) . ';');
+      if (env('DB_CONNECTION')=='pgsql') {
+        $maxId = DB::table('operating_units')->max('id');
 
+        DB::statement('ALTER SEQUENCE operating_units_id_seq RESTART WITH ' . intval($maxId + 1) . ';');
+      }
+      
     }
 }

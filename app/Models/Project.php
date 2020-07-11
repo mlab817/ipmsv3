@@ -246,7 +246,7 @@ class Project extends Model
     public function funding_sources(): BelongsToMany
     {
       return $this->belongsToMany(FundingSource::class,'project_funding_source')
-      ->withPivot('target_2016','target_2017','target_2018','target_2019','target_2020','target_2021','target_2022','target_2023','target_total');
+        ->withPivot('target_2016','target_2017','target_2018','target_2019','target_2020','target_2021','target_2022','target_2023','target_total');
     }
 
     public function implementation_mode(): BelongsTo
@@ -284,10 +284,10 @@ class Project extends Model
       return $this->belongsToMany(Province::class);
     }
 
-    public function regions(): BelongsToMany
-    {
-      return $this->belongsToMany(Region::class,'project_region','project_id','region_id');
-    }
+    // public function regions(): BelongsToMany
+    // {
+    //   return $this->belongsToMany(Region::class,'project_region','project_id','region_id');
+    // }
 
     public function region_financials(): HasMany
     {
@@ -463,6 +463,12 @@ class Project extends Model
     public function endorsement(): BelongsTo
     {
         return $this->belongsTo(Endorsement::class);
+    }
+
+    public function regions(): BelongsToMany
+    {
+      return $this->belongsToMany(Region::class,'project_region')
+        ->withPivot('target_2016','target_2017','target_2018','target_2019','target_2020','target_2021','target_2022','target_2023','target_total');
     }
 
     public function review(): HasOne

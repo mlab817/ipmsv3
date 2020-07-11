@@ -116,7 +116,7 @@ type Project {
     paradigms: [Paradigm!] @belongsToMany
     ten_point_agenda: [TenPointAgenda] @belongsToMany
     sustainable_development_goals: [SustainableDevelopmentGoal] @belongsToMany
-    regions: [Region!] @belongsToMany
+    regions: [Region] @belongsToMany
     selected_regions: [ID]
     provinces: [Province] @belongsToMany
     selected_provinces: [ID]
@@ -150,12 +150,7 @@ type Project {
     row_target_2021: Float
     row_target_2022: Float
     row_target_total: Float
-    row_affected_2017: Int
-    row_affected_2018: Int
-    row_affected_2019: Int
-    row_affected_2020: Int
-    row_affected_2021: Int
-    row_affected_2022: Int
+    row_affected: Int
     rap_target_2017: Float
     rap_target_2018: Float
     rap_target_2019: Float
@@ -163,12 +158,7 @@ type Project {
     rap_target_2021: Float
     rap_target_2022: Float
     rap_target_total: Float
-    rap_affected_2017: Int
-    rap_affected_2018: Int
-    rap_affected_2019: Int
-    rap_affected_2020: Int
-    rap_affected_2021: Int
-    rap_affected_2022: Int
+    rap_affected: Int
     investment_target_2016: Float
     investment_target_2017: Float
     investment_target_2018: Float
@@ -254,8 +244,8 @@ type Project {
     project_processing_statuses: [ProjectProcessingStatus] @hasMany
     latest_processing_status: ProjectProcessingStatus @hasOne
     project_gad_subquestions: [ProjectGadSubquestion] @hasMany
-    region_financials: [RegionFinancial] @hasMany
-    funding_source_financials: [FundingSourceFinancial] @hasMany
+    # region_financials: [RegionFinancial] @hasMany
+    # funding_source_financials: [FundingSourceFinancial] @hasMany
     pdp_chapters: [PdpChapter] @belongsToMany
     review: Review @hasOne
     selected_sustainable_development_goals: [ID]
@@ -274,6 +264,7 @@ type Project {
     technical_readiness_id: ID
     technical_readiness: TechnicalReadiness @belongsTo
     attachments: [Attachment] @hasMany
+    funding_sources: [FundingSource] @belongsToMany
 }
 
 type CanUpdateResponse {
@@ -315,6 +306,40 @@ type FundingSourceFinancial {
     project: Project @belongsTo
     funding_source_id: ID
     funding_source: FundingSource @belongsTo
+    target_2016: Float
+    target_2017: Float
+    target_2018: Float
+    target_2019: Float
+    target_2020: Float
+    target_2021: Float
+    target_2022: Float
+    target_2023: Float
+    target_total: Float
+}
+
+type Region {
+    id: ID!
+    pivot: ProjectRegionPivot
+}
+
+type ProjectRegionPivot {
+    target_2016: Float
+    target_2017: Float
+    target_2018: Float
+    target_2019: Float
+    target_2020: Float
+    target_2021: Float
+    target_2022: Float
+    target_2023: Float
+    target_total: Float
+}
+
+type FundingSource {
+    id: ID!
+    pivot: ProjectFundingSourcePivot
+}
+
+type ProjectFundingSourcePivot {
     target_2016: Float
     target_2017: Float
     target_2018: Float

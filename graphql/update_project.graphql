@@ -167,14 +167,15 @@ input UpdateProjectInput {
   districts: UpdateDistrictInput
   bases: UpdateBasisRelation
   region_id: ID
-  regions: UpdateRegionRelation
   province_id: ID
   provinces: UpdateProvinceRelation
   district_id: ID
   city_municipality_id: ID
   technical_readinesses: UpdateTechnicalReadinessesInput
-  region_financials: UpdateRegionFinancialsHasMany
-  funding_source_financials: UpdateFundingSourceFinancialsHasMany
+  # region_financials: UpdateRegionFinancialsHasMany
+  # funding_source_financials: UpdateFundingSourceFinancialsHasMany
+  regions: UpdateProjectRegions
+  funding_sources: UpdateProjectFundingSources
 }
 
 input UpdateTechnicalReadinessesInput {
@@ -193,47 +194,38 @@ input UpdateBasisRelation {
   sync: [ID]
 }
 
-input UpdateFundingSourceFinancialsHasMany {
-  upsert: [UpsertFundingSourceFinancialInput],
-  delete: [ID]
+input UpdateProjectRegions {
+    sync: [SyncProjectRegions]
 }
 
-input UpsertFundingSourceFinancialInput {
-  id: ID
-  funding_source_id: ID!
-  target_2016: Float
-  target_2017: Float
-  target_2018: Float
-  target_2019: Float
-  target_2020: Float
-  target_2021: Float
-  target_2022: Float
-  target_2023: Float
-  target_total: Float
+input SyncProjectRegions {
+    id: ID!
+    target_2016: Float
+    target_2017: Float
+    target_2018: Float
+    target_2019: Float
+    target_2020: Float
+    target_2021: Float
+    target_2022: Float
+    target_2023: Float
+    target_total: Float
 }
 
-input UpdateRegionRelation {
-  # sync: [UpdateRegionInput]
-  sync: [ID]
+input UpdateProjectFundingSources {
+    sync: [SyncProjectFundingSources]
 }
 
-input UpdateRegionFinancialsHasMany {
-  upsert: [UpsertRegionFinancialInput],
-  delete: [ID]
-}
-
-input UpsertRegionFinancialInput {
-  id: ID
-  region_id: ID!
-  target_2016: Float
-  target_2017: Float
-  target_2018: Float
-  target_2019: Float
-  target_2020: Float
-  target_2021: Float
-  target_2022: Float
-  target_2023: Float
-  target_total: Float
+input SyncProjectFundingSources {
+    id: ID!
+    target_2016: Float
+    target_2017: Float
+    target_2018: Float
+    target_2019: Float
+    target_2020: Float
+    target_2021: Float
+    target_2022: Float
+    target_2023: Float
+    target_total: Float
 }
 
 input UpdateProvinceRelation {
