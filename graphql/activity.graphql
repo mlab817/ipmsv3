@@ -27,6 +27,6 @@ type Causer {
 }
 
 type ActivityPaginator {
-  data: [Activity]
-  paginatorInfo: PaginatorInfo
+  data: [Activity!]!
+  paginatorInfo: PaginatorInfo!
 }
