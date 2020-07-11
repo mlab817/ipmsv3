@@ -9,6 +9,7 @@ use App\Models\OperatingUnit;
 use App\Models\Project;
 use App\Models\ProjectProcessingStatus;
 use App\Models\Role;
+use App\Models\Setting;
 use App\Notifications\ResetPassword;
 use App\Notifications\ResetPasswordNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -146,6 +147,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function project_processing_statuses(): HasMany
     {
       return $this->hasMany(ProjectProcessingStatus::class,'processed_by','id');
+    }
+
+    public function setting(): HasOne
+    {
+      return $this->hasOne(Setting::class,'user_id');
     }
 
     public function getVerifiedAttribute()

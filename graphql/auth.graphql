@@ -35,6 +35,7 @@ type User {
     project_count: Int
     tokens: [Token]
     token: Token
+    setting: Setting @hasOne
 }
 
 type Token {
