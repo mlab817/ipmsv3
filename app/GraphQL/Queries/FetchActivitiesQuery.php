@@ -47,11 +47,12 @@ class FetchActivitiesQuery
     public function pageInfoResolver(LengthAwarePaginator $paginator): array
     {
         return [
+            'perPage' => $paginator->perPage(),
             'total' => $paginator->total(),
             'count' => $paginator->count(),
             'currentPage' => $paginator->currentPage(),
             'lastPage' => $paginator->lastPage(),
-            'hasNextPage' => $paginator->hasMorePages(),
+            'hasMorePages' => $paginator->hasMorePages(),
             'hasPreviousPage' => $paginator->currentPage() > 1,
             'firstItem' => $paginator->firstItem(),
             'lastItem' => $paginator->lastItem()
