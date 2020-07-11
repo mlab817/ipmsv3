@@ -2,9 +2,12 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Models\OperatingUnit;
+use App\Models\ProjectProcessingStatus;
 use App\Models\Endorsement;
 use App\Models\Project;
 use App\Notifications\DatabaseNotification;
+use Carbon\Carbon;
 use GraphQL\Type\Definition\ResolveInfo;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
@@ -29,6 +32,8 @@ class EndorseProjectsMutation
         $projectsToEndorse = $args['projects'];
         $file = $args['file'];
 
+        $user = $context->user();
+
         $uploadedFile = Storage::disk('dropbox')->put('endorsements', $file);
         $link = Storage::disk('dropbox')->getDriver()->getAdapter()->getClient()->createSharedLinkWithSettings($uploadedFile);
         $url = $link['url'];
@@ -51,6 +56,14 @@ class EndorseProjectsMutation
             $project->endorsement_id = $endorsement->id;
             $project->processing_status_id = 3; // set submission status to endorsed
             $project->save();
+
+            ProjectProcessingStatus::create([
+              'project_id' => $project->id,
+              'processed_by' => $context->user()->id,
+              'processed_at' => Carbon::now(),
+              'remarks' => 'endorsed',
+              'processing_status_id' => 3
+            ]);
         }
 
         $endorsement->projects()->saveMany($projects);
@@ -64,7 +77,12 @@ class EndorseProjectsMutation
           'actionURL' => '/projects/review'
         ];
 
-        Notification::send($context->user(), new DatabaseNotification($data));
+        // notification should be sent to reviewers: how to get?
+
+        $ou = OperatingUnit::where('id', $user->operating_unit_id)->first();
+        $reviewers = $ou->reviewers()->get();
+
+        Notification::send($reviewers, new DatabaseNotification($data));
 
         return $endorsement;
     }

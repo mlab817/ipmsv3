@@ -61,6 +61,7 @@ class ProjectScope implements Scope
                 // get all projects that can be viewed by user and status is endorsed
                 $builder->whereIn('operating_unit_id',$reviews);
             }
+            
         }
     }
 }

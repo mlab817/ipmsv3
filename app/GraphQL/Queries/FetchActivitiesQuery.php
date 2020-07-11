@@ -2,7 +2,9 @@
 
 namespace App\GraphQL\Queries;
 
+use Log;
 use GraphQL\Type\Definition\ResolveInfo;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
 class FetchActivitiesQuery
@@ -20,12 +22,39 @@ class FetchActivitiesQuery
     {
         // TODO implement the resolver
 
+        $page = $args['page'] ? $args['page'] : 1;
+        $first = $args['first'] ? $args['first']: 10;
+
         $activities = [];
 
         $user = $context->user();
 
-        $activities = $user->activities->take(5);
+        $activities = $user->activities()->paginate($first);
 
-        return $activities;
+        Log::debug($activities);
+
+        return [
+            'data' => $activities,
+            'paginatorInfo' => $this->pageInfoResolver($activities)
+        ];
+    }
+
+    /**
+     * Resolve page info for connection.
+     *
+     * @return array<string, mixed>
+     */
+    public function pageInfoResolver(LengthAwarePaginator $paginator): array
+    {
+        return [
+            'total' => $paginator->total(),
+            'count' => $paginator->count(),
+            'currentPage' => $paginator->currentPage(),
+            'lastPage' => $paginator->lastPage(),
+            'hasNextPage' => $paginator->hasMorePages(),
+            'hasPreviousPage' => $paginator->currentPage() > 1,
+            'firstItem' => $paginator->firstItem(),
+            'lastItem' => $paginator->lastItem()
+        ];
     }
 }

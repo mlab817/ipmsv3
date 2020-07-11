@@ -1,12 +1,11 @@
 <?php
 
-namespace App\GraphQL\Queries;
+namespace App\GraphQL\Mutations;
 
-use App\Models\Project;
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
-class SearchProject
+class RevokeAllTokensMutation
 {
     /**
      * Return a value for the field.
@@ -19,15 +18,12 @@ class SearchProject
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        $search = $args['search'];
-        $projects = [];
+        $tokens = $context->user->tokens();
 
-        if (env('DB_CONNECTION') == 'pgsql') {
-            $projects = Project::where('title','ilike','%' . strtolower($search) .'%')->take(10)->get();
-        } else {
-            $projects = Project::where('title','like','%' . strtolower($search) .'%')->take(10)->get();
+        foreach ($tokens as $token) {
+            $token->revoke();
         }
 
-        return $projects;
+        return 'You are logged out of all devices.';
     }
 }

@@ -1,5 +1,7 @@
 extend type Query {
   operating_units: [OperatingUnit] @all @orderBy(columns:["id"])
+
+  operating_unit(id: ID! @eq): OperatingUnit @find
 }
 
 extend type Mutation {
