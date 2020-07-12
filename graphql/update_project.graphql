@@ -91,18 +91,7 @@ input UpdateProjectInput {
   row_target_2021: Float
   row_target_2022: Float
   row_target_total: Float
-  row_affected_2017: Int
-  row_affected_2018: Int
-  row_affected_2019: Int
-  row_affected_2020: Int
-  row_affected_2021: Int
-  row_affected_2022: Int
-  row_affected_2017: Int
-  row_affected_2018: Int
-  row_affected_2019: Int
-  row_affected_2020: Int
-  row_affected_2021: Int
-  row_affected_2022: Int
+  row_affected: Int
   has_rap: Boolean
   rap_target_2017: Float
   rap_target_2018: Float
@@ -111,12 +100,7 @@ input UpdateProjectInput {
   rap_target_2021: Float
   rap_target_2022: Float
   rap_target_total: Float
-  rap_affected_2017: Int
-  rap_affected_2018: Int
-  rap_affected_2019: Int
-  rap_affected_2020: Int
-  rap_affected_2021: Int
-  rap_affected_2022: Int
+  rap_affected: Int
   investment_target_2016: Float
   investment_target_2017: Float
   investment_target_2018: Float

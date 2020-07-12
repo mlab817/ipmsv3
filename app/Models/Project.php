@@ -596,5 +596,4 @@ class Project extends Model
     {
       return $query->where('processing_status_id','=',$value);
     }
-
 }

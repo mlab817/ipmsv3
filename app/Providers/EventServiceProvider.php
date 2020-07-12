@@ -30,7 +30,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\RoleChanged' => [
             'App\Listeners\SendRoleChangedNotification'
-        ]
+        ],
     ];
 
     /**

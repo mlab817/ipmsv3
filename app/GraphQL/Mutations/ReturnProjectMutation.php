@@ -2,8 +2,10 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\User;
 use App\Models\Project;
 use App\Models\ProjectProcessingStatus;
+use App\Notifications\DatabaseNotification;
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
@@ -41,6 +43,25 @@ class ReturnProjectMutation
                     'processed_by' => $user->id,
                     'remarks' => $args['remarks']
                 ]);
+
+                activity()
+                    ->performedOn($project)
+                    ->causedBy($user)
+                    ->withProperties(['status' => 'returned'])
+                    ->log('Project returned');
+
+                $owner = User::find($project->created_by);
+
+                $owner->notify(new DatabaseNotification(
+                    [
+                        'type' => 'Returned Project',
+                        'from' => $user->name,
+                        'title' => 'Project returned',
+                        'body' => $user->name . ' returned ' . $project->title . '.',
+                        'actionText' => '',
+                        'actionURL' => ''
+                    ]
+                ));
 
                 return $project;
             }

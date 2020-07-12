@@ -39,9 +39,11 @@ input CreateAccountInput {
 	operating_unit_id: ID!
 	contact_number: String!
 	role_id: ID!
+	notify: Boolean
 }
 
 type CREATE_ACCOUNT_RESPONSE {
+	user: User
 	status: String
 	message: String
 }

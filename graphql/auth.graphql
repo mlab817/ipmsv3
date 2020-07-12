@@ -36,6 +36,7 @@ type User {
     tokens: [Token]
     token: Token
     setting: Setting @hasOne
+    nickname: String
 }
 
 type Token {

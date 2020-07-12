@@ -85,6 +85,7 @@ extend type Subscription {
 
 input UpdateUserInput {
   name: String
+  nickname: String
   operating_unit_id: ID
   unit: String
   position: String

@@ -20,6 +20,7 @@ class CreateAccount
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
+        $createdUser = null;
         $status = 'FAILED';
         $message = 'Failed to create account';
 
@@ -29,6 +30,7 @@ class CreateAccount
         $ou = $args['operating_unit_id'];
         $contact = $args['contact_number'];
         $role = $args['role_id'];
+        $notify = isset($args['notify']) ? $args['notify'] : false;
 
         $user = $context->user();
 
@@ -53,7 +55,9 @@ class CreateAccount
                     $message = 'Successfully created user';
 
                     // send email to newly created user
-                    $createdUser->notify(new SendEmailToCreatedUser($password));
+                    if ($notify) {
+                        $createdUser->notify(new SendEmailToCreatedUser($password));    
+                    }
                 } else {
                     $message = 'Something went wrong.';
                 }
@@ -61,6 +65,7 @@ class CreateAccount
         }
 
         return [
+            'user' => $createdUser,
             'status' => $status,
             'message' => $message
         ];
