@@ -24,6 +24,7 @@ class SaveReview
         // initialize variables
         $message = 'An error occurred';
         $status = 'FAILED';
+        $review = null;
 
         // retrieve Project
         $project = Project::find($args['id']);
@@ -48,7 +49,6 @@ class SaveReview
             $pdp_indicators = isset($args['pdp_indicators']) ?? $args['pdp_indicators'];
 
             if ($review) {
-
 
                 $review->project_id = $project->id;
                 $review->typology_id = $typology_id;
