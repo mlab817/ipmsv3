@@ -36,7 +36,7 @@ class SaveReview
 
             $typology_id = $args['typology_id'] ?? null;
             $cip = $args['cip'] ?? null;
-            $cip_type_id = $args['cip_type_id'] ?? null 
+            $cip_type_id = $args['cip_type_id'] ?? null;
             $trip = $args['trip'] ?? null;
             $within_period = $args['within_period'] ?? null;
             $readiness_id = $args['readiness_id'] ?? null;
