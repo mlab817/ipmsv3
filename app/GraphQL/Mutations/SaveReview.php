@@ -34,7 +34,7 @@ class SaveReview
             $review = Review::where('project_id',$project->id)->first();
 
             $typology_id = isset($args['typology_id']) ?? $args['typology_id'];
-            $cip = isset($args['cip']) ?? $args['cip']
+            $cip = isset($args['cip']) ?? $args['cip'];
             $cip_type_id = isset($args['cip_type_id']) ?? $args['cip_type_id']; 
             $trip = isset($args['trip']) ?? $args['trip'];
             $within_period = isset($args['within_period']) ?? $args['within_period'];
