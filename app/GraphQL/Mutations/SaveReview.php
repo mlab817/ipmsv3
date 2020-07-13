@@ -35,18 +35,18 @@ class SaveReview
             $review = Review::where('project_id',$project->id)->first();
 
             $typology_id = $args['typology_id'] ?? null;
-            $cip = $args['cip']) ?? null;
-            $cip_type_id = $args['cip_type_id']) ?? null 
-            $trip = $args['trip']) ?? null;
-            $within_period = $args['within_period']) ?? null;
-            $readiness_id = $args['readiness_id']) ?? null;
-            $remarks = $args['remarks']) ?? null;
-            $sustainable_development_goals = $args['sustainable_development_goals']) ?? null;
-            $ten_point_agenda = $args['ten_point_agenda']) ?? null;
-            $bases = $args['bases']) ?? null;
-            $paradigms = $args['paradigms']) ?? null;
-            $pdp_chapters = $args['pdp_chapters']) ?? null;
-            $pdp_indicators = $args['pdp_indicators']) ?? null;
+            $cip = $args['cip'] ?? null;
+            $cip_type_id = $args['cip_type_id'] ?? null 
+            $trip = $args['trip'] ?? null;
+            $within_period = $args['within_period'] ?? null;
+            $readiness_id = $args['readiness_id'] ?? null;
+            $remarks = $args['remarks'] ?? null;
+            $sustainable_development_goals = $args['sustainable_development_goals'] ?? null;
+            $ten_point_agenda = $args['ten_point_agenda'] ?? null;
+            $bases = $args['bases'] ?? null;
+            $paradigms = $args['paradigms'] ?? null;
+            $pdp_chapters = $args['pdp_chapters'] ?? null;
+            $pdp_indicators = $args['pdp_indicators'] ?? null;
 
             if ($review) {
 
