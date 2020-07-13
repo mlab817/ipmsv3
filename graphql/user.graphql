@@ -47,6 +47,12 @@ extend type Mutation @middleware(checks:["auth:api"]) {
     @update
     @inject(context:"user.id", name:"id")
 
+  updateOu(
+    id: ID!
+    operating_unit_id: ID!
+  ): User
+  @update
+
   "Assign operating unit to review"
   assignOperatingUnitToReview(
       user_id: ID!
