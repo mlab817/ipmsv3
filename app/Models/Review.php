@@ -79,31 +79,31 @@ class Review extends Model
 
 		public function getSelectedBasesAttribute()
 	    {
-	      return $this->bases ?? $this->bases->pluck('id');
+	      return $this->bases ?? $this->bases()->pluck('id');
 	    }
 	    
 		public function getSelectedSustainableDevelopmentGoalsAttribute()
 	    {
-	      return $this->sustainable_development_goals ?? $this->sustainable_development_goals->pluck('id');
+	      return $this->sustainable_development_goals ?? $this->sustainable_development_goals()->pluck('id');
 	    }
 
 		public function getSelectedParadigmsAttribute()
 	    {
-	      return $this->paradigms ?? $this->paradigms->pluck('id');
+	      return $this->paradigms ?? $this->paradigms()->pluck('id');
 	    }
 
 		public function getSelectedTenPointAgendaAttribute()
 	    {
-	      return $this->ten_point_agenda ?? $this->ten_point_agenda->pluck('id');
+	      return $this->ten_point_agenda ?? $this->ten_point_agenda()->pluck('id');
 	    }
 
 		public function getSelectedPdpChaptersAttribute()
 	    {
-	      return $this->pdp_chapters ?? $this->pdp_chapters->pluck('id');
+	      return $this->pdp_chapters ?? $this->pdp_chapters()->pluck('id');
 	    }
 
 		public function getSelectedPdpIndicatorsAttribute()
 	    {
-	      return $this->pdp_indicators ?? $this->pdp_indicators->pluck('id');
+	      return $this->pdp_indicators ?? $this->pdp_indicators()->pluck('id');
 	    }
 }
