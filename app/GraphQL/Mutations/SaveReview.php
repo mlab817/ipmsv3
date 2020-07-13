@@ -34,19 +34,19 @@ class SaveReview
         } else {
             $review = Review::where('project_id',$project->id)->first();
 
-            $typology_id = isset($args['typology_id']) ?? $args['typology_id'];
-            $cip = isset($args['cip']) ?? $args['cip'];
-            $cip_type_id = isset($args['cip_type_id']) ?? $args['cip_type_id']; 
-            $trip = isset($args['trip']) ?? $args['trip'];
-            $within_period = isset($args['within_period']) ?? $args['within_period'];
-            $readiness_id = isset($args['readiness_id']) ?? $args['readiness_id'];
-            $remarks = isset($args['remarks']) ?? $args['remarks'];
-            $sustainable_development_goals = isset($args['sustainable_development_goals']) ?? $args['sustainable_development_goals'];
-            $ten_point_agenda = isset($args['ten_point_agenda']) ?? $args['ten_point_agenda'];
-            $bases = isset($args['bases']) ?? $args['bases'];
-            $paradigms = isset($args['paradigms']) ?? $args['paradigms'];
-            $pdp_chapters = isset($args['pdp_chapters']) ?? $args['pdp_chapters'];
-            $pdp_indicators = isset($args['pdp_indicators']) ?? $args['pdp_indicators'];
+            $typology_id = $args['typology_id'] ?? null;
+            $cip = $args['cip']) ?? null;
+            $cip_type_id = $args['cip_type_id']) ?? null 
+            $trip = $args['trip']) ?? null;
+            $within_period = $args['within_period']) ?? null;
+            $readiness_id = $args['readiness_id']) ?? null;
+            $remarks = $args['remarks']) ?? null;
+            $sustainable_development_goals = $args['sustainable_development_goals']) ?? null;
+            $ten_point_agenda = $args['ten_point_agenda']) ?? null;
+            $bases = $args['bases']) ?? null;
+            $paradigms = $args['paradigms']) ?? null;
+            $pdp_chapters = $args['pdp_chapters']) ?? null;
+            $pdp_indicators = $args['pdp_indicators']) ?? null;
 
             if ($review) {
 
