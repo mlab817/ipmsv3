@@ -21,6 +21,8 @@ type Version {
 	change_log: String
 	notes: String
 	user: User @belongsTo
+	created_at: String
+	updated_at: String
 }
 
 input CreateVersionInput {
