@@ -15,14 +15,15 @@ class CreateCityMunicipalitiesTable extends Migration
     {
         Schema::create('city_municipalities', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name')->nullable();
+            $table->string('label')->nullable();
             $table->string('city_municipality_name');
-            $table->unsignedBigInteger('population_2015');
+            $table->unsignedBigInteger('population_2015')->nullable();
             $table->decimal('area_km2',14,2)->nullable();
             $table->decimal('population_density',14,2)->nullable();
             $table->unsignedBigInteger('barangay')->nullable();
             $table->unsignedBigInteger('province_id')->nullable();
-            $table->string('class');
+            $table->string('class')->nullable();
             $table->timestamps();
 
             $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade');

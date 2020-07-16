@@ -1,9 +1,17 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Flynsarmy\CsvSeeder\CsvSeeder;
 
-class CityMunicipalitiesTableSeeder extends Seeder
+class CityMunicipalitiesTableSeeder extends CsvSeeder
 {
+    public function __construct()
+    {
+        $this->table = 'city_municipalities';
+        $this->csv_delimiter = ',';
+        $this->filename = base_path().'/database/seeds/csvs/city_municipalities.csv';
+    }
+
     /**
      * Run the database seeds.
      *
@@ -11,21 +19,12 @@ class CityMunicipalitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        $json = \Illuminate\Support\Facades\File::get('database/data/city_municipalities.json');
-        $data = json_decode($json);
+        // Recommended when importing larger CSVs
+        DB::disableQueryLog();
 
-        foreach ($data as $obj) {
-            \App\Models\CityMunicipality::create([
-               'id' => $obj->id,
-               'name' => $obj->name,
-               'city_municipality_name' => $obj->city_municipality_name,
-               'population_2015' => str_replace(',','',$obj->population_2015),
-               'area_km2' => str_replace(',','',$obj->area_km2),
-               'population_density' => str_replace(',','',$obj->population_density_2015),
-               'barangay' => str_replace(',','',$obj->barangay),
-               'province_id' => $obj->province_id,
-               'class' => $obj->class
-            ]);
-        }
+        // Uncomment the below to wipe the table clean before populating
+        DB::table($this->table)->truncate();
+
+        parent::run();
     }
 }
