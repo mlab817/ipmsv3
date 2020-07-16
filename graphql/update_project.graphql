@@ -146,6 +146,7 @@ input UpdateProjectInput {
   disbursement_2022: Float
   disbursement_2023: Float
   disbursement_total: Float
+  uacs_code: String
   updates: String
   updates_date: String @date
   districts: UpdateDistrictInput

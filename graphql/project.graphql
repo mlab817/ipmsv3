@@ -265,6 +265,7 @@ type Project {
     technical_readiness: TechnicalReadiness @belongsTo
     attachments: [Attachment] @hasMany
     funding_sources: [FundingSource] @belongsToMany
+    uacs_code: String
 }
 
 type CanUpdateResponse {
