@@ -1,4 +1,4 @@
-type Query {
+extend type Query {
 	versions: [Version] @all
 
 	version(id: ID! @eq): Version @find
@@ -6,7 +6,7 @@ type Query {
 	currentVersion: Version @field(resolver:"CurrentVersion")
 }
 
-type Mutation {
+extend type Mutation {
 	createVersion(input: CreateVersionInput!): Version @create @inject(context:"user.id",name:"user_id")
 
 	updateVersion(input: UpdateVersionInput!): Version @update @inject(context:"user.id",name:"user_id")
