@@ -22,9 +22,9 @@ jobs:
       - checkout
 
       - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
-      - run:  sudo docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
-              sudo docker-php-ext-install -j$(nproc) iconv mcrypt gd zip pdo_mysql pdo_sqlite
-              sudo rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - run: sudo docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+      - run: sudo docker-php-ext-install -j$(nproc) gd zip
+      - run: sudo rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
       # Download and cache dependencies
       - restore_cache:
