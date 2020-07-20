@@ -1,5 +1,5 @@
 extend type Query {
-  activities(first: Int!,page: Int): 
+  activities(first: Int!, page: Int, orderBy: _ @orderBy(columns:['created_at'])): 
     ActivityPaginator
     @field(resolver: "FetchActivitiesQuery") 
     @guard(with:"api")
