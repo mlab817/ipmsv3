@@ -47,6 +47,7 @@ class UsersTableSeeder extends Seeder
           [
             'name' => 'encoder',
             'email' => 'encoder@gmail.com',
+            'operating_unit_id' => 1,
             'password' => Hash::make('password'),
             'role_id' => 4
           ]

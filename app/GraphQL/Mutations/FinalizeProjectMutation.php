@@ -6,6 +6,8 @@ use App\Models\Project;
 use App\Models\ProjectProcessingStatus;
 use Carbon\Carbon;
 use GraphQL\Type\Definition\ResolveInfo;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
 class FinalizeProjectMutation
@@ -27,6 +29,24 @@ class FinalizeProjectMutation
         if (!$project) {
             return null;    
         } else {
+            // if a signed copy is uploaded, upload it to Dropbox and return the link only
+            if (isset($args['signed_copy'])) {
+                $file = $args['signed_copy'];
+
+                // $uploadedFile = $file->storePublicly('uploads');
+                $uploadedFile = Storage::disk('dropbox')->put('signed copies',$file);
+
+                $link = Storage::disk('dropbox')
+                  ->getDriver() // `\League\Flysystem\Flysystem` instance
+                  ->getAdapter() // `\Spatie\FlysystemDropbox\DropboxAdapter` instance
+                  ->getClient() // `\Spatie\Dropbox\Client` instance
+                  ->createSharedLinkWithSettings($uploadedFile);
+                $url = $link['url'];
+                $rawUrl = Str::replaceLast("dl=0","raw=1",$url);
+
+                $project->signed_copy = $rawUrl;
+            }
+
             $project->processing_status_id = 2;
             $project->processed_by = $context->user()->id;
             $project->save();

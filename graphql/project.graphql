@@ -266,6 +266,7 @@ type Project {
     attachments: [Attachment] @hasMany
     funding_sources: [FundingSource] @belongsToMany
     uacs_code: String
+    signed_copy: String
 }
 
 type CanUpdateResponse {

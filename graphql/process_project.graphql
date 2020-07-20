@@ -24,6 +24,7 @@ extend type Mutation {
 
   finalizeProject(
     project_id: ID!
+    signed_copy: Upload
     remarks: String
   ): Project 
     @field(resolver:"FinalizeProjectMutation")
