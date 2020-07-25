@@ -195,7 +195,10 @@ class Project extends Model
       'technical_readiness_id',
       'rdc_endorsed',
       'rdc_endorsed_date',
-      'rdc_required'
+      'rdc_required',
+      'validation_data',
+      'validation_signed',
+      'validation_endorsed'
     ];
 
     protected $casts = [

@@ -267,6 +267,9 @@ type Project {
     funding_sources: [FundingSource] @belongsToMany
     uacs_code: String
     signed_copy: String
+    validation_data: Boolean
+    validation_signed: Boolean
+    validation_endorsed: Boolean
 }
 
 type CanUpdateResponse {

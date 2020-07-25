@@ -20,24 +20,44 @@ class ValidateProjectMutation
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        // Let's check if the user is a reviewer
+        // Check if the user is a reviewer
         $user = $context->user();
 
+        // if user is not reviewer
         if ($user->role->name !== 'reviewer') {
             return null;
         } else {
-            $project = Project::find($args['project_id']);
+            $project = Project::find($args['id']);
 
             if (!$project) {
                 return null;
             } else {
-                $project->processing_status_id = 5;
+                $validation_data = $args['validation_data'] ?? false;
+                $validation_signed = $args['validation_signed'] ?? false;
+                $validation_endorsed = $args['validation_endorsed'] ?? false;
+
+                $processing_status_id = null;
+
+                // if any of the validation is false, return the project else validate
+                if (!$validation_data || !$validation_signed || !$validation_endorsed) {
+                    $processing_status_id = 4;                    
+                } else {
+                    $processing_status_id = 5;
+                }
+
+                $project->processing_status_id = $processing_status_id;
+                // if validation data is false, encoder must be able to update data
+                $project->validation_data = $validation_data;
+                // if the signed copy is not present or invalid, user should change signed validation
+                $project->validation_signed = $validation_signed;
+                // if the project is not included in endorsement, re-endorse
+                $project->validation_endorsed = $validation_endorsed;
                 $project->processed_by = $user->id;
                 $project->save();
 
                 ProjectProcessingStatus::create([
                     'project_id' => $project->id,
-                    'processing_status_id' => 5,
+                    'processing_status_id' => $processing_status_id,
                     'processed_by' => $user->id,
                     'remarks' => $args['remarks']
                 ]);
