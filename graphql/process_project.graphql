@@ -48,6 +48,13 @@ extend type Mutation {
   ): Project
     @field(resolver:"EncodeProjectMutation")
     @guard(with:"api")
+
+  uploadSignedCopy(
+      id: ID!
+      signed_copy: Upload
+    ): Project
+    @field(resolver:"UploadSignedCopy")
+    @guard(with:["api"])
 }
 
 type Query {
