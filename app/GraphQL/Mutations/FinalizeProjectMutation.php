@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Models\ProcessingStatus;
 use App\Models\Project;
 use App\Models\ProjectProcessingStatus;
 use Carbon\Carbon;
@@ -47,13 +48,15 @@ class FinalizeProjectMutation
                 $project->signed_copy = $rawUrl;
             }
 
-            $project->processing_status_id = 2;
+            $processing_status = ProcessingStatus::where('name','finalized')->first();
+
+            $project->processing_status_id = $processing_status->id;
             $project->processed_by = $context->user()->id;
             $project->save();
 
             ProjectProcessingStatus::create([
                 'project_id' => $args['project_id'],
-                'processing_status_id' => 2,
+                'processing_status_id' => $processing_status->id,
                 'processed_by' => $context->user()->id,
                 'remarks' => $args['remarks']
             ]);

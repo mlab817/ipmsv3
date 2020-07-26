@@ -15,38 +15,50 @@ class ProcessingStatusesTableSeeder extends Seeder
         DB::table('processing_statuses')->insert([
             [
                 'id' => 1,
-                'name' => 'draft'
+                'name' => 'created'
             ],
             [
                 'id' => 2,
-                'name' => 'finalized'
+                'name' => 'updated'
             ],
             [
                 'id' => 3,
-                'name' => 'endorsed'
+                'name' => 'finalized'
             ],
             [
                 'id' => 4,
-                'name' => 'returned'
+                'name' => 'endorsed'
             ],
             [
                 'id' => 5,
-                'name' => 'validated'
+                'name' => 'returned'
             ],
             [
                 'id' => 6,
-                'name' => 'reviewed'
+                'name' => 'validated'
             ],
             [
                 'id' => 7,
-                'name' => 'accepted'
+                'name' => 'reviewed'
             ],
             [
                 'id' => 8,
-                'name' => 'approved'
+                'name' => 'rejected'
             ],
             [
                 'id' => 9,
+                'name' => 'accepted'
+            ],
+            [
+                'id' => 10,
+                'name' => 'disapproved'
+            ],
+            [
+                'id' => 11,
+                'name' => 'approved'
+            ],
+            [
+                'id' => 12,
                 'name' => 'encoded'
             ]
         ]);

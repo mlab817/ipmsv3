@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Models\ProcessingStatus;
 use App\Models\Project;
 use App\Models\ProjectProcessingStatus;
 use GraphQL\Type\Definition\ResolveInfo;
@@ -32,6 +33,8 @@ class ValidateProjectMutation
             if (!$project) {
                 return null;
             } else {
+                $processing_status = ProcessingStatus::where('name','returned')->first();
+
                 $validation_data = $args['validation_data'] ?? false;
                 $validation_signed = $args['validation_signed'] ?? false;
                 $validation_endorsed = $args['validation_endorsed'] ?? false;
@@ -40,9 +43,15 @@ class ValidateProjectMutation
 
                 // if any of the validation is false, return the project else validate
                 if (!$validation_data || !$validation_signed || !$validation_endorsed) {
-                    $processing_status_id = 4;                    
+                    $processing_status = ProcessingStatus::where('name','returned')->first();
+                    $processing_status_id = $processing_status->id;                    
                 } else {
-                    $processing_status_id = 5;
+                    $processing_status = ProcessingStatus::where('name','validated')->first();
+                    $processing_status_id = $processing_status->id;
+                }
+
+                if (!$validation_data) {
+                    $project->finalized = false;
                 }
 
                 $project->processing_status_id = $processing_status_id;

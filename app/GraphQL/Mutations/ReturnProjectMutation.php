@@ -3,6 +3,7 @@
 namespace App\GraphQL\Mutations;
 
 use App\User;
+use App\Models\ProcessingStatus;
 use App\Models\Project;
 use App\Models\ProjectProcessingStatus;
 use App\Notifications\DatabaseNotification;
@@ -22,6 +23,7 @@ class ReturnProjectMutation
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
+        // return a project to the user and make it editable
         // Let's check if the user is a reviewer
         $user = $context->user();
 
@@ -33,13 +35,16 @@ class ReturnProjectMutation
             if (!$project) {
                 return null;
             } else {
-                $project->processing_status_id = 4;
+                $processing_status = ProcessingStatus::where('name','returned')->first();
+
+                $project->finalized = false;
+                $project->processing_status_id = $processing_status->id;
                 $project->processed_by = $user->id;
                 $project->save();
 
                 ProjectProcessingStatus::create([
                     'project_id' => $project->id,
-                    'processing_status_id' => 4,
+                    'processing_status_id' => $processing_status->id,
                     'processed_by' => $user->id,
                     'remarks' => $args['remarks']
                 ]);

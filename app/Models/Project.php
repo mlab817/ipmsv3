@@ -198,7 +198,8 @@ class Project extends Model
       'rdc_required',
       'validation_data',
       'validation_signed',
-      'validation_endorsed'
+      'validation_endorsed',
+      'finalized'
     ];
 
     protected $casts = [

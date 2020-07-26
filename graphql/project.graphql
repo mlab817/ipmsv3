@@ -270,6 +270,7 @@ type Project {
     validation_data: Boolean
     validation_signed: Boolean
     validation_endorsed: Boolean
+    finalized: Boolean
 }
 
 type CanUpdateResponse {
