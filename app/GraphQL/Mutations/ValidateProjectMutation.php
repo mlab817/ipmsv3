@@ -50,17 +50,34 @@ class ValidateProjectMutation
                     $processing_status_id = $processing_status->id;
                 }
 
+                // unfinalize to allow edit
+                // also need to changed signed copy since this will cause changes
                 if (!$validation_data) {
                     $project->finalized = false;
+                    $project->signed_copy = null;
+                    $project->endorsed = false;
                 }
 
                 $project->processing_status_id = $processing_status_id;
                 // if validation data is false, encoder must be able to update data
                 $project->validation_data = $validation_data;
+
                 // if the signed copy is not present or invalid, user should change signed validation
                 $project->validation_signed = $validation_signed;
+
+                // remove signed copy
+                if (!$validation_signed) {
+                    $project->signed_copy = null;
+                }
+
                 // if the project is not included in endorsement, re-endorse
                 $project->validation_endorsed = $validation_endorsed;
+
+                // revert to un-endorsed status
+                if (!$validation_endorsed) {
+                    $project->endorsed = false;
+                }
+
                 $project->processed_by = $user->id;
                 $project->save();
 
@@ -70,6 +87,8 @@ class ValidateProjectMutation
                     'processed_by' => $user->id,
                     'remarks' => $args['remarks']
                 ]);
+
+                // notify encoder
 
                 return $project;
             }

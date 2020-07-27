@@ -28,6 +28,10 @@ class GadsTableSeeder extends Seeder
                 'id' => 4,
                 'name' => 'Proposed project is gender-responsive'
             ],
+            [
+                'id' => 99,
+                'name' => 'Not applicable'
+            ]
         ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Models\ProcessingStatus;
 use App\Models\Project;
 use App\Models\ProjectProcessingStatus;
 use GraphQL\Type\Definition\ResolveInfo;
@@ -25,11 +26,13 @@ class UploadSignedCopy
             return null;
         }
 
+        $processing_status = ProcessingStatus::where('name','finalized')->first();
+
         $signed_copy = $args['signed_copy'];
         $user = $context->user();
 
         // $uploadedFile = $file->storePublicly('uploads');
-        $uploadedFile = Storage::disk('dropbox')->put('signed copies',$file);
+        $uploadedFile = Storage::disk('dropbox')->put('signed copies', $signed_copy);
 
         $link = Storage::disk('dropbox')
           ->getDriver() // `\League\Flysystem\Flysystem` instance
@@ -39,8 +42,17 @@ class UploadSignedCopy
         $url = $link['url'];
         $rawUrl = Str::replaceLast("dl=0","raw=1",$url);
 
+        $project->processing_status_id = $processing_status->id;
+        $project->processed_by = $user->id;
         $project->signed_copy = $rawUrl;
         $project->save();
+
+        ProjectProcessingStatus::create([
+            'project_id' => $args['id'],
+            'processing_status_id' => $processing_status->id,
+            'processed_by' => $context->user()->id,
+            'remarks' => $args['remarks']
+        ]);
 
         return $project;
     }

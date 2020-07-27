@@ -199,7 +199,10 @@ class Project extends Model
       'validation_data',
       'validation_signed',
       'validation_endorsed',
-      'finalized'
+      'finalized',
+      'endorsed',
+      'reviewed',
+      'approved'
     ];
 
     protected $casts = [

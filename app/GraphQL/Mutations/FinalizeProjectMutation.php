@@ -24,41 +24,26 @@ class FinalizeProjectMutation
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
-        // TODO implement the resolver
-        $project = Project::find($args['project_id']);
+        // this function will lock the project from further editing
+        $user = $context->user();
+
+        $project = Project::find($args['id']);
 
         if (!$project) {
             return null;    
         } else {
-            // if a signed copy is uploaded, upload it to Dropbox and return the link only
-            if (isset($args['signed_copy'])) {
-                $file = $args['signed_copy'];
+            $processing_status = ProcessingStatus::where('name','updated')->first();
 
-                // $uploadedFile = $file->storePublicly('uploads');
-                $uploadedFile = Storage::disk('dropbox')->put('signed copies',$file);
-
-                $link = Storage::disk('dropbox')
-                  ->getDriver() // `\League\Flysystem\Flysystem` instance
-                  ->getAdapter() // `\Spatie\FlysystemDropbox\DropboxAdapter` instance
-                  ->getClient() // `\Spatie\Dropbox\Client` instance
-                  ->createSharedLinkWithSettings($uploadedFile);
-                $url = $link['url'];
-                $rawUrl = Str::replaceLast("dl=0","raw=1",$url);
-
-                $project->signed_copy = $rawUrl;
-            }
-
-            $processing_status = ProcessingStatus::where('name','finalized')->first();
-
-            $project->processing_status_id = $processing_status->id;
+            $project->finalized = true;
             $project->processed_by = $context->user()->id;
             $project->save();
 
+            // set it to updated
             ProjectProcessingStatus::create([
-                'project_id' => $args['project_id'],
+                'project_id' => $project->id,
                 'processing_status_id' => $processing_status->id,
-                'processed_by' => $context->user()->id,
-                'remarks' => $args['remarks']
+                'processed_by' => $user->id,
+                'remarks' => $args['remarks'] ?? 'Finalized'
             ]);
 
             return $project;

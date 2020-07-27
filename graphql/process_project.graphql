@@ -33,9 +33,7 @@ extend type Mutation {
     @guard(with:"api")
 
   finalizeProject(
-    project_id: ID!
-    signed_copy: Upload
-    remarks: String
+    id: ID!
   ): Project 
     @field(resolver:"FinalizeProjectMutation")
     @guard(with:"api")
@@ -52,6 +50,7 @@ extend type Mutation {
   uploadSignedCopy(
       id: ID!
       signed_copy: Upload
+      remarks: String
     ): Project
     @field(resolver:"UploadSignedCopy")
     @guard(with:["api"])

@@ -271,6 +271,10 @@ type Project {
     validation_signed: Boolean
     validation_endorsed: Boolean
     finalized: Boolean
+    endorsed: Boolean
+    reviewed: Boolean
+    approved: Boolean
+    encoded: Boolean
 }
 
 type CanUpdateResponse {

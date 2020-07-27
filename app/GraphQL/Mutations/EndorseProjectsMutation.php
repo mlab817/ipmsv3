@@ -3,6 +3,7 @@
 namespace App\GraphQL\Mutations;
 
 use App\Models\OperatingUnit;
+use App\Models\ProcessingStatus;
 use App\Models\ProjectProcessingStatus;
 use App\Models\Endorsement;
 use App\Models\Project;
@@ -52,9 +53,12 @@ class EndorseProjectsMutation
 
         $projects = Project::whereIn('id',$projectsToEndorse)->get();
 
+        $processing_status = ProcessingStatus::where('name','endorsed')->first();
+
         foreach ($projects as $project) {
+            $project->endorsed = true;
             $project->endorsement_id = $endorsement->id;
-            $project->processing_status_id = 3; // set submission status to endorsed
+            $project->processing_status_id = $processing_status->id; // set submission status to endorsed
             $project->save();
 
             ProjectProcessingStatus::create([
@@ -62,7 +66,7 @@ class EndorseProjectsMutation
               'processed_by' => $context->user()->id,
               'processed_at' => Carbon::now(),
               'remarks' => 'endorsed',
-              'processing_status_id' => 3
+              'processing_status_id' => $processing_status->id
             ]);
         }
 
@@ -82,7 +86,9 @@ class EndorseProjectsMutation
         $ou = OperatingUnit::where('id', $user->operating_unit_id)->first();
         $reviewers = $ou->reviewers()->get();
 
-        Notification::send($reviewers, new DatabaseNotification($data));
+        if ($reviewers) {
+          Notification::send($reviewers, new DatabaseNotification($data));
+        }
 
         return $endorsement;
     }
