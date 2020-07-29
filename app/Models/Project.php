@@ -561,7 +561,7 @@ class Project extends Model
 
     public function scopeFinalized($query)
     {
-      return $query->where('processing_status_id','=',2);
+      return $query->where('processing_status_id','=',3);
     }
 
     public function scopeEndorsed($query)

@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Models\ProcessingStatus;
 use App\Models\ProjectProcessingStatus;
 use App\Models\Project;
 use Carbon\Carbon;
@@ -36,7 +37,11 @@ class SubmitReview
             if (!$review) {
                 $message = 'Review not found.';
             } else {
-                $project->processing_status_id = 6;
+                $processing_status = ProcessingStatus::where('name','reviewed')->first();
+
+                // mark project as reviewed
+                $project->reviewed = true;
+                $project->processing_status_id = $processing_status->id;
                 $project->processed_by = $context->user()->id;
                 $project->save();
 
@@ -44,7 +49,7 @@ class SubmitReview
 
                 ProjectProcessingStatus::create([
                     'project_id' => $project->id,
-                    'processing_status_id' => 6,
+                    'processing_status_id' => $processing_status->id,
                     'processed_by' => $context->user()->id,
                     'remarks' => $args['remarks'],
                     'processed_at' => Carbon::now()
