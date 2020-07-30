@@ -81,12 +81,12 @@ class ValidateProjectMutation
                 $project->processed_by = $user->id;
                 $project->save();
 
-                ProjectProcessingStatus::create([
-                    'project_id' => $project->id,
-                    'processing_status_id' => $processing_status_id,
-                    'processed_by' => $user->id,
-                    'remarks' => $args['remarks']
-                ]);
+                // ProjectProcessingStatus::create([
+                //     'project_id' => $project->id,
+                //     'processing_status_id' => $processing_status_id,
+                //     'processed_by' => $user->id,
+                //     'remarks' => $args['remarks']
+                // ]);
 
                 // notify encoder
 
