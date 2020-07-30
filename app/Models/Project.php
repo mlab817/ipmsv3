@@ -40,6 +40,67 @@ class Project extends Model
           $project->uuid = Str::uuid();
       });
 
+      static::saving(function ($project) {
+          $project->investment_target_total = (float) $project->investment_target_2016
+            + (float) $project->investment_target_2017
+            + (float) $project->investment_target_2018
+            + (float) $project->investment_target_2019
+            + (float) $project->investment_target_2020
+            + (float) $project->investment_target_2021
+            + (float) $project->investment_target_2022
+            + (float) $project->investment_target_2023;
+          $project->infrastructure_target_total = (float) $project->infrastructure_target_2016
+            + (float) $project->infrastructure_target_2017
+            + (float) $project->infrastructure_target_2018
+            + (float) $project->infrastructure_target_2019
+            + (float) $project->infrastructure_target_2020
+            + (float) $project->infrastructure_target_2021
+            + (float) $project->infrastructure_target_2022
+            + (float) $project->infrastructure_target_2023;
+          $project->gaa_total = (float) $project->gaa_2016
+            + (float) $project->gaa_2017
+            + (float) $project->gaa_2018
+            + (float) $project->gaa_2019
+            + (float) $project->gaa_2020
+            + (float) $project->gaa_2021
+            + (float) $project->gaa_2022
+            + (float) $project->gaa_2023;
+          $project->nep_total = (float) $project->nep_2016
+            + (float) $project->nep_2017
+            + (float) $project->nep_2018
+            + (float) $project->nep_2019
+            + (float) $project->nep_2020
+            + (float) $project->nep_2021
+            + (float) $project->nep_2022
+            + (float) $project->nep_2023;
+          $project->disbursement_total = (float) $project->disbursement_2016
+            + (float) $project->disbursement_2017
+            + (float) $project->disbursement_2018
+            + (float) $project->disbursement_2019
+            + (float) $project->disbursement_2020
+            + (float) $project->disbursement_2021
+            + (float) $project->disbursement_2022
+            + (float) $project->disbursement_2023;
+          $project->row_target_total = (float) $project->row_target_2017
+            + (float) $project->row_target_2018
+            + (float) $project->row_target_2019
+            + (float) $project->row_target_2020
+            + (float) $project->row_target_2021
+            + (float) $project->row_target_2022;
+          $project->rap_target_total = (float) $project->rap_target_2017
+            + (float) $project->rap_target_2018
+            + (float) $project->rap_target_2019
+            + (float) $project->rap_target_2020
+            + (float) $project->rap_target_2021
+            + (float) $project->rap_target_2022;
+          $project->fs_target_total = (float) $project->fs_target_2017
+            + (float) $project->fs_target_2018
+            + (float) $project->fs_target_2019
+            + (float) $project->fs_target_2020
+            + (float) $project->fs_target_2021
+            + (float) $project->fs_target_2022;
+      });
+
       $role = auth()->user() ? auth()->user()->role->name : '';
 
       if (!($role == 'lead' || $role == 'chief')) {
