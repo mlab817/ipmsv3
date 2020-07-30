@@ -6,7 +6,7 @@ extend type Mutation {
 		remarks: String
 	): Project
     @field(resolver:"ProcessProjectMutation")
-    @guard(with:"api")
+    @guard(with:["api"])
 
   # validateProject(
   #   project_id: ID!
@@ -23,20 +23,22 @@ extend type Mutation {
     remarks: String
   ): Project
     @field(resolver:"ValidateProjectMutation")
-    @guard(with:"api")
+    @guard(with:["api"])
+    @event(dispatch: "App\\Events\\ProjectProcessed")
 
   returnProject(
     project_id: ID!
     remarks: String
   ): Project
     @field(resolver:"ReturnProjectMutation")
-    @guard(with:"api")
+    @guard(with:["api"])
+    @event(dispatch: "App\\Events\\ProjectProcessed")
 
   finalizeProject(
     id: ID!
   ): Project 
     @field(resolver:"FinalizeProjectMutation")
-    @guard(with:"api")
+    @guard(with:["api"])
 
   encodeProject(
     project_id: ID!
@@ -45,7 +47,7 @@ extend type Mutation {
     remarks: String!
   ): Project
     @field(resolver:"EncodeProjectMutation")
-    @guard(with:"api")
+    @guard(with:["api"])
 
   uploadSignedCopy(
       id: ID!

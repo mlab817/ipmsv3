@@ -3,14 +3,13 @@
 namespace App\Listeners;
 
 use Log;
-use App\Models\Project;
 use App\Models\ProcessingStatus;
+use App\Models\Project;
 use App\Models\ProjectProcessingStatus;
-use App\Events\ProjectUpdatedEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class RecordUpdatedEvent
+class ProjectUpdated
 {
     /**
      * Create the event listener.
@@ -25,24 +24,24 @@ class RecordUpdatedEvent
     /**
      * Handle the event.
      *
-     * @param  ProjectUpdatedEvent  $event
+     * @param  object  $event
      * @return void
      */
-    public function handle(ProjectUpdatedEvent $event)
-    {
-        $processing_status = ProcessingStatus::where('name','updated')->first();
-
+    public function handle($event)
+    {   
         Log::info(json_encode($event));
+
+        $processing_status = ProcessingStatus::where('name','updated')->first();
 
         $project = Project::find($event->project->id);
         $project->processing_status_id = $processing_status->id;
         $project->save();
 
         ProjectProcessingStatus::create([
-            'project_id' => $event->project->id,
+            'project_id' => $project->id,
             'processing_status_id' => $processing_status->id,
-            'processed_by' => $event->project->processed_by,
-            'remarks' => 'Project Updated'
+            'processed_by' => $event->user->id,
+            'remarks' => 'Project updated'
         ]);
     }
 }

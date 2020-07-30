@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
-use App\Events\ProjectUpdatedEvent;
+use App\Events\ProjectProcessed;
+use App\Events\ProjectUpdated;
 use App\Events\ProjectCreatedEvent;
 use App\Listeners\AssignDefaultRole;
 use App\Listeners\CreateUserAvatar;
-use App\Listeners\RecordUpdatedEvent;
+use App\Listeners\RecordProcessingEvent;
+use App\Listeners\ProjectUpdated as ProjectUpdatedListener;
 use App\Listeners\SendCompleteUserProfileNotification;
 use App\Listeners\SendProjectCreatedNotification;
 use Illuminate\Auth\Events\Registered;
@@ -30,12 +32,15 @@ class EventServiceProvider extends ServiceProvider
         ProjectCreatedEvent::class => [
           SendProjectCreatedNotification::class
         ],
-        ProjectUpdatedEvent::class => [
-            RecordUpdatedEvent::class
-        ],
         'App\Events\RoleChanged' => [
             'App\Listeners\SendRoleChangedNotification'
         ],
+        ProjectProcessed::class => [
+            RecordProcessingEvent::class
+        ],
+        ProjectUpdated::class => [
+            ProjectUpdatedListener::class
+        ]
     ];
 
     /**

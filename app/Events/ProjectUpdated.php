@@ -11,7 +11,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class ProjectUpdatedEvent
+class ProjectUpdated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -25,6 +25,7 @@ class ProjectUpdatedEvent
     public function __construct(Project $project)
     {
         $this->project = $project;
+        $this->user = auth()->user() ?? null;
     }
 
     /**

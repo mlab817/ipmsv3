@@ -5,7 +5,7 @@ extend type Mutation @middleware(checks:["auth:api"]) {
     ): Project
     @update
     @can(ability: "update", find: "id")
-    @event(dispatch:"App\\Events\\ProjectUpdatedEvent")
+    @event(dispatch: "App\\Events\\ProjectUpdated")
     # @broadcast(subscription: "projectUpdated")
 }
 

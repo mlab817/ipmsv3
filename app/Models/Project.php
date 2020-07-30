@@ -202,7 +202,8 @@ class Project extends Model
       'finalized',
       'endorsed',
       'reviewed',
-      'approved'
+      'approved',
+      'processing_status_id'
     ];
 
     protected $casts = [

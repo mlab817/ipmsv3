@@ -43,7 +43,7 @@ class FinalizeProjectMutation
                 'project_id' => $project->id,
                 'processing_status_id' => $processing_status->id,
                 'processed_by' => $user->id,
-                'remarks' => $args['remarks'] ?? 'Finalized'
+                'remarks' => $args['remarks'] ?? 'Locked'
             ]);
 
             return $project;
