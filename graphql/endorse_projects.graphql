@@ -15,8 +15,8 @@ type Endorsement {
     file_size: String
     file_extension: String
     file_type: String
-    file_path: String!
-    dropbox_link: String!
+    file_path: String
+    dropbox_link: String
     remarks: String
     uploaded_by: String
     uploader: User @belongsTo
@@ -26,4 +26,5 @@ type Endorsement {
     updated_at: String
     deleted_at: String
     projects: [Project]
+    link: String
 }

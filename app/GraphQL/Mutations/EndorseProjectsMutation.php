@@ -35,19 +35,21 @@ class EndorseProjectsMutation
 
         $user = $context->user();
 
-        $uploadedFile = Storage::disk('dropbox')->put('endorsements', $file);
-        $link = Storage::disk('dropbox')->getDriver()->getAdapter()->getClient()->createSharedLinkWithSettings($uploadedFile);
-        $url = $link['url'];
-        $rawUrl = Str::replaceLast("dl=0","raw=1",$url);
+        // $uploadedFile = Storage::disk('dropbox')->put('endorsements', $file);
+        // $link = Storage::disk('dropbox')->getDriver()->getAdapter()->getClient()->createSharedLinkWithSettings($uploadedFile);
+        // $url = $link['url'];
+        // $rawUrl = Str::replaceLast("dl=0","raw=1",$url);
+        $link = self::uploadFile($file);
 
         $endorsement = Endorsement::create([
             'uuid' => Str::uuid(),
-            'file_name' => $file->getClientOriginalName(),
-            'file_size' =>  $file->getSize(),
-            'file_extension' => $file->getClientOriginalExtension(),
-            'file_path' => $uploadedFile,
-            'file_type' => $file->getMimeType(),
-            'dropbox_link' => $rawUrl,
+            // 'file_name' => $file->getClientOriginalName(),
+            // 'file_size' =>  $file->getSize(),
+            // 'file_extension' => $file->getClientOriginalExtension(),
+            // 'file_path' => $uploadedFile,
+            // 'file_type' => $file->getMimeType(),
+            // 'dropbox_link' => $rawUrl,
+            'link' => $link,
             'uploaded_by' => $context->user()->id
         ]);
 
@@ -91,5 +93,15 @@ class EndorseProjectsMutation
         }
 
         return $endorsement;
+    }
+
+    public function uploadFile($file)
+    { 
+        $now = \Carbon\Carbon::now();
+        $timestamp = \Carbon\Carbon::parse($now)->timestamp;
+
+        $uploadedFile = Storage::disk('google')->putFileAs('1Lra5JH6NwC56luUOlYVv5X9kUgg92Hy6', $file, 'endorsements_' . $timestamp);
+
+        return Storage::disk('google')->url($uploadedFile);
     }
 }

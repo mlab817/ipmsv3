@@ -28,23 +28,14 @@ class UploadSignedCopy
 
         $processing_status = ProcessingStatus::where('name','finalized')->first();
 
-        $signed_copy = $args['signed_copy'];
         $user = $context->user();
 
         // $uploadedFile = $file->storePublicly('uploads');
-        $uploadedFile = Storage::disk('dropbox')->put('signed copies', $signed_copy);
-
-        $link = Storage::disk('dropbox')
-          ->getDriver() // `\League\Flysystem\Flysystem` instance
-          ->getAdapter() // `\Spatie\FlysystemDropbox\DropboxAdapter` instance
-          ->getClient() // `\Spatie\Dropbox\Client` instance
-          ->createSharedLinkWithSettings($uploadedFile);
-        $url = $link['url'];
-        $rawUrl = Str::replaceLast("dl=0","raw=1",$url);
+        $uploadedFile = $this->uploadFile($args['signed_copy']);
 
         $project->processing_status_id = $processing_status->id;
         $project->processed_by = $user->id;
-        $project->signed_copy = $rawUrl;
+        $project->signed_copy = $uploadedFile;
         $project->save();
 
         ProjectProcessingStatus::create([
@@ -55,5 +46,15 @@ class UploadSignedCopy
         ]);
 
         return $project;
+    }
+
+    public function uploadFile($file)
+    { 
+        $now = \Carbon\Carbon::now();
+        $timestamp = \Carbon\Carbon::parse($now)->timestamp;
+
+        $uploadedFile = Storage::disk('google')->putFileAs('19tyR1DNSWdAQSkg9-yfaxheePpwDU8zA', $file, 'signed_copies' . $timestamp);
+
+        return Storage::disk('google')->url($uploadedFile);
     }
 }

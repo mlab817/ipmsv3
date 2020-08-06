@@ -2,7 +2,9 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Joselfonseca\LighthouseGraphQLPassport\Exceptions\AuthenticationException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -50,6 +52,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        if ($exception instanceof ModelNotFoundException) {
+            return response()->json([
+                'error' => 'Entry for '.str_replace('App\\', '', $exception->getModel()).' not found'], 200);
+        }
+
         return parent::render($request, $exception);
     }
 }

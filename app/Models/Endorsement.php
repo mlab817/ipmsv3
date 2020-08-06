@@ -22,7 +22,8 @@ class Endorsement extends Model
         'file_path',
         'dropbox_link',
         'remarks',
-        'uploaded_by'
+        'uploaded_by',
+        'link'
     ];
 
     protected $casts = [

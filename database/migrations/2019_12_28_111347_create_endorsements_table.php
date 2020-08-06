@@ -20,7 +20,7 @@ class CreateEndorsementsTable extends Migration
             $table->string('file_size')->nullable();
             $table->string('file_extension')->nullable();
             $table->string('file_type')->nullable();
-            $table->string('file_path');
+            $table->string('file_path')->nullable();
             $table->text('dropbox_link')->nullable();
             $table->unsignedBigInteger('uploaded_by')->nullable();
             $table->unsignedBigInteger('deleted_by')->nullable();
