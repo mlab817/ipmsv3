@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use App\Models\Image;
 use App\Models\Followable;
 use App\Models\Message;
@@ -22,6 +23,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Joselfonseca\LighthouseGraphQLPassport\HasLoggedInTokens;
 use Joselfonseca\LighthouseGraphQLPassport\MustVerifyEmailGraphQL;
 use Laravel\Passport\HasApiTokens;
@@ -204,5 +206,18 @@ class User extends Authenticatable implements MustVerifyEmail
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($token));
+    }
+
+    public function logins()
+    {
+      return $this->hasMany(Login::class);
+    }
+
+    public function setLoginLog()
+    {
+      $this->insert([
+        'user_id' => Auth::user()->id,
+        'login_at' => Carbon::now()
+      ]);
     }
 }
