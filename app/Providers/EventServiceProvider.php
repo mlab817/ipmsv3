@@ -24,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
+        'Illuminate\Auth\Events\Login' => [
+            'App\Listeners\LogLoginEvent'
+        ],
         Registered::class => [
             // CreateUserAvatar::class,
             AssignDefaultRole::class,
