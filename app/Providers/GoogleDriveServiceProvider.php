@@ -5,7 +5,7 @@ namespace App\Providers;
 use Hypweb\Flysystem\GoogleDrive\GoogleDriveAdapter;
 use Storage;
 use Illuminate\Support\ServiceProvider;
-use League\Flysystem\FileSystem;
+use League\Flysystem\Filesystem;
 
 class GoogleDriveServiceProvider extends ServiceProvider
 {
@@ -35,7 +35,7 @@ class GoogleDriveServiceProvider extends ServiceProvider
             $service = new \Google_Service_Drive($client);
             $adapter = new GoogleDriveAdapter($service, $config['folderId']);
 
-            return new FileSystem($adapter);
+            return new Filesystem($adapter);
         });
     }
 }
