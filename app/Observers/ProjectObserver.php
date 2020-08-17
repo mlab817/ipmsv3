@@ -2,14 +2,16 @@
 
 namespace App\Observers;
 
-use Illuminate\Support\Str;
+use App\Models\FundingSource;
+use App\Models\Region;
 use App\Models\ProjectProcessingStatus;
 use App\Models\ProcessingStatus;
 use App\Models\Project;
 use App\Notifications\ProjectCreated;
 use App\Notifications\ProjectDeleted;
-use Carbon\Carbon;
 use App\User;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class ProjectObserver
 {
@@ -21,6 +23,16 @@ class ProjectObserver
 
     public function created(Project $project)
     {
+      // create placeholder for regions
+      $regions = Region::all()->pluck('id');
+
+      $project->regions()->attach($regions);
+
+      // create placeholder for funding_sources
+      $fs = FundingSource::all()->pluck('id');
+
+      $project->funding_sources()->attach($fs);
+
       // set processing status id to 'draft'
       $project->processing_status_id = 1;
 
