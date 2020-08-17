@@ -33,6 +33,7 @@ class ProjectsExport implements FromQuery, WithMapping, WithHeadings, WithCustom
     			$project->pipol_code,
     			$project->title,
     			$project->type->name ?? '',
+                $project->infrastructure ? 'Yes' : 'No',
     			$project->spatial_coverage->name ?? '',
     			$project->description,
     			$project->expected_outputs,
@@ -50,6 +51,15 @@ class ProjectsExport implements FromQuery, WithMapping, WithHeadings, WithCustom
     			$project->investment_target_2022,
     			$project->investment_target_2023,
     			$project->investment_target_total,
+                $project->infrastructure_target_2016,
+                $project->infrastructure_target_2017,
+                $project->infrastructure_target_2018,
+                $project->infrastructure_target_2019,
+                $project->infrastructure_target_2020,
+                $project->infrastructure_target_2021,
+                $project->infrastructure_target_2022,
+                $project->infrastructure_target_2023,
+                $project->infrastructure_target_total,
     		];
     }
 
@@ -60,6 +70,7 @@ class ProjectsExport implements FromQuery, WithMapping, WithHeadings, WithCustom
         	'PIPOL Code',
         	'PAP Title',
         	'PAP Type',
+            'Infrastructure',
         	'Spatial Coverage',
         	'Description',
         	'Expected Outputs',
@@ -68,15 +79,24 @@ class ProjectsExport implements FromQuery, WithMapping, WithHeadings, WithCustom
         	'Funding Institution',
         	'Start',
         	'End',
-        	'2016 & Prior',
-        	'2017',
-        	'2018',
-        	'2019',
-        	'2020',
-        	'2021',
-        	'2022',
-        	'2023 & Beyond',
-        	'Total Project Cost'
+        	'Total_2016 & Prior',
+        	'Total_2017',
+        	'Total_2018',
+        	'Total_2019',
+        	'Total_2020',
+        	'Total_2021',
+        	'Total_2022',
+        	'Total_2023 & Beyond',
+        	'Total Cost',
+            'Infrastructure_2016 & Prior',
+            'Infrastructure_2017',
+            'Infrastructure_2018',
+            'Infrastructure_2019',
+            'Infrastructure_2020',
+            'Infrastructure_2021',
+            'Infrastructure_2022',
+            'Infrastructure_2023 & Beyond',
+            'Infrastructure Total Cost',
         ];
     }
 
@@ -88,7 +108,6 @@ class ProjectsExport implements FromQuery, WithMapping, WithHeadings, WithCustom
     public function columnFormats(): array
     {
         return [
-            'M' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
             'N' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
             'O' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
             'P' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
@@ -97,6 +116,16 @@ class ProjectsExport implements FromQuery, WithMapping, WithHeadings, WithCustom
             'S' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
             'T' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
             'U' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'V' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'W' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'X' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'Y' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'Z' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'AA' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'AB' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'AC' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'AD' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'AE' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
         ];
     }
 }
