@@ -25,4 +25,14 @@ type SpatialCoverage {
   id: ID!
   name: String!
   projects: [Project!]! @hasMany
+    investment_target_total: Float
+    investment_target_2016: Float
+    investment_target_2017: Float
+    investment_target_2018: Float
+    investment_target_2019: Float
+    investment_target_2020: Float
+    investment_target_2021: Float
+    investment_target_2022: Float
+    investment_target_2023: Float
+    project_count: Int
 }

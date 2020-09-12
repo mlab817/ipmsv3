@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\HasInvestmentsTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Typology extends Model
 {
-    use SoftDeletes;
-    
+    use SoftDeletes, HasInvestmentsTrait;
+
     protected $fillable = [
       'name',
       'label'
