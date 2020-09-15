@@ -39,7 +39,7 @@ extend type Query @middleware(checks:["auth:api"]) {
     @can(ability: "view", find: "id")
     @guard(with:"api")
 
-  allProjects: [Project] @all
+  allProjects: [Project] @all @softDeletes
 
 }
 
