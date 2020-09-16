@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Events\ProjectFinalized;
 use App\Events\ProjectProcessed;
 use App\Events\ProjectUpdated;
 use App\Events\ProjectCreatedEvent;
@@ -43,6 +44,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         ProjectUpdated::class => [
             ProjectUpdatedListener::class
+        ],
+        ProjectFinalized::class => [
+            \App\Listeners\ProjectFinalized::class
         ]
     ];
 

@@ -35,10 +35,13 @@ extend type Mutation {
     @event(dispatch: "App\\Events\\ProjectProcessed")
 
   finalizeProject(
-    id: ID!
-  ): Project 
-    @field(resolver:"FinalizeProjectMutation")
+    input: UpdateProjectInput! @spread
+  ): Project
+    @update
+    @can(ability: "update", find: "id")
+    # @field(resolver:"FinalizeProjectMutation")
     @guard(with:["api"])
+    @event(dispatch: "App\\Events\\ProjectFinalized")
 
   encodeProject(
     project_id: ID!
