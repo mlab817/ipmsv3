@@ -19,7 +19,7 @@ class AdminMiddleware
       if (! $request->user()) {
         throw new CustomException("You are not logged in to perform this action", "Something something" );
       }
-      else if (! $request->user())
+      else if (!$request->user()->role && $request->user()->role->name != 'admin')
       {
         throw new CustomException("You are not authorized to perform this action ". $request->user(), "Something something" );
       }

@@ -41,6 +41,11 @@ extend type Mutation {
     id: ID!
     image: Upload!
   ): OperatingUnit @field(resolver:"UpdateOperatingUnitImageMutation")
+
+  assignReviewer(
+    input: AssignReviewerInput! @spread): AssignReviewerResponse 
+    @field(resolver: "AssignReviewer")
+    @guard(with:["api"])
 }
 
 type OperatingUnit {
@@ -73,3 +78,15 @@ type OperatingUnit {
     investment_target_2023: Float
     project_count: Int
 }
+
+input AssignReviewerInput {
+  operating_unit_id: ID!
+  user_id: ID!
+}
+
+type AssignReviewerResponse {
+  status: String
+  message: String
+  operating_unit: OperatingUnit
+}
+
