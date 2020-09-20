@@ -17,19 +17,12 @@ class AssignReviewer
     		$message = 'Something went wrong';
 
         $ou = OperatingUnit::find($args['operating_unit_id']);
-        $user = User::find($args['user_id']);
+        $users = User::find($args['users']);
 
-        if ($ou && $user) {
-        	
-
-        	if ($user->role && $user->role->name == 'reviewer') {
-        		$ou->reviewers()->sync($user);
-        		$status = 'SUCCESS';
-        		$message = 'Successfully assigned reviewer';
-        	} else {
-        		$message = 'User not a reviewer';
-        		$ou = null;
-        	}
+        if ($ou) {
+    		$ou->reviewers()->sync($users);
+    		$status = 'SUCCESS';
+    		$message = 'Successfully assigned reviewer';
         } else {
         	$message = 'Operating unit or user not found';
         	$ou = null;
