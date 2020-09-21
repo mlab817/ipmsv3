@@ -21,7 +21,7 @@ class CreateAccount
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
         $createdUser = null;
-        $status = 'FAILED';
+        $status = 'ERROR';
         $message = 'Failed to create account';
 
         $name = $args['name'];
