@@ -12,13 +12,10 @@ class UpdateProjectInputValidationDirective extends BaseDirective
 	{
 		Log::info(['$this->args ',json_encode($this->args)]);
 		return [
-			'id' => ['required'],
-			'version' => [
+			'id' => [
 				'required',
-				Rule::exists('projects')->where(function ($query) {
-					$query
-						->where('id', $this->args['id'])
-						->where('version', $this->args['version']);
+				Rule::exists('projects')->where(function ($query) use ($version) {
+					$query->where('version', $version);
 				}),
 			]
 		];
@@ -27,7 +24,7 @@ class UpdateProjectInputValidationDirective extends BaseDirective
 	public function messages(): array
 	{
 		return [
-			'version' => 'The version in the server does not match your copy'
+			'id' => 'The version in the server does not match your copy'
 		];
 	}
 }
