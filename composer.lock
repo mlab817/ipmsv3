@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "103983d6a17512dbb5805c47abb43e5a",
+    "content-hash": "ea9c3ba5b83c7783a2dde36f96ae8713",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2549,6 +2549,68 @@
             "time": "2020-05-22T08:12:19+00:00"
         },
         {
+            "name": "mpociot/versionable",
+            "version": "3.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mpociot/versionable.git",
+                "reference": "5ebbabaaf9078af6df63be53993298c5ec8dc9f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mpociot/versionable/zipball/5ebbabaaf9078af6df63be53993298c5ec8dc9f8",
+                "reference": "5ebbabaaf9078af6df63be53993298c5ec8dc9f8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.3 || ^6.0 || ^7.0",
+                "php": ">=7.1.0 || >=7.2.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^3.1 || ^4.0 || ^5.0",
+                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mpociot\\Versionable\\Providers\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/migrations",
+                    "tests/VersionableTestCase.php"
+                ],
+                "psr-0": {
+                    "Mpociot\\Versionable": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "m.pociot@gmail.com"
+                }
+            ],
+            "description": "Allows to create Laravel 4 / 5 / 6 / 7 Model versioning and restoring",
+            "homepage": "http://github.com/mpociot/versionable",
+            "keywords": [
+                "ardent",
+                "history",
+                "laravel",
+                "model",
+                "restore",
+                "version"
+            ],
+            "time": "2020-09-01T16:28:02+00:00"
+        },
+        {
             "name": "mtolhuys/laravel-schematics",
             "version": "0.10.3",
             "source": {
@@ -2877,16 +2939,16 @@
         },
         {
             "name": "nuwave/lighthouse",
-            "version": "v4.16.0",
+            "version": "v4.16.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuwave/lighthouse.git",
-                "reference": "351557eee425648f7cb161dcf28009f80201617a"
+                "reference": "66158dfe73a7a221ebd635d5fea7325d980a673b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/351557eee425648f7cb161dcf28009f80201617a",
-                "reference": "351557eee425648f7cb161dcf28009f80201617a",
+                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/66158dfe73a7a221ebd635d5fea7325d980a673b",
+                "reference": "66158dfe73a7a221ebd635d5fea7325d980a673b",
                 "shasum": ""
             },
             "require": {
@@ -2969,7 +3031,7 @@
                 "laravel",
                 "laravel-graphql"
             ],
-            "time": "2020-07-20T07:53:07+00:00"
+            "time": "2020-08-26T16:35:19+00:00"
         },
         {
             "name": "nyholm/psr7",
@@ -7633,6 +7695,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {

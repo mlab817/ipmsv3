@@ -1,20 +1,20 @@
 extend type Query {
-	versions: [Version] @all
+	appVersions: [AppVersion] @all
 
-	version(id: ID! @eq): Version @find
+	appVersion(id: ID! @eq): AppVersion @find
 
-	currentVersion: Version @field(resolver:"CurrentVersion")
+	currentAppVersion: AppVersion @field(resolver:"CurrentVersion")
 }
 
 extend type Mutation {
-	createVersion(input: CreateVersionInput!): Version @create @inject(context:"user.id",name:"user_id")
+	createAppVersion(input: CreateAppVersionInput!): AppVersion @create @inject(context:"user.id",name:"user_id")
 
-	updateVersion(input: UpdateVersionInput!): Version @update @inject(context:"user.id",name:"user_id")
+	updateAppVersion(input: UpdateAppVersionInput!): AppVersion @update @inject(context:"user.id",name:"user_id")
 
-	deleteVersion(id: ID!): Version @delete @inject(context:"user.id",name:"user_id")
+	deleteAppVersion(id: ID!): AppVersion @delete @inject(context:"user.id",name:"user_id")
 }
 
-type Version {
+type AppVersion {
 	id: ID!
 	version: String
 	change_type: String
@@ -25,14 +25,14 @@ type Version {
 	updated_at: String
 }
 
-input CreateVersionInput {
+input CreateAppVersionInput {
 	version: String
 	change_type: String
 	change_log: String
 	notes: String
 }
 
-input UpdateVersionInput {
+input UpdateAppVersionInput {
 	id: ID!
 	version: String
 	change_type: String

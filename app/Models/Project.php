@@ -13,11 +13,12 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Project extends Model
 {
-    use SoftDeletes, LogsActivity;
+    use SoftDeletes, LogsActivity, VersionableTrait;
 
     protected static $logFillable = true;
 
@@ -26,6 +27,9 @@ class Project extends Model
     protected static $logOnlyDirty = true;
 
     protected static $submitEmptyLogs = false;
+
+    // Limit old versions to 10
+    protected $keepOldVersions = 10;
 
     public function getDescriptionForEvent(string $eventName): string
     {
@@ -105,7 +109,7 @@ class Project extends Model
 
       if (!($role == 'lead' || $role == 'chief')) {
         static::addGlobalScope(new ProjectScope);
-      } 
+      }
     }
 
     protected $fillable = [
@@ -264,7 +268,8 @@ class Project extends Model
       'endorsed',
       'reviewed',
       'approved',
-      'processing_status_id'
+      'processing_status_id',
+      // 'version'
     ];
 
     protected $casts = [
@@ -613,8 +618,8 @@ class Project extends Model
     }
 
     /**
-     * Local Scopes 
-     * 
+     * Local Scopes
+     *
      */
     public function scopeDraft($query)
     {

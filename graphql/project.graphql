@@ -277,6 +277,8 @@ type Project {
     reviewed: Boolean
     approved: Boolean
     encoded: Boolean
+    version: Int
+    versions: [Version] @morphMany
 }
 
 type CanUpdateResponse {
@@ -293,4 +295,12 @@ type ProjectGadSubquestion {
     gad_subquestion: GadSubquestion @belongsTo
     gad_choice_id: ID!
     gad_choice: GadChoice @belongsTo
+}
+
+type Version @model(class: "Mpociot\\Versionable\\Version") {
+    version_id: ID
+    responsible_user: User
+    model_data: String
+    created_at: String
+    updated_at: String
 }

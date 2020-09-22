@@ -52,12 +52,18 @@ class ProjectPolicy
 
     /**
      * If a user is owner of a project, they can update the project
+     * if the project version is equal to the current version
      * 
      * @param App\User $user
      * @param App\Models\Project $project
      */
-    public function update(User $user, Project $project)
+    public function update(User $user, Project $project, array $args)
     {
+      // compare version
+      // if (isset($args['version'])) {
+      //   return ($user->id == $project->created_by && $project->version == (int) $args['version']);
+      // }
+
       return $user->id == $project->created_by;
     }
 

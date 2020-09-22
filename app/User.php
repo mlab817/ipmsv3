@@ -3,6 +3,7 @@
 namespace App;
 
 use Carbon\Carbon;
+use App\Models\Login;
 use App\Models\Image;
 use App\Models\Followable;
 use App\Models\Message;
@@ -210,12 +211,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function logins()
     {
-      return $this->hasMany(Login::class);
+      return $this->hasMany(Login::class,'user_logins','user_id','id');
     }
 
     public function setLoginLog()
     {
-      $this->insert([
+      $this->logins()->insert([
         'user_id' => Auth::user()->id,
         'login_at' => Carbon::now()
       ]);

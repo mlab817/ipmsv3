@@ -45,3 +45,11 @@ Route::post('/upload', function(Request $request) {
 	// dd($uploadedFile); // returns path
 	return Storage::disk('google')->url($uploadedFile);
 });
+
+Route::get('/projects/{id}', function($id) {
+	$project = App\Models\Project::find($id);
+
+	$versions = $project->versions;
+
+	return response()->json($versions);
+})->where('id', '[0-9]+');

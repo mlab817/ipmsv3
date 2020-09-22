@@ -12,6 +12,7 @@ use App\Listeners\RecordProcessingEvent;
 use App\Listeners\ProjectUpdated as ProjectUpdatedListener;
 use App\Listeners\SendCompleteUserProfileNotification;
 use App\Listeners\SendProjectCreatedNotification;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -25,7 +26,7 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Illuminate\Auth\Events\Login' => [
+        Login::class => [
             'App\Listeners\LogLoginEvent'
         ],
         Registered::class => [

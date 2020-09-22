@@ -4,8 +4,9 @@ extend type Mutation @middleware(checks:["auth:api"]) {
     input: UpdateProjectInput! @spread
     ): Project
     @update
-    @can(ability: "update", find: "id")
+    @can(ability: "update", find: "id", injectArgs: true)
     @event(dispatch: "App\\Events\\ProjectUpdated")
+    @updateProjectInputValidation
     # @broadcast(subscription: "projectUpdated")
 }
 
@@ -161,6 +162,7 @@ input UpdateProjectInput {
   # funding_source_financials: UpdateFundingSourceFinancialsHasMany
   regions: UpdateProjectRegions
   funding_sources: UpdateProjectFundingSources
+  version: Int
 }
 
 input UpdateTechnicalReadinessesInput {
