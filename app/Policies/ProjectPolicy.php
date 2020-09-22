@@ -60,9 +60,9 @@ class ProjectPolicy
     public function update(User $user, Project $project, array $args)
     {
       // compare version
-      // if (isset($args['version'])) {
-      //   return ($user->id == $project->created_by && $project->version == (int) $args['version']);
-      // }
+      if (isset($args['version'])) {
+        return ($user->id == $project->created_by && $project->version == (int) $args['version']);
+      }
 
       return $user->id == $project->created_by;
     }
