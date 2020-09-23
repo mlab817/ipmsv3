@@ -38,7 +38,7 @@ extend type Mutation {
     input: UpdateProjectInput! @spread
   ): Project
     @update
-    @can(ability: "update", find: "id")
+    @can(ability: "update", find: "id", injectArgs: true)
     # @field(resolver:"FinalizeProjectMutation")
     @guard(with:["api"])
     @event(dispatch: "App\\Events\\ProjectFinalized")
