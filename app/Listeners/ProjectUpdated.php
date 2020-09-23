@@ -38,7 +38,7 @@ class ProjectUpdated
         $project->save();
 
         // update version
-        $project->increment('version');
+        // $project->increment('version');
 
         ProjectProcessingStatus::create([
             'project_id' => $project->id,

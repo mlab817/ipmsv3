@@ -51,6 +51,7 @@ class ProjectObserver
 
     public function updating(Project $project)
     {
+      $project->increments('version');
       $project->updated_by = auth()->user()->id;
     }
 
