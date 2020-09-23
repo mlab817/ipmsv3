@@ -33,7 +33,7 @@ class ProjectUpdated
 
         $processing_status = ProcessingStatus::where('name','updated')->first();
 
-        $project = Project::find($event->project->id);
+//        $project = Project::find($event->project->id);
         // $project->processing_status_id = $processing_status->id;
         // $project->save();
 
@@ -41,7 +41,7 @@ class ProjectUpdated
         // $project->increment('version');
 
         ProjectProcessingStatus::create([
-            'project_id' => $project->id,
+            'project_id' => $event->project->id,
             'processing_status_id' => $processing_status->id,
             'processed_by' => $event->user->id,
             'remarks' => 'Project updated'

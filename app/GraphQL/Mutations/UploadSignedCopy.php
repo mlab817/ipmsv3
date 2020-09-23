@@ -13,8 +13,9 @@ use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 class UploadSignedCopy
 {
     /**
-     * @param  null  $_
-     * @param  array<string, mixed>  $args
+     * @param null $_
+     * @param array<string, mixed> $args
+     * @return |null
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
@@ -26,7 +27,7 @@ class UploadSignedCopy
             return null;
         }
 
-        $processing_status = ProcessingStatus::where('name','finalized')->first();
+        $processing_status = ProcessingStatus::where('name','endorsed')->first();
 
         $user = $context->user();
 
@@ -36,12 +37,13 @@ class UploadSignedCopy
         $project->processing_status_id = $processing_status->id;
         $project->processed_by = $user->id;
         $project->signed_copy = $uploadedFile;
+        $project->endorsed = true;
         $project->save();
 
         ProjectProcessingStatus::create([
             'project_id' => $args['id'],
             'processing_status_id' => $processing_status->id,
-            'processed_by' => $context->user()->id,
+            'processed_by' => $user->id,
             'remarks' => $args['remarks']
         ]);
 
@@ -49,7 +51,7 @@ class UploadSignedCopy
     }
 
     public function uploadFile($file)
-    { 
+    {
         $now = \Carbon\Carbon::now();
         $timestamp = \Carbon\Carbon::parse($now)->timestamp;
 

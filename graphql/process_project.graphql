@@ -51,6 +51,14 @@ extend type Mutation {
     ): Project
     @field(resolver:"UploadSignedCopy")
     @guard(with:["api"])
+
+    endorseProject(
+        id: ID!
+        signed_copy: Upload
+        remarks: String
+    ): Project
+    @field(resolver: "UploadSignedCopy")
+    @guard(with:["api"])
 }
 
 type Query {
