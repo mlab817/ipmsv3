@@ -12,9 +12,17 @@ use App\Notifications\ProjectDeleted;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class ProjectObserver
 {
+    protected $request;
+
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
+
     public function creating(Project $project)
     {
         $project->processed_by = auth()->user()->id;
@@ -54,7 +62,7 @@ class ProjectObserver
       $project->increment('version');
 
       // if project is finalized set processing status id to finalized
-      if ($project->finalized) {
+      if ($this->request['finalized']) {
         $processing_status = ProcessingStatus::where('name','finalized')->first();
         $project->processing_status_id = $processing_status->id;
       }
