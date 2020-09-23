@@ -8,13 +8,6 @@ extend type Mutation {
     @field(resolver:"ProcessProjectMutation")
     @guard(with:["api"])
 
-  # validateProject(
-  #   project_id: ID!
-  #   remarks: String
-  # ): Project
-  #   @field(resolver:"ValidateProjectMutation")
-  #   @guard(with:"api")
-
   validateProject(
     id: ID!
     validation_data: Boolean

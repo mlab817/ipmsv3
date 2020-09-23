@@ -52,6 +52,13 @@ class ProjectObserver
     public function updating(Project $project)
     {
       $project->increment('version');
+      
+      // if project is finalized set processing status id to finalized
+      if ($project->finalized) {
+        $processing_status = ProcessingStatus::where('name','finalized');
+        $project->processing_status_id = $processing_status->id;
+      }
+
       $project->updated_by = auth()->user()->id;
     }
 
