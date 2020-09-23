@@ -163,6 +163,7 @@ input UpdateProjectInput {
   regions: UpdateProjectRegions
   funding_sources: UpdateProjectFundingSources
   version: Int
+  finalized: Boolean
 }
 
 input UpdateTechnicalReadinessesInput {
