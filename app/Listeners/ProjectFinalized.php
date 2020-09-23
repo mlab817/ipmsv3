@@ -30,7 +30,7 @@ class ProjectFinalized
     {
         $project = $event->project;
 
-//        $processing_status = ProcessingStatus::find($project->processing_status_id);
+        $processing_status = ProcessingStatus::where('name','finalized')->first();
 
         // Log::info(json_encode($event));
         // $processing_status = ProcessingStatus::where('name','finalized')->first();
