@@ -34,8 +34,8 @@ class ProjectUpdated
         $processing_status = ProcessingStatus::where('name','updated')->first();
 
         $project = Project::find($event->project->id);
-        $project->processing_status_id = $processing_status->id;
-        $project->save();
+        // $project->processing_status_id = $processing_status->id;
+        // $project->save();
 
         // update version
         // $project->increment('version');
