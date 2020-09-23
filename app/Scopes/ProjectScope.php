@@ -51,6 +51,7 @@ class ProjectScope implements Scope
                   $builder->where('operating_unit_id',$user->operating_unit_id)
                     ->orWhere('created_by',$user->id);
                 } else {
+                  // if user is not assigned an operating unit
                   $builder->where('created_by',$user->id);
                 }
                 

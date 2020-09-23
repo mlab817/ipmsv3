@@ -13,12 +13,11 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
-use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Project extends Model
 {
-    use SoftDeletes, LogsActivity, VersionableTrait;
+    use SoftDeletes, LogsActivity;
 
     protected static $logFillable = true;
 
