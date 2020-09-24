@@ -5,7 +5,6 @@ namespace App\GraphQL\Directives;
 use Nuwave\Lighthouse\Support\Contracts\ArgTransformerDirective;
 use Nuwave\Lighthouse\Schema\Directives\BaseDirective;
 
-
 class UrlDirective extends BaseDirective implements ArgTransformerDirective
 {
     /**

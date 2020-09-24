@@ -6,17 +6,17 @@ use App\Events\ProjectFinalized;
 use App\Events\ProjectProcessed;
 use App\Events\ProjectUpdated;
 use App\Events\ProjectCreatedEvent;
+use App\Events\RoleChanged;
 use App\Listeners\AssignDefaultRole;
-use App\Listeners\CreateUserAvatar;
+use App\Listeners\LogLoginEvent;
+use App\Listeners\SendRoleChangedNotification;
 use App\Listeners\RecordProcessingEvent;
 use App\Listeners\ProjectUpdated as ProjectUpdatedListener;
 use App\Listeners\SendCompleteUserProfileNotification;
 use App\Listeners\SendProjectCreatedNotification;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -27,7 +27,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         Login::class => [
-            'App\Listeners\LogLoginEvent'
+            LogLoginEvent::class
         ],
         Registered::class => [
             // CreateUserAvatar::class,
@@ -37,8 +37,8 @@ class EventServiceProvider extends ServiceProvider
         ProjectCreatedEvent::class => [
           SendProjectCreatedNotification::class
         ],
-        'App\Events\RoleChanged' => [
-            'App\Listeners\SendRoleChangedNotification'
+        RoleChanged::class => [
+            SendRoleChangedNotification::class
         ],
         ProjectProcessed::class => [
             RecordProcessingEvent::class

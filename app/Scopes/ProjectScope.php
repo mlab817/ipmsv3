@@ -20,6 +20,7 @@ class ProjectScope implements Scope
         // get the currently authenticated user
         $user = auth()->user();
 
+        // if there is no user, return no projects
         if (!$user) {
             $builder->where('id',null);
         }
@@ -30,12 +31,6 @@ class ProjectScope implements Scope
                 // Do not return any project
                 $builder->where('id',null);
             }
-
-            //    Check if user is superadmin or admin
-            //if ($user->role_id == 1 || $user->role_id == 2) {
-               // Do not return any project
-             //  $builder->where('id',null);
-            // }
 
             // Check if user is reviewer
             if ($user->role->name == 'reviewer') {
@@ -54,15 +49,16 @@ class ProjectScope implements Scope
                   // if user is not assigned an operating unit
                   $builder->where('created_by',$user->id);
                 }
-                
             }
 
+            // if user is viewer
             if ($user->role->name == 'viewer') {
+                // get agencies which the user can view
                 $reviews = $user->views;
                 // get all projects that can be viewed by user and status is endorsed
                 $builder->whereIn('operating_unit_id',$reviews);
             }
-            
+
         }
     }
 }

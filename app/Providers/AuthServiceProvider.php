@@ -16,7 +16,6 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
         Project::class => ProjectPolicy::class
     ];
 
@@ -29,6 +28,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        // register Laravel Passport
         Passport::routes();
     }
 }

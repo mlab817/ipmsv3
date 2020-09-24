@@ -10,11 +10,12 @@ input RefreshTokenInput {
 type User {
     id: ID!
     name: String!
+    nickname: String
     email: String!
     verified: Boolean!
     role_id: ID
     role: Role @belongsTo
-    projects: [Project] @hasMany(type:"paginator") @guard(with:"api") 
+    projects: [Project] @hasMany(type:"paginator") @guard(with:"api")
     image_url: String
     contact_number: String
     position: String
@@ -36,7 +37,6 @@ type User {
     tokens: [Token]
     token: Token
     setting: Setting @hasOne
-    nickname: String
 }
 
 type Token {

@@ -42,7 +42,6 @@ type Subscription
 #import district.graphql
 #import contact.graphql
 #import processing_status.graphql
-#import processing.graphql
 #import year.graphql
 #import resource.graphql
 #import city_municipality.graphql
