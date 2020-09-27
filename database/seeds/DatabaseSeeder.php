@@ -53,5 +53,9 @@ class DatabaseSeeder extends Seeder
         $this->call(FsStatusesTableSeeder::class);
         // $this->call(VersionsTableSeeder::class);
         $this->call(AttachmentTypesTableSeeder::class);
+        /**
+         * New in v2
+         */
+        $this->call(PermissionsTableSeeder::class);
     }
 }

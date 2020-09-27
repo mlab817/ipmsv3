@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Scopes\ProjectScope;
+use App\Observers\ProjectObserver;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -27,8 +28,11 @@ class Project extends Model
 
     protected static $submitEmptyLogs = false;
 
-    // Limit old versions to 10
-    protected $keepOldVersions = 10;
+    protected $observables = [
+        'finalized',
+        'endorsed',
+        'reviewed'
+    ];
 
     public function getDescriptionForEvent(string $eventName): string
     {
@@ -106,7 +110,7 @@ class Project extends Model
 
       $role = auth()->user() ? auth()->user()->role->name : '';
 
-      if (!($role == 'lead' || $role == 'chief')) {
+      if (!($role === 'lead' || $role === 'chief')) {
         static::addGlobalScope(new ProjectScope);
       }
     }
