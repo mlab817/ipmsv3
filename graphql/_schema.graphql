@@ -67,5 +67,6 @@ type Subscription
 #import attachment.graphql
 #import accept_project.graphql
 #import setting.graphql
+#import permission.graphql
 
 #import upload.graphql

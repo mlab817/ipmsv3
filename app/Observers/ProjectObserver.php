@@ -79,4 +79,19 @@ class ProjectObserver
     {
       // In case you want to write some information on who permanently deleted a model.
     }
+
+    public function finalized(Project $project)
+    {
+        //
+    }
+
+    public function endorsed(Project $project)
+    {
+        //
+    }
+
+    public function reviewed(Project $project)
+    {
+        //
+    }
 }

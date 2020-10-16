@@ -13,9 +13,8 @@ use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 class UploadSignedCopy
 {
     /**
-     * @param null $_
      * @param array<string, mixed> $args
-     * @return |null
+     * @return App\Models\Project | null
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
@@ -39,6 +38,8 @@ class UploadSignedCopy
         $project->signed_copy = $uploadedFile;
         $project->endorsed = true;
         $project->save();
+
+        $project->fireModelEvent('endorsed', false);
 
         ProjectProcessingStatus::create([
             'project_id' => $args['id'],
