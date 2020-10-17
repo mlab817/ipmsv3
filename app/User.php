@@ -190,7 +190,6 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->avatar ? Storage::get($this->avatar) : null;
     }
 
-
     /**
      * Send the password reset notification.
      *

@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('unit')->nullable();
             $table->string('position')->nullable();
             $table->unsignedBigInteger('image_id')->nullable();
+            $table->text('avatar')->nullable();
             $table->string('contact_number')->nullable();
 
             $table->rememberToken();
