@@ -23,34 +23,10 @@ class UploadUserAvatarMutation
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
         // TODO implement the resolver
-        $userId = $context->user->id;
-
-        $file = $args['image'];
-
-        $uploadedFile = Storage::disk('dropbox')->putFile('user_' . $userId.'/avatars', $file);
-
-        $link = Storage::disk('dropbox')
-          ->getDriver() // `\League\Flysystem\Flysystem` instance
-          ->getAdapter() // `\Spatie\FlysystemDropbox\DropboxAdapter` instance
-          ->getClient() // `\Spatie\Dropbox\Client` instance
-          ->createSharedLinkWithSettings($uploadedFile);
-        $url = $link['url'];
-        $rawUrl = Str::replaceLast("dl=0","raw=1",$url);
-
-        $image = Image::create([
-            'name' => $file->getClientOriginalName(),
-            'type' => 'avatars',
-            'mime_type' => $file->getClientMimeType(),
-            'extension' => $file->getClientOriginalExtension(),
-            'size' => $file->getSize(),
-            'dropbox_path' => $uploadedFile,
-            'dropbox_link' => $rawUrl,
-            'uploader_id' => $userId,
-        ]);
+        $path = Storage::putFile('avatars', $args['image'], 'public');
 
         $user = $context->user();
-
-        $user->image_id = $image->id;
+        $user->avatar = $path;
         $user->save();
 
         return $user;
