@@ -25,6 +25,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Joselfonseca\LighthouseGraphQLPassport\HasLoggedInTokens;
 use Joselfonseca\LighthouseGraphQLPassport\MustVerifyEmailGraphQL;
 use Laravel\Passport\HasApiTokens;
@@ -183,6 +184,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
       return $query->where('role_id',4); // 4 is encoder
     }
+
+    public function getAvatarAttribute()
+    {
+        return $this->avatar ? Storage::get($this->avatar) : null;
+    }
+
 
     /**
      * Send the password reset notification.
