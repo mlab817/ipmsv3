@@ -184,21 +184,6 @@ class User extends Authenticatable implements MustVerifyEmail
       return $query->where('role_id',4); // 4 is encoder
     }
 
-    public function images(): HasMany
-    {
-      return $this->hasMany(Image::class);
-    }
-
-    public function image(): BelongsTo
-    {
-      return $this->belongsTo(Image::class,'image_id','id');
-    }
-
-    public function getAvatarAttribute()
-    {
-      return $this->avatar ?? null;
-    }
-
     /**
      * Send the password reset notification.
      *
