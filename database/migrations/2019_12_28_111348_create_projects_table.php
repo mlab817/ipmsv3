@@ -64,7 +64,7 @@ class CreateProjectsTable extends Migration
             $table->boolean('has_row')->default(0)->nullable();
             $table->boolean('has_rap')->default(0)->nullable();
             $table->boolean('has_row_rap')->default(0)->nullable();
-            
+
             $table->boolean('rdc_required')->default(0)->nullable();
             $table->boolean('rdc_endorsed')->default(0)->nullable();
             $table->date('rdc_endorsed_date')->nullable();
@@ -143,6 +143,7 @@ class CreateProjectsTable extends Migration
             $table->decimal('infrastructure_target_2022',14,2)->nullable()->default(0);
             $table->decimal('infrastructure_target_2023',14,2)->nullable()->default(0);
             $table->decimal('infrastructure_target_total',14,2)->nullable()->default(0);
+            $table->string('uacs_code')->nullable();
             $table->decimal('nep_2016',14,2)->nullable()->default(0);
             $table->decimal('nep_2017',14,2)->nullable()->default(0);
             $table->decimal('nep_2018',14,2)->nullable()->default(0);
@@ -176,14 +177,40 @@ class CreateProjectsTable extends Migration
 
             $table->unsignedBigInteger("created_by")->nullable();
             $table->unsignedBigInteger("updated_by")->nullable();
-            $table->timestamps();
             $table->unsignedBigInteger('finalized_by')->nullable();
             $table->timestamp('finalized_at')->nullable();
+
+            $table->text('signed_copy')->nullable();
             $table->unsignedBigInteger('endorsed_by')->nullable();
             $table->timestamp('endorsed_at')->nullable();
+
+            $table->boolean('validation_data')->nullable();
+            $table->boolean('validation_signed')->nullable();
+            $table->boolean('validation_endorsed')->nullable();
+            $table->boolean('validated_by')->nullable();
+            $table->timestamp('validated_at')->nullable();
+
+            $table->boolean('finalized')->default(false)->nullable();
+            $table->boolean('endorsed')->nullable()->default(false);
+            $table->boolean('reviewed')->nullable()->default(false);
+            $table->boolean('approved')->nullable()->default(false);
+            $table->boolean('encoded')->nullable()->default(false);
+
             $table->unsignedBigInteger('endorsement_id')->nullable();
             $table->unsignedBigInteger("deleted_by")->nullable();
+            $table->unsignedBigInteger('version')->default(0);
+            $table->timestamps();
             $table->softDeletes();
+
+            $table->unsignedBigInteger('gad_form_id')->nullable();
+            $table->unsignedBigInteger('processing_status_id')->nullable()->default(1);
+            $table->unsignedBigInteger('processed_by')->nullable();
+
+            $table->foreign('processing_status_id')->references('id')->on('processing_statuses')->onDelete('SET NULL');
+            $table->foreign('processed_by')->references('id')->on('users')->onDelete('SET NULL');
+
+
+            $table->foreign('gad_form_id')->references('id')->on('gad_forms')->onDelete('SET NULL');
 
             $table->foreign('operating_unit_id')->references('id')->on('operating_units')->onDelete('set null');
             $table->foreign('main_funding_source_id')->references('id')->on('funding_sources')->onDelete('set null');
@@ -194,16 +221,16 @@ class CreateProjectsTable extends Migration
             $table->foreign('gad_id')->references('id')->on('gads')->onDelete('set null');
             $table->foreign('spatial_coverage_id')->references('id')->on('spatial_coverages')->onDelete('set null');
             $table->foreign('implementation_mode_id')->references('id')->on('implementation_modes')->onDelete('set null');
-            // $table->foreign('submission_status_id')->references('id')->on('submission_statuses');
+
             $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');
             $table->foreign('updated_by')->references('id')->on('users')->onDelete('set null');
             $table->foreign('endorsed_by')->references('id')->on('users')->onDelete('set null');
-//            $table->foreign('returned_by')->references('id')->on('users');
+            $table->foreign('returned_by')->references('id')->on('users');
             $table->foreign('deleted_by')->references('id')->on('users')->onDelete('set null');
-//            $table->foreign('reviewed_by')->references('id')->on('users');
-//            $table->foreign('accepted_by')->references('id')->on('users');
-//            $table->foreign('finalized_by')->references('id')->on('users');
-//            $table->foreign('validated_by')->references('id')->on('users');
+            $table->foreign('reviewed_by')->references('id')->on('users');
+            $table->foreign('accepted_by')->references('id')->on('users');
+            $table->foreign('finalized_by')->references('id')->on('users');
+            $table->foreign('validated_by')->references('id')->on('users');
             $table->foreign('endorsement_id')->references('id')->on('endorsements')->onDelete('set null');
             $table->foreign('technical_readiness_id')->references('id')->on('technical_readinesses')->onDelete('set null');
         });
