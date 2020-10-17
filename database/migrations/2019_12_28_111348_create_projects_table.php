@@ -99,9 +99,7 @@ class CreateProjectsTable extends Migration
             $table->text("implementation_risk")->nullable();
             $table->text("mitigation_strategy")->nullable();
             $table->text("income_increase")->nullable();
-            $table->unsignedBigInteger("gad_score")->nullable();
             $table->unsignedBigInteger('gad_id')->nullable();
-            $table->text('gad_checklist')->nullable();
             $table->decimal('row_target_2017',14,2)->nullable()->default(0);
             $table->decimal('row_target_2018',14,2)->nullable()->default(0);
             $table->decimal('row_target_2019',14,2)->nullable()->default(0);
@@ -202,15 +200,11 @@ class CreateProjectsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->unsignedBigInteger('gad_form_id')->nullable();
             $table->unsignedBigInteger('processing_status_id')->nullable()->default(1);
             $table->unsignedBigInteger('processed_by')->nullable();
 
             $table->foreign('processing_status_id')->references('id')->on('processing_statuses')->onDelete('SET NULL');
             $table->foreign('processed_by')->references('id')->on('users')->onDelete('SET NULL');
-
-
-            $table->foreign('gad_form_id')->references('id')->on('gad_forms')->onDelete('SET NULL');
 
             $table->foreign('operating_unit_id')->references('id')->on('operating_units')->onDelete('set null');
             $table->foreign('main_funding_source_id')->references('id')->on('funding_sources')->onDelete('set null');
@@ -225,13 +219,13 @@ class CreateProjectsTable extends Migration
             $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');
             $table->foreign('updated_by')->references('id')->on('users')->onDelete('set null');
             $table->foreign('endorsed_by')->references('id')->on('users')->onDelete('set null');
-            $table->foreign('returned_by')->references('id')->on('users');
+            // $table->foreign('returned_by')->references('id')->on('users');
             $table->foreign('deleted_by')->references('id')->on('users')->onDelete('set null');
-            $table->foreign('reviewed_by')->references('id')->on('users');
-            $table->foreign('accepted_by')->references('id')->on('users');
-            $table->foreign('finalized_by')->references('id')->on('users');
-            $table->foreign('validated_by')->references('id')->on('users');
-            $table->foreign('endorsement_id')->references('id')->on('endorsements')->onDelete('set null');
+            // $table->foreign('reviewed_by')->references('id')->on('users');
+            // $table->foreign('accepted_by')->references('id')->on('users');
+            // $table->foreign('finalized_by')->references('id')->on('users');
+            // $table->foreign('validated_by')->references('id')->on('users');
+            // $table->foreign('endorsement_id')->references('id')->on('endorsements')->onDelete('set null');
             $table->foreign('technical_readiness_id')->references('id')->on('technical_readinesses')->onDelete('set null');
         });
     }

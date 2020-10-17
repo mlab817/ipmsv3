@@ -82,16 +82,16 @@ class ProjectObserver
 
     public function finalized(Project $project)
     {
-        //
+        $project->finalized = true;
     }
 
     public function endorsed(Project $project)
     {
-        //
+        $project->endorsed = true;
     }
 
     public function reviewed(Project $project)
     {
-        //
+        $project->reviewed = true;
     }
 }

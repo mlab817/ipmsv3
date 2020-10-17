@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use Flynsarmy\CsvSeeder\CsvSeeder;
 
 class RegionsTableSeeder extends CsvSeeder
-{   
+{
     public function __construct()
     {
         $this->table = 'regions';
@@ -22,8 +22,12 @@ class RegionsTableSeeder extends CsvSeeder
         // Recommended when importing larger CSVs
         DB::disableQueryLog();
 
-        // Uncomment the below to wipe the table clean before populating
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
         DB::table($this->table)->truncate();
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        // Uncomment the below to wipe the table clean before populating
 
         parent::run();
     }
