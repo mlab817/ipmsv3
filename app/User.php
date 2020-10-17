@@ -49,7 +49,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'contact_number',
         'operating_unit_id',
         'image_id',
-        'role_id'
+        'role_id',
+        'avatar'
     ];
 
     /**
@@ -99,15 +100,15 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * The following method retrieves all projects owned by user 
-     * 
+     * The following method retrieves all projects owned by user
+     *
      * @return App\Models\Project $projects
      */
     public function projects(): HasMany
     {
       return $this->hasMany(Project::class,'created_by','id');
     }
-    
+
     public function role(): BelongsTo
     {
       return $this->belongsTo(Role::class);
@@ -195,7 +196,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getAvatarAttribute()
     {
-      return $this->image ? $this->image->dropbox_link: null;
+      return $this->avatar ?? null;
     }
 
     /**
