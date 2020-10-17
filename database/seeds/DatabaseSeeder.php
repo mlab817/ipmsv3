@@ -42,10 +42,10 @@ class DatabaseSeeder extends Seeder
         $this->call(YearsTableSeeder::class);
         $this->call(GadsTableSeeder::class);
         $this->call(CityMunicipalitiesTableSeeder::class);
-        $this->call(GadQuestionsTableSeeder::class);
-        $this->call(GadSubquestionsTableSeeder::class);
-        $this->call(GadChoicesTableSeeder::class);
-        $this->call(GadSubquestionChoiceTableSeeder::class);
+        // $this->call(GadQuestionsTableSeeder::class);
+        // $this->call(GadSubquestionsTableSeeder::class);
+        // $this->call(GadChoicesTableSeeder::class);
+        // $this->call(GadSubquestionChoiceTableSeeder::class);
         $this->call(ReadinessesTableSeeder::class);
         $this->call(CipTypesTableSeeder::class);
         $this->call(PdpChaptersTableSeeder::class);
