@@ -25,7 +25,7 @@ class ProjectObserver
 
     public function creating(Project $project)
     {
-        $project->processed_by = auth()->user()->id;
+        $project->created_by = auth()->user()->id;
         $project->finalized = false;
     }
 
