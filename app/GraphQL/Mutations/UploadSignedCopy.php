@@ -30,7 +30,7 @@ class UploadSignedCopy
         $user = $context->user();
 
         $file = $args['signed_copy'];
-        $uploadedFile = $file->storePublicly('signed copies');
+        $uploadedFile = $file->storePublicly('public/signed copies');
 //        $uploadedFile = $this->uploadFile($args['signed_copy']);
         $processing_status = ProcessingStatus::where('name','endorsed')->first();
 
