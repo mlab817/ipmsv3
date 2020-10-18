@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Events\SignedCopyUploaded;
 use App\Models\ProcessingStatus;
 use App\Models\Project;
 use App\Models\ProjectProcessingStatus;
@@ -38,7 +39,7 @@ class UploadSignedCopy
         $project->signed_copy = $uploadedFile;
         $project->save();
 
-        $project->fireModelEvent('endorsed', false);
+        event(new SignedCopyUploaded($project));
 
         return $project;
     }

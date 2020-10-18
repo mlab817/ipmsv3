@@ -7,8 +7,10 @@ use App\Events\ProjectProcessed;
 use App\Events\ProjectUpdated;
 use App\Events\ProjectCreatedEvent;
 use App\Events\RoleChanged;
+use App\Events\SignedCopyUploaded;
 use App\Listeners\AssignDefaultRole;
 use App\Listeners\LogLoginEvent;
+use App\Listeners\NotifyReviewer;
 use App\Listeners\SendRoleChangedNotification;
 use App\Listeners\RecordProcessingEvent;
 use App\Listeners\ProjectUpdated as ProjectUpdatedListener;
@@ -48,6 +50,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         ProjectFinalized::class => [
             \App\Listeners\ProjectFinalized::class
+        ],
+        SignedCopyUploaded::class => [
+            NotifyReviewer::class
         ]
     ];
 
