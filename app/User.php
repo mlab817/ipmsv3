@@ -185,7 +185,7 @@ class User extends Authenticatable implements MustVerifyEmail
       return $query->where('role_id',4); // 4 is encoder
     }
 
-    public function getAvatarAttribute()
+    public function getUserAvatarAttribute()
     {
         return $this->avatar ? Storage::get($this->avatar) : null;
     }

@@ -32,7 +32,7 @@ type User {
     project_processing_statuses: [ProjectProcessingStatus] @hasMany
     images: [Image] @hasMany
     image: Image @belongsTo
-    avatar: String
+    user_avatar: String
     project_count: Int
     tokens: [Token]
     token: Token
