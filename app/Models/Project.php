@@ -624,7 +624,7 @@ class Project extends Model
 
     public function getSignedCopyLinkAttribute()
     {
-        return $this->signed_copy ?? Storage::get($this->signed_copy);
+        return $this->signed_copy ? Storage::get($this->signed_copy) : null;
     }
 
     /**
