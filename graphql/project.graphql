@@ -278,6 +278,7 @@ type Project {
     approved: Boolean
     encoded: Boolean
     version: Int
+    signed_copy_link: String
 }
 
 type CanUpdateResponse {

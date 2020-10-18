@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -254,7 +255,7 @@ class Project extends Model
       "financial_internal_rate_return",
       "financial_net_present_value",
       "economic_benefit_cost_ratio",
-    	"economic_internal_rate_return",
+       "economic_internal_rate_return",
       "economic_net_present_value",
       "gad_form_id",
       "updates",
@@ -272,6 +273,7 @@ class Project extends Model
       'reviewed',
       'approved',
       'processing_status_id',
+      'signed_copy'
       // 'version'
     ];
 
@@ -618,6 +620,11 @@ class Project extends Model
     public function gad_form(): BelongsTo
     {
       return $this->belongsTo(GadForm::class);
+    }
+
+    public function getSignedCopyLinkAttribute()
+    {
+        return Storage::get($this->signed_copy) ?? null;
     }
 
     /**
