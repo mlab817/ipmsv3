@@ -6,7 +6,7 @@ use App\Models\OperatingUnit;
 use App\Notifications\DatabaseNotification;
 use App\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Queue\InteractsWithQueue;
 
 class NotifyReviewer
