@@ -23,7 +23,7 @@ class UploadUserAvatarMutation
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
         // TODO implement the resolver
-        $path = Storage::putFile('avatars', $args['image'], 'public');
+        $path = Storage::putFileAs('avatars', $args['image'], 'public');
 
         $user = $context->user();
         $user->avatar = $path;
