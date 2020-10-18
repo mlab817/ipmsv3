@@ -81,6 +81,13 @@ class ProjectObserver
     public function endorsed(Project $project)
     {
         $project->endorsed = true;
+
+        ProjectProcessingStatus::create([
+            'project_id' => $project->id,
+            'processing_status_id' => $project->processing_status->id,
+            'processed_by' => auth()->id,
+            'remarks' => null
+        ]);
     }
 
     public function reviewed(Project $project)

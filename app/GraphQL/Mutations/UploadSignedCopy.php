@@ -26,27 +26,19 @@ class UploadSignedCopy
             return null;
         }
 
-        $processing_status = ProcessingStatus::where('name','endorsed')->first();
-
         $user = $context->user();
 
-        // $uploadedFile = $file->storePublicly('uploads');
-        $uploadedFile = $this->uploadFile($args['signed_copy']);
+        $file = $args['signed_copy'];
+        $uploadedFile = $file->storePublicly('uploads');
+//        $uploadedFile = $this->uploadFile($args['signed_copy']);
+        $processing_status = ProcessingStatus::where('name','endorsed')->first();
 
         $project->processing_status_id = $processing_status->id;
         $project->processed_by = $user->id;
         $project->signed_copy = $uploadedFile;
-        $project->endorsed = true;
         $project->save();
 
         $project->fireModelEvent('endorsed', false);
-
-        ProjectProcessingStatus::create([
-            'project_id' => $args['id'],
-            'processing_status_id' => $processing_status->id,
-            'processed_by' => $user->id,
-            'remarks' => $args['remarks']
-        ]);
 
         return $project;
     }
