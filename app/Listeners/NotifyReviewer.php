@@ -32,7 +32,7 @@ class NotifyReviewer
         $project = $event->project;
         $ou = $project->operating_unit_id;
 
-        $reviewers = OperatingUnit::find($ou)->reviewers();
+        $reviewers = OperatingUnit::find($ou)->reviewers;
 
         $data = [
             'type' => 'ProjectEndorsed',
