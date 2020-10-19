@@ -1,21 +1,16 @@
-name: CD
-on:
-    push:
-        branches:
-            - master
-
+on: push
+name: Publish Website
 jobs:
-  deploy:
-    name: Deployment
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-
-      - name: Deployment
-        uses: appleboy/ssh-action@master
-        env:
-          HOST: ${{ secrets.SSH_HOST }}
-          KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          USERNAME: ${{ secrets.SSH_USERNAME }}
-          PATH: /public_html/dapmsipd.org/ 
-        with:
-          args: --script 'cd {PATH}' --script 'git checkout -f' --script 'git pull'
+    - uses: actions/checkout@v2.1.0
+      with:
+        fetch-depth: 2
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      with:
+        ftp-server: ftp.dapmsipd.webstarterz.com
+        ftp-username: cp125823
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
