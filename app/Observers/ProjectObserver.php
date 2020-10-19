@@ -48,6 +48,8 @@ class ProjectObserver
       $uuid = Str::uuid();
 
       $project->uuid = $uuid;
+
+      $project->slug = Str::slug($project->title . '-' . $project->id);
     }
 
     public function updating(Project $project)

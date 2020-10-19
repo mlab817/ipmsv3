@@ -117,6 +117,7 @@ class Project extends Model
     }
 
     protected $fillable = [
+      'slug',
       'pipol_id',
       'research',
       "pipol_url",
