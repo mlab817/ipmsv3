@@ -30,16 +30,18 @@ class UpdateOperatingUnitImageMutation
       } else {
         $image = $args['image'];
 
-        $uploadedFile = Storage::disk('dropbox')->put('agency_logos', $image);
-        $link = Storage::disk('dropbox')
-          ->getDriver() // `\League\Flysystem\Flysystem` instance
-          ->getAdapter() // `\Spatie\FlysystemDropbox\DropboxAdapter` instance
-          ->getClient() // `\Spatie\Dropbox\Client` instance
-          ->createSharedLinkWithSettings($uploadedFile);
-        $url = $link['url'];
-        $rawUrl = Str::replaceLast("dl=0","raw=1",$url);
+        // $uploadedFile = Storage::disk('dropbox')->put('agency_logos', $image);
+        // $link = Storage::disk('dropbox')
+        //   ->getDriver() // `\League\Flysystem\Flysystem` instance
+        //   ->getAdapter() // `\Spatie\FlysystemDropbox\DropboxAdapter` instance
+        //   ->getClient() // `\Spatie\Dropbox\Client` instance
+        //   ->createSharedLinkWithSettings($uploadedFile);
+        // $url = $link['url'];
+        // $rawUrl = Str::replaceLast("dl=0","raw=1",$url);
 
-        $operatingUnit->image = $rawUrl;
+        $path = $image->storePubliclyAs('agency_logos', $image->getClientOriginalName(), 'public');
+
+        $operatingUnit->image = $path;
         $operatingUnit->save();
 
         return $operatingUnit;

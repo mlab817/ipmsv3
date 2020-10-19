@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class OperatingUnit extends Model
 {
@@ -60,6 +61,11 @@ class OperatingUnit extends Model
     public function getCountProjectAttribute(): Int
     {
       return (int) $this->projects()->count();
+    }
+
+    public function getImageUrlAttribute()
+    {
+      return $this->image ? Storage::url($this->image) : null;
     }
 
     public function focals(): HasMany
