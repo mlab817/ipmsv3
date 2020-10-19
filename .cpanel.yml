@@ -1,4 +1,4 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/user/public_html/dapmsipd.org/
+    - export DEPLOYPATH=/home/user/public_html/dapmsipd.org/  
