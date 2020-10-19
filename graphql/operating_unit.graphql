@@ -49,24 +49,25 @@ extend type Mutation {
 }
 
 type OperatingUnit {
-  id: ID
-  name: String
-  acronym: String
-  image: String
-  address: String
-  agency_head_name: String
-  agency_head_designation: String
-  telephone_number: String
-  fax_number: String
-  email: String
-  focals: [User] @hasMany
-  operating_unit_type_id: ID
-  operating_unit_type: OperatingUnitType @belongsTo
-  projects(first: Int!, after: String): [Project!]! @hasMany(type:"connection", defaultCount:10, maxCount: 25)
-  count_project: Int @middleware(checks:["auth:api"])
-  total_investment: Float
-  reviewers: [User] @belongsToMany
-  viewers: [User] @belongsToMany
+    id: ID
+    name: String
+    acronym: String
+    image: String
+    image_url: String
+    address: String
+    agency_head_name: String
+    agency_head_designation: String
+    telephone_number: String
+    fax_number: String
+    email: String
+    focals: [User] @hasMany
+    operating_unit_type_id: ID
+    operating_unit_type: OperatingUnitType @belongsTo
+    projects(first: Int!, after: String): [Project!]! @hasMany(type:"connection", defaultCount:10, maxCount: 25)
+    count_project: Int @middleware(checks:["auth:api"])
+    total_investment: Float
+    reviewers: [User] @belongsToMany
+    viewers: [User] @belongsToMany
     investment_target_total: Float
     investment_target_2016: Float
     investment_target_2017: Float
