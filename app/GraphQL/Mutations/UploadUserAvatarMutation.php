@@ -23,9 +23,11 @@ class UploadUserAvatarMutation
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
         // TODO implement the resolver
-        $path = Storage::storePublicly('public/avatars', $args['image'], 'public');
-
         $user = $context->user();
+        $image = $args['image'];
+        $imageName = $image->getClientOriginalName();
+        $path = Storage::storePublicly('public/avatars', $args['image'], $imageName);
+        
         $user->avatar = $path;
         $user->save();
 
