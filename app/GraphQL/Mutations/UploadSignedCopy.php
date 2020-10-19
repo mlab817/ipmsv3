@@ -30,6 +30,11 @@ class UploadSignedCopy
         $user = $context->user();
 
         $file = $args['signed_copy'];
+
+        $now = \Carbon\Carbon::now();
+        $timestamp = \Carbon\Carbon::parse($now)->timestamp;
+        $file_title = Str::slug(Str::lower(substr($project->name, 60))) . '_' . $timestamp;
+
         $uploadedFile = $file->storePublicly('public/signed copies');
 //        $uploadedFile = $this->uploadFile($args['signed_copy']);
         $processing_status = ProcessingStatus::where('name','endorsed')->first();
