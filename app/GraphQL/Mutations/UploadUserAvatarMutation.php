@@ -26,7 +26,7 @@ class UploadUserAvatarMutation
         $user = $context->user();
         $image = $args['image'];
         $imageName = $image->getClientOriginalName();
-        $path = $image->storePubliclyAs('public/avatars', $imageName, 'public');
+        $path = $image->storePubliclyAs('avatars', $imageName, 'public');
         
         $user->avatar = $path;
         $user->save();
