@@ -1,0 +1,20 @@
+name: CD
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+  deploy:
+    name: Deployment
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Deployment
+        uses: appleboy/ssh-action@master
+        env:
+          HOST: ${{ secrets.SSH_HOST }}
+          KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          USERNAME: ${{ secrets.SSH_USERNAME }}
+        with:
+          args: --script 'cd {PATH}' --script 'git checkout -f' --script 'git pull'
