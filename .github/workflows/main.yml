@@ -16,5 +16,6 @@ jobs:
           HOST: ${{ secrets.SSH_HOST }}
           KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           USERNAME: ${{ secrets.SSH_USERNAME }}
+          PATH: /public_html/dapmsipd.org/ 
         with:
           args: --script 'cd {PATH}' --script 'git checkout -f' --script 'git pull'
