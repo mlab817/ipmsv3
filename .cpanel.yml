@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/user/public_html/dapmsipd.org
-    - /bin/cp -r * $DEPLOYPATH
+    - export DEPLOYPATH=/home/cp125823/public_html/dapmsipd.org/
+    - /bin/cp -R * $DEPLOYPATH
