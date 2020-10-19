@@ -33,7 +33,7 @@ class UploadSignedCopy
 
         $now = \Carbon\Carbon::now();
         $timestamp = \Carbon\Carbon::parse($now)->timestamp;
-        $file_title = $file->getClientOriginalName(). '_' . $timestamp . '.'. $file->extension();
+        $file_title = $timestamp . '_' . $file->getClientOriginalName();
 
         $uploadedFile = $file->storePubliclyAs('signed copies', $file_title, 'public');
 //        $uploadedFile = $this->uploadFile($args['signed_copy']);
