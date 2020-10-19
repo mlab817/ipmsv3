@@ -35,7 +35,7 @@ class UploadSignedCopy
         $timestamp = \Carbon\Carbon::parse($now)->timestamp;
         $file_title = Str::slug(Str::lower(substr($project->name, 60))) . '_' . $timestamp;
 
-        $uploadedFile = $file->storePublicly('signed copies', $file_title, 'public');
+        $uploadedFile = $file->storePubliclyAs('signed copies', $file_title, 'public');
 //        $uploadedFile = $this->uploadFile($args['signed_copy']);
         $processing_status = ProcessingStatus::where('name','endorsed')->first();
 
@@ -47,15 +47,5 @@ class UploadSignedCopy
         event(new SignedCopyUploaded($project));
 
         return $project;
-    }
-
-    public function uploadFile($file)
-    {
-        $now = \Carbon\Carbon::now();
-        $timestamp = \Carbon\Carbon::parse($now)->timestamp;
-
-        $uploadedFile = Storage::disk('google')->putFileAs('19tyR1DNSWdAQSkg9-yfaxheePpwDU8zA', $file, 'signed_copies' . $timestamp);
-
-        return Storage::disk('google')->url($uploadedFile);
     }
 }
