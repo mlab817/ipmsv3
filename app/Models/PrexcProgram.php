@@ -19,6 +19,11 @@ class PrexcProgram extends Model
     	return $this->hasMany(PrexcSubprogram::class);
     }
 
+    public function children(): HasMany
+    {
+    	return $this->hasMany(PrexcSubprogram::class);
+    }
+
     public function cost_structure(): BelongsTo
     {
     	return $this->belongsTo(CostStructure::class);

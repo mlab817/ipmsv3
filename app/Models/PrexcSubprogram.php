@@ -19,6 +19,11 @@ class PrexcSubprogram extends Model
     	return $this->hasMany(PrexcActivity::class);
     }
 
+    public function children(): HasMany
+    {
+    	return $this->hasMany(PrexcActivity::class);
+    }
+
     public function prexc_program(): BelongsTo
     {
     	return $this->belongsTo(PrexcProgram::class);

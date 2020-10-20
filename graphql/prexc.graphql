@@ -9,7 +9,10 @@ type CostStructure {
 	id: ID!
 	name: String
 	acronym: String
+	value: ID! @rename(attribute: "id")
+	label: String @rename(attribute: "name")
 	prexc_programs: [PrexcProgram] @hasMany
+	children: [PrexcProgram] @hasMany
 }
 
 type PrexcProgram {
@@ -17,8 +20,11 @@ type PrexcProgram {
 	name: String
 	acronym: String
 	cost_structure_id: ID
+	value: ID! @rename(attribute: "id")
+	label: String @rename(attribute: "name")
 	cost_structure: CostStructure @belongsTo
 	prexc_subprograms: [PrexcSubprogram] @hasMany
+	children: [PrexcSubprogram] @hasMany
 }
 
 type PrexcSubprogram {
@@ -26,8 +32,11 @@ type PrexcSubprogram {
 	name: String
 	acronym: String
 	prexc_program_id: ID
+	value: ID! @rename(attribute: "id")
+	label: String @rename(attribute: "name")
 	prexc_program: PrexcProgram @belongsTo
 	prexc_activities: [PrexcActivity] @hasMany
+	children: [PrexcActivity] @hasMany
 }
 
 type PrexcActivity {
@@ -36,6 +45,8 @@ type PrexcActivity {
 	acronym: String
 	uacs_code: String
 	prexc_subprogram_id: ID
+	value: ID! @rename(attribute: "id")
+	label: String @rename(attribute: "name")
 	prexc_subprogram: PrexcSubprogram @belongsTo
 	operating_units: [OperatingUnit] @belongsToMany
 }

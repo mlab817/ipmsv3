@@ -14,5 +14,10 @@ class CostStructure extends Model
     public function prexc_programs(): HasMany
     {
     	return $this->hasMany(PrexcProgram::class);
-    } 
+    }
+
+    public function children(): HasMany
+    {
+    	return $this->hasMany(PrexcProgram::class);
+    }
 }
