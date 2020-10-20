@@ -17,10 +17,10 @@ class CreatePrexcProgramsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('acronym')->nullable();
-            $table->unsignedBigInteger('prexc_cost_structure_id')->nullable();
+            $table->unsignedBigInteger('cost_structure_id')->nullable();
             $table->timestamps();
 
-            $table->foreign('prexc_cost_structure_id')->references('id')->on('prexc_cost_structures')->onDelete('cascade');
+            $table->foreign('cost_structure_id')->references('id')->on('cost_structures')->onDelete('cascade');
         });
     }
 
