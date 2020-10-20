@@ -16,6 +16,9 @@ extend type Mutation @middleware(checks:["auth:api"]) {
 
 input UpdateProjectInput {
   id: ID!
+  prexc_program_id: ID
+  prexc_subprogram_id: ID
+  prexc_activity_id: ID
   pipol_url: String
   pipol_code: String
   pip: Boolean

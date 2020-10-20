@@ -45,6 +45,12 @@ extend type Query @middleware(checks:["auth:api"]) {
 
 type Project {
     id: ID!
+    prexc_program_id: ID
+    prexc_program: PrexcProgram @belongsTo
+    prexc_subprogram_id: ID
+    prexc_subprogram: PrexcSubprogram @belongsTo
+    prexc_activity_id: ID
+    prexc_activity: PrexcActivity @belongsTo
     uuid: String
     pip: Boolean
     cip: Boolean

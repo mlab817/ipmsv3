@@ -618,6 +618,21 @@ class Project extends Model
       return $this->belongsTo(ProcessingStatus::class);
     }
 
+    public function prexc_program(): BelongsTo
+    {
+      return $this->belongsTo(PrexcProgram::class);
+    }
+    
+    public function prexc_subprogram(): BelongsTo
+    {
+      return $this->belongsTo(PrexcSubprogram::class);
+    }
+
+    public function prexc_activity(): BelongsTo
+    {
+      return $this->belongsTo(PrexcActivity::class);
+    }
+
     public function gad_form(): BelongsTo
     {
       return $this->belongsTo(GadForm::class);
