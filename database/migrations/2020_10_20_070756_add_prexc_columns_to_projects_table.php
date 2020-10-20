@@ -32,9 +32,9 @@ class AddPrexcColumnsToProjectsTable extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->dropIfExists('prexc_program_id');
-            $table->dropIfExists('prexc_subprogram_id');
-            $table->dropIfExists('prexc_activity_id');
+            $table->dropColumn('prexc_program_id');
+            $table->dropColumn('prexc_subprogram_id');
+            $table->dropColumn('prexc_activity_id');
         });
     }
 }
