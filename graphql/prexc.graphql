@@ -1,0 +1,39 @@
+extend type Query {
+	cost_structures: [CostStructure] @all
+	prexc_programs: [PrexcProgram] @all
+	prexc_subprograms: [PrexcSubprogram] @all
+	prexc_activities: [PrexcActivity] @all
+}
+
+type CostStructure {
+	id: ID!
+	name: String
+	acronym: String
+	prexc_programs: [PrexcProgram] @hasMany
+}
+
+type PrexcProgram {
+	id: ID!
+	name: String
+	acronym: String
+	cost_structure_id: ID
+	cost_structure: CostStructure @belongsTo
+	prexc_subprograms: [PrexcSubprogram] @hasMany
+}
+
+type PrexcSubprogram {
+	id: ID!
+	name: String
+	acronym: String
+	prexc_program_id: ID
+	prexc_program: PrexcProgram @belongsTo
+	prexc_activities: [PrexcActivity] @hasMany
+}
+
+type PrexcActivity {
+	id: ID!
+	name: String
+	acronym: String
+	prexc_subprogram_id: ID
+	prexc_subprogram: PrexcSubprogram @belongsTo
+}
