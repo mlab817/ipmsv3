@@ -1,0 +1,54 @@
+﻿acronym,name,id,prexc_subprogram_id
+General Management and Supervision,General Management and Supervision,1,1
+Administration of Personnel Benefits,Administration of Personnel Benefits,2,1
+Planning and Policy formulation for soil and water resources conservation management and development,Planning and Policy formulation for soil and water resources conservation management and development,3,2
+Coordination of agricultural research,Coordination of agricultural research,4,2
+Information and communication technology (ICT) management support,Information and communication technology (ICT) management support,5,2
+Public information services,Public information services,6,2
+"Development of organizational policies, plans, and procedures","Development of organizational policies, plans, and procedures",7,2
+Agribusiness and marketing services,Agribusiness and marketing services,8,2
+International affairs coordination and liaisoning,International affairs coordination and liaisoning,9,2
+Monitoring and evaluation for the assistance to municipalities' projects,Monitoring and evaluation for the assistance to municipalities' projects,10,2
+Operations and maintenance of integrated laboratories,Operations and maintenance of integrated laboratories,11,2
+Field Program Management Activities,Field Program Management Activities,12,2
+Disaster Risk Reduction and Management for Agriculture and Fiheries Fund ,Disaster Risk Reduction and Management for Agriculture and Fiheries Fund ,13,2
+PSS_Rice,PSS_Rice,14,3
+PSS_Corn,PSS_Corn,15,3
+PSS_HVCD,PSS_HVCD,16,3
+PSS_Livestock,PSS_Livestock,17,3
+PSS_Organic,PSS_Organic,18,3
+Other_PSS_activities,Other_PSS_activities,19,3
+MDS_Rice,MDS_Rice,20,4
+MDS_Corn,MDS_Corn,21,4
+MDS_HVCD,MDS_HVCD,22,4
+MDS_Livestock,MDS_Livestock,23,4
+MDS_Organic,MDS_Organic,24,4
+Other_MDS_activities,Other_MDS_activities,25,4
+ESETS_Rice,ESETS_Rice,26,5
+ESETS_Corn,ESETS_Corn,27,5
+ESETS_HVCD,ESETS_HVCD,28,5
+ESETS_Livestock,ESETS_Livestock,29,5
+ESETS_Organic,ESETS_Organic,30,5
+ESETS_HALAL,ESETS_HALAL,31,5
+Other_ESETS_activities,Other_ESETS_activities,32,5
+Malitubog_Maridagao_II,Malitubog_Maridagao_II,33,5
+RnD_Rice,RnD_Rice,34,6
+RnD_Corn,RnD_Corn,35,6
+RnD_HVCD,RnD_HVCD,36,6
+RnD_Livestock,RnD_Livestock,37,6
+RnD_Organic,RnD_Organic,38,6
+Other_RnD_activities,Other_RnD_activities,39,6
+AMEFSS_Rice,AMEFSS_Rice,40,7
+AMEFSS_Corn,AMEFSS_Corn,41,7
+AMEFSS_HVCD,AMEFSS_HVCD,42,7
+AMEFSS_Livestock,AMEFSS_Livestock,43,7
+AMEFSS_Organic,AMEFSS_Organic,44,7
+INS_Rice,INS_Rice,45,8
+INS_Corn,INS_Corn,46,8
+INS_HVCD,INS_HVCD,47,8
+INS_Organic,INS_Organic,48,8
+Various_Water_Resources_Projects,Various_Water_Resources_Projects,49,8
+FMR_network_planning_and_monitoring_services,FMR_network_planning_and_monitoring_services,50,9
+Repair_Rehab_and_construction_of_FMRs,Repair_Rehab_and_construction_of_FMRs,51,9
+Formulation_monitoring_and_evaluation_of_agricultural_and_fishery_policies_plans_and_programs,Formulation_monitoring_and_evaluation_of_agricultural_and_fishery_policies_plans_and_programs,52,10
+Regulatory_Activities_NoBreakdown,Regulatory_Activities_NoBreakdown,53,11

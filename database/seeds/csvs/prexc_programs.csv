@@ -1,0 +1,8 @@
+﻿acronym,name,id,cost_structure_id
+GAS,General Administration and Support,1,1
+STO,Support to Operations,2,2
+TSS,Technical and Support Services,3,3
+AMEFI,"Agricultural Machinery, Equipment, Facilities and Infrastructures",4,3
+Policy,Agriculture and Fishery Policy Program,5,3
+Regulatory,Agriculture and Fishery Regulatory Support,6,3
+Projects,Foreign assisted and locally funded program,7,3

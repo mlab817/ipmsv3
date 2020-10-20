@@ -1,0 +1,14 @@
+﻿name,acronym,id,prexc_program_id
+General Administration and Support,General Administration and Support,1,1
+Support to Operations,Support to Operations,2,2
+Production Support Services,Production Support Services,3,3
+Market Development Services,Market Development Services,4,3
+"Extension Support, Education and Training Services","Extension Support, Education and Training Services",5,3
+Research and Development,Research and Development,6,3
+"Agricultural Machinery, Equipment, and Facilities Support Services","Agricultural Machinery, Equipment, and Facilities Support Services",7,4
+Irrigation Network Services,Irrigation Network Services,8,4
+Farm-to-Market Roads,Farm-to-Market Roads,9,4
+"Formulation, monitoring and evaluation of agricultural and fishery policies, plans and programs","Formulation, monitoring and evaluation of agricultural and fishery policies, plans and programs",10,5
+Agriculture and Fishery Regulatory Support,Agriculture and Fishery Regulatory Support,11,6
+Locally-funded projects,Locally-funded projects,12,7
+Foreign-assisted projects,Foreign-assisted projects,13,7
