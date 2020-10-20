@@ -57,5 +57,10 @@ class DatabaseSeeder extends Seeder
          * New in v2
          */
         $this->call(PermissionsTableSeeder::class);
+
+        $this->call(CostStructuresTableSeeder::class);
+        $this->call(PrexcProgramsTableSeeder::class);
+        $this->call(PrexcSubprogramsTableSeeder::class);
+        $this->call(PrexcActivitiesTableSeeder::class);
     }
 }
