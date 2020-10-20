@@ -26,7 +26,7 @@ class AddUacsCodeColumnToPrexcActivitiesTable extends Migration
     public function down()
     {
         Schema::table('prexc_activities', function (Blueprint $table) {
-            $table->dropIfExists('uacs_code');
+            $table->dropColumn('uacs_code');
         });
     }
 }
