@@ -11,7 +11,8 @@ class PrexcActivity extends Model
     protected $fillable = [
     	'name',
     	'acronym',
-    	'prexc_subprogram_id'
+    	'prexc_subprogram_id',
+    	'uacs_code'
     ];
 
     public function prexc_subprogram(): BelongsTo
