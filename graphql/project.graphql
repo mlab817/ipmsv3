@@ -54,6 +54,7 @@ type Project {
     afmip: Boolean
     infrastructure: Boolean
     title: String!
+    slug: String
     operating_unit: OperatingUnit @belongsTo
     main_funding_source_id: ID
     main_funding_source: FundingSource @belongsTo
