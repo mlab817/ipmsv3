@@ -36,4 +36,5 @@ type PrexcActivity {
 	acronym: String
 	prexc_subprogram_id: ID
 	prexc_subprogram: PrexcSubprogram @belongsTo
+	operating_units: [OperatingUnit] @belongsToMany
 }

@@ -122,4 +122,9 @@ class OperatingUnit extends Model
     {
         return $this->projects()->sum('investment_target_2023') ?? 0; // showing 0 only
     }
+
+    public function prexc_activities(): BelongsToMany
+    {
+        return $this->belongsToMany(PrexcActivity::class,'operating_unit_prexc_activity','operating_unit_id','prexc_activity_id','id','id');
+    }
 }
