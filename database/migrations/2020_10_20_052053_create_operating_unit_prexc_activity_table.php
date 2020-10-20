@@ -38,7 +38,7 @@ class CreateOperatingUnitPrexcActivityTable extends Migration
 
             $table->foreign('operating_unit_id')->references('id')->on('operating_units')->onDelete('cascade');
             $table->foreign('prexc_activity_id')->references('id')->on('prexc_activities')->onDelete('cascade');
-            $table->unique(['operating_unit_id','prexc_activity_id']);
+            $table->unique(['operating_unit_id','prexc_activity_id'], 'ou_pa_index');
         });
     }
 
