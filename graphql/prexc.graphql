@@ -9,9 +9,9 @@ extend type Query {
 }
 
 extend type Mutation {
-	createPrexcSubprogram(input: CreatePrexcProgramInput! @spread): PrexcProgram @create
-	updatePrexcSubprogram(input: UpdatePrexcProgramInput! @spread): PrexcProgram @update
-	deletePrexcSubprogram(id: ID!): PrexcProgram @delete
+	createPrexcProgram(input: CreatePrexcProgramInput! @spread): PrexcProgram @create
+	updatePrexcProgram(input: UpdatePrexcProgramInput! @spread): PrexcProgram @update
+	deletePrexcProgram(id: ID!): PrexcProgram @delete
 
 	createPrexcSubprogram(input: CreatePrexcSubprogramInput! @spread): PrexcSubprogram @create
 	updatePrexcSubprogram(input: UpdatePrexcSubprogramInput! @spread): PrexcSubprogram @update
@@ -26,7 +26,7 @@ input CreatePrexcProgramInput {
 	name: String!
 	acronym: String!
 	uacs_code: String
-	cost_structure: CostStructure
+	cost_structure_id: ID
 	title: String
 	organizational_outcome: String
 	objective_statement: String
@@ -38,7 +38,7 @@ input UpdatePrexcProgramInput {
 	name: String!
 	acronym: String!
 	uacs_code: String
-	cost_structure: CostStructure
+	cost_structure_id: ID
 	title: String
 	organizational_outcome: String
 	objective_statement: String
