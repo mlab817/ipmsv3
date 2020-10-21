@@ -1,8 +1,67 @@
 extend type Query {
 	cost_structures: [CostStructure] @all
 	prexc_programs: [PrexcProgram] @all
+	prexc_program(id: ID! @eq): PrexcProgram @find
 	prexc_subprograms: [PrexcSubprogram] @all
+	prexc_subprogram(id: ID! @eq): PrexcSubprogram @find
 	prexc_activities: [PrexcActivity] @all
+	prexc_activity(id: ID! @eq): PrexcActivity @find
+}
+
+extend type Mutation {
+	createPrexcSubprogram(input: CreatePrexcProgramInput! @spread): PrexcProgram @create
+	updatePrexcSubprogram(input: UpdatePrexcProgramInput! @spread): PrexcProgram @update
+	deletePrexcSubprogram(id: ID!): PrexcProgram @delete
+
+	createPrexcSubprogram(input: CreatePrexcSubprogramInput! @spread): PrexcSubprogram @create
+	updatePrexcSubprogram(input: UpdatePrexcSubprogramInput! @spread): PrexcSubprogram @update
+	deletePrexcSubprogram(id: ID!): PrexcSubprogram @delete
+}
+
+input CreatePrexcProgramInput {
+	name: String!
+	acronym: String!
+	prexc_program_id: ID!
+	title: String
+	organizational_outcome: String
+	objective_statement: String
+	program_strategy: String
+}
+
+input UpdatePrexcProgramInput {
+	id: ID!
+	name: String!
+	acronym: String!
+	prexc_program_id: ID!
+	title: String
+	organizational_outcome: String
+	objective_statement: String
+	program_strategy: String
+}
+
+input CreatePrexcSubprogramInput {
+	name: String!
+	acronym: String!
+	prexc_program_id: ID!
+	title: String
+	organizational_outcome: String
+	objective_statement: String
+	program_strategy: String
+	outcome_indicators: String
+	output_indicators: String
+}
+
+input UpdatePrexcSubprogramInput {
+	id: ID!
+	name: String
+	acronym: String
+	prexc_program_id: ID
+	title: String
+	organizational_outcome: String
+	objective_statement: String
+	program_strategy: String
+	outcome_indicators: String
+	output_indicators: String
 }
 
 type CostStructure {

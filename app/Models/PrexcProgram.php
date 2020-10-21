@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class PrexcProgram extends Model
 {
@@ -31,5 +32,10 @@ class PrexcProgram extends Model
     public function cost_structure(): BelongsTo
     {
     	return $this->belongsTo(CostStructure::class);
+    }
+
+    public function operating_units(): BelongsToMany
+    {
+      return $this->belongsToMany(OperatingUnit::class);
     }
 }

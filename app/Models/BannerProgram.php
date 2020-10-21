@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class BannerProgram extends Model
 {
-    //
+    protected $fillable = [
+      'name',
+      'acronym'
+    ];
 }
