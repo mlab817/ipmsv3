@@ -329,8 +329,7 @@ class Project extends Model
 
     public function funding_sources(): BelongsToMany
     {
-      return $this->belongsToMany(FundingSource::class,'project_funding_source')
-        ->withPivot('target_2016','target_2017','target_2018','target_2019','target_2020','target_2021','target_2022','target_2023','target_total');
+      return $this->belongsToMany(FundingSource::class,'project_funding_source');
     }
 
     public function implementation_mode(): BelongsTo
@@ -551,8 +550,7 @@ class Project extends Model
 
     public function regions(): BelongsToMany
     {
-      return $this->belongsToMany(Region::class,'project_region')
-        ->withPivot('target_2016','target_2017','target_2018','target_2019','target_2020','target_2021','target_2022','target_2023','target_total');
+      return $this->belongsToMany(Region::class,'project_region');
     }
 
     public function review(): HasOne
@@ -622,7 +620,7 @@ class Project extends Model
     {
       return $this->belongsTo(PrexcProgram::class);
     }
-    
+
     public function prexc_subprogram(): BelongsTo
     {
       return $this->belongsTo(PrexcSubprogram::class);
