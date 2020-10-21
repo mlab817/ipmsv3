@@ -41,4 +41,9 @@ class PrexcSubprogram extends Model
     {
       return $this->belongsToMany(OperatingUnit::class);
     }
+
+    public function getLabelAttribute()
+    {
+      return $this->uacs_code . '_'. $this->name;
+    }
 }

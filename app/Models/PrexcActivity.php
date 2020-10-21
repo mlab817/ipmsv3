@@ -24,4 +24,9 @@ class PrexcActivity extends Model
     {
     	return $this->belongsToMany(OperatingUnit::class,'operating_unit_prexc_activity','prexc_activity_id','operating_unit_id','id','id');
     }
+
+    public function getLabelAttribute()
+    {
+      return $this->uacs_code . '_'. $this->name;
+    }
 }
