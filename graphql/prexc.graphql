@@ -20,6 +20,8 @@ extend type Mutation {
 	createPrexcActivity(input: CreatePrexcActivityInput! @spread): PrexcActivity @create
 	updatePrexcActivity(input: UpdatePrexcActivityInput! @spread): PrexcActivity @update
 	deletePrexcActivity(id: ID!): PrexcActivity @delete
+
+	assignActivityToOus(id: ID!, operating_units: [ID]): PrexcActivity @field(resolver: "AssignActivityToOus")
 }
 
 input CreatePrexcProgramInput {
