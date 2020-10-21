@@ -12,7 +12,7 @@ class PrexcActivity extends Model
     	'name',
     	'acronym',
     	'prexc_subprogram_id',
-    	'uacs_code'
+    	'uacs_code',
     ];
 
     public function prexc_subprogram(): BelongsTo

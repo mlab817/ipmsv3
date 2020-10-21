@@ -11,7 +11,13 @@ class PrexcSubprogram extends Model
     protected $fillable = [
     	'name',
     	'acronym',
-    	'prexc_program_id'
+    	'prexc_program_id',
+      'title',
+      'organizational_outcome',
+      'objective_statement',
+      'program_strategy',
+      'outcome_indicators',
+      'output_indicators',
     ];
 
     public function prexc_activities(): HasMany
