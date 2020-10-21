@@ -26,7 +26,7 @@ class AddUacsCodeColumnToPrexcSubprogramsTable extends Migration
     public function down()
     {
         Schema::table('prexc_subprograms', function (Blueprint $table) {
-            $table->string('uacs_code')->nullable()->after('acronym');
+            $table->dropColumn('uacs_code');
         });
     }
 }
