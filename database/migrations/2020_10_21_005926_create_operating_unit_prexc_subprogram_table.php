@@ -20,7 +20,7 @@ class CreateOperatingUnitPrexcSubprogramTable extends Migration
 
           $table->foreign('operating_unit_id')->references('id')->on('operating_units')->onDelete('cascade');
           $table->foreign('prexc_subprogram_id')->references('id')->on('prexc_subprograms')->onDelete('cascade');
-          $table->unique(['operating_unit_id','prexc_program_id'],'ou_pp_index');
+          $table->unique(['operating_unit_id','prexc_subprogram_id'],'ou_pp_index');
         });
     }
 
