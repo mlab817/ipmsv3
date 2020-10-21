@@ -12,6 +12,7 @@ class PrexcProgram extends Model
     protected $fillable = [
     	'name',
     	'acronym',
+      'uacs_code',
     	'cost_structure_id',
       'title',
       'organizational_outcome',

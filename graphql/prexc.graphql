@@ -16,11 +16,16 @@ extend type Mutation {
 	createPrexcSubprogram(input: CreatePrexcSubprogramInput! @spread): PrexcSubprogram @create
 	updatePrexcSubprogram(input: UpdatePrexcSubprogramInput! @spread): PrexcSubprogram @update
 	deletePrexcSubprogram(id: ID!): PrexcSubprogram @delete
+
+	createPrexcActivity(input: CreatePrexcActivityInput! @spread): PrexcActivity @create
+	updatePrexcActivity(input: UpdatePrexcActivityInput! @spread): PrexcActivity @update
+	deletePrexcActivity(id: ID!): PrexcActivity @delete
 }
 
 input CreatePrexcProgramInput {
 	name: String!
 	acronym: String!
+	uacs_code: String
 	prexc_program_id: ID!
 	title: String
 	organizational_outcome: String
@@ -32,6 +37,7 @@ input UpdatePrexcProgramInput {
 	id: ID!
 	name: String!
 	acronym: String!
+	uacs_code: String
 	prexc_program_id: ID!
 	title: String
 	organizational_outcome: String
@@ -42,6 +48,7 @@ input UpdatePrexcProgramInput {
 input CreatePrexcSubprogramInput {
 	name: String!
 	acronym: String!
+	uacs_code: String
 	prexc_program_id: ID!
 	title: String
 	organizational_outcome: String
@@ -55,6 +62,7 @@ input UpdatePrexcSubprogramInput {
 	id: ID!
 	name: String
 	acronym: String
+	uacs_code: String
 	prexc_program_id: ID
 	title: String
 	organizational_outcome: String
@@ -62,6 +70,21 @@ input UpdatePrexcSubprogramInput {
 	program_strategy: String
 	outcome_indicators: String
 	output_indicators: String
+}
+
+input CreatePrexcActivityInput {
+	name: String
+	acronym: String
+	prexc_subprogram_id: ID
+	uacs_code: String
+}
+
+input UpdatePrexcActivityInput {
+	id: ID!
+	name: String
+	acronym: String
+	prexc_subprogram_id: ID
+	uacs_code: String
 }
 
 type CostStructure {
@@ -78,6 +101,7 @@ type PrexcProgram {
 	id: ID!
 	name: String
 	acronym: String
+	uacs_code: String
 	cost_structure_id: ID
 	value: ID! @rename(attribute: "id")
 	label: String @rename(attribute: "name")
@@ -90,6 +114,7 @@ type PrexcSubprogram {
 	id: ID!
 	name: String
 	acronym: String
+	uacs_code: String
 	prexc_program_id: ID
 	value: ID! @rename(attribute: "id")
 	label: String @rename(attribute: "name")
