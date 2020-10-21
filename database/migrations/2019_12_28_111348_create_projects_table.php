@@ -16,6 +16,9 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('uuid')->nullable()->unique();
+            $table->unsignedBigInteger('prexc_program_id')->nullable();
+            $table->unsignedBigInteger('prexc_subprogram_id')->nullable();
+            $table->unsignedBigInteger('prexc_activity_id')->nullable();
             $table->string("pipol_url")->nullable();
             $table->unsignedBigInteger('pipol_id')->nullable();
             $table->string("pipol_code")->nullable();
@@ -25,7 +28,8 @@ class CreateProjectsTable extends Migration
             $table->boolean("afmip")->default(0);
             $table->boolean("rdip")->default(0);
             $table->boolean("pcip")->default(0);
-            $table->text("title");
+            $table->text("title")->nullable();
+            $table->text('slug')->nullable();
             $table->unsignedBigInteger("type_id")->nullable();
             $table->boolean('regular')->nullable()->default(false);
             $table->boolean('research')->nullable()->default(false);
@@ -199,6 +203,10 @@ class CreateProjectsTable extends Migration
             $table->unsignedBigInteger('version')->default(0);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('prexc_program_id')->references('id')->on('prexc_programs')->onDelete('set null');
+            $table->foreign('prexc_subprogram_id')->references('id')->on('prexc_subprograms')->onDelete('set null');
+            $table->foreign('prexc_activity_id')->references('id')->on('prexc_activities')->onDelete('set null');
 
             $table->unsignedBigInteger('processing_status_id')->nullable()->default(1);
             $table->unsignedBigInteger('processed_by')->nullable();

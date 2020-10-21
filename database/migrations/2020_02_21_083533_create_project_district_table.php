@@ -20,6 +20,7 @@ class CreateProjectDistrictTable extends Migration
 
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
+            $table->unique(['project_id','district_id'],'pd_index');
         });
     }
 

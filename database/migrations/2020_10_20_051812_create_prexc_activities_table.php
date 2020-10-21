@@ -17,6 +17,7 @@ class CreatePrexcActivitiesTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('acronym')->nullable();
+            $table->string('uacs_code')->nullable();
             $table->unsignedBigInteger('prexc_subprogram_id')->nullable();
             $table->timestamps();
 
