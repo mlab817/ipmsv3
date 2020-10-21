@@ -52,7 +52,33 @@ class AddStatusColumnsToOperatingUnitPrexcActivityTable extends Migration
     public function down()
     {
         Schema::table('operating_unit_prexc_activity', function (Blueprint $table) {
-            //
+          $table->dropColumn('gaa_2016');
+          $table->dropColumn('gaa_2017');
+          $table->dropColumn('gaa_2018');
+          $table->dropColumn('gaa_2019');
+          $table->dropColumn('gaa_2020');
+          $table->dropColumn('gaa_2021');
+          $table->dropColumn('gaa_2022');
+          $table->dropColumn('gaa_2023');
+          $table->dropColumn('gaa_total');
+          $table->dropColumn('nep_2016');
+          $table->dropColumn('nep_2017');
+          $table->dropColumn('nep_2018');
+          $table->dropColumn('nep_2019');
+          $table->dropColumn('nep_2020');
+          $table->dropColumn('nep_2021');
+          $table->dropColumn('nep_2022');
+          $table->dropColumn('nep_2023');
+          $table->dropColumn('nep_total');
+          $table->dropColumn('disbursement_2016');
+          $table->dropColumn('disbursement_2017');
+          $table->dropColumn('disbursement_2018');
+          $table->dropColumn('disbursement_2019');
+          $table->dropColumn('disbursement_2020');
+          $table->dropColumn('disbursement_2021');
+          $table->dropColumn('disbursement_2022');
+          $table->dropColumn('disbursement_2023');
+          $table->dropColumn('disbursement_total');
         });
     }
 }
