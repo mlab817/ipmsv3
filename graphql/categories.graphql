@@ -17,6 +17,9 @@ extend type Query {
   "Get all funding sources"
   funding_sources: [FundingSource] @all
 
+  "Get all GADs"
+  gads: [Gad] @all
+
   "Get all implementation modes"
   implementation_modes: [ImplementationMode] @all
 
@@ -30,7 +33,31 @@ extend type Query {
   sustainable_development_goals: [SustainableDevelopmentGoal] @all
 
   "Get all provinces"
-  provinces: [Province!]! @all
+  provinces: [Province] @all
+
+  "Get all readinesses"
+  readinesses: [Readiness] @all
+
+  "Get all spatial coverages"
+  spatial_coverages: [SpatialCoverage] @all
+
+  "Get all technical readiness"
+  technical_readinesses: [TechnicalReadiness] @all
+
+  "Get all the ten point agenda"
+  ten_point_agenda: [TenPointAgenda] @all
+
+  "Get all budget tiers"
+  tiers: [Tier!]! @all
+
+  "Get all pap types"
+  types: [Type] @all
+
+  "Get all typologies"
+  typologies: [Typology] @all
+
+  "Get all years"
+  years: [Year] @all
 }
 
 type Basis {
@@ -74,8 +101,13 @@ type FundingInstitution {
 
 type FundingSource {
   id: ID!
-  name: string
+  name: String
   projects: [Project] @belongsToMany
+}
+
+type Gad {
+	id: ID!
+	name: String
 }
 
 type ImplementationMode {
@@ -87,7 +119,7 @@ type ImplementationMode {
 type OperatingUnitType {
   id: ID
   name: String
-  operating_units: [OperatingUnit!]! @hasMany
+  operating_units: [OperatingUnit] @hasMany
 }
 
 type Paradigm {
@@ -96,11 +128,17 @@ type Paradigm {
   projects: [Project!]! @belongsToMany
 }
 
+type SpatialCoverage {
+  id: ID!
+  name: String!
+  projects: [Project] @hasMany
+}
+
 type SustainableDevelopmentGoal {
   id: ID
   name: String
   description: String
-  projects: [Project!]! @belongsToMany @guard(with:"api")
+  projects: [Project] @belongsToMany @guard(with:"api")
 }
 
 type Province {
@@ -110,4 +148,45 @@ type Province {
   region_id: ID
   region: Region @belongsTo
   projects: [Project] @belongsToMany
+}
+
+type Readiness {
+  id: ID
+  name: String
+}
+
+type TechnicalReadiness {
+  id: ID!
+  name: String!
+  projects: [Project] @belongsToMany
+}
+
+type TenPointAgenda {
+  id: ID!
+  name: String
+  projects: [Project] @belongsToMany @guard(with:"api")
+}
+
+type Tier {
+  id: ID!
+  name: String
+  projects: [Project] @hasMany @guard(with:"api")
+}
+
+type Type {
+  id: ID
+  name: String
+  projects: [Project] @hasMany @guard(with:"api")
+}
+
+type Typology {
+  id: ID!
+  name: String!
+  projects: [Project!]! @hasMany @guard(with:"api")
+}
+
+type Year {
+  id: Int!
+  name: String
+  projects: [Project] @hasMany
 }

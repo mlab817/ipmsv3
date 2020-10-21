@@ -1,9 +1,0 @@
-extend type Query {
-  years: [Year] @all
-}
-
-type Year {
-  id: Int!
-  name: String
-  projects: [Project] @hasMany
-}

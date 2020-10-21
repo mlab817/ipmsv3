@@ -103,8 +103,6 @@ type Project {
     selected_districts: [ID]
     cities_municipalities: String
     total_project_cost: Float
-    currency_id: ID
-    currency: Currency @belongsTo
     updates: String
     updates_date: String
     project_status_id: ID
@@ -252,9 +250,8 @@ type Project {
     deletedAt: String @rename(attribute:"deleted_at")
     project_processing_statuses: [ProjectProcessingStatus] @hasMany
     latest_processing_status: ProjectProcessingStatus @hasOne
-    project_gad_subquestions: [ProjectGadSubquestion] @hasMany
-    # region_financials: [RegionFinancial] @hasMany
-    # funding_source_financials: [FundingSourceFinancial] @hasMany
+    region_financials: [RegionFinancial] @hasMany
+    funding_source_financials: [FundingSourceFinancial] @hasMany
     pdp_chapters: [PdpChapter] @belongsToMany
     review: Review @hasOne
     selected_sustainable_development_goals: [ID]
@@ -263,13 +260,10 @@ type Project {
     selected_pdp_chapters: [ID]
     selected_pdp_indicators: [ID]
     pdp_indicators: [PdpIndicator] @belongsToMany
-    # latest_processing_status_name: String # not working throwing error not found created_at
     latest_processing_status: ProjectProcessingStatus
     latest_status: String
     latest_processing_status: ProjectProcessingStatus
     processing_status: ProcessingStatus @belongsTo
-    gad_form: GadForm @belongsTo
-    gad_form_id: ID
     technical_readiness_id: ID
     technical_readiness: TechnicalReadiness @belongsTo
     attachments: [Attachment] @hasMany
@@ -292,14 +286,4 @@ type CanUpdateResponse {
   userId: ID
   created_by: ID
   check: Boolean
-}
-
-type ProjectGadSubquestion {
-    id: ID!
-    project_id: ID!
-    project: Project @belongsTo
-    gad_subquestion_id: ID!
-    gad_subquestion: GadSubquestion @belongsTo
-    gad_choice_id: ID!
-    gad_choice: GadChoice @belongsTo
 }

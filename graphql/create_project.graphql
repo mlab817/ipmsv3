@@ -6,13 +6,8 @@ extend type Mutation @middleware(checks: ["auth:api"]) {
     @create
     @inject(context: "user.id", name: "created_by")
     @can(ability: "create")
-    # @broadcast(subscription: "projectCreated") # Not triggered
     @event(dispatch: "App\\Events\\ProjectProcessed")
 }
-
-# extend type Subscription {
-#   projectCreated: Project
-# }
 
 "Input to create a new project."
 input CreateProjectInput {
