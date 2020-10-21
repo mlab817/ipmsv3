@@ -15,6 +15,7 @@ type Subscription
 
 #import custom_auth.graphql
 #import activity.graphql
+#import categories.graphql
 #import user.graphql
 #import basis.graphql
 #import funding_source.graphql
@@ -32,7 +33,6 @@ type Subscription
 #import tier.graphql
 #import type.graphql
 #import typology.graphql
-#import update.graphql
 #import create_project.graphql
 #import update_project.graphql
 #import delete_project.graphql
@@ -61,7 +61,6 @@ type Subscription
 #import transfer_project.graphql
 #import search_project.graphql
 #import image.graphql
-#import gad_form.graphql
 #import version.graphql
 #import share_project.graphql
 #import attachment.graphql

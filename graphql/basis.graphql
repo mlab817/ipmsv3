@@ -1,9 +1,0 @@
-extend type Query {
-  bases: [Basis!]! @all
-}
-
-type Basis {
-  id: ID!
-  name: String!
-  projects: [Project!]! @belongsToMany @guard(with:"api")
-}
