@@ -103,6 +103,10 @@ type PrexcProgram {
 	acronym: String
 	uacs_code: String
 	cost_structure_id: ID
+	title: String
+	organizational_outcome: String
+	objective_statement: String
+	program_strategy: String
 	value: ID! @rename(attribute: "id")
 	label: String
 	cost_structure: CostStructure @belongsTo
@@ -116,6 +120,12 @@ type PrexcSubprogram {
 	acronym: String
 	uacs_code: String
 	prexc_program_id: ID
+	title: String
+	organizational_outcome: String
+	objective_statement: String
+	program_strategy: String
+	outcome_indicators: String
+	output_indicators: String
 	value: ID! @rename(attribute: "id")
 	label: String
 	prexc_program: PrexcProgram @belongsTo
