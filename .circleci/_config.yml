@@ -52,11 +52,6 @@ jobs:
           paths:
             - node_modules
 
-      - run:
-          name: Deploy Over SSH
-          command: |
-            ssh $SSH_USER@$SSH_HOST cd public_html/staging
-            ssh $SSH_USER@$SSH_HOST git pull origin staging
       # prepare the database for testing
       # - run: touch storage/testing.sqlite
       # - run: php artisan migrate --env=testing --database=sqlite_testing --force
