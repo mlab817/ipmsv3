@@ -20,6 +20,7 @@ class CreatePrexcActivitiesTable extends Migration
             $table->string('uacs_code')->nullable();
             $table->unsignedBigInteger('prexc_subprogram_id')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('prexc_subprogram_id')->references('id')->on('prexc_subprograms')->onDelete('cascade');
         });

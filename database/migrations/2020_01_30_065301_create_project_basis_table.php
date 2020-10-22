@@ -20,6 +20,7 @@ class CreateProjectBasisTable extends Migration
 
           $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
           $table->foreign('basis_id')->references('id')->on('bases')->onDelete('cascade');
+          $table->unique(['project_id','basis_id'],'pb_index');
         });
     }
 

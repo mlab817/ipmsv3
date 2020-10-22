@@ -26,6 +26,7 @@ class CreatePrexcSubprogramsTable extends Migration
             $table->text('outcome_indicators')->nullable();
             $table->text('output_indicators')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('prexc_program_id')->references('id')->on('prexc_programs')->onDelete('cascade');
         });

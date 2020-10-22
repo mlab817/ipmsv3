@@ -20,6 +20,7 @@ class CreateReviewPdpIndicatorTable extends Migration
 
             $table->foreign('review_id')->references('id')->on('reviews')->onDelete('cascade');
             $table->foreign('pdp_indicator_id')->references('id')->on('pdp_indicators')->onDelete('cascade');
+            $table->unique(['project_id','pdp_indicator_id'],'rpchi_index');
         });
     }
 

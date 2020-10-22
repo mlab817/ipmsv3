@@ -95,6 +95,9 @@ class CreateProjectsTable extends Migration
             $table->decimal('fs_target_2020',14,2)->nullable()->default(0);
             $table->decimal('fs_target_2021',14,2)->nullable()->default(0);
             $table->decimal('fs_target_2022',14,2)->nullable()->default(0);
+            $table->decimal('fs_target_2023',14,2)->nullable()->default(0);
+            $table->decimal('fs_target_2024',14,2)->nullable()->default(0);
+            $table->decimal('fs_target_2025',14,2)->nullable()->default(0);
             $table->decimal('fs_target_total',14,2)->nullable()->default(0);
             // $table->text("status_update")->nullable(); // converted to one-to-many to accommodate multiple status updates
             // $table->unsignedBigInteger("readiness_id")->nullable();
@@ -110,6 +113,9 @@ class CreateProjectsTable extends Migration
             $table->decimal('row_target_2020',14,2)->nullable()->default(0);
             $table->decimal('row_target_2021',14,2)->nullable()->default(0);
             $table->decimal('row_target_2022',14,2)->nullable()->default(0);
+            $table->decimal('row_target_2023',14,2)->nullable()->default(0);
+            $table->decimal('row_target_2024',14,2)->nullable()->default(0);
+            $table->decimal('row_target_2025',14,2)->nullable()->default(0);
             $table->decimal('row_target_total',14,2)->nullable()->default(0);
             $table->string('row_affected')->nullable();
             $table->decimal('rap_target_2017',14,2)->nullable()->default(0);
@@ -118,6 +124,9 @@ class CreateProjectsTable extends Migration
             $table->decimal('rap_target_2020',14,2)->nullable()->default(0);
             $table->decimal('rap_target_2021',14,2)->nullable()->default(0);
             $table->decimal('rap_target_2022',14,2)->nullable()->default(0);
+            $table->decimal('rap_target_2023',14,2)->nullable()->default(0);
+            $table->decimal('rap_target_2024',14,2)->nullable()->default(0);
+            $table->decimal('rap_target_2025',14,2)->nullable()->default(0);
             $table->decimal('rap_target_total',14,2)->nullable()->default(0);
             $table->string('rap_affected')->nullable();
             $table->string("estimated_project_life")->nullable();
@@ -135,6 +144,8 @@ class CreateProjectsTable extends Migration
             $table->decimal('investment_target_2021',14,2)->nullable()->default(0);
             $table->decimal('investment_target_2022',14,2)->nullable()->default(0);
             $table->decimal('investment_target_2023',14,2)->nullable()->default(0);
+            $table->decimal('investment_target_2024',14,2)->nullable()->default(0);
+            $table->decimal('investment_target_2025',14,2)->nullable()->default(0);
             $table->decimal('investment_target_total',14,2)->nullable()->default(0);
             $table->decimal('infrastructure_target_2016',14,2)->nullable()->default(0);
             $table->decimal('infrastructure_target_2017',14,2)->nullable()->default(0);
@@ -144,6 +155,8 @@ class CreateProjectsTable extends Migration
             $table->decimal('infrastructure_target_2021',14,2)->nullable()->default(0);
             $table->decimal('infrastructure_target_2022',14,2)->nullable()->default(0);
             $table->decimal('infrastructure_target_2023',14,2)->nullable()->default(0);
+            $table->decimal('infrastructure_target_2024',14,2)->nullable()->default(0);
+            $table->decimal('infrastructure_target_2025',14,2)->nullable()->default(0);
             $table->decimal('infrastructure_target_total',14,2)->nullable()->default(0);
             $table->string('uacs_code')->nullable();
             $table->decimal('nep_2016',14,2)->nullable()->default(0);
@@ -154,6 +167,8 @@ class CreateProjectsTable extends Migration
             $table->decimal('nep_2021',14,2)->nullable()->default(0);
             $table->decimal('nep_2022',14,2)->nullable()->default(0);
             $table->decimal('nep_2023',14,2)->nullable()->default(0);
+            $table->decimal('nep_2024',14,2)->nullable()->default(0);
+            $table->decimal('nep_2025',14,2)->nullable()->default(0);
             $table->decimal('nep_total',14,2)->nullable()->default(0);
             $table->decimal('gaa_2016',14,2)->nullable()->default(0);
             $table->decimal('gaa_2017',14,2)->nullable()->default(0);
@@ -163,6 +178,8 @@ class CreateProjectsTable extends Migration
             $table->decimal('gaa_2021',14,2)->nullable()->default(0);
             $table->decimal('gaa_2022',14,2)->nullable()->default(0);
             $table->decimal('gaa_2023',14,2)->nullable()->default(0);
+            $table->decimal('gaa_2024',14,2)->nullable()->default(0);
+            $table->decimal('gaa_2025',14,2)->nullable()->default(0);
             $table->decimal('gaa_total',14,2)->nullable()->default(0);
             $table->decimal('disbursement_2016',14,2)->nullable()->default(0);
             $table->decimal('disbursement_2017',14,2)->nullable()->default(0);
@@ -172,6 +189,8 @@ class CreateProjectsTable extends Migration
             $table->decimal('disbursement_2021',14,2)->nullable()->default(0);
             $table->decimal('disbursement_2022',14,2)->nullable()->default(0);
             $table->decimal('disbursement_2023',14,2)->nullable()->default(0);
+            $table->decimal('disbursement_2024',14,2)->nullable()->default(0);
+            $table->decimal('disbursement_2025',14,2)->nullable()->default(0);
             $table->decimal('disbursement_total',14,2)->nullable()->default(0);
             $table->text('image_url')->nullable();
             $table->unsignedBigInteger('technical_readiness_id')->nullable(); // equivalent of project preparation details

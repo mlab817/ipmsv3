@@ -24,6 +24,7 @@ class CreatePrexcProgramsTable extends Migration
             $table->text('objective_statement')->nullable();
             $table->text('program_strategy')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('cost_structure_id')->references('id')->on('cost_structures')->onDelete('cascade');
         });

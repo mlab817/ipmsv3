@@ -20,6 +20,7 @@ class CreateProjectSdgTable extends Migration
 
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('sdg_id')->references('id')->on('sustainable_development_goals')->onDelete('cascade');
+            $table->unique(['project_id','sdg_id'],'psdg_index');
         });
     }
 
