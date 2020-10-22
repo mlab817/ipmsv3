@@ -13,9 +13,9 @@ extend type Mutation {
 }
 
 extend type Query {
-  region_financials(project_id: ID! @eq): [RegionFinancial] @find
+  region_financials(project_id: ID! @where(operator:"=")): [RegionFinancial] @all
 
-  funding_source_financials(project_id: ID! @eq): [FundingSourceFinancial] @find
+  funding_source_financials(project_id: ID! @where(operator:"=")): [FundingSourceFinancial] @all
 }
 
 type FundingSourceFinancial {
