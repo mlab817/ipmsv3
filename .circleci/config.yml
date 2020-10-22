@@ -17,87 +17,47 @@ jobs:
       # - image: circleci/mysql:5.7-ram
       #
       # - image: redis:2.8.19
-    branches:
-      only:
-        - staging
+
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - ${fingerprint}
 
-      - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
-      - run: sudo apt-get install rsync
+      # - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
+      # - run: sudo docker-php-ext-install zip gettext
+      # - run: sudo apt-get install libwebp-dev libjpeg-dev libpng-dev libxpm-dev libfreetype6-dev libbz2-dev
+      # - run: sudo docker-php-ext-install zip intl
+      # - run: sudo docker-php-ext-configure gd --with-gd --with-webp-dir --with-jpeg-dir --with-png-dir --with-zlib-dir --with-xpm-dir --with-freetype-dir
+      # - run: sudo docker-php-ext-install gd
 
       # Download and cache dependencies
-      # - run: sudo composer self-update
-      # - restore_cache:
-      #     keys:
-      #       - v1-dependencies-{{ checksum "composer.lock" }}
-      #       # fallback to using the latest cache if no exact match is found
-      #       - v1-dependencies-
-      #
-      # - run: composer install -n --prefer-dist
-      # - save_cache:
-      #     key: v1-dependencies-{{ checksum "composer.lock" }}
-      #     paths:
-      #       - /vendor
-      #
-      # - restore_cache:
-      #     keys:
-      #       - node-v1-{{ checksum "yarn.lock" }}
-      #       - node-v1-
+      - restore_cache:
+          keys:
+            # "composer.lock" can be used if it is committed to the repo
+            - v1-dependencies-{{ checksum "composer.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run: composer install -n --prefer-dist
+
+      - save_cache:
+          key: v1-dependencies-{{ checksum "composer.json" }}
+          paths:
+            - ./vendor
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "package.json" }}
+            - node-v1-
       # - run: yarn install
-      # - save_cache:
-      #     key: node-v1-{{ checksum "yarn.lock" }}
-      #     paths:
-      #       - /node_modules
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}
+          paths:
+            - node_modules
 
-      # Adding Host key to know_hosts file
-      - run:
-          name: 'Adding Host key to know_hosts file'
-          command: ssh-keyscan -t rsa ${server} >> ~/.ssh/known_hosts
+      # prepare the database for testing
+      # - run: touch storage/testing.sqlite
+      # - run: php artisan migrate --env=testing --database=sqlite_testing --force
 
-      # Create the env file
-      # - run:
-      #     name: 'Create env file'
-      #     command: |
-      #       echo -e 'APP_NAME="Laravel"' > .env
-      #       echo -e 'APP_ENV=production' >> .env
-      #       echo -e 'APP_KEY='${APP_KEY} >> .env
-      #       echo -e 'APP_DEBUG=false' >> .env
-      #       echo -e 'LOG_CHANNEL="daily"' >> .env
-      #       echo -e 'DB_CONNECTION="mysql"' >> .env
-      #       echo -e 'DB_HOST="127.0.0.1"' >> .env
-      #       echo -e 'DB_PORT="'${DB_PORT}'"' >> .env
-      #       echo -e 'DB_DATABASE="'${DB_DATABASE}'"' >> .env
-      #       echo -e 'DB_USERNAME="'${DB_USERNAME}'"' >> .env
-      #       echo -e 'DB_PASSWORD="'${DB_PASSWORD}'"' >> .env
-      #       echo -e 'BROADCAST_DRIVER=log' >> .env
-      #       echo -e 'CACHE_DRIVER=file' >> .env
-      #       echo -e 'QUEUE_CONNECTION=sync' >> .env
-      #       echo -e 'SESSION_DRIVER=file' >> .env
-      #       echo -e 'SESSION_LIFETIME=120' >> .env
-
-      # prepare public files
-      # - run: yarn run prod
-
-      # Create rsync exclude list
-      - run:
-          name: 'Create rsync exclude list'
-          command: |
-            echo -e '.circleci' > exclude-list.txt
-            echo -e '.git' >> exclude-list.txt
-            echo -e 'node_modules' >> exclude-list.txt
-            echo -e '.editorconfig' >> exclude-list.txt
-            echo -e '.env.example' >> exclude-list.txt
-            echo -e '.gitattributes' >> exclude-list.txt
-            echo -e '.gitignore' >> exclude-list.txt
-            echo -e '.styleci.yml' >> exclude-list.txt
-            echo -e 'exclude-list.txt' >> exclude-list.txt
-
-      # Deploy
-      - deploy:
-          command: |
-            rsync -azvW --delete --exclude-from 'exclude-list.txt' ${username}@${server}:~/public_html/staging/
-            ssh -p 22 -i ~/.ssh/circleci ${username}@${server} 'cd public_html/staging/; php artisan config:cache; php artisan route:cache'
+      # run tests with phpunit or codecept
+      # activate code below to activate testing
+      # - run: ./vendor/bin/phpunit
+      # - run: ./vendor/bin/codecept build
+      # - run: ./vendor/bin/codecept run
