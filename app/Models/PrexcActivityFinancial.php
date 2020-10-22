@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class PrexcActivityFinancial extends Model
 {
     protected $fillable = [
-        'prexc_activity_id',
         'operating_unit_id',
+        'prexc_activity_id',
         'target_2016',
         'target_2017',
         'target_2018',
