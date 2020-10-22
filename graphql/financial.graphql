@@ -20,8 +20,8 @@ extend type Query {
 
 type FundingSourceFinancial {
   id: ID!
-  project_id: ID!
-  funding_source_id: ID!
+  project_id: ID!  @rules(apply: ["exists:projects"])
+  funding_source_id: ID! @rules(apply: ["exists:funding_sources"])
   target_2016: Float
   target_2017: Float
   target_2018: Float
@@ -77,8 +77,8 @@ type FundingSourceFinancial {
 # }
 
 input CreateFundingSourceFinancialInput {
-  project_id: ID!
-  funding_source_id: ID!
+  project_id: ID! @rules(apply: ["exists:projects"])
+  funding_source_id: ID! @rules(apply: ["exists:funding_sources"])
   target_2016: Float
   target_2017: Float
   target_2018: Float
@@ -128,8 +128,8 @@ input CreateFundingSourceFinancialInput {
 
 input UpdateFundingSourceFinancialInput {
   id: ID!
-  project_id: ID!
-  funding_source_id: ID!
+  project_id: ID! @rules(apply: ["exists:projects"])
+  funding_source_id: ID! @rules(apply: ["exists:regions"])
   target_2016: Float
   target_2017: Float
   target_2018: Float
@@ -179,8 +179,8 @@ input UpdateFundingSourceFinancialInput {
 
 type RegionFinancial {
   id: ID!
-  project_id: ID!
-  region_id: ID!
+  project_id: ID! @rules(apply: ["exists:projects"])
+  region_id: ID! @rules(apply: ["exists:regions"])
   target_2016: Float
   target_2017: Float
   target_2018: Float
