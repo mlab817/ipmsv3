@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class FundingSourceFinancial extends Model
 {
     protected $fillable = [
         'project_id',
-        'region_id',
+        'funding_source_id',
         'target_2016',
         'target_2017',
         'target_2018',
@@ -59,5 +60,10 @@ class FundingSourceFinancial extends Model
     public function funding_source(): BelongsTo
     {
         return $this->belongsTo(FundingSource::class);
+    }
+
+    public function project(): BelongsTo
+    {
+        return $this->belongsTo(Project::class);
     }
 }
