@@ -30,28 +30,28 @@ jobs:
       - run: sudo apt-get install rsync
 
       # Download and cache dependencies
-      - run: sudo composer self-update
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "composer.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: composer install -n --prefer-dist
-      - save_cache:
-          key: v1-dependencies-{{ checksum "composer.lock" }}
-          paths:
-            - /vendor
-
-      - restore_cache:
-          keys:
-            - node-v1-{{ checksum "yarn.lock" }}
-            - node-v1-
-      - run: yarn install
-      - save_cache:
-          key: node-v1-{{ checksum "yarn.lock" }}
-          paths:
-            - /node_modules
+      # - run: sudo composer self-update
+      # - restore_cache:
+      #     keys:
+      #       - v1-dependencies-{{ checksum "composer.lock" }}
+      #       # fallback to using the latest cache if no exact match is found
+      #       - v1-dependencies-
+      #
+      # - run: composer install -n --prefer-dist
+      # - save_cache:
+      #     key: v1-dependencies-{{ checksum "composer.lock" }}
+      #     paths:
+      #       - /vendor
+      #
+      # - restore_cache:
+      #     keys:
+      #       - node-v1-{{ checksum "yarn.lock" }}
+      #       - node-v1-
+      # - run: yarn install
+      # - save_cache:
+      #     key: node-v1-{{ checksum "yarn.lock" }}
+      #     paths:
+      #       - /node_modules
 
       # Adding Host key to know_hosts file
       - run:
@@ -100,4 +100,4 @@ jobs:
       - deploy:
           command: |
             rsync -azvW --delete --exclude-from 'exclude-list.txt' ~/crowbid/ ${username}@${server}:~/public_html/
-            ssh -p 22 -i ~/.ssh/id_rsa ${username}@${server} 'cd public_html/; composer install --optimize-autoloader --no-dev; php artisan config:cache; php artisan route:cache'
+            ssh -p 22 -i ~/.ssh/circleci ${username}@${server} 'cd public_html/; composer install --optimize-autoloader --no-dev; php artisan config:cache; php artisan route:cache'
