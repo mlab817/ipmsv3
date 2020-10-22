@@ -148,79 +148,33 @@ type PrexcActivity {
 	label: String
 	prexc_subprogram: PrexcSubprogram @belongsTo
 	operating_units: [OperatingUnit] @belongsToMany
-	pivot: OperatingUnitPrexcActivityPivot
-}
-
-type OperatingUnitPrexcActivityPivot {
-	target_2016: Float
-  target_2017: Float
-  target_2018: Float
-  target_2019: Float
-  target_2020: Float
-  target_2021: Float
-  target_2022: Float
-  target_2023: Float
-  target_total: Float
-  infrastructure_target_2016: Float
-  infrastructure_target_2017: Float
-  infrastructure_target_2018: Float
-  infrastructure_target_2019: Float
-  infrastructure_target_2020: Float
-  infrastructure_target_2021: Float
-  infrastructure_target_2022: Float
-  infrastructure_target_2023: Float
-  infrastructure_target_total: Float
-	gaa_2016: Float
-	gaa_2017: Float
-	gaa_2018: Float
-	gaa_2019: Float
-	gaa_2020: Float
-	gaa_2021: Float
-	gaa_2022: Float
-	gaa_2023: Float
-	gaa_total: Float
-	nep_2016: Float
-	nep_2017: Float
-	nep_2018: Float
-	nep_2019: Float
-	nep_2020: Float
-	nep_2021: Float
-	nep_2022: Float
-	nep_2023: Float
-	nep_total: Float
-	disbursement_2016: Float
-	disbursement_2017: Float
-	disbursement_2018: Float
-	disbursement_2019: Float
-	disbursement_2020: Float
-	disbursement_2021: Float
-	disbursement_2022: Float
-	disbursement_2023: Float
-	disbursement_total: Float
+	prexc_activity_financials: [PrexcActivityFinancial] @hasMany
 }
 
 type PrexcActivityFinancial {
 	id: ID!
+	operating_unit_id: ID
 	operating_unit: OperatingUnit @belongsTo
+	prexc_activity_id: ID
 	prexc_activity: PrexcActivity @belongsTo
 	target_2016: Float
-  target_2017: Float
-  target_2018: Float
-  target_2019: Float
-  target_2020: Float
-  target_2021: Float
-  target_2022: Float
-  target_2023: Float
-  target_total: Float
-  infrastructure_target_2016: Float
-  infrastructure_target_2017: Float
-  infrastructure_target_2018: Float
-  infrastructure_target_2019: Float
-  infrastructure_target_2020: Float
-  infrastructure_target_2021: Float
-  infrastructure_target_2022: Float
-  infrastructure_target_2023: Float
-  infrastructure_target_total: Float
+    target_2017: Float
+    target_2018: Float
+    target_2019: Float
+    target_2020: Float
+    target_2021: Float
+    target_2022: Float
+    target_2023: Float
+    target_total: Float
+    infrastructure_target_2016: Float
+    infrastructure_target_2017: Float
+    infrastructure_target_2018: Float
+    infrastructure_target_2019: Float
+    infrastructure_target_2020: Float
+    infrastructure_target_2021: Float
+    infrastructure_target_2022: Float
+    infrastructure_target_2023: Float
+    infrastructure_target_total: Float
 	gaa_2016: Float
 	gaa_2017: Float
 	gaa_2018: Float
@@ -257,26 +211,26 @@ type PrexcActivityFinancial {
 }
 
 input CreatePrexcActivityFinancialInput {
-	operating_unit: ID!
-	prexc_activity: ID!
+	operating_unit_id: ID!
+	prexc_activity_id: ID!
 	target_2016: Float
-  target_2017: Float
-  target_2018: Float
-  target_2019: Float
-  target_2020: Float
-  target_2021: Float
-  target_2022: Float
-  target_2023: Float
-  target_total: Float
-  infrastructure_target_2016: Float
-  infrastructure_target_2017: Float
-  infrastructure_target_2018: Float
-  infrastructure_target_2019: Float
-  infrastructure_target_2020: Float
-  infrastructure_target_2021: Float
-  infrastructure_target_2022: Float
-  infrastructure_target_2023: Float
-  infrastructure_target_total: Float
+    target_2017: Float
+    target_2018: Float
+    target_2019: Float
+    target_2020: Float
+    target_2021: Float
+    target_2022: Float
+    target_2023: Float
+    target_total: Float
+    infrastructure_target_2016: Float
+    infrastructure_target_2017: Float
+    infrastructure_target_2018: Float
+    infrastructure_target_2019: Float
+    infrastructure_target_2020: Float
+    infrastructure_target_2021: Float
+    infrastructure_target_2022: Float
+    infrastructure_target_2023: Float
+    infrastructure_target_total: Float
 	gaa_2016: Float
 	gaa_2017: Float
 	gaa_2018: Float
@@ -308,26 +262,26 @@ input CreatePrexcActivityFinancialInput {
 
 input UpdatePrexcActivityFinancialInput {
 	id: ID!
-	operating_unit: ID!
-	prexc_activity: ID!
+	operating_unit_id: ID!
+	prexc_activity_id: ID!
 	target_2016: Float
-  target_2017: Float
-  target_2018: Float
-  target_2019: Float
-  target_2020: Float
-  target_2021: Float
-  target_2022: Float
-  target_2023: Float
-  target_total: Float
-  infrastructure_target_2016: Float
-  infrastructure_target_2017: Float
-  infrastructure_target_2018: Float
-  infrastructure_target_2019: Float
-  infrastructure_target_2020: Float
-  infrastructure_target_2021: Float
-  infrastructure_target_2022: Float
-  infrastructure_target_2023: Float
-  infrastructure_target_total: Float
+    target_2017: Float
+    target_2018: Float
+    target_2019: Float
+    target_2020: Float
+    target_2021: Float
+    target_2022: Float
+    target_2023: Float
+    target_total: Float
+    infrastructure_target_2016: Float
+    infrastructure_target_2017: Float
+    infrastructure_target_2018: Float
+    infrastructure_target_2019: Float
+    infrastructure_target_2020: Float
+    infrastructure_target_2021: Float
+    infrastructure_target_2022: Float
+    infrastructure_target_2023: Float
+    infrastructure_target_total: Float
 	gaa_2016: Float
 	gaa_2017: Float
 	gaa_2018: Float

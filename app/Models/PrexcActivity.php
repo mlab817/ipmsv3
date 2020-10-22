@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PrexcActivity extends Model
 {
@@ -28,5 +29,10 @@ class PrexcActivity extends Model
     public function getLabelAttribute()
     {
       return $this->uacs_code . '_'. $this->name;
+    }
+
+    public function prexc_activity_financials(): HasMany
+    {
+        return $this->hasMany(PrexcActivityFinancial::class);
     }
 }

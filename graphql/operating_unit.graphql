@@ -43,7 +43,7 @@ extend type Mutation {
   ): OperatingUnit @field(resolver:"UpdateOperatingUnitImageMutation")
 
   assignReviewer(
-    input: AssignReviewerInput! @spread): AssignReviewerResponse 
+    input: AssignReviewerInput! @spread): AssignReviewerResponse
     @field(resolver: "AssignReviewer")
     @guard(with:["api"])
 }
@@ -79,6 +79,7 @@ type OperatingUnit {
     investment_target_2023: Float
     project_count: Int
     prexc_activities: [PrexcActivity] @belongsToMany
+    prexc_activity_financials: [PrexcActivityFinancial] @hasMany
 }
 
 input AssignReviewerInput {
@@ -91,4 +92,3 @@ type AssignReviewerResponse {
   message: String
   operating_unit: OperatingUnit
 }
-
