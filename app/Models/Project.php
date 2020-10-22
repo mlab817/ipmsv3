@@ -56,7 +56,9 @@ class Project extends Model
             + (float) $project->investment_target_2020
             + (float) $project->investment_target_2021
             + (float) $project->investment_target_2022
-            + (float) $project->investment_target_2023;
+            + (float) $project->investment_target_2023
+            + (float) $project->investment_target_2024
+            + (float) $project->investment_target_2025;
           $project->infrastructure_target_total = (float) $project->infrastructure_target_2016
             + (float) $project->infrastructure_target_2017
             + (float) $project->infrastructure_target_2018
@@ -64,7 +66,9 @@ class Project extends Model
             + (float) $project->infrastructure_target_2020
             + (float) $project->infrastructure_target_2021
             + (float) $project->infrastructure_target_2022
-            + (float) $project->infrastructure_target_2023;
+            + (float) $project->infrastructure_target_2023
+            + (float) $project->infrastructure_target_2024
+            + (float) $project->infrastructure_target_2025;
           $project->gaa_total = (float) $project->gaa_2016
             + (float) $project->gaa_2017
             + (float) $project->gaa_2018
@@ -72,7 +76,9 @@ class Project extends Model
             + (float) $project->gaa_2020
             + (float) $project->gaa_2021
             + (float) $project->gaa_2022
-            + (float) $project->gaa_2023;
+            + (float) $project->gaa_2023
+            + (float) $project->gaa_2024
+            + (float) $project->gaa_2025;
           $project->nep_total = (float) $project->nep_2016
             + (float) $project->nep_2017
             + (float) $project->nep_2018
@@ -80,7 +86,9 @@ class Project extends Model
             + (float) $project->nep_2020
             + (float) $project->nep_2021
             + (float) $project->nep_2022
-            + (float) $project->nep_2023;
+            + (float) $project->nep_2023
+            + (float) $project->nep_2024
+            + (float) $project->nep_2025;
           $project->disbursement_total = (float) $project->disbursement_2016
             + (float) $project->disbursement_2017
             + (float) $project->disbursement_2018
@@ -88,25 +96,36 @@ class Project extends Model
             + (float) $project->disbursement_2020
             + (float) $project->disbursement_2021
             + (float) $project->disbursement_2022
-            + (float) $project->disbursement_2023;
+            + (float) $project->disbursement_2023
+            + (float) $project->disbursement_2024
+            + (float) $project->disbursement_2025;
           $project->row_target_total = (float) $project->row_target_2017
             + (float) $project->row_target_2018
             + (float) $project->row_target_2019
             + (float) $project->row_target_2020
             + (float) $project->row_target_2021
-            + (float) $project->row_target_2022;
+            + (float) $project->row_target_2022
+            + (float) $project->row_target_2023
+            + (float) $project->row_target_2024
+            + (float) $project->row_target_2025;
           $project->rap_target_total = (float) $project->rap_target_2017
             + (float) $project->rap_target_2018
             + (float) $project->rap_target_2019
             + (float) $project->rap_target_2020
             + (float) $project->rap_target_2021
-            + (float) $project->rap_target_2022;
+            + (float) $project->rap_target_2022
+            + (float) $project->rap_target_2023
+            + (float) $project->rap_target_2024
+            + (float) $project->rap_target_2025;
           $project->fs_target_total = (float) $project->fs_target_2017
             + (float) $project->fs_target_2018
             + (float) $project->fs_target_2019
             + (float) $project->fs_target_2020
             + (float) $project->fs_target_2021
-            + (float) $project->fs_target_2022;
+            + (float) $project->fs_target_2022
+            + (float) $project->fs_target_2023
+            + (float) $project->fs_target_2024
+            + (float) $project->fs_target_2025;
       });
 
       $role = auth()->user() ? auth()->user()->role->name : '';
@@ -167,6 +186,9 @@ class Project extends Model
       'fs_target_2020',
       'fs_target_2021',
       'fs_target_2022',
+      'fs_target_2023',
+      'fs_target_2024',
+      'fs_target_2025',
       'fs_target_total',
       "description",
       'components',
@@ -195,6 +217,9 @@ class Project extends Model
       'row_target_2020',
       'row_target_2021',
       'row_target_2022',
+      'row_target_2023',
+      'row_target_2024',
+      'row_target_2025',
       'row_target_total',
       'row_affected',
       "has_rap",
@@ -204,6 +229,9 @@ class Project extends Model
       'rap_target_2020',
       'rap_target_2021',
       'rap_target_2022',
+      'rap_target_2023',
+      'rap_target_2024',
+      'rap_target_2025',
       'rap_target_total',
       'rap_affected',
       'investment_target_2016',
@@ -214,6 +242,8 @@ class Project extends Model
       'investment_target_2021',
       'investment_target_2022',
       'investment_target_2023',
+      'investment_target_2024',
+      'investment_target_2025',
       'investment_target_total',
       'infrastructure_target_2016',
       'infrastructure_target_2017',
@@ -223,6 +253,8 @@ class Project extends Model
       'infrastructure_target_2021',
       'infrastructure_target_2022',
       'infrastructure_target_2023',
+      'infrastructure_target_2024',
+      'infrastructure_target_2025',
       'infrastructure_target_total',
       'nep_2016',
       'nep_2017',
@@ -232,6 +264,8 @@ class Project extends Model
       'nep_2021',
       'nep_2022',
       'nep_2023',
+      'nep_2024',
+      'nep_2025',
       'nep_total',
       'gaa_2016',
       'gaa_2017',
@@ -241,6 +275,8 @@ class Project extends Model
       'gaa_2021',
       'gaa_2022',
       'gaa_2023',
+      'gaa_2024',
+      'gaa_2025',
       'gaa_total',
       'disbursement_2016',
       'disbursement_2017',
@@ -250,6 +286,8 @@ class Project extends Model
       'disbursement_2021',
       'disbursement_2022',
       'disbursement_2023',
+      'disbursement_2024',
+      'disbursement_2025',
       'disbursement_total',
       "estimated_project_life",
       "financial_benefit_cost_ratio",
