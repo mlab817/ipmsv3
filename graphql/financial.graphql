@@ -1,17 +1,13 @@
 extend type Mutation {
-  createRegionFinancial(input: CreateRegionFinancialInput! @spread):
-    RegionFinancial @create
+  createRegionFinancial(input: CreateRegionFinancialInput! @spread): RegionFinancial @create
 
-  updateRegionFinancial(input: UpdateRegionFinancialInput! @spread):
-    RegionFinancial @update
+  updateRegionFinancial(input: UpdateRegionFinancialInput! @spread): RegionFinancial @update
 
   deleteRegionFinancial(id: ID!): RegionFinancial @delete
 
-  createFundingSourceFinancial(input: CreateFundingSourceFinancialInput! @spread):
-    FundingSourceFinancial @create
+  createFundingSourceFinancial(input: CreateFundingSourceFinancialInput! @spread): FundingSourceFinancial @create
 
-  updateFundingSourceFinancial(input: UpdateFundingSourceFinancialInput! @spread):
-    FundingSourceFinancial @update
+  updateFundingSourceFinancial(input: UpdateFundingSourceFinancialInput! @spread): FundingSourceFinancial @update
 
   deleteFundingSourceFinancial(id: ID!): FundingSourceFinancial @delete
 }

@@ -95,7 +95,7 @@ input UpdateProjectInput {
   row_target_2021: Float
   row_target_2022: Float
   row_target_total: Float
-  row_affected: Int
+  row_affected: String
   has_rap: Boolean
   rap_target_2017: Float
   rap_target_2018: Float
@@ -104,7 +104,7 @@ input UpdateProjectInput {
   rap_target_2021: Float
   rap_target_2022: Float
   rap_target_total: Float
-  rap_affected: Int
+  rap_affected: String
   investment_target_2016: Float
   investment_target_2017: Float
   investment_target_2018: Float
@@ -154,7 +154,7 @@ input UpdateProjectInput {
   updates: String
   updates_date: String @date
   districts: UpdateDistrictInput
-  bases: UpdateBasisRelation
+  # bases: UpdateBasisRelation
   region_id: ID
   province_id: ID
   provinces: UpdateProvinceRelation
