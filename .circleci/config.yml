@@ -99,5 +99,5 @@ jobs:
       # Deploy
       - deploy:
           command: |
-            rsync -azvW --delete --exclude-from 'exclude-list.txt' ${username}@${server}:~/public_html/
-            ssh -p 22 -i ~/.ssh/circleci ${username}@${server} 'cd public_html/; composer install --optimize-autoloader --no-dev; php artisan config:cache; php artisan route:cache'
+            rsync -azvW --delete --exclude-from 'exclude-list.txt' ${username}@${server}:~/public_html/staging/
+            ssh -p 22 -i ~/.ssh/circleci ${username}@${server} 'cd public_html/staging/; composer install --optimize-autoloader --no-dev; php artisan config:cache; php artisan route:cache'
