@@ -1,9 +1,9 @@
 extend type Query {
-	project_statuses: [ProjectStatus!]! @all
+	project_statuses: [ProjectStatus] @all
 }
 
 type ProjectStatus {
 	id: ID
 	name: String
-	projects: [Project!]! @hasMany
+	projects: [Project] @hasMany
 }

@@ -22,15 +22,17 @@ type FundingSourceFinancial {
   id: ID!
   project_id: ID!  @rules(apply: ["exists:projects"])
   funding_source_id: ID! @rules(apply: ["exists:funding_sources"])
-  target_2016: Float
-  target_2017: Float
-  target_2018: Float
-  target_2019: Float
-  target_2020: Float
-  target_2021: Float
-  target_2022: Float
-  target_2023: Float
-  target_total: Float
+  investment_target_2016: Float
+  investment_target_2017: Float
+  investment_target_2018: Float
+  investment_target_2019: Float
+  investment_target_2020: Float
+  investment_target_2021: Float
+  investment_target_2022: Float
+  investment_target_2023: Float
+  investment_target_2024: Float
+  investment_target_2025: Float
+  investment_target_total: Float
   infrastructure_target_2016: Float
   infrastructure_target_2017: Float
   infrastructure_target_2018: Float
@@ -39,6 +41,8 @@ type FundingSourceFinancial {
   infrastructure_target_2021: Float
   infrastructure_target_2022: Float
   infrastructure_target_2023: Float
+  infrastructure_target_2024: Float
+  infrastructure_target_2025: Float
   infrastructure_target_total: Float
   nep_2016: Float
   nep_2017: Float
@@ -48,6 +52,8 @@ type FundingSourceFinancial {
   nep_2021: Float
   nep_2022: Float
   nep_2023: Float
+  nep_2024: Float
+  nep_2025: Float
   nep_total: Float
   gaa_2016: Float
   gaa_2017: Float
@@ -57,6 +63,8 @@ type FundingSourceFinancial {
   gaa_2021: Float
   gaa_2022: Float
   gaa_2023: Float
+  gaa_2024: Float
+  gaa_2025: Float
   gaa_total: Float
   disbursement_2016: Float
   disbursement_2017: Float
@@ -66,6 +74,8 @@ type FundingSourceFinancial {
   disbursement_2021: Float
   disbursement_2022: Float
   disbursement_2023: Float
+  disbursement_2024: Float
+  disbursement_2025: Float
   disbursement_total: Float
 }
 
@@ -79,15 +89,17 @@ type FundingSourceFinancial {
 input CreateFundingSourceFinancialInput {
   project_id: ID! @rules(apply: ["exists:projects"])
   funding_source_id: ID! @rules(apply: ["exists:funding_sources"])
-  target_2016: Float
-  target_2017: Float
-  target_2018: Float
-  target_2019: Float
-  target_2020: Float
-  target_2021: Float
-  target_2022: Float
-  target_2023: Float
-  target_total: Float
+  investment_target_2016: Float
+  investment_target_2017: Float
+  investment_target_2018: Float
+  investment_target_2019: Float
+  investment_target_2020: Float
+  investment_target_2021: Float
+  investment_target_2022: Float
+  investment_target_2023: Float
+  investment_target_2024: Float
+  investment_target_2025: Float
+  investment_target_total: Float
   infrastructure_target_2016: Float
   infrastructure_target_2017: Float
   infrastructure_target_2018: Float
@@ -96,6 +108,8 @@ input CreateFundingSourceFinancialInput {
   infrastructure_target_2021: Float
   infrastructure_target_2022: Float
   infrastructure_target_2023: Float
+  infrastructure_target_2024: Float
+  infrastructure_target_2025: Float
   infrastructure_target_total: Float
   nep_2016: Float
   nep_2017: Float
@@ -105,6 +119,8 @@ input CreateFundingSourceFinancialInput {
   nep_2021: Float
   nep_2022: Float
   nep_2023: Float
+  nep_2024: Float
+  nep_2025: Float
   nep_total: Float
   gaa_2016: Float
   gaa_2017: Float
@@ -114,6 +130,8 @@ input CreateFundingSourceFinancialInput {
   gaa_2021: Float
   gaa_2022: Float
   gaa_2023: Float
+  gaa_2024: Float
+  gaa_2025: Float
   gaa_total: Float
   disbursement_2016: Float
   disbursement_2017: Float
@@ -123,6 +141,8 @@ input CreateFundingSourceFinancialInput {
   disbursement_2021: Float
   disbursement_2022: Float
   disbursement_2023: Float
+  disbursement_2024: Float
+  disbursement_2025: Float
   disbursement_total: Float
 }
 
@@ -130,15 +150,17 @@ input UpdateFundingSourceFinancialInput {
   id: ID!
   project_id: ID! @rules(apply: ["exists:projects"])
   funding_source_id: ID! @rules(apply: ["exists:regions"])
-  target_2016: Float
-  target_2017: Float
-  target_2018: Float
-  target_2019: Float
-  target_2020: Float
-  target_2021: Float
-  target_2022: Float
-  target_2023: Float
-  target_total: Float
+  investment_target_2016: Float
+  investment_target_2017: Float
+  investment_target_2018: Float
+  investment_target_2019: Float
+  investment_target_2020: Float
+  investment_target_2021: Float
+  investment_target_2022: Float
+  investment_target_2023: Float
+  investment_target_2024: Float
+  investment_target_2025: Float
+  investment_target_total: Float
   infrastructure_target_2016: Float
   infrastructure_target_2017: Float
   infrastructure_target_2018: Float
@@ -147,6 +169,8 @@ input UpdateFundingSourceFinancialInput {
   infrastructure_target_2021: Float
   infrastructure_target_2022: Float
   infrastructure_target_2023: Float
+  infrastructure_target_2024: Float
+  infrastructure_target_2025: Float
   infrastructure_target_total: Float
   nep_2016: Float
   nep_2017: Float
@@ -156,6 +180,8 @@ input UpdateFundingSourceFinancialInput {
   nep_2021: Float
   nep_2022: Float
   nep_2023: Float
+  nep_2024: Float
+  nep_2025: Float
   nep_total: Float
   gaa_2016: Float
   gaa_2017: Float
@@ -165,6 +191,8 @@ input UpdateFundingSourceFinancialInput {
   gaa_2021: Float
   gaa_2022: Float
   gaa_2023: Float
+  gaa_2024: Float
+  gaa_2025: Float
   gaa_total: Float
   disbursement_2016: Float
   disbursement_2017: Float
@@ -174,6 +202,8 @@ input UpdateFundingSourceFinancialInput {
   disbursement_2021: Float
   disbursement_2022: Float
   disbursement_2023: Float
+  disbursement_2024: Float
+  disbursement_2025: Float
   disbursement_total: Float
 }
 
@@ -181,15 +211,17 @@ type RegionFinancial {
   id: ID!
   project_id: ID! @rules(apply: ["exists:projects"])
   region_id: ID! @rules(apply: ["exists:regions"])
-  target_2016: Float
-  target_2017: Float
-  target_2018: Float
-  target_2019: Float
-  target_2020: Float
-  target_2021: Float
-  target_2022: Float
-  target_2023: Float
-  target_total: Float
+  investment_target_2016: Float
+  investment_target_2017: Float
+  investment_target_2018: Float
+  investment_target_2019: Float
+  investment_target_2020: Float
+  investment_target_2021: Float
+  investment_target_2022: Float
+  investment_target_2023: Float
+  investment_target_2024: Float
+  investment_target_2025: Float
+  investment_target_total: Float
   infrastructure_target_2016: Float
   infrastructure_target_2017: Float
   infrastructure_target_2018: Float
@@ -198,6 +230,8 @@ type RegionFinancial {
   infrastructure_target_2021: Float
   infrastructure_target_2022: Float
   infrastructure_target_2023: Float
+  infrastructure_target_2024: Float
+  infrastructure_target_2025: Float
   infrastructure_target_total: Float
   nep_2016: Float
   nep_2017: Float
@@ -207,6 +241,8 @@ type RegionFinancial {
   nep_2021: Float
   nep_2022: Float
   nep_2023: Float
+  nep_2024: Float
+  nep_2025: Float
   nep_total: Float
   gaa_2016: Float
   gaa_2017: Float
@@ -216,6 +252,8 @@ type RegionFinancial {
   gaa_2021: Float
   gaa_2022: Float
   gaa_2023: Float
+  gaa_2024: Float
+  gaa_2025: Float
   gaa_total: Float
   disbursement_2016: Float
   disbursement_2017: Float
@@ -225,6 +263,8 @@ type RegionFinancial {
   disbursement_2021: Float
   disbursement_2022: Float
   disbursement_2023: Float
+  disbursement_2024: Float
+  disbursement_2025: Float
   disbursement_total: Float
 }
 
@@ -238,15 +278,17 @@ type RegionFinancial {
 input CreateRegionFinancialInput {
   project_id: ID!
   region_id: ID!
-  target_2016: Float
-  target_2017: Float
-  target_2018: Float
-  target_2019: Float
-  target_2020: Float
-  target_2021: Float
-  target_2022: Float
-  target_2023: Float
-  target_total: Float
+  investment_target_2016: Float
+  investment_target_2017: Float
+  investment_target_2018: Float
+  investment_target_2019: Float
+  investment_target_2020: Float
+  investment_target_2021: Float
+  investment_target_2022: Float
+  investment_target_2023: Float
+  investment_target_2024: Float
+  investment_target_2025: Float
+  investment_target_total: Float
   infrastructure_target_2016: Float
   infrastructure_target_2017: Float
   infrastructure_target_2018: Float
@@ -255,6 +297,8 @@ input CreateRegionFinancialInput {
   infrastructure_target_2021: Float
   infrastructure_target_2022: Float
   infrastructure_target_2023: Float
+  infrastructure_target_2024: Float
+  infrastructure_target_2025: Float
   infrastructure_target_total: Float
   nep_2016: Float
   nep_2017: Float
@@ -264,6 +308,8 @@ input CreateRegionFinancialInput {
   nep_2021: Float
   nep_2022: Float
   nep_2023: Float
+  nep_2024: Float
+  nep_2025: Float
   nep_total: Float
   gaa_2016: Float
   gaa_2017: Float
@@ -273,6 +319,8 @@ input CreateRegionFinancialInput {
   gaa_2021: Float
   gaa_2022: Float
   gaa_2023: Float
+  gaa_2024: Float
+  gaa_2025: Float
   gaa_total: Float
   disbursement_2016: Float
   disbursement_2017: Float
@@ -282,6 +330,8 @@ input CreateRegionFinancialInput {
   disbursement_2021: Float
   disbursement_2022: Float
   disbursement_2023: Float
+  disbursement_2024: Float
+  disbursement_2025: Float
   disbursement_total: Float
 }
 
@@ -289,15 +339,17 @@ input UpdateRegionFinancialInput {
   id: ID!
   project_id: ID!
   region_id: ID!
-  target_2016: Float
-  target_2017: Float
-  target_2018: Float
-  target_2019: Float
-  target_2020: Float
-  target_2021: Float
-  target_2022: Float
-  target_2023: Float
-  target_total: Float
+  investment_target_2016: Float
+  investment_target_2017: Float
+  investment_target_2018: Float
+  investment_target_2019: Float
+  investment_target_2020: Float
+  investment_target_2021: Float
+  investment_target_2022: Float
+  investment_target_2023: Float
+  investment_target_2024: Float
+  investment_target_2025: Float
+  investment_target_total: Float
   infrastructure_target_2016: Float
   infrastructure_target_2017: Float
   infrastructure_target_2018: Float
@@ -306,6 +358,8 @@ input UpdateRegionFinancialInput {
   infrastructure_target_2021: Float
   infrastructure_target_2022: Float
   infrastructure_target_2023: Float
+  infrastructure_target_2024: Float
+  infrastructure_target_2025: Float
   infrastructure_target_total: Float
   nep_2016: Float
   nep_2017: Float
@@ -315,6 +369,8 @@ input UpdateRegionFinancialInput {
   nep_2021: Float
   nep_2022: Float
   nep_2023: Float
+  nep_2024: Float
+  nep_2025: Float
   nep_total: Float
   gaa_2016: Float
   gaa_2017: Float
@@ -324,6 +380,8 @@ input UpdateRegionFinancialInput {
   gaa_2021: Float
   gaa_2022: Float
   gaa_2023: Float
+  gaa_2024: Float
+  gaa_2025: Float
   gaa_total: Float
   disbursement_2016: Float
   disbursement_2017: Float
@@ -333,5 +391,7 @@ input UpdateRegionFinancialInput {
   disbursement_2021: Float
   disbursement_2022: Float
   disbursement_2023: Float
+  disbursement_2024: Float
+  disbursement_2025: Float
   disbursement_total: Float
 }
