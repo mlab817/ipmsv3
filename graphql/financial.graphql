@@ -12,6 +12,11 @@ extend type Mutation {
   deleteFundingSourceFinancial(id: ID!): FundingSourceFinancial @delete
 }
 
+extend type Query {
+  region_financials(project_id: ID! @eq): [RegionFinancial] @find
+
+  funding_source_financials(project_id: ID! @eq): [FundingSourceFinancial] @find
+}
 
 type FundingSourceFinancial {
   id: ID!
