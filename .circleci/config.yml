@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # Specify the version you desire here
-      - image: circleci/php:7.3-v3-cli-node8
+      - image: circleci/php:7.4-v3-apache-node8
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
