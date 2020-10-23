@@ -159,24 +159,24 @@ type PrexcActivityFinancial {
 	operating_unit: OperatingUnit @belongsTo
 	prexc_activity_id: ID
 	prexc_activity: PrexcActivity @belongsTo
-	target_2016: Float
-    target_2017: Float
-    target_2018: Float
-    target_2019: Float
-    target_2020: Float
-    target_2021: Float
-    target_2022: Float
-    target_2023: Float
-    target_total: Float
-    infrastructure_target_2016: Float
-    infrastructure_target_2017: Float
-    infrastructure_target_2018: Float
-    infrastructure_target_2019: Float
-    infrastructure_target_2020: Float
-    infrastructure_target_2021: Float
-    infrastructure_target_2022: Float
-    infrastructure_target_2023: Float
-    infrastructure_target_total: Float
+	investment_target_2016: Float
+  investment_target_2017: Float
+  investment_target_2018: Float
+  investment_target_2019: Float
+  investment_target_2020: Float
+  investment_target_2021: Float
+  investment_target_2022: Float
+  investment_target_2023: Float
+  investment_target_total: Float
+  infrastructure_target_2016: Float
+  infrastructure_target_2017: Float
+  infrastructure_target_2018: Float
+  infrastructure_target_2019: Float
+  infrastructure_target_2020: Float
+  infrastructure_target_2021: Float
+  infrastructure_target_2022: Float
+  infrastructure_target_2023: Float
+  infrastructure_target_total: Float
 	gaa_2016: Float
 	gaa_2017: Float
 	gaa_2018: Float
@@ -215,24 +215,24 @@ type PrexcActivityFinancial {
 input CreatePrexcActivityFinancialInput {
 	operating_unit_id: ID!
 	prexc_activity_id: ID!
-	target_2016: Float
-    target_2017: Float
-    target_2018: Float
-    target_2019: Float
-    target_2020: Float
-    target_2021: Float
-    target_2022: Float
-    target_2023: Float
-    target_total: Float
-    infrastructure_target_2016: Float
-    infrastructure_target_2017: Float
-    infrastructure_target_2018: Float
-    infrastructure_target_2019: Float
-    infrastructure_target_2020: Float
-    infrastructure_target_2021: Float
-    infrastructure_target_2022: Float
-    infrastructure_target_2023: Float
-    infrastructure_target_total: Float
+	investment_target_2016: Float
+  investment_target_2017: Float
+  investment_target_2018: Float
+  investment_target_2019: Float
+  investment_target_2020: Float
+  investment_target_2021: Float
+  investment_target_2022: Float
+  investment_target_2023: Float
+  investment_target_total: Float
+  infrastructure_target_2016: Float
+  infrastructure_target_2017: Float
+  infrastructure_target_2018: Float
+  infrastructure_target_2019: Float
+  infrastructure_target_2020: Float
+  infrastructure_target_2021: Float
+  infrastructure_target_2022: Float
+  infrastructure_target_2023: Float
+  infrastructure_target_total: Float
 	gaa_2016: Float
 	gaa_2017: Float
 	gaa_2018: Float
@@ -266,24 +266,24 @@ input UpdatePrexcActivityFinancialInput {
 	id: ID!
 	operating_unit_id: ID!
 	prexc_activity_id: ID!
-	target_2016: Float
-    target_2017: Float
-    target_2018: Float
-    target_2019: Float
-    target_2020: Float
-    target_2021: Float
-    target_2022: Float
-    target_2023: Float
-    target_total: Float
-    infrastructure_target_2016: Float
-    infrastructure_target_2017: Float
-    infrastructure_target_2018: Float
-    infrastructure_target_2019: Float
-    infrastructure_target_2020: Float
-    infrastructure_target_2021: Float
-    infrastructure_target_2022: Float
-    infrastructure_target_2023: Float
-    infrastructure_target_total: Float
+	investment_target_2016: Float
+  investment_target_2017: Float
+  investment_target_2018: Float
+  investment_target_2019: Float
+  investment_target_2020: Float
+  investment_target_2021: Float
+  investment_target_2022: Float
+  investment_target_2023: Float
+  investment_target_total: Float
+  infrastructure_target_2016: Float
+  infrastructure_target_2017: Float
+  infrastructure_target_2018: Float
+  infrastructure_target_2019: Float
+  infrastructure_target_2020: Float
+  infrastructure_target_2021: Float
+  infrastructure_target_2022: Float
+  infrastructure_target_2023: Float
+  infrastructure_target_total: Float
 	gaa_2016: Float
 	gaa_2017: Float
 	gaa_2018: Float
