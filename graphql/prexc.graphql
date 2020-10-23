@@ -189,6 +189,8 @@ type PrexcActivityFinancial {
 	gaa_2021: Float
 	gaa_2022: Float
 	gaa_2023: Float
+	gaa_2024: Float
+	gaa_2025: Float
 	gaa_total: Float
 	nep_2016: Float
 	nep_2017: Float
@@ -292,6 +294,8 @@ input UpdatePrexcActivityFinancialInput {
   investment_target_2021: Float
   investment_target_2022: Float
   investment_target_2023: Float
+	investment_target_2024: Float
+	investment_target_2025: Float
   investment_target_total: Float
   infrastructure_target_2016: Float
   infrastructure_target_2017: Float
@@ -301,6 +305,8 @@ input UpdatePrexcActivityFinancialInput {
   infrastructure_target_2021: Float
   infrastructure_target_2022: Float
   infrastructure_target_2023: Float
+	infrastructure_target_2024: Float
+  infrastructure_target_2025: Float
   infrastructure_target_total: Float
 	gaa_2016: Float
 	gaa_2017: Float
@@ -310,6 +316,8 @@ input UpdatePrexcActivityFinancialInput {
 	gaa_2021: Float
 	gaa_2022: Float
 	gaa_2023: Float
+	gaa_2024: Float
+	gaa_2025: Float
 	gaa_total: Float
 	nep_2016: Float
 	nep_2017: Float
@@ -319,6 +327,8 @@ input UpdatePrexcActivityFinancialInput {
 	nep_2021: Float
 	nep_2022: Float
 	nep_2023: Float
+	nep_2024: Float
+	nep_2025: Float
 	nep_total: Float
 	disbursement_2016: Float
 	disbursement_2017: Float
@@ -328,5 +338,7 @@ input UpdatePrexcActivityFinancialInput {
 	disbursement_2021: Float
 	disbursement_2022: Float
 	disbursement_2023: Float
+	disbursement_2024: Float
+	disbursement_2025: Float
 	disbursement_total: Float
 }
