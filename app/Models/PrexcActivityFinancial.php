@@ -76,4 +76,14 @@ class PrexcActivityFinancial extends Model
     {
         return $this->belongsTo(PrexcActivity::class);
     }
+
+    public function prexc_program(): BelongsTo
+    {
+        return $this->belongsTo(PrexcProgram::class);
+    }
+
+    public function prexc_subprogram(): BelongsTo
+    {
+        return $this->belongsTo(PrexcSubprogram::class);
+    }
 }
