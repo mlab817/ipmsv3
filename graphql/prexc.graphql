@@ -6,8 +6,6 @@ extend type Query {
 	prexc_subprogram(id: ID! @eq): PrexcSubprogram @find
 	prexc_activities: [PrexcActivity] @all
 	prexc_activity(id: ID! @eq): PrexcActivity @find
-	prexc_activity_financials(operating_unit_id: ID @where(operator: "=")): [PrexcActivityFinancial] @all
-	prexc_activity_financial(operating_unit_id: ID @eq, prexc_activity_id: ID @eq): PrexcActivityFinancial @first
 }
 
 extend type Mutation {
