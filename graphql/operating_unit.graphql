@@ -79,7 +79,6 @@ type OperatingUnit {
     investment_target_2023: Float
     project_count: Int
     prexc_activities: [PrexcActivity] @belongsToMany
-    prexc_activity_financials: [PrexcActivityFinancial] @hasMany
 }
 
 input AssignReviewerInput {
