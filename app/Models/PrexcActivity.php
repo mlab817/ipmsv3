@@ -91,9 +91,9 @@ class PrexcActivity extends Model
     	return $this->belongsTo(PrexcSubprogram::class);
     }
 
-    public function operating_units(): BelongsToMany
+    public function operating_unit(): BelongsTo
     {
-    	return $this->belongsToMany(OperatingUnit::class,'operating_unit_prexc_activity','prexc_activity_id','operating_unit_id','id','id');
+    	return $this->belongsTo(OperatingUnit::class);
     }
 
     public function getLabelAttribute()
