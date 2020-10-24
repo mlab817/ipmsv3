@@ -74,21 +74,6 @@ input UpdatePrexcSubprogramInput {
 	output_indicators: String
 }
 
-input CreatePrexcActivityInput {
-	name: String
-	acronym: String
-	prexc_subprogram_id: ID
-	uacs_code: String
-}
-
-input UpdatePrexcActivityInput {
-	id: ID!
-	name: String
-	acronym: String
-	prexc_subprogram_id: ID
-	uacs_code: String
-}
-
 type CostStructure {
 	id: ID!
 	name: String
@@ -152,6 +137,7 @@ type PrexcActivity {
 	prexc_subprogram: PrexcSubprogram @belongsTo
 	banner_program_id: ID
 	banner_program: BannerProgram @belongsTo
+	uacs_code: String
 	investment_target_2016: Float
   investment_target_2017: Float
   investment_target_2018: Float
