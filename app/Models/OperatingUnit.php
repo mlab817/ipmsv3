@@ -128,8 +128,4 @@ class OperatingUnit extends Model
         return $this->belongsToMany(PrexcActivity::class,'operating_unit_prexc_activity','operating_unit_id','prexc_activity_id','id','id');
     }
 
-    public function prexc_activity_financials(): HasMany
-    {
-        return $this->hasMany(PrexcActivityFinancial::class);
-    }
 }

@@ -223,9 +223,8 @@ class CreateProjectsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('prexc_program_id')->references('id')->on('prexc_programs')->onDelete('set null');
-            $table->foreign('prexc_subprogram_id')->references('id')->on('prexc_subprograms')->onDelete('set null');
-            $table->foreign('prexc_activity_id')->references('id')->on('prexc_activities')->onDelete('set null');
+            // $table->foreign('prexc_program_id')->references('id')->on('prexc_programs')->onDelete('set null');
+            // $table->foreign('prexc_subprogram_id')->references('id')->on('prexc_subprograms')->onDelete('set null');
 
             $table->unsignedBigInteger('processing_status_id')->nullable()->default(1);
             $table->unsignedBigInteger('processed_by')->nullable();
