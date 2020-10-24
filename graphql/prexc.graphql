@@ -204,13 +204,9 @@ type PrexcActivity {
 input CreatePrexcActivityInput {
 	name: String
 	operating_unit_id: ID
-	operating_unit: OperatingUnit @belongsTo
 	prexc_program_id: ID
-	prexc_program: PrexcProgram @belongsTo
 	prexc_subprogram_id: ID
-	prexc_subprogram: PrexcSubprogram @belongsTo
 	banner_program_id: ID
-	banner_program: BannerProgram @belongsTo
 	investment_target_2016: Float
 	investment_target_2017: Float
 	investment_target_2018: Float
@@ -272,13 +268,9 @@ input UpdatePrexcActivityInput {
 	id: ID!
 	name: String
 	operating_unit_id: ID
-	operating_unit: OperatingUnit @belongsTo
 	prexc_program_id: ID
-	prexc_program: PrexcProgram @belongsTo
 	prexc_subprogram_id: ID
-	prexc_subprogram: PrexcSubprogram @belongsTo
 	banner_program_id: ID
-	banner_program: BannerProgram @belongsTo
 	investment_target_2016: Float
 	investment_target_2017: Float
 	investment_target_2018: Float
