@@ -1,54 +1,784 @@
-﻿acronym,name,id,prexc_subprogram_id
-General Management and Supervision,General Management and Supervision,1,1
-Administration of Personnel Benefits,Administration of Personnel Benefits,2,1
-Planning and Policy formulation for soil and water resources conservation management and development,Planning and Policy formulation for soil and water resources conservation management and development,3,2
-Coordination of agricultural research,Coordination of agricultural research,4,2
-Information and communication technology (ICT) management support,Information and communication technology (ICT) management support,5,2
-Public information services,Public information services,6,2
-"Development of organizational policies, plans, and procedures","Development of organizational policies, plans, and procedures",7,2
-Agribusiness and marketing services,Agribusiness and marketing services,8,2
-International affairs coordination and liaisoning,International affairs coordination and liaisoning,9,2
-Monitoring and evaluation for the assistance to municipalities' projects,Monitoring and evaluation for the assistance to municipalities' projects,10,2
-Operations and maintenance of integrated laboratories,Operations and maintenance of integrated laboratories,11,2
-Field Program Management Activities,Field Program Management Activities,12,2
-Disaster Risk Reduction and Management for Agriculture and Fiheries Fund ,Disaster Risk Reduction and Management for Agriculture and Fiheries Fund ,13,2
-PSS_Rice,PSS_Rice,14,3
-PSS_Corn,PSS_Corn,15,3
-PSS_HVCD,PSS_HVCD,16,3
-PSS_Livestock,PSS_Livestock,17,3
-PSS_Organic,PSS_Organic,18,3
-Other_PSS_activities,Other_PSS_activities,19,3
-MDS_Rice,MDS_Rice,20,4
-MDS_Corn,MDS_Corn,21,4
-MDS_HVCD,MDS_HVCD,22,4
-MDS_Livestock,MDS_Livestock,23,4
-MDS_Organic,MDS_Organic,24,4
-Other_MDS_activities,Other_MDS_activities,25,4
-ESETS_Rice,ESETS_Rice,26,5
-ESETS_Corn,ESETS_Corn,27,5
-ESETS_HVCD,ESETS_HVCD,28,5
-ESETS_Livestock,ESETS_Livestock,29,5
-ESETS_Organic,ESETS_Organic,30,5
-ESETS_HALAL,ESETS_HALAL,31,5
-Other_ESETS_activities,Other_ESETS_activities,32,5
-Malitubog_Maridagao_II,Malitubog_Maridagao_II,33,5
-RnD_Rice,RnD_Rice,34,6
-RnD_Corn,RnD_Corn,35,6
-RnD_HVCD,RnD_HVCD,36,6
-RnD_Livestock,RnD_Livestock,37,6
-RnD_Organic,RnD_Organic,38,6
-Other_RnD_activities,Other_RnD_activities,39,6
-AMEFSS_Rice,AMEFSS_Rice,40,7
-AMEFSS_Corn,AMEFSS_Corn,41,7
-AMEFSS_HVCD,AMEFSS_HVCD,42,7
-AMEFSS_Livestock,AMEFSS_Livestock,43,7
-AMEFSS_Organic,AMEFSS_Organic,44,7
-INS_Rice,INS_Rice,45,8
-INS_Corn,INS_Corn,46,8
-INS_HVCD,INS_HVCD,47,8
-INS_Organic,INS_Organic,48,8
-Various_Water_Resources_Projects,Various_Water_Resources_Projects,49,8
-FMR_network_planning_and_monitoring_services,FMR_network_planning_and_monitoring_services,50,9
-Repair_Rehab_and_construction_of_FMRs,Repair_Rehab_and_construction_of_FMRs,51,9
-Formulation_monitoring_and_evaluation_of_agricultural_and_fishery_policies_plans_and_programs,Formulation_monitoring_and_evaluation_of_agricultural_and_fishery_policies_plans_and_programs,52,10
-Regulatory_Activities_NoBreakdown,Regulatory_Activities_NoBreakdown,53,11
+﻿id,name,operating_unit_id,prexc_program_id,prexc_subprogram_id,uacs_code
+1,General management and supervision,18,1,1,100000100001000
+2,Administration of Personnel Benefits,18,2,2,100000100002000
+3,ESETS on the National Rice Program,18,14,41,310103100001000
+4,ESETS on the National Livestock Program,18,14,41,310103100002000
+5,ESETS on the National Corn Program,18,14,41,310103100003000
+6,ESETS on the National High-Value Crops Development Program,18,14,41,310103100004000
+7,ESETS on the Promotion and Development of Organic Agriculture Program,18,14,41,310103100005000
+8,"Other extension support, education and training services activities",18,14,41,310103100006000
+9,ESETS on the Halal Food Industry Development Program,18,14,41,310103100007000
+10,Malitubog-Maridagao Irrigation Project Phase II (Agriculture Component),18,14,41,310103200001000
+11,Young Farmers Program,18,29,34,310500200004000
+12,General management and supervision,20,1,1,100000100001000
+13,R&D on the National Rice Program,20,14,43,310104100001000
+14,R&D on the National Corn Program,20,14,43,310104100003000
+15,R&D on the National High-Value Crops Development Program,20,14,43,310104100004000
+16,R&D on the Promotion and Development of Organic Agriculture Program,20,14,43,310104100005000
+17,Other research and development activities,20,14,43,310104100006000
+18,Coordination of agricultural research (BAR),20,6,7,200000100002000
+19,General management and supervision,19,1,1,100000100001000
+20,Administration of Personnel Benefits,19,2,2,100000100002000
+21,PSS on the National Livestock Program,19,14,35,310101100002000
+22,PSS on the Promotion and Development of Organic Agriculture Program,19,14,35,310101100005000
+23,Other production support services activities,19,14,35,310101100006000
+24,ESETS on the National Livestock Program,19,14,41,310103100002000
+25,ESETS on the Promotion and Development of Organic Agriculture Program,19,14,41,310103100005000
+26,R&D on the National Livestock Program,19,14,43,310104100002000
+27,R&D on the Promotion and Development of Organic Agriculture Program,19,14,43,310104100005000
+28,Other research and development activities,19,14,43,310104100006000
+29,PAEF on the National Livestock Program,19,22,55,310201100002000
+30,Quality control and inspection,19,27,47,310400100001000
+31,Quarantine services,19,27,61,310400100003000
+32,Registration and licensing,19,27,51,310400100004000
+33,General management and supervision,21,1,1,100000100001000
+34,Administration of Personnel Benefits,21,2,2,100000100002000
+35,PSS on the National Rice Program,21,14,35,310101100001000
+36,PSS on the National Corn Program,21,14,35,310101100003000
+37,PSS on the National High-Value Crops Development Program,21,14,35,310101100004000
+38,PSS on the Promotion and Development of Organic Agriculture Program,21,14,35,310101100005000
+39,Other production support services activities,21,14,35,310101100006000
+40,ESETS on the National Rice Program,21,14,41,310103100001000
+41,ESETS on the National High-Value Crops Development Program,21,14,41,310103100004000
+42,ESETS on the Promotion and Development of Organic Agriculture Program,21,14,41,310103100005000
+43,R&D on the National Rice Program,21,14,43,310104100001000
+44,R&D on the National Corn Program,21,14,43,310104100003000
+45,R&D on the National High-Value Crops Development Program,21,14,43,310104100004000
+46,Other research and development activities,21,14,43,310104100006000
+47,Quality control and inspection,21,27,47,310400100001000
+48,Quarantine services,21,27,61,310400100003000
+49,Registration and licensing,21,27,51,310400100004000
+50,General management and supervision,22,1,1,100000100001000
+51,Administration of Personnel Benefits,22,2,2,100000100002000
+52,PSS on the National Corn Program,22,14,35,310101100003000
+53,ESETS on the National Rice Program,22,14,41,310103100001000
+54,ESETS on the National Corn Program,22,14,41,310103100003000
+55,R&D on the National Rice Program,22,14,43,310104100001000
+56,R&D on the Promotion and Development of Organic Agriculture Program,22,14,43,310104100005000
+57,Other research and development activities,22,14,43,310104100006000
+58,PAEF on the National High-Value Crops Development Program,22,22,55,310201100004000
+59,PAEF on the Promotion and Development of Organic Agriculture Program,22,22,55,310201100005000
+60,INS on the National Rice Program,22,22,56,310202100001000
+61,INS on the National High-Value Crops Development Program,22,22,56,310202100003000
+62,Other Water Resources Projects,22,22,56,310202100004000
+63,INS on the Promotion and Development of Organic Agriculture,22,22,56,310202100005000
+64,"Planning and policy formulation for soil and water resources conservation, management and development (BSWM)",22,4,4,200000100001000
+65,General management and supervision,1,1,1,100000100001000
+66,Administration of Personnel Benefits,1,2,2,100000100002000
+67,PSS on the National Rice Program,1,14,35,310101100001000
+68,PSS on the National Livestock Program,1,14,35,310101100002000
+69,PSS on the National Corn Program,1,14,35,310101100003000
+70,PSS on the National High-Value Crops Development Program,1,14,35,310101100004000
+71,PSS on the Promotion and Development of Organic Agriculture Program,1,14,35,310101100005000
+72,MDS on the National Rice Program,1,14,38,310102100001000
+73,MDS on the National Livestock Program,1,14,38,310102100002000
+74,MDS on the National Corn Program,1,14,38,310102100003000
+75,MDS on the National High-Value Crops Development Program,1,14,38,310102100004000
+76,MDS on the Promotion and Development of Organic Agriculture Program,1,14,38,310102100005000
+77,Other market development services activities,1,14,38,310102100006000
+78,ESETS on the National Rice Program,1,14,41,310103100001000
+79,ESETS on the National Livestock Program,1,14,41,310103100002000
+80,ESETS on the National Corn Program,1,14,41,310103100003000
+81,ESETS on the National High-Value Crops Development Program,1,14,41,310103100004000
+82,ESETS on the Promotion and Development of Organic Agriculture Program,1,14,41,310103100005000
+83,"Other extension support, education and training services activities",1,14,41,310103100006000
+84,ESETS on the Halal Food Industry Development Program,1,14,41,310103100007000
+85,R&D on the National Rice Program,1,14,43,310104100001000
+86,R&D on the National Livestock Program,1,14,43,310104100002000
+87,R&D on the National Corn Program,1,14,43,310104100003000
+88,R&D on the National High-Value Crops Development Program,1,14,43,310104100004000
+89,Other research and development activities,1,14,43,310104100006000
+90,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,1,22,55,310201100001000
+91,PAEF on the National Livestock Program,1,22,55,310201100002000
+92,PAEF on the National Corn Program,1,22,55,310201100003000
+93,PAEF on the National High-Value Crops Development Program,1,22,55,310201100004000
+94,INS on the National Rice Program,1,22,56,310202100001000
+95,INS on the National Corn Program,1,22,56,310202100002000
+96,INS on the National High-Value Crops Development Program,1,22,56,310202100003000
+97,INS on the Promotion and Development of Organic Agriculture,1,22,56,310202100005000
+98,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,1,22,57,310203100001000
+99,"Formulation, monitoring and evaluation of agricultural and fishery policies, plans and programs",1,25,58,310300100001000
+100,Quality control and inspection,1,27,47,310400100001000
+101,Agriculture and fishery standards,1,27,60,310400100002000
+102,Quarantine services,1,27,61,310400100003000
+103,Special Area for Agricultural Development Program,1,29,34,310500200001000
+104,Agricultural Competitiveness Enhancement Fund,1,29,34,310500200002000
+105,Philippine Rural Development Program,1,29,46,310500300001000
+106,Expansion of the Philippine Rural Development Project,1,29,46,310500300005000
+107,"Development of organizational policies, plans and procedures",1,5,5,200000100005000
+108,Information and Communication Technology (ICT) management support,1,7,10,200000100003000
+109,Public information services,1,8,12,200000100004000
+110,Agri-business and marketing services,1,9,13,200000100006000
+111,International affairs coordination and liaisoning,1,10,14,200000100007000
+112,Operation and maintenance of the integrated laboratories,1,11,15,200000100008000
+113,Field program management activities,1,12,16,200000100009000
+114,Quick Response Fund,1,13,17,200000100010000
+115,General management and supervision,29,1,1,100000100001000
+116,Other production support services activities,29,14,35,310101100006000
+117,"Other extension support, education and training services activities",29,14,41,310103100006000
+118,Other research and development activities,29,14,43,310104100006000
+119,General management and supervision,2,1,1,100000100001000
+120,PSS on the National Rice Program,2,14,35,310101100001000
+121,PSS on the National Livestock Program,2,14,35,310101100002000
+122,PSS on the National Corn Program,2,14,35,310101100003000
+123,PSS on the National High-Value Crops Development Program,2,14,35,310101100004000
+124,PSS on the Promotion and Development of Organic Agriculture Program,2,14,35,310101100005000
+125,Other production support services activities,2,14,35,310101100006000
+126,MDS on the National Rice Program,2,14,38,310102100001000
+127,MDS on the National Livestock Program,2,14,38,310102100002000
+128,MDS on the National Corn Program,2,14,38,310102100003000
+129,MDS on the National High-Value Crops Development Program,2,14,38,310102100004000
+130,MDS on the Promotion and Development of Organic Agriculture Program,2,14,38,310102100005000
+131,Other market development services activities,2,14,38,310102100006000
+132,ESETS on the National Rice Program,2,14,41,310103100001000
+133,ESETS on the National Livestock Program,2,14,41,310103100002000
+134,ESETS on the National Corn Program,2,14,41,310103100003000
+135,ESETS on the National High-Value Crops Development Program,2,14,41,310103100004000
+136,ESETS on the Promotion and Development of Organic Agriculture Program,2,14,41,310103100005000
+137,"Other extension support, education and training services activities",2,14,41,310103100006000
+138,ESETS on the Halal Food Industry Development Program,2,14,41,310103100007000
+139,R&D on the National Rice Program,2,14,43,310104100001000
+140,R&D on the National Livestock Program,2,14,43,310104100002000
+141,R&D on the National Corn Program,2,14,43,310104100003000
+142,Other research and development activities,2,14,43,310104100006000
+143,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,2,22,55,310201100001000
+144,PAEF on the National Livestock Program,2,22,55,310201100002000
+145,PAEF on the National Corn Program,2,22,55,310201100003000
+146,PAEF on the National High-Value Crops Development Program,2,22,55,310201100004000
+147,PAEF on the Promotion and Development of Organic Agriculture Program,2,22,55,310201100005000
+148,INS on the National Rice Program,2,22,56,310202100001000
+149,INS on the National Corn Program,2,22,56,310202100002000
+150,INS on the National High-Value Crops Development Program,2,22,56,310202100003000
+151,INS on the Promotion and Development of Organic Agriculture,2,22,56,310202100005000
+152,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,2,22,57,310203100001000
+153,Quality control and inspection,2,27,47,310400100001000
+154,Registration and licensing,2,27,51,310400100004000
+155,Special Area for Agricultural Development Program,2,29,34,310500200001000
+156,"Support for the Terraces Restoration Initiative and United Movement in the Preservation of the Heritage: Agricultural Infrastructure - Small Scale Irrigation, Banaue, Ifugao",2,29,34,310500200009000
+157,"Organic Trading Center Project in Lamut, Ifugao, CAR",2,29,34,310500200011000
+158,Scaling-Up of the Second Cordillera Highlands Agricultural Resources Management Project (CHARMP 2),2,29,46,310500300003000
+159,Integrated Natural Resources and Environmental Management Project (INREMP),2,29,46,310500300004000
+160,"Development of organizational policies, plans and procedures",2,5,5,200000100005000
+161,Operation and maintenance of the integrated laboratories,2,11,15,200000100008000
+162,Field program management activities,2,12,16,200000100009000
+163,General management and supervision,3,1,1,100000100001000
+164,Administration of Personnel Benefits,3,2,2,100000100002000
+165,PSS on the National Rice Program,3,14,35,310101100001000
+166,PSS on the National Livestock Program,3,14,35,310101100002000
+167,PSS on the National Corn Program,3,14,35,310101100003000
+168,PSS on the National High-Value Crops Development Program,3,14,35,310101100004000
+169,PSS on the Promotion and Development of Organic Agriculture Program,3,14,35,310101100005000
+170,Other production support services activities,3,14,35,310101100006000
+171,MDS on the National Rice Program,3,14,38,310102100001000
+172,MDS on the National Livestock Program,3,14,38,310102100002000
+173,MDS on the National Corn Program,3,14,38,310102100003000
+174,MDS on the National High-Value Crops Development Program,3,14,38,310102100004000
+175,MDS on the Promotion and Development of Organic Agriculture Program,3,14,38,310102100005000
+176,Other market development services activities,3,14,38,310102100006000
+177,ESETS on the National Rice Program,3,14,41,310103100001000
+178,ESETS on the National Livestock Program,3,14,41,310103100002000
+179,ESETS on the National Corn Program,3,14,41,310103100003000
+180,ESETS on the National High-Value Crops Development Program,3,14,41,310103100004000
+181,ESETS on the Promotion and Development of Organic Agriculture Program,3,14,41,310103100005000
+182,"Other extension support, education and training services activities",3,14,41,310103100006000
+183,R&D on the National Rice Program,3,14,43,310104100001000
+184,R&D on the National Livestock Program,3,14,43,310104100002000
+185,R&D on the National Corn Program,3,14,43,310104100003000
+186,R&D on the National High-Value Crops Development Program,3,14,43,310104100004000
+187,Other research and development activities,3,14,43,310104100006000
+188,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,3,22,55,310201100001000
+189,PAEF on the National Livestock Program,3,22,55,310201100002000
+190,PAEF on the National Corn Program,3,22,55,310201100003000
+191,PAEF on the National High-Value Crops Development Program,3,22,55,310201100004000
+192,PAEF on the Promotion and Development of Organic Agriculture Program,3,22,55,310201100005000
+193,INS on the National Rice Program,3,22,56,310202100001000
+194,INS on the National Corn Program,3,22,56,310202100002000
+195,INS on the National High-Value Crops Development Program,3,22,56,310202100003000
+196,INS on the Promotion and Development of Organic Agriculture,3,22,56,310202100005000
+197,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,3,22,57,310203100001000
+198,Quality control and inspection,3,27,47,310400100001000
+199,Registration and licensing,3,27,51,310400100004000
+200,"Construction of Small Water Impounding Project, Paoay, Ilocos Norte",3,29,34,310500200010000
+201,"Development of organizational policies, plans and procedures",3,5,5,200000100005000
+202,Operation and maintenance of the integrated laboratories,3,11,15,200000100008000
+203,Field program management activities,3,12,16,200000100009000
+204,General management and supervision,4,1,1,100000100001000
+205,Administration of Personnel Benefits,4,2,2,100000100002000
+206,PSS on the National Rice Program,4,14,35,310101100001000
+207,PSS on the National Livestock Program,4,14,35,310101100002000
+208,PSS on the National Corn Program,4,14,35,310101100003000
+209,PSS on the National High-Value Crops Development Program,4,14,35,310101100004000
+210,PSS on the Promotion and Development of Organic Agriculture Program,4,14,35,310101100005000
+211,Other production support services activities,4,14,35,310101100006000
+212,MDS on the National Rice Program,4,14,38,310102100001000
+213,MDS on the National Corn Program,4,14,38,310102100003000
+214,MDS on the Promotion and Development of Organic Agriculture Program,4,14,38,310102100005000
+215,Other market development services activities,4,14,38,310102100006000
+216,ESETS on the National Rice Program,4,14,41,310103100001000
+217,ESETS on the National Livestock Program,4,14,41,310103100002000
+218,ESETS on the National Corn Program,4,14,41,310103100003000
+219,ESETS on the National High-Value Crops Development Program,4,14,41,310103100004000
+220,ESETS on the Promotion and Development of Organic Agriculture Program,4,14,41,310103100005000
+221,R&D on the National Rice Program,4,14,43,310104100001000
+222,R&D on the National Livestock Program,4,14,43,310104100002000
+223,R&D on the National Corn Program,4,14,43,310104100003000
+224,Other research and development activities,4,14,43,310104100006000
+225,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,4,22,55,310201100001000
+226,PAEF on the National Livestock Program,4,22,55,310201100002000
+227,PAEF on the National Corn Program,4,22,55,310201100003000
+228,PAEF on the National High-Value Crops Development Program,4,22,55,310201100004000
+229,PAEF on the Promotion and Development of Organic Agriculture Program,4,22,55,310201100005000
+230,INS on the National Rice Program,4,22,56,310202100001000
+231,INS on the National Corn Program,4,22,56,310202100002000
+232,INS on the National High-Value Crops Development Program,4,22,56,310202100003000
+233,INS on the Promotion and Development of Organic Agriculture,4,22,56,310202100005000
+234,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,4,22,57,310203100001000
+235,Quality control and inspection,4,27,47,310400100001000
+236,Registration and licensing,4,27,51,310400100004000
+237,"Development of organizational policies, plans and procedures",4,5,5,200000100005000
+238,Operation and maintenance of the integrated laboratories,4,11,15,200000100008000
+239,Field program management activities,4,12,16,200000100009000
+240,General management and supervision,5,1,1,100000100001000
+241,Administration of Personnel Benefits,5,2,2,100000100002000
+242,PSS on the National Rice Program,5,14,35,310101100001000
+243,PSS on the National Livestock Program,5,14,35,310101100002000
+244,PSS on the National Corn Program,5,14,35,310101100003000
+245,PSS on the National High-Value Crops Development Program,5,14,35,310101100004000
+246,PSS on the Promotion and Development of Organic Agriculture Program,5,14,35,310101100005000
+247,Other production support services activities,5,14,35,310101100006000
+248,MDS on the National Rice Program,5,14,38,310102100001000
+249,MDS on the National Livestock Program,5,14,38,310102100002000
+250,MDS on the National Corn Program,5,14,38,310102100003000
+251,MDS on the National High-Value Crops Development Program,5,14,38,310102100004000
+252,MDS on the Promotion and Development of Organic Agriculture Program,5,14,38,310102100005000
+253,Other market development services activities,5,14,38,310102100006000
+254,ESETS on the National Rice Program,5,14,41,310103100001000
+255,ESETS on the National Livestock Program,5,14,41,310103100002000
+256,ESETS on the National Corn Program,5,14,41,310103100003000
+257,ESETS on the National High-Value Crops Development Program,5,14,41,310103100004000
+258,ESETS on the Promotion and Development of Organic Agriculture Program,5,14,41,310103100005000
+259,"Other extension support, education and training services activities",5,14,41,310103100006000
+260,R&D on the National Rice Program,5,14,43,310104100001000
+261,R&D on the National Livestock Program,5,14,43,310104100002000
+262,R&D on the National Corn Program,5,14,43,310104100003000
+263,Other research and development activities,5,14,43,310104100006000
+264,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,5,22,55,310201100001000
+265,PAEF on the National Livestock Program,5,22,55,310201100002000
+266,PAEF on the National Corn Program,5,22,55,310201100003000
+267,PAEF on the National High-Value Crops Development Program,5,22,55,310201100004000
+268,PAEF on the Promotion and Development of Organic Agriculture Program,5,22,55,310201100005000
+269,INS on the National Rice Program,5,22,56,310202100001000
+270,INS on the National Corn Program,5,22,56,310202100002000
+271,INS on the National High-Value Crops Development Program,5,22,56,310202100003000
+272,INS on the Promotion and Development of Organic Agriculture,5,22,56,310202100005000
+273,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,5,22,57,310203100001000
+274,Quality control and inspection,5,27,47,310400100001000
+275,Registration and licensing,5,27,51,310400100004000
+276,"Livelihood Program of Casiguran Farmers, Aurora",5,29,34,310500200008000
+277,"Development of organizational policies, plans and procedures",5,5,5,200000100005000
+278,Operation and maintenance of the integrated laboratories,5,11,15,200000100008000
+279,Field program management activities,5,12,16,200000100009000
+280,General management and supervision,6,1,1,100000100001000
+281,Administration of Personnel Benefits,6,2,2,100000100002000
+282,PSS on the National Rice Program,6,14,35,310101100001000
+283,PSS on the National Livestock Program,6,14,35,310101100002000
+284,PSS on the National Corn Program,6,14,35,310101100003000
+285,PSS on the National High-Value Crops Development Program,6,14,35,310101100004000
+286,PSS on the Promotion and Development of Organic Agriculture Program,6,14,35,310101100005000
+287,Other production support services activities,6,14,35,310101100006000
+288,MDS on the National Rice Program,6,14,38,310102100001000
+289,MDS on the National Livestock Program,6,14,38,310102100002000
+290,MDS on the National Corn Program,6,14,38,310102100003000
+291,MDS on the National High-Value Crops Development Program,6,14,38,310102100004000
+292,MDS on the Promotion and Development of Organic Agriculture Program,6,14,38,310102100005000
+293,Other market development services activities,6,14,38,310102100006000
+294,ESETS on the National Rice Program,6,14,41,310103100001000
+295,ESETS on the National Livestock Program,6,14,41,310103100002000
+296,ESETS on the National Corn Program,6,14,41,310103100003000
+297,ESETS on the National High-Value Crops Development Program,6,14,41,310103100004000
+298,ESETS on the Promotion and Development of Organic Agriculture Program,6,14,41,310103100005000
+299,"Other extension support, education and training services activities",6,14,41,310103100006000
+300,ESETS on the Halal Food Industry Development Program,6,14,41,310103100007000
+301,R&D on the National Rice Program,6,14,43,310104100001000
+302,R&D on the National Livestock Program,6,14,43,310104100002000
+303,R&D on the National Corn Program,6,14,43,310104100003000
+304,Other research and development activities,6,14,43,310104100006000
+305,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,6,22,55,310201100001000
+306,PAEF on the National Livestock Program,6,22,55,310201100002000
+307,PAEF on the National Corn Program,6,22,55,310201100003000
+308,PAEF on the National High-Value Crops Development Program,6,22,55,310201100004000
+309,PAEF on the Promotion and Development of Organic Agriculture Program,6,22,55,310201100005000
+310,INS on the National Rice Program,6,22,56,310202100001000
+311,INS on the National Corn Program,6,22,56,310202100002000
+312,INS on the National High-Value Crops Development Program,6,22,56,310202100003000
+313,INS on the Promotion and Development of Organic Agriculture,6,22,56,310202100005000
+314,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,6,22,57,310203100001000
+315,"Formulation, monitoring and evaluation of agricultural and fishery policies, plans and programs",6,25,58,310300100001000
+316,Quality control and inspection,6,27,47,310400100001000
+317,Registration and licensing,6,27,51,310400100004000
+318,"Development of organizational policies, plans and procedures",6,5,5,200000100005000
+319,Operation and maintenance of the integrated laboratories,6,11,15,200000100008000
+320,Field program management activities,6,12,16,200000100009000
+321,General management and supervision,7,1,1,100000100001000
+322,Administration of Personnel Benefits,7,2,2,100000100002000
+323,PSS on the National Rice Program,7,14,35,310101100001000
+324,PSS on the National Livestock Program,7,14,35,310101100002000
+325,PSS on the National Corn Program,7,14,35,310101100003000
+326,PSS on the National High-Value Crops Development Program,7,14,35,310101100004000
+327,PSS on the Promotion and Development of Organic Agriculture Program,7,14,35,310101100005000
+328,Other production support services activities,7,14,35,310101100006000
+329,MDS on the National Rice Program,7,14,38,310102100001000
+330,MDS on the National Livestock Program,7,14,38,310102100002000
+331,MDS on the National Corn Program,7,14,38,310102100003000
+332,MDS on the National High-Value Crops Development Program,7,14,38,310102100004000
+333,MDS on the Promotion and Development of Organic Agriculture Program,7,14,38,310102100005000
+334,Other market development services activities,7,14,38,310102100006000
+335,ESETS on the National Rice Program,7,14,41,310103100001000
+336,ESETS on the National Livestock Program,7,14,41,310103100002000
+337,ESETS on the National Corn Program,7,14,41,310103100003000
+338,ESETS on the National High-Value Crops Development Program,7,14,41,310103100004000
+339,ESETS on the Promotion and Development of Organic Agriculture Program,7,14,41,310103100005000
+340,"Other extension support, education and training services activities",7,14,41,310103100006000
+341,R&D on the National Rice Program,7,14,43,310104100001000
+342,R&D on the National Livestock Program,7,14,43,310104100002000
+343,R&D on the National Corn Program,7,14,43,310104100003000
+344,Other research and development activities,7,14,43,310104100006000
+345,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,7,22,55,310201100001000
+346,PAEF on the National Livestock Program,7,22,55,310201100002000
+347,PAEF on the National Corn Program,7,22,55,310201100003000
+348,PAEF on the National High-Value Crops Development Program,7,22,55,310201100004000
+349,PAEF on the Promotion and Development of Organic Agriculture Program,7,22,55,310201100005000
+350,INS on the National Rice Program,7,22,56,310202100001000
+351,INS on the National Corn Program,7,22,56,310202100002000
+352,INS on the National High-Value Crops Development Program,7,22,56,310202100003000
+353,INS on the Promotion and Development of Organic Agriculture,7,22,56,310202100005000
+354,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,7,22,57,310203100001000
+355,Quality control and inspection,7,27,47,310400100001000
+356,Registration and licensing,7,27,51,310400100004000
+357,"Development of organizational policies, plans and procedures",7,5,5,200000100005000
+358,Operation and maintenance of the integrated laboratories,7,11,15,200000100008000
+359,Field program management activities,7,12,16,200000100009000
+360,General management and supervision,12,1,1,100000100001000
+361,Administration of Personnel Benefits,12,2,2,100000100002000
+362,PSS on the National Rice Program,12,14,35,310101100001000
+363,PSS on the National Livestock Program,12,14,35,310101100002000
+364,PSS on the National Corn Program,12,14,35,310101100003000
+365,PSS on the National High-Value Crops Development Program,12,14,35,310101100004000
+366,PSS on the Promotion and Development of Organic Agriculture Program,12,14,35,310101100005000
+367,Other production support services activities,12,14,35,310101100006000
+368,MDS on the National Rice Program,12,14,38,310102100001000
+369,MDS on the National Livestock Program,12,14,38,310102100002000
+370,MDS on the National Corn Program,12,14,38,310102100003000
+371,MDS on the National High-Value Crops Development Program,12,14,38,310102100004000
+372,MDS on the Promotion and Development of Organic Agriculture Program,12,14,38,310102100005000
+373,Other market development services activities,12,14,38,310102100006000
+374,ESETS on the National Rice Program,12,14,41,310103100001000
+375,ESETS on the National Livestock Program,12,14,41,310103100002000
+376,ESETS on the National Corn Program,12,14,41,310103100003000
+377,ESETS on the National High-Value Crops Development Program,12,14,41,310103100004000
+378,ESETS on the Promotion and Development of Organic Agriculture Program,12,14,41,310103100005000
+379,"Other extension support, education and training services activities",12,14,41,310103100006000
+380,R&D on the National Rice Program,12,14,43,310104100001000
+381,R&D on the National Livestock Program,12,14,43,310104100002000
+382,R&D on the National Corn Program,12,14,43,310104100003000
+383,Other research and development activities,12,14,43,310104100006000
+384,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,12,22,55,310201100001000
+385,PAEF on the National Livestock Program,12,22,55,310201100002000
+386,PAEF on the National Corn Program,12,22,55,310201100003000
+387,PAEF on the National High-Value Crops Development Program,12,22,55,310201100004000
+388,PAEF on the Promotion and Development of Organic Agriculture Program,12,22,55,310201100005000
+389,INS on the National Rice Program,12,22,56,310202100001000
+390,INS on the National Corn Program,12,22,56,310202100002000
+391,INS on the National High-Value Crops Development Program,12,22,56,310202100003000
+392,INS on the Promotion and Development of Organic Agriculture,12,22,56,310202100005000
+393,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,12,22,57,310203100001000
+394,Quality control and inspection,12,27,47,310400100001000
+395,Registration and licensing,12,27,51,310400100004000
+396,Special Area for Agricultural Development Program,12,29,34,310500200001000
+397,"Development of organizational policies, plans and procedures",12,5,5,200000100005000
+398,Operation and maintenance of the integrated laboratories,12,11,15,200000100008000
+399,Field program management activities,12,12,16,200000100009000
+400,General management and supervision,8,1,1,100000100001000
+401,Administration of Personnel Benefits,8,2,2,100000100002000
+402,PSS on the National Rice Program,8,14,35,310101100001000
+403,PSS on the National Livestock Program,8,14,35,310101100002000
+404,PSS on the National Corn Program,8,14,35,310101100003000
+405,PSS on the National High-Value Crops Development Program,8,14,35,310101100004000
+406,PSS on the Promotion and Development of Organic Agriculture Program,8,14,35,310101100005000
+407,Other production support services activities,8,14,35,310101100006000
+408,MDS on the National Rice Program,8,14,38,310102100001000
+409,MDS on the National Livestock Program,8,14,38,310102100002000
+410,MDS on the National Corn Program,8,14,38,310102100003000
+411,MDS on the National High-Value Crops Development Program,8,14,38,310102100004000
+412,MDS on the Promotion and Development of Organic Agriculture Program,8,14,38,310102100005000
+413,Other market development services activities,8,14,38,310102100006000
+414,ESETS on the National Rice Program,8,14,41,310103100001000
+415,ESETS on the National Livestock Program,8,14,41,310103100002000
+416,ESETS on the National Corn Program,8,14,41,310103100003000
+417,ESETS on the National High-Value Crops Development Program,8,14,41,310103100004000
+418,ESETS on the Promotion and Development of Organic Agriculture Program,8,14,41,310103100005000
+419,"Other extension support, education and training services activities",8,14,41,310103100006000
+420,R&D on the National Rice Program,8,14,43,310104100001000
+421,R&D on the National Livestock Program,8,14,43,310104100002000
+422,R&D on the National Corn Program,8,14,43,310104100003000
+423,R&D on the National High-Value Crops Development Program,8,14,43,310104100004000
+424,Other research and development activities,8,14,43,310104100006000
+425,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,8,22,55,310201100001000
+426,PAEF on the National Livestock Program,8,22,55,310201100002000
+427,PAEF on the National Corn Program,8,22,55,310201100003000
+428,PAEF on the National High-Value Crops Development Program,8,22,55,310201100004000
+429,PAEF on the Promotion and Development of Organic Agriculture Program,8,22,55,310201100005000
+430,INS on the National Rice Program,8,22,56,310202100001000
+431,INS on the National Corn Program,8,22,56,310202100002000
+432,INS on the National High-Value Crops Development Program,8,22,56,310202100003000
+433,INS on the Promotion and Development of Organic Agriculture,8,22,56,310202100005000
+434,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,8,22,57,310203100001000
+435,Quality control and inspection,8,27,47,310400100001000
+436,Registration and licensing,8,27,51,310400100004000
+437,Special Area for Agricultural Development Program,8,29,34,310500200001000
+438,"Development of organizational policies, plans and procedures",8,5,5,200000100005000
+439,Operation and maintenance of the integrated laboratories,8,11,15,200000100008000
+440,Field program management activities,8,12,16,200000100009000
+441,General management and supervision,9,1,1,100000100001000
+442,Administration of Personnel Benefits,9,2,2,100000100002000
+443,PSS on the National Rice Program,9,14,35,310101100001000
+444,PSS on the National Livestock Program,9,14,35,310101100002000
+445,PSS on the National Corn Program,9,14,35,310101100003000
+446,PSS on the National High-Value Crops Development Program,9,14,35,310101100004000
+447,PSS on the Promotion and Development of Organic Agriculture Program,9,14,35,310101100005000
+448,Other production support services activities,9,14,35,310101100006000
+449,MDS on the National Rice Program,9,14,38,310102100001000
+450,MDS on the National Livestock Program,9,14,38,310102100002000
+451,MDS on the National Corn Program,9,14,38,310102100003000
+452,MDS on the National High-Value Crops Development Program,9,14,38,310102100004000
+453,MDS on the Promotion and Development of Organic Agriculture Program,9,14,38,310102100005000
+454,Other market development services activities,9,14,38,310102100006000
+455,ESETS on the National Rice Program,9,14,41,310103100001000
+456,ESETS on the National Livestock Program,9,14,41,310103100002000
+457,ESETS on the National Corn Program,9,14,41,310103100003000
+458,ESETS on the National High-Value Crops Development Program,9,14,41,310103100004000
+459,ESETS on the Promotion and Development of Organic Agriculture Program,9,14,41,310103100005000
+460,"Other extension support, education and training services activities",9,14,41,310103100006000
+461,R&D on the National Rice Program,9,14,43,310104100001000
+462,R&D on the National Livestock Program,9,14,43,310104100002000
+463,R&D on the National Corn Program,9,14,43,310104100003000
+464,Other research and development activities,9,14,43,310104100006000
+465,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,9,22,55,310201100001000
+466,PAEF on the National Livestock Program,9,22,55,310201100002000
+467,PAEF on the National Corn Program,9,22,55,310201100003000
+468,PAEF on the National High-Value Crops Development Program,9,22,55,310201100004000
+469,PAEF on the Promotion and Development of Organic Agriculture Program,9,22,55,310201100005000
+470,INS on the National Rice Program,9,22,56,310202100001000
+471,INS on the National Corn Program,9,22,56,310202100002000
+472,INS on the National High-Value Crops Development Program,9,22,56,310202100003000
+473,INS on the Promotion and Development of Organic Agriculture,9,22,56,310202100005000
+474,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,9,22,57,310203100001000
+475,Quality control and inspection,9,27,47,310400100001000
+476,Registration and licensing,9,27,51,310400100004000
+477,Panay Island Upland Sustainable Development Project,9,29,46,310500300002000
+478,"Development of organizational policies, plans and procedures",9,5,5,200000100005000
+479,Operation and maintenance of the integrated laboratories,9,11,15,200000100008000
+480,Field program management activities,9,12,16,200000100009000
+481,General management and supervision,10,1,1,100000100001000
+482,Administration of Personnel Benefits,10,2,2,100000100002000
+483,PSS on the National Rice Program,10,14,35,310101100001000
+484,PSS on the National Livestock Program,10,14,35,310101100002000
+485,PSS on the National Corn Program,10,14,35,310101100003000
+486,PSS on the National High-Value Crops Development Program,10,14,35,310101100004000
+487,PSS on the Promotion and Development of Organic Agriculture Program,10,14,35,310101100005000
+488,Other production support services activities,10,14,35,310101100006000
+489,MDS on the National Rice Program,10,14,38,310102100001000
+490,MDS on the National Livestock Program,10,14,38,310102100002000
+491,MDS on the National Corn Program,10,14,38,310102100003000
+492,MDS on the National High-Value Crops Development Program,10,14,38,310102100004000
+493,MDS on the Promotion and Development of Organic Agriculture Program,10,14,38,310102100005000
+494,Other market development services activities,10,14,38,310102100006000
+495,ESETS on the National Rice Program,10,14,41,310103100001000
+496,ESETS on the National Livestock Program,10,14,41,310103100002000
+497,ESETS on the National Corn Program,10,14,41,310103100003000
+498,ESETS on the National High-Value Crops Development Program,10,14,41,310103100004000
+499,ESETS on the Promotion and Development of Organic Agriculture Program,10,14,41,310103100005000
+500,"Other extension support, education and training services activities",10,14,41,310103100006000
+501,ESETS on the Halal Food Industry Development Program,10,14,41,310103100007000
+502,R&D on the National Rice Program,10,14,43,310104100001000
+503,R&D on the National Livestock Program,10,14,43,310104100002000
+504,R&D on the National Corn Program,10,14,43,310104100003000
+505,Other research and development activities,10,14,43,310104100006000
+506,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,10,22,55,310201100001000
+507,PAEF on the National Livestock Program,10,22,55,310201100002000
+508,PAEF on the National Corn Program,10,22,55,310201100003000
+509,PAEF on the National High-Value Crops Development Program,10,22,55,310201100004000
+510,PAEF on the Promotion and Development of Organic Agriculture Program,10,22,55,310201100005000
+511,INS on the National Rice Program,10,22,56,310202100001000
+512,INS on the National Corn Program,10,22,56,310202100002000
+513,INS on the National High-Value Crops Development Program,10,22,56,310202100003000
+514,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,10,22,57,310203100001000
+515,Quality control and inspection,10,27,47,310400100001000
+516,Registration and licensing,10,27,51,310400100004000
+517,Special Area for Agricultural Development Program,10,29,34,310500200001000
+518,"Development of organizational policies, plans and procedures",10,5,5,200000100005000
+519,Operation and maintenance of the integrated laboratories,10,11,15,200000100008000
+520,Field program management activities,10,12,16,200000100009000
+521,General management and supervision,11,1,1,100000100001000
+522,PSS on the National Rice Program,11,14,35,310101100001000
+523,PSS on the National Livestock Program,11,14,35,310101100002000
+524,PSS on the National Corn Program,11,14,35,310101100003000
+525,PSS on the National High-Value Crops Development Program,11,14,35,310101100004000
+526,PSS on the Promotion and Development of Organic Agriculture Program,11,14,35,310101100005000
+527,Other production support services activities,11,14,35,310101100006000
+528,MDS on the National Rice Program,11,14,38,310102100001000
+529,MDS on the National Livestock Program,11,14,38,310102100002000
+530,MDS on the National Corn Program,11,14,38,310102100003000
+531,MDS on the National High-Value Crops Development Program,11,14,38,310102100004000
+532,MDS on the Promotion and Development of Organic Agriculture Program,11,14,38,310102100005000
+533,Other market development services activities,11,14,38,310102100006000
+534,ESETS on the National Rice Program,11,14,41,310103100001000
+535,ESETS on the National Livestock Program,11,14,41,310103100002000
+536,ESETS on the National Corn Program,11,14,41,310103100003000
+537,ESETS on the National High-Value Crops Development Program,11,14,41,310103100004000
+538,ESETS on the Promotion and Development of Organic Agriculture Program,11,14,41,310103100005000
+539,R&D on the National Rice Program,11,14,43,310104100001000
+540,R&D on the National Livestock Program,11,14,43,310104100002000
+541,R&D on the National Corn Program,11,14,43,310104100003000
+542,Other research and development activities,11,14,43,310104100006000
+543,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,11,22,55,310201100001000
+544,PAEF on the National Livestock Program,11,22,55,310201100002000
+545,PAEF on the National Corn Program,11,22,55,310201100003000
+546,PAEF on the National High-Value Crops Development Program,11,22,55,310201100004000
+547,PAEF on the Promotion and Development of Organic Agriculture Program,11,22,55,310201100005000
+548,INS on the National Rice Program,11,22,56,310202100001000
+549,INS on the National Corn Program,11,22,56,310202100002000
+550,INS on the National High-Value Crops Development Program,11,22,56,310202100003000
+551,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,11,22,57,310203100001000
+552,Quality control and inspection,11,27,47,310400100001000
+553,Registration and licensing,11,27,51,310400100004000
+554,Special Area for Agricultural Development Program,11,29,34,310500200001000
+555,"Development of organizational policies, plans and procedures",11,5,5,200000100005000
+556,Operation and maintenance of the integrated laboratories,11,11,15,200000100008000
+557,Field program management activities,11,12,16,200000100009000
+558,General management and supervision,13,1,1,100000100001000
+559,Administration of Personnel Benefits,13,2,2,100000100002000
+560,PSS on the National Rice Program,13,14,35,310101100001000
+561,PSS on the National Livestock Program,13,14,35,310101100002000
+562,PSS on the National Corn Program,13,14,35,310101100003000
+563,PSS on the National High-Value Crops Development Program,13,14,35,310101100004000
+564,PSS on the Promotion and Development of Organic Agriculture Program,13,14,35,310101100005000
+565,Other production support services activities,13,14,35,310101100006000
+566,MDS on the National Rice Program,13,14,38,310102100001000
+567,MDS on the National Livestock Program,13,14,38,310102100002000
+568,MDS on the National Corn Program,13,14,38,310102100003000
+569,MDS on the National High-Value Crops Development Program,13,14,38,310102100004000
+570,MDS on the Promotion and Development of Organic Agriculture Program,13,14,38,310102100005000
+571,Other market development services activities,13,14,38,310102100006000
+572,ESETS on the National Rice Program,13,14,41,310103100001000
+573,ESETS on the National Livestock Program,13,14,41,310103100002000
+574,ESETS on the National Corn Program,13,14,41,310103100003000
+575,ESETS on the National High-Value Crops Development Program,13,14,41,310103100004000
+576,ESETS on the Promotion and Development of Organic Agriculture Program,13,14,41,310103100005000
+577,"Other extension support, education and training services activities",13,14,41,310103100006000
+578,R&D on the National Rice Program,13,14,43,310104100001000
+579,R&D on the National Livestock Program,13,14,43,310104100002000
+580,R&D on the National Corn Program,13,14,43,310104100003000
+581,Other research and development activities,13,14,43,310104100006000
+582,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,13,22,55,310201100001000
+583,PAEF on the National Livestock Program,13,22,55,310201100002000
+584,PAEF on the National Corn Program,13,22,55,310201100003000
+585,PAEF on the National High-Value Crops Development Program,13,22,55,310201100004000
+586,PAEF on the Promotion and Development of Organic Agriculture Program,13,22,55,310201100005000
+587,INS on the National Rice Program,13,22,56,310202100001000
+588,INS on the National Corn Program,13,22,56,310202100002000
+589,INS on the National High-Value Crops Development Program,13,22,56,310202100003000
+590,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,13,22,57,310203100001000
+591,Quality control and inspection,13,27,47,310400100001000
+592,Registration and licensing,13,27,51,310400100004000
+593,Special Area for Agricultural Development Program,13,29,34,310500200001000
+594,"Construction of Solar Drier with Warehouse, Brgy. Minsamongan, Quezon, Bukidnon",13,29,34,310500200006000
+595,"Construction of Solar Drier with Warehouse, Brgy. Isidro, Quezon, Bukidnon",13,29,34,310500200007000
+596,"Development of organizational policies, plans and procedures",13,5,5,200000100005000
+597,Operation and maintenance of the integrated laboratories,13,11,15,200000100008000
+598,Field program management activities,13,12,16,200000100009000
+599,General management and supervision,14,1,1,100000100001000
+600,Administration of Personnel Benefits,14,2,2,100000100002000
+601,PSS on the National Rice Program,14,14,35,310101100001000
+602,PSS on the National Livestock Program,14,14,35,310101100002000
+603,PSS on the National Corn Program,14,14,35,310101100003000
+604,PSS on the National High-Value Crops Development Program,14,14,35,310101100004000
+605,PSS on the Promotion and Development of Organic Agriculture Program,14,14,35,310101100005000
+606,Other production support services activities,14,14,35,310101100006000
+607,MDS on the National Rice Program,14,14,38,310102100001000
+608,MDS on the National Livestock Program,14,14,38,310102100002000
+609,MDS on the National Corn Program,14,14,38,310102100003000
+610,MDS on the National High-Value Crops Development Program,14,14,38,310102100004000
+611,MDS on the Promotion and Development of Organic Agriculture Program,14,14,38,310102100005000
+612,Other market development services activities,14,14,38,310102100006000
+613,ESETS on the National Rice Program,14,14,41,310103100001000
+614,ESETS on the National Livestock Program,14,14,41,310103100002000
+615,ESETS on the National Corn Program,14,14,41,310103100003000
+616,ESETS on the National High-Value Crops Development Program,14,14,41,310103100004000
+617,ESETS on the Promotion and Development of Organic Agriculture Program,14,14,41,310103100005000
+618,"Other extension support, education and training services activities",14,14,41,310103100006000
+619,R&D on the National Rice Program,14,14,43,310104100001000
+620,R&D on the National Livestock Program,14,14,43,310104100002000
+621,R&D on the National Corn Program,14,14,43,310104100003000
+622,Other research and development activities,14,14,43,310104100006000
+623,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,14,22,55,310201100001000
+624,PAEF on the National Livestock Program,14,22,55,310201100002000
+625,PAEF on the National Corn Program,14,22,55,310201100003000
+626,PAEF on the National High-Value Crops Development Program,14,22,55,310201100004000
+627,PAEF on the Promotion and Development of Organic Agriculture Program,14,22,55,310201100005000
+628,INS on the National Rice Program,14,22,56,310202100001000
+629,INS on the National Corn Program,14,22,56,310202100002000
+630,INS on the National High-Value Crops Development Program,14,22,56,310202100003000
+631,INS on the Promotion and Development of Organic Agriculture,14,22,56,310202100005000
+632,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,14,22,57,310203100001000
+633,Quality control and inspection,14,27,47,310400100001000
+634,Registration and licensing,14,27,51,310400100004000
+635,Special Area for Agricultural Development Program,14,29,34,310500200001000
+636,Agdao Farmers' Market,14,29,34,310500200005000
+637,"Development of organizational policies, plans and procedures",14,5,5,200000100005000
+638,Operation and maintenance of the integrated laboratories,14,11,15,200000100008000
+639,Field program management activities,14,12,16,200000100009000
+640,General management and supervision,15,1,1,100000100001000
+641,Administration of Personnel Benefits,15,2,2,100000100002000
+642,PSS on the National Rice Program,15,14,35,310101100001000
+643,PSS on the National Livestock Program,15,14,35,310101100002000
+644,PSS on the National Corn Program,15,14,35,310101100003000
+645,PSS on the National High-Value Crops Development Program,15,14,35,310101100004000
+646,PSS on the Promotion and Development of Organic Agriculture Program,15,14,35,310101100005000
+647,Other production support services activities,15,14,35,310101100006000
+648,MDS on the National Rice Program,15,14,38,310102100001000
+649,MDS on the National Livestock Program,15,14,38,310102100002000
+650,MDS on the National Corn Program,15,14,38,310102100003000
+651,MDS on the National High-Value Crops Development Program,15,14,38,310102100004000
+652,MDS on the Promotion and Development of Organic Agriculture Program,15,14,38,310102100005000
+653,Other market development services activities,15,14,38,310102100006000
+654,ESETS on the National Rice Program,15,14,41,310103100001000
+655,ESETS on the National Livestock Program,15,14,41,310103100002000
+656,ESETS on the National Corn Program,15,14,41,310103100003000
+657,ESETS on the National High-Value Crops Development Program,15,14,41,310103100004000
+658,ESETS on the Promotion and Development of Organic Agriculture Program,15,14,41,310103100005000
+659,"Other extension support, education and training services activities",15,14,41,310103100006000
+660,ESETS on the Halal Food Industry Development Program,15,14,41,310103100007000
+661,R&D on the National Rice Program,15,14,43,310104100001000
+662,R&D on the National Livestock Program,15,14,43,310104100002000
+663,R&D on the National Corn Program,15,14,43,310104100003000
+664,Other research and development activities,15,14,43,310104100006000
+665,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,15,22,55,310201100001000
+666,PAEF on the National Livestock Program,15,22,55,310201100002000
+667,PAEF on the National Corn Program,15,22,55,310201100003000
+668,PAEF on the National High-Value Crops Development Program,15,22,55,310201100004000
+669,PAEF on the Promotion and Development of Organic Agriculture Program,15,22,55,310201100005000
+670,INS on the National Rice Program,15,22,56,310202100001000
+671,INS on the National Corn Program,15,22,56,310202100002000
+672,INS on the National High-Value Crops Development Program,15,22,56,310202100003000
+673,INS on the Promotion and Development of Organic Agriculture,15,22,56,310202100005000
+674,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,15,22,57,310203100001000
+675,Quality control and inspection,15,27,47,310400100001000
+676,Registration and licensing,15,27,51,310400100004000
+677,Special Area for Agricultural Development Program,15,29,34,310500200001000
+678,SOCCSKSARGEN Integrated Food Security Program,15,29,34,310500200003000
+679,"Development of organizational policies, plans and procedures",15,5,5,200000100005000
+680,Operation and maintenance of the integrated laboratories,15,11,15,200000100008000
+681,Field program management activities,15,12,16,200000100009000
+682,General management and supervision,16,1,1,100000100001000
+683,PSS on the National Rice Program,16,14,35,310101100001000
+684,PSS on the National Livestock Program,16,14,35,310101100002000
+685,PSS on the National Corn Program,16,14,35,310101100003000
+686,PSS on the National High-Value Crops Development Program,16,14,35,310101100004000
+687,PSS on the Promotion and Development of Organic Agriculture Program,16,14,35,310101100005000
+688,Other production support services activities,16,14,35,310101100006000
+689,Other market development services activities,16,14,38,310102100006000
+690,ESETS on the National Rice Program,16,14,41,310103100001000
+691,ESETS on the National Livestock Program,16,14,41,310103100002000
+692,ESETS on the National Corn Program,16,14,41,310103100003000
+693,ESETS on the National High-Value Crops Development Program,16,14,41,310103100004000
+694,ESETS on the Promotion and Development of Organic Agriculture Program,16,14,41,310103100005000
+695,R&D on the National Rice Program,16,14,43,310104100001000
+696,R&D on the National Corn Program,16,14,43,310104100003000
+697,Other research and development activities,16,14,43,310104100006000
+698,Provision of Agricultural Equipment and Facilities (PAEF) on the National Rice Program,16,22,55,310201100001000
+699,PAEF on the National Livestock Program,16,22,55,310201100002000
+700,PAEF on the National Corn Program,16,22,55,310201100003000
+701,PAEF on the National High-Value Crops Development Program,16,22,55,310201100004000
+702,PAEF on the Promotion and Development of Organic Agriculture Program,16,22,55,310201100005000
+703,INS on the National Rice Program,16,22,56,310202100001000
+704,INS on the National High-Value Crops Development Program,16,22,56,310202100003000
+705,Farm-to-Market Road (FMR) Network Planning and Monitoring Services,16,22,57,310203100001000
+706,Quality control and inspection,16,27,47,310400100001000
+707,Registration and licensing,16,27,51,310400100004000
+708,"Development of organizational policies, plans and procedures",16,5,5,200000100005000
+709,Agri-business and marketing services,16,9,13,200000100006000
+710,Operation and maintenance of the integrated laboratories,16,11,15,200000100008000
+711,Field program management activities,16,12,16,200000100009000
+712,General management and supervision,24,1,1,100000100001000
+713,Agro-Industry Modernization Credit and Financing Program (AMCFP) Administration,24,15,18,310100100001000
+714,"Policy formulation, research and advocacy, monitoring and evaluation of credit policies, plans and programs and capacity building",24,15,25,310100100002000
+715,General management and supervision,25,1,1,100000100001000
+716,Administration of Personnel Benefits,25,1,2,100000100002000
+717,Fishing gear/paraphernalia distribution,25,16,36,310101100001000
+718,Fisheries production and distribution,25,16,39,310102100001000
+719,Operation and management of production facilities,25,16,39,310102100002000
+720,Provision of fishery on-farm/post-harvest equipment and facilities,25,16,42,310103100001000
+721,Market development services,25,16,44,310104100001000
+722,Special Area for Agricultural Development Program,25,16,45,310105200001000
+723,Establishment and Operation of Aklan Provincial Fresh Water Tilapia Hatchery,25,16,45,310105200002000
+724,"Establishment of Community Fish Landing with Cold Storage in Palanan, Isabela",25,16,45,310105200003000
+725,"Establishment of Community Fish Landing with Cold Storage in Dingalan, Aurora",25,16,45,310105200004000
+726,"Establishment of Community Fish Landing with Cold Storage in Atimonan, Quezon",25,16,45,310105200005000
+727,"Establishment of Community Fish Landing with Cold Storage in Guiuan, Eastern Samar",25,16,45,310105200006000
+728,"Fisheries, Coastal Resources and Livelihood Project (FishCORAL)",25,16,45,310105300001000
+729,Quality control and inspection,25,23,47,310200100002000
+730,"Monitoring, control and surveillance",25,23,49,310200100001000
+731,"Quarantine, registration and licensing",25,23,53,310200100003000
+732,Coastal and inland fisheries resource management,25,23,54,310200100004000
+733,Oplan Sagip Ludong Project (OSLP): Save Our Endangered Philippine Ludong (BFAR),25,23,54,310200200001000
+734,Integrated Marine Environment Monitoring System  Phase 2 (PHILO Project Phase 2),25,23,54,310200300001000
+735,"Extension Support, Education and Training Services (ESETS)",25,26,59,310300100001000
+736,"Formulation, monitoring and evaluation of policies, plans and programs",25,28,19,310400100001000
+737,"Development of organizational policies, plans and procedures",25,3,5,200000100001000
+738,Research and development,25,3,8,200000100002000
+739,Legal and advisory services,25,3,11,200000100003000
+740,General management and supervision,27,1,1,100000100001000
+741,Operation and management of production facilities,27,16,39,310102100002000
+742,Market development services,27,16,44,310104100001000
+743,"Extension Support, Education and Training Services (ESETS)",27,26,59,310300100001000
+744,"Development of organizational policies, plans and procedures",27,3,5,200000100001000
+745,Research and development,27,3,8,200000100002000
+746,General management and supervision,28,1,1,100000100001000
+747,Administration of Personnel Benefits,28,1,2,100000100002000
+748,Meat inspection enforcement and deputation services ,28,17,37,310101100001000
+749,Meat inspection development services,28,17,37,310101100002000
+750,Meat establishment licensing services,28,17,40,310102100001000
+751,Meat importers and exporters registration services,28,17,40,310102100002000
+752,Meat establishment and meat inspection assistance to LGUs services,28,30,62,320100100001000
+753,General management and supervision,30,1,1,100000100001000
+754,"Formulation, Monitoring and Evaluation of Plans, Programs and Projects",30,18,20,310100100001000
+755,Intensification of the National Upgrading Program,30,18,26,310100100002000
+756,Carabao-Based Enterprise Development,30,18,29,310100100003000
+757,Knowledge Management and Support Services,30,18,31,310100100004000
+758,Research for Development,30,18,32,310100100005000
+759,Animal Genetic Resource Conservation and Utilization,30,18,33,310100100006000
+760,General management and supervision,31,1,1,100000100001000
+761,Administration of Personnel Benefits,31,1,2,100000100002000
+762,"Formulation, monitoring and evaluation of policies, plans and programs",31,19,19,310100100001000
+763,"Extension Support, Education and Training Services",31,19,19,310100100002000
+764,Research and development,31,19,19,310100100003000
+765,Research and development,33,19,8,310100100003000
+766,General management and supervision,33,19,19,100000100001000
+767,Administration of Personnel Benefits,33,19,19,100000100002000
+768,"Formulation and Monitoring of Policies, Plans and Programs",33,19,19,200000100001000
+769,Cotton Development Project,33,19,19,310100200001000
+770,"Establishment of  Weaving and Processing Centers (Pandan, Antique; Miag-ao, Iloilo; Pinili, Ilocos Norte, Laguindingan, Misamis Oriental)",33,19,19,310100200002000
+771,"Establishment of Ginning and Spinning Facility for Cotton (Patnongon, Antique; Dumingag, Zamboanga del Sur)",33,19,19,310100200003000
+772,"Establishment of Pineapple Farms and Fiber Extraction Facilities (Camarines Norte, Antique, Aklan)",33,19,19,310100200004000
+773,"Abaca Fiber Production (San Jose; Lauan, Antique)",33,19,19,310100200005000
+774,Production Support Services,33,19,22,310100100001000
+775,"Extension, Support, Education and Training Services",33,19,27,310100100002000
+776,Production Support Services,33,20,22,310100100001000
+777,Quality control and inspection,33,24,47,310200100001000
+778,Registration and licensing,33,24,51,310200100002000
+779,General management and supervision,32,1,1,100000100001000
+780,Administration of Personnel Benefits,32,1,2,100000100002000
+781,Development and Coordination of Agriculture and Fishery Policies,32,21,24,310100100001000
+782,"Planning, Monitoring and Knowledge Management",32,21,28,310100100002000
+783,Partnership Development,32,21,30,310100100003000
