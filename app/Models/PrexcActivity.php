@@ -19,28 +19,28 @@ class PrexcActivity extends Model
       'prexc_subprogram_id',
       'banner_program_id',
       'uacs_code',
-      'investment_target_2016,'
-      'investment_target_2017,'
-      'investment_target_2018,'
-      'investment_target_2019,'
-      'investment_target_2020,'
-      'investment_target_2021,'
-      'investment_target_2022,'
-      'investment_target_2023,'
-      'investment_target_2024,'
-      'investment_target_2025,'
-      'investment_target_total,'
-      'infrastructure_target_2016,'
-      'infrastructure_target_2017,'
-      'infrastructure_target_2018,'
-      'infrastructure_target_2019,'
-      'infrastructure_target_2020,'
-      'infrastructure_target_2021,'
-      'infrastructure_target_2022,'
-      'infrastructure_target_2023,'
-      'infrastructure_target_2024,'
-      'infrastructure_target_2025,'
-      'infrastructure_target_total,'
+      'investment_target_2016',
+      'investment_target_2017',
+      'investment_target_2018',
+      'investment_target_2019',
+      'investment_target_2020',
+      'investment_target_2021',
+      'investment_target_2022',
+      'investment_target_2023',
+      'investment_target_2024',
+      'investment_target_2025',
+      'investment_target_total',
+      'infrastructure_target_2016',
+      'infrastructure_target_2017',
+      'infrastructure_target_2018',
+      'infrastructure_target_2019',
+      'infrastructure_target_2020',
+      'infrastructure_target_2021',
+      'infrastructure_target_2022',
+      'infrastructure_target_2023',
+      'infrastructure_target_2024',
+      'infrastructure_target_2025',
+      'infrastructure_target_total',
       'gaa_2016',
       'gaa_2017',
       'gaa_2018',
