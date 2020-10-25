@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,7 @@ Route::get('/projects/{id}', function($id) {
 
 	return response()->json($versions);
 })->where('id', '[0-9]+');
+
+Route::get('/critical', function() {
+    Log::critical('Testing slack logging');
+});
