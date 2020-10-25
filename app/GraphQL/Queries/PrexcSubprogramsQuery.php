@@ -21,10 +21,11 @@ class PrexcSubprogramsQuery
            $ou = $user->operating_unit;
 
            $prexc_subprograms = $ou->$prexc_subprograms;
-           Log::critical(json_encode($prexc_subprograms));
          } else {
            $prexc_subprograms = PrexcSubprogram::all();
          }
+
+         Log::critical(json_encode($prexc_subprograms));
 
          return $prexc_subprograms;
      }
