@@ -25,6 +25,8 @@ class CreateFundingSourceFinancialsTable extends Migration
             $table->decimal('investment_target_2021',14,2)->default(0)->nullable();
             $table->decimal('investment_target_2022',14,2)->default(0)->nullable();
             $table->decimal('investment_target_2023',14,2)->default(0)->nullable();
+            $table->decimal('investment_target_2024',14,2)->default(0)->nullable();
+            $table->decimal('investment_target_2025',14,2)->default(0)->nullable();
             $table->decimal('investment_target_total',14,2)->default(0)->nullable();
             $table->decimal('infrastructure_target_2016',14,2)->default(0)->nullable();
             $table->decimal('infrastructure_target_2017',14,2)->default(0)->nullable();
@@ -34,6 +36,8 @@ class CreateFundingSourceFinancialsTable extends Migration
             $table->decimal('infrastructure_target_2021',14,2)->default(0)->nullable();
             $table->decimal('infrastructure_target_2022',14,2)->default(0)->nullable();
             $table->decimal('infrastructure_target_2023',14,2)->default(0)->nullable();
+            $table->decimal('infrastructure_target_2024',14,2)->default(0)->nullable();
+            $table->decimal('infrastructure_target_2025',14,2)->default(0)->nullable();
             $table->decimal('infrastructure_target_total',14,2)->default(0)->nullable();
             $table->timestamps();
 

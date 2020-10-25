@@ -32,16 +32,6 @@ class ProjectObserver
 
     public function created(Project $project)
     {
-      // create placeholder for regions
-      $regions = Region::all()->pluck('id');
-
-      $project->regions()->attach($regions);
-
-      // create placeholder for funding_sources
-      $fs = FundingSource::all()->pluck('id');
-
-      $project->funding_sources()->attach($fs);
-
       // set processing status id to 'draft'
       $project->processing_status_id = 1;
 
