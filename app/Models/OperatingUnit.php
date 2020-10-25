@@ -130,11 +130,11 @@ class OperatingUnit extends Model
 
     public function prexc_programs(): BelongsToMany
     {
-        return $this->belongsToMany(PrexcProgram::class,'prexc_activities','operating_unit_id','prexc_program_id','id','id');
+        return $this->belongsToMany(PrexcProgram::class,'operating_unit_prexc_program','operating_unit_id','prexc_program_id','id','id');
     }
 
     public function prexc_subprograms(): BelongsToMany
     {
-        return $this->belongsToMany(PrexcSubprogram::class,'prexc_activities','operating_unit_id','prexc_subprogram_id','id','id');
+        return $this->belongsToMany(PrexcSubprogram::class,'operating_unit_prexc_subprogram','operating_unit_id','prexc_subprogram_id','id','id');
     }
 }
