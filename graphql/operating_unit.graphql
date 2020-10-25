@@ -78,7 +78,10 @@ type OperatingUnit {
     investment_target_2022: Float
     investment_target_2023: Float
     project_count: Int
-    prexc_activities: [PrexcActivity] @belongsToMany
+    prexc_activities: [PrexcActivity] @hasMany
+    prexc_programs: [PrexcProgram] @belongsToMany
+    prexc_sprograms: [PrexcSubprogram] @belongsToMany
+
 }
 
 input AssignReviewerInput {
