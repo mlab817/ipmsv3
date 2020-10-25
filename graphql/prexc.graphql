@@ -1,8 +1,8 @@
 extend type Query {
 	cost_structures: [CostStructure] @all
-	prexc_programs: [PrexcProgram] @all
+	prexc_programs: [PrexcProgram] @field(resolver: "PrexcProgramsQuery")
 	prexc_program(id: ID! @eq): PrexcProgram @find
-	prexc_subprograms: [PrexcSubprogram] @all
+	prexc_subprograms: [PrexcSubprogram] @field(resolver: "PrexcSubprogramsQuery")
 	prexc_subprogram(id: ID! @eq): PrexcSubprogram @find
 	prexc_activities: [PrexcActivity] @field(resolver: "PrexcActivitiesQuery")
 	prexc_activity(id: ID! @eq): PrexcActivity @find
