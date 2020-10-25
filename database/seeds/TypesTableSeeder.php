@@ -15,13 +15,13 @@ class TypesTableSeeder extends Seeder
         DB::table('types')->insert([
           [
             'id' => 1,
-            'name' => 'Program',
-            'label' => 'Program'
+            'name' => 'Locally Funded Project',
+            'label' => 'LFP'
           ],
           [
             'id' => 2,
-            'name' => 'Project',
-            'label' => 'Project'
+            'name' => 'Foreign Assisted Project',
+            'label' => 'FAP'
           ]
         ]);
     }
