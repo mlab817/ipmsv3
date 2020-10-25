@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\PrexcActivityScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -11,6 +12,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PrexcActivity extends Model
 {
     use SoftDeletes;
+
+    protected static function boot()
+    {
+      parent::boot();
+
+      $role = auth()->user() ? auth()->user()->role->name : '';
+
+      if (!($role === 'lead' || $role === 'chief')) {
+        static::addGlobalScope(new PrexcActivityScope);
+      }
+    }
 
     protected $fillable = [
     	'name',
