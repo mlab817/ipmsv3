@@ -149,6 +149,9 @@ type Project {
     fs_target_2020: Float
     fs_target_2021: Float
     fs_target_2022: Float
+    fs_target_2023: Float
+    fs_target_2024: Float
+    fs_target_2025: Float
     fs_target_total: Float
     row_target_2017: Float
     row_target_2018: Float
@@ -156,6 +159,9 @@ type Project {
     row_target_2020: Float
     row_target_2021: Float
     row_target_2022: Float
+    row_target_2023: Float
+    row_target_2024: Float
+    row_target_2025: Float
     row_target_total: Float
     row_affected: Int
     rap_target_2017: Float
@@ -174,6 +180,8 @@ type Project {
     investment_target_2021: Float
     investment_target_2022: Float
     investment_target_2023: Float
+    investment_target_2024: Float
+    investment_target_2025: Float
     investment_target_total: Float
     infrastructure_target_2016: Float
     infrastructure_target_2017: Float
@@ -183,6 +191,8 @@ type Project {
     infrastructure_target_2021: Float
     infrastructure_target_2022: Float
     infrastructure_target_2023: Float
+    infrastructure_target_2024: Float
+    infrastructure_target_2025: Float
     infrastructure_target_total: Float
     nep_2016: Float
     nep_2017: Float
@@ -201,6 +211,8 @@ type Project {
     gaa_2021: Float
     gaa_2022: Float
     gaa_2023: Float
+    gaa_2024: Float
+    gaa_2025: Float
     gaa_total: Float
     disbursement_2016: Float
     disbursement_2017: Float
@@ -210,6 +222,8 @@ type Project {
     disbursement_2021: Float
     disbursement_2022: Float
     disbursement_2023: Float
+    disbursement_2024: Float
+    disbursement_2025: Float
     disbursement_total: Float
     image_url: String
     priority_ranking: Int
