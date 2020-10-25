@@ -80,7 +80,7 @@ type OperatingUnit {
     project_count: Int
     prexc_activities: [PrexcActivity] @hasMany
     prexc_programs: [PrexcProgram] @belongsToMany
-    prexc_sprograms: [PrexcSubprogram] @belongsToMany
+    prexc_subprograms: [PrexcSubprogram] @belongsToMany
 
 }
 
