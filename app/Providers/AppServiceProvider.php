@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\PrexcActivity;
 use App\Models\Project;
+use App\Observers\PrexcActivityObserver;
 use App\Observers\ProjectObserver;
 use App\User;
 use Illuminate\Support\Facades\Schema;
@@ -34,5 +36,6 @@ class AppServiceProvider extends ServiceProvider
         }
 
         Project::observe(ProjectObserver::class);
+        PrexcActivity::observe(PrexcActivityObserver::class);
     }
 }
