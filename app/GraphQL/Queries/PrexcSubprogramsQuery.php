@@ -2,7 +2,6 @@
 
 namespace App\GraphQL\Queries;
 
-use Illuminate\Support\Facades\Log;
 use App\Models\PrexcSubprogram;
 
 class PrexcSubprogramsQuery
