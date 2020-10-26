@@ -64,5 +64,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PrexcActivitiesTableSeeder::class);
         $this->call(OperatingUnitPrexcProgramTableSeeder::class);
         $this->call(OperatingUnitPrexcSubrogramTableSeeder::class);
+        $this->call(InfrastructureSectorsTableSeeder::class);
+        $this->call(InfrastructureSubsectorsTableSeeder::class);
     }
 }
