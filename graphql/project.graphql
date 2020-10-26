@@ -120,7 +120,7 @@ type Project {
     selected_technical_readinesses: [ID]
     implementation_mode_id: ID
     implementation_mode: ImplementationMode @belongsTo
-    paradigms: [Paradigm!] @belongsToMany
+    paradigms: [Paradigm] @belongsToMany
     ten_point_agenda: [TenPointAgenda] @belongsToMany
     sustainable_development_goals: [SustainableDevelopmentGoal] @belongsToMany
     regions: [Region] @belongsToMany

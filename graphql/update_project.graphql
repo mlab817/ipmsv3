@@ -172,18 +172,21 @@ input UpdateProjectInput {
   uacs_code: String
   updates: String
   updates_date: String @date
-  districts: UpdateDistrictInput
-  # bases: UpdateBasisRelation
+  districts: [ID]
+  bases: [ID]
   region_id: ID
   province_id: ID
-  provinces: UpdateProvinceRelation
+  provinces: [ID]
   district_id: ID
   city_municipality_id: ID
-  technical_readinesses: UpdateTechnicalReadinessesInput
+  technical_readinesses: [ID]
   # region_financials: UpdateRegionFinancialsHasMany
   # funding_source_financials: UpdateFundingSourceFinancialsHasMany
-  regions: UpdateProjectRegions
-  funding_sources: UpdateProjectFundingSources
+  regions: [ID]
+  funding_sources: [ID]
+  pdp_chapters: [ID]
+  pdp_indicators: [ID]
+  paradigms: [ID]
   version: Int
   finalized: Boolean
 }
