@@ -180,8 +180,6 @@ input UpdateProjectInput {
   district_id: ID
   city_municipality_id: ID
   technical_readinesses: [ID]
-  # region_financials: UpdateRegionFinancialsHasMany
-  # funding_source_financials: UpdateFundingSourceFinancialsHasMany
   regions: [ID]
   funding_sources: [ID]
   pdp_chapters: [ID]
@@ -189,6 +187,8 @@ input UpdateProjectInput {
   paradigms: [ID]
   version: Int
   finalized: Boolean
+  cip_type_id: ID
+  infrastructure_sectors: [ID]
 }
 
 input UpdateTechnicalReadinessesInput {
