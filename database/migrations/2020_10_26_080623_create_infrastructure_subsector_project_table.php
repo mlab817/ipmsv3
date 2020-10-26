@@ -14,13 +14,13 @@ class CreateInfrastructureSubsectorProjectTable extends Migration
     public function up()
     {
         Schema::create('infrastructure_subsector_project', function (Blueprint $table) {
-            $table->unsignedBigInteger('infrastructure_subsector_id');
+            $table->unsignedBigInteger('infra_subsector_id');
             $table->unsignedBigInteger('project_id');
             $table->timestamps();
 
-            $table->foreign('infrastructure_subsector_id')->references('id')->on('infrastructure_subsectors')->onDelete('cascade');
+            $table->foreign('infra_subsector_id')->references('id')->on('infrastructure_subsectors')->onDelete('cascade');
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
-            $table->unique(['infrastructure_subsector_id','project_id'],'isp_index');
+            $table->unique(['infra_subsector_id','project_id'],'isp_index');
         });
     }
 
