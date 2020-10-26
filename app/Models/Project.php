@@ -674,6 +674,11 @@ class Project extends Model
       return $this->belongsTo(GadForm::class);
     }
 
+    public function funding_source_infrastructures(): HasMany
+    {
+      return $this->hasMany(FundingSourceInfrastructure::class);
+    }
+
     public function getSignedCopyLinkAttribute()
     {
         return $this->signed_copy ? config('app.url') . Storage::url($this->signed_copy) : null;
