@@ -23,6 +23,9 @@ extend type Query {
   "Get all implementation modes"
   implementation_modes: [ImplementationMode] @all
 
+  "Get all infrastructure_sectors"
+  infrastructure_sectors: [InfrastructureSector] @all
+
   "Get all operating unit types"
   operating_unit_types: [OperatingUnitType] @all
 
@@ -189,4 +192,21 @@ type Year {
   id: Int!
   name: String
   projects: [Project] @hasMany
+}
+
+type InfrastructureSector {
+  id: ID
+  name: String
+  infrastructure_subsectors: [InfrastructureSubsector] @hasMany
+  value: ID @rename(attribute:"id")
+  label: String @rename(attribute:"name")
+  children: [InfrastructureSubsector] @hasMany
+}
+
+type InfrastructureSubsector {
+  id: ID
+  name: String
+  infrastructure_sector: InfrastructureSector @belongsTo
+  value: ID @rename(attribute:"id")
+  label: String @rename(attribute:"name")
 }
