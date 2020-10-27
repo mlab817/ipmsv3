@@ -32,6 +32,9 @@ extend type Query {
   "Get all paradigms"
   paradigms: [Paradigm] @all
 
+  "Get all project preparation documents"
+  project_preparation_documents: [ProjectPreparationDocument] @all
+
   "Get all sustainable development goals"
   sustainable_development_goals: [SustainableDevelopmentGoal] @all
 
@@ -209,4 +212,9 @@ type InfrastructureSubsector {
   infrastructure_sector: InfrastructureSector @belongsTo
   value: ID @rename(attribute:"id")
   label: String @rename(attribute:"name")
+}
+
+type ProjectPreparationDocument {
+  id: ID
+  name: String
 }

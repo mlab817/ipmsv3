@@ -310,8 +310,3 @@ type CanUpdateResponse {
   created_by: ID
   check: Boolean
 }
-
-type ProjectPreparationDocument {
-  id: ID
-  name: String
-}
