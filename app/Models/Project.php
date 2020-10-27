@@ -689,6 +689,11 @@ class Project extends Model
       return $this->belongsToMany(InfrastructureSubsector::class,'infrastructure_subsector_project','project_id','infra_subsector_id','id','id');
     }
 
+    public function selected_infrastructure_subsectors()
+    {
+      return $this->infrastructure_subsectors ?? $this->infrastructure_subsectors->pluck('id');
+    }
+
     public function getSignedCopyLinkAttribute()
     {
         return $this->signed_copy ? config('app.url') . Storage::url($this->signed_copy) : null;

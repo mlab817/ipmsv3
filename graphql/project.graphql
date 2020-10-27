@@ -295,6 +295,8 @@ type Project {
     version: Int
     signed_copy_link: String
     funding_source_infrastructures: [FundingSourceInfrastructure] @hasMany
+    infrastructure_subsectors: [InfrastructureSubsector] @belongsToMany
+    selected_infrastructure_subsectors: [ID]
 }
 
 type CanUpdateResponse {
