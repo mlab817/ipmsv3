@@ -11,9 +11,9 @@ extend type Mutation {
 
   deleteFundingSourceFinancial(id: ID!): FundingSourceFinancial @delete
 
-  createFundingSourceInfrastructure(input: CreateFundingSourceInfrastructureInput! @spread): FundingSourceFinancial @create
+  createFundingSourceInfrastructure(input: CreateFundingSourceInfrastructureInput! @spread): FundingSourceInfrastructure @create
 
-  updateFundingSourceInfrastructure(input: UpdateFundingSourceInfrastructureInput! @spread): FundingSourceFinancial @update
+  updateFundingSourceInfrastructure(input: UpdateFundingSourceInfrastructureInput! @spread): FundingSourceInfrastructure @update
 
   deleteFundingSourceInfrastructure(id: ID!): FundingSourceInfrastructure @delete
 }
