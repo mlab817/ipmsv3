@@ -196,6 +196,7 @@ class CreateProjectsTable extends Migration
             $table->decimal('disbursement_total',14,2)->nullable()->default(0);
             $table->text('image_url')->nullable();
             $table->unsignedBigInteger('project_preparation_document_id')->nullable();
+            $table->string('project_preparation_document_others')->nullable();
             $table->unsignedBigInteger('technical_readiness_id')->nullable(); // equivalent of project preparation details
             $table->string('technical_readiness_others')->nullable();
 

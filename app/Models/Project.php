@@ -313,8 +313,9 @@ class Project extends Model
       'reviewed',
       'approved',
       'processing_status_id',
-      'signed_copy'
-      'project_preparation_document_id'
+      'signed_copy',
+      'project_preparation_document_id',
+      'project_preparation_document_others'
       // 'version'
     ];
 

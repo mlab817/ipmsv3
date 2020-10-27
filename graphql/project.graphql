@@ -302,6 +302,7 @@ type Project {
     selected_infrastructure_subsectors: [ID]
     project_preparation_document_id: ID
     project_preparation_document: ProjectPreparationDocument @belongsTo
+    project_preparation_document_others: String
 }
 
 type CanUpdateResponse {
