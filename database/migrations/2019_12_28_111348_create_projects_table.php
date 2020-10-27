@@ -107,6 +107,7 @@ class CreateProjectsTable extends Migration
             $table->text("implementation_risk")->nullable();
             $table->text("mitigation_strategy")->nullable();
             $table->text("income_increase")->nullable();
+            $table->unsignedBigInteger('pdp_chapter_id')->nullable();
             $table->unsignedBigInteger('gad_id')->nullable();
             $table->decimal('row_target_2017',14,2)->nullable()->default(0);
             $table->decimal('row_target_2018',14,2)->nullable()->default(0);
@@ -233,6 +234,7 @@ class CreateProjectsTable extends Migration
             $table->foreign('processing_status_id')->references('id')->on('processing_statuses')->onDelete('SET NULL');
             $table->foreign('processed_by')->references('id')->on('users')->onDelete('SET NULL');
 
+            $table->foreign('pdp_chapter_id')->references('id')->on('pdp_chapters')->onDelete('set null');
             $table->foreign('operating_unit_id')->references('id')->on('operating_units')->onDelete('set null');
             $table->foreign('main_funding_source_id')->references('id')->on('funding_sources')->onDelete('set null');
             $table->foreign('funding_institution_id')->references('id')->on('funding_institutions')->onDelete('set null');

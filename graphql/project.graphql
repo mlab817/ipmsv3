@@ -267,6 +267,8 @@ type Project {
     latest_processing_status: ProjectProcessingStatus @hasOne
     region_financials: [RegionFinancial] @hasMany
     funding_source_financials: [FundingSourceFinancial] @hasMany
+    pdp_chapter_id: ID
+    pdp_chapter: PdpChapter @belongsTo
     pdp_chapters: [PdpChapter] @belongsToMany
     review: Review @hasOne
     selected_sustainable_development_goals: [ID]

@@ -627,6 +627,11 @@ class Project extends Model
       return $this->hasMany(FundingSourceFinancial::class,'project_id','id');
     }
 
+    public function pdp_chapter(): BelongsTo
+    {
+      return $this->belongsTo(PdpChapter::class);
+    }
+
     public function pdp_chapters(): BelongsToMany
     {
       return $this->belongsToMany(PdpChapter::class,'project_pdp_chapter','project_id','pdp_chapter_id');
