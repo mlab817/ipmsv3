@@ -525,11 +525,6 @@ class Project extends Model
       return $this->pdp_indicators ?? $this->pdp_indicators->pluck('id');
     }
 
-    public function getInfrastructureSubsectorsAttribute()
-    {
-      return $this->infrastructure_subsectors ?? $this->infrastructure_subsectors->pluck('id');
-    }
-
     /**
      * Attribute for when a user can update this project.
      *
