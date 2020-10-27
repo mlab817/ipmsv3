@@ -76,6 +76,7 @@ type Project {
     outcomes: String
     purpose: String
     expected_outputs: String
+    iccable: Boolean
     clearinghouse: Boolean
     clearinghouse_date: Date
     target_start_year: Int

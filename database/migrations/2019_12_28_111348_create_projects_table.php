@@ -72,6 +72,7 @@ class CreateProjectsTable extends Migration
             $table->boolean('rdc_required')->default(0)->nullable();
             $table->boolean('rdc_endorsed')->default(0)->nullable();
             $table->date('rdc_endorsed_date')->nullable();
+            $table->boolean('iccable')->nullable();
             $table->boolean('neda_submission')->default(0);
             $table->date('neda_submission_date')->nullable();
             $table->boolean('neda_secretariat_review')->default(0)->nullable();

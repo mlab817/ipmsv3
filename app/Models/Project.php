@@ -169,6 +169,7 @@ class Project extends Model
       "cities_municipalities",
       "clearinghouse",
       "clearinghouse_date",
+      'iccable',
       'neda_submission',
       'neda_submission_date',
       'neda_secretariat_review',

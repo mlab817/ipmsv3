@@ -189,6 +189,7 @@ input UpdateProjectInput {
   finalized: Boolean
   cip_type_id: ID
   infrastructure_sectors: [ID]
+  iccable: Boolean
 }
 
 input UpdateTechnicalReadinessesInput {
