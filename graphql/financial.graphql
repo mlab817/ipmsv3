@@ -86,13 +86,6 @@ type FundingSourceFinancial {
   disbursement_total: Float
 }
 
-# input UpdateFundingSourceFinancialsHasMany {
-#   create: [CreateFundingSourceFinancialInput]
-#   update: [UpdateFundingSourceFinancialInput]
-#   upsert: [UpdateFundingSourceFinancialInput]
-#   delete: [ID]
-# }
-
 input CreateFundingSourceFinancialInput {
   project_id: ID!
   funding_source_id: ID!
@@ -275,13 +268,6 @@ type RegionFinancial {
   disbursement_2025: Float
   disbursement_total: Float
 }
-
-# input UpdateRegionFinancialsHasMany {
-#   create: [CreateRegionFinancialInput]
-#   update: [UpdateRegionFinancialInput]
-#   upsert: [UpdateRegionFinancialInput]
-#   delete: [ID]
-# }
 
 input CreateRegionFinancialInput {
   project_id: ID!
