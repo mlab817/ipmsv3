@@ -38,6 +38,8 @@ extend type Query {
   "Get all sustainable development goals"
   sustainable_development_goals: [SustainableDevelopmentGoal] @all
 
+  project_statuses: [ProjectStatus] @all
+
   "Get all provinces"
   provinces: [Province] @all
 
@@ -230,4 +232,10 @@ type InfrastructureSubsector {
 type ProjectPreparationDocument {
   id: ID
   name: String
+}
+
+type ProjectStatus {
+    id: ID
+    name: String
+    projects: [Project] @hasMany
 }

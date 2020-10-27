@@ -24,7 +24,6 @@ type Subscription
 #import update_project.graphql
 #import delete_project.graphql
 #import restore_project.graphql
-#import project_status.graphql
 #import contact.graphql
 #import processing_status.graphql
 #import submission_status.graphql
