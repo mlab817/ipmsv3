@@ -314,6 +314,7 @@ class Project extends Model
       'approved',
       'processing_status_id',
       'signed_copy'
+      'project_preparation_document_id'
       // 'version'
     ];
 
@@ -673,6 +674,11 @@ class Project extends Model
     public function prexc_activity(): BelongsTo
     {
       return $this->belongsTo(PrexcActivity::class);
+    }
+
+    public function project_preparation_document(): BelongsTo
+    {
+      return $this->belongsTo(ProjectPreparationDocument::class);
     }
 
     public function gad_form(): BelongsTo

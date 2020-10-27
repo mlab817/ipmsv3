@@ -300,10 +300,17 @@ type Project {
     funding_source_infrastructures: [FundingSourceInfrastructure] @hasMany
     infrastructure_subsectors: [InfrastructureSubsector] @belongsToMany
     selected_infrastructure_subsectors: [ID]
+    project_preparation_document_id: ID
+    project_preparation_document: ProjectPreparationDocument @belongsTo
 }
 
 type CanUpdateResponse {
   userId: ID
   created_by: ID
   check: Boolean
+}
+
+type ProjectPreparationDocument {
+  id: ID
+  name: String
 }

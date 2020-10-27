@@ -195,6 +195,7 @@ class CreateProjectsTable extends Migration
             $table->decimal('disbursement_2025',14,2)->nullable()->default(0);
             $table->decimal('disbursement_total',14,2)->nullable()->default(0);
             $table->text('image_url')->nullable();
+            $table->unsignedBigInteger('project_preparation_document_id')->nullable();
             $table->unsignedBigInteger('technical_readiness_id')->nullable(); // equivalent of project preparation details
             $table->string('technical_readiness_others')->nullable();
 
@@ -256,6 +257,7 @@ class CreateProjectsTable extends Migration
             // $table->foreign('validated_by')->references('id')->on('users');
             // $table->foreign('endorsement_id')->references('id')->on('endorsements')->onDelete('set null');
             $table->foreign('technical_readiness_id')->references('id')->on('technical_readinesses')->onDelete('set null');
+            $table->foreign('project_preparation_document_id')->references('id')->on('project_preparation_documents')->onDelete('set null');
         });
     }
 

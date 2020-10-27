@@ -191,6 +191,7 @@ input UpdateProjectInput {
   infrastructure_sectors: [ID]
   iccable: Boolean
   pdp_chapter_id: ID
+  project_preparation_document_id: ID
 }
 
 input UpdateTechnicalReadinessesInput {
