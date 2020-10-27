@@ -44,6 +44,10 @@ extend type Query {
   "Get all readinesses"
   readinesses: [Readiness] @all
 
+  regions: [Region] @all
+
+  region(id: ID! @eq): Region @find
+
   "Get all spatial coverages"
   spatial_coverages: [SpatialCoverage] @all
 
@@ -160,6 +164,15 @@ type Readiness {
   id: ID
   name: String
 }
+
+type Region {
+    id: ID
+    name: String
+    label: String
+    provinces: [Province!]! @hasMany
+    projects: [Project!]! @belongsToMany
+}
+
 
 type TechnicalReadiness {
   id: ID!
