@@ -1,0 +1,16 @@
+extend type Query {
+    pdp_chapters: [PdpChapter] @all
+
+    pdp_indicators: [PdpIndicator] @all
+}
+
+type PdpChapter {
+    id: ID!
+    name: String
+    projects: [Project] @belongsToMany
+}
+
+type PdpIndicator {
+    id: ID!
+    name: String
+}

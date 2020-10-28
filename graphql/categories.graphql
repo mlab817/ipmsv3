@@ -38,11 +38,17 @@ extend type Query {
   "Get all sustainable development goals"
   sustainable_development_goals: [SustainableDevelopmentGoal] @all
 
+  project_statuses: [ProjectStatus] @all
+
   "Get all provinces"
   provinces: [Province] @all
 
   "Get all readinesses"
   readinesses: [Readiness] @all
+
+  regions: [Region] @all
+
+  region(id: ID! @eq): Region @find
 
   "Get all spatial coverages"
   spatial_coverages: [SpatialCoverage] @all
@@ -161,6 +167,15 @@ type Readiness {
   name: String
 }
 
+type Region {
+    id: ID
+    name: String
+    label: String
+    provinces: [Province!]! @hasMany
+    projects: [Project!]! @belongsToMany
+}
+
+
 type TechnicalReadiness {
   id: ID!
   name: String!
@@ -217,4 +232,10 @@ type InfrastructureSubsector {
 type ProjectPreparationDocument {
   id: ID
   name: String
+}
+
+type ProjectStatus {
+    id: ID
+    name: String
+    projects: [Project] @hasMany
 }
