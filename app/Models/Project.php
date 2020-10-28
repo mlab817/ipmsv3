@@ -699,7 +699,7 @@ class Project extends Model
 
     public function getSelectedInfrastructureSubsectorsAttribute()
     {
-      return $this->infrastructure_subsectors ?? $this->infrastructure_subsectors->pluck('id');
+      return $this->infrastructure_subsectors->pluck('id') ?? null;
     }
 
     public function getSignedCopyLinkAttribute()
