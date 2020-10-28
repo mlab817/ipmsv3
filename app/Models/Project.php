@@ -317,7 +317,8 @@ class Project extends Model
       'project_preparation_document_id',
       'project_preparation_document_others',
       "pdp_chapter_id",
-      'uacs_code'
+      'uacs_code',
+      'cip_type_id'
       // 'version'
     ];
 
