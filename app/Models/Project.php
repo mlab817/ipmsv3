@@ -416,11 +416,6 @@ class Project extends Model
       return $this->belongsToMany(Province::class);
     }
 
-    // public function regions(): BelongsToMany
-    // {
-    //   return $this->belongsToMany(Region::class,'project_region','project_id','region_id');
-    // }
-
     public function region_financials(): HasMany
     {
       return $this->hasMany(RegionFinancial::class);
@@ -428,7 +423,7 @@ class Project extends Model
 
     public function socioeconomic_agendas(): BelongsToMany
     {
-      return $this->belongsToMany(SocioeconomicAgenda::class,'project_agenda','project_id','socioeconomic_agenda_id');
+      return $this->belongsToMany(SocioeconomicAgenda::class,'project_agenda','project_id','socioeconomic_agenda_id','id','id');
     }
 
     public function spatial_coverage(): BelongsTo
@@ -649,7 +644,7 @@ class Project extends Model
 
     public function pdp_chapters(): BelongsToMany
     {
-      return $this->belongsToMany(PdpChapter::class,'project_pdp_chapter','project_id','pdp_chapter_id');
+      return $this->belongsToMany(PdpChapter::class,'project_pdp_chapter','project_id','pdp_chapter_id','id','id');
     }
 
     public function pdp_indicators(): BelongsToMany
