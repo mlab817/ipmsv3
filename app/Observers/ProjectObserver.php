@@ -49,6 +49,7 @@ class ProjectObserver
         'prexc_program_id' => $project->prexc_program_id,
         'prexc_subprogram_id' => $project->prexc_subprogram_id,
         'uacs_code' => $project->uacs_code,
+        'project_id' => $project->id
       ]);
     }
 
@@ -63,6 +64,10 @@ class ProjectObserver
       }
 
       $project->updated_by = auth()->user()->id;
+    }
+
+    public function updated(Project $project) {
+        // TODO: Update prexc_activity created here
     }
 
     public function deleting(Project $project)

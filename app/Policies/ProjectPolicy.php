@@ -24,7 +24,7 @@ class ProjectPolicy
 
     /**
      * If a user is encoder, they can create a project
-     * 
+     *
      * @param App\User $user
      */
     public function create(User $user)
@@ -34,9 +34,9 @@ class ProjectPolicy
     }
 
     /**
-     * If a user is owner of a project, an admin or superadmin, 
+     * If a user is owner of a project, an admin or superadmin,
      * they can view the project
-     * 
+     *
      * @param App\User $user
      * @param App\Models\Project $project
      */
@@ -53,12 +53,14 @@ class ProjectPolicy
     /**
      * If a user is owner of a project, they can update the project
      * if the project version is equal to the current version
-     * 
+     *
      * @param App\User $user
      * @param App\Models\Project $project
      */
     public function update(User $user, Project $project, array $args)
     {
+        // TODO: check if the user is reviewing the operating unit
+        // $isReviewer =
       // compare version
       if (isset($args['version'])) {
         return ($user->id == $project->created_by && $project->version == (int) $args['version']);
@@ -69,7 +71,7 @@ class ProjectPolicy
 
     /**
      * If a user is owner of a project, they can delete the project
-     * 
+     *
      * @param App\User $user
      * @param App\Models\Project $project
      */
@@ -80,11 +82,11 @@ class ProjectPolicy
 
     /**
      * If a user is owner of a project, they can delete the project
-     * 
+     *
      * @param App\User $user
      * @param App\Models\Project $project
      */
-    public function forceDelete(User $user)
+    public function forceDelete(User $user, Project $project)
     {
       return $user->id == $project->created_by;
     }
@@ -92,7 +94,7 @@ class ProjectPolicy
     /**
      * Allow review project if the user is reviewer
      * and is assigned to review operating unit projects
-     * 
+     *
      * @param App\User $user
      * @param App\Models\Project $project
      */
@@ -102,9 +104,10 @@ class ProjectPolicy
       if ($user->role->name != 'reviewer') {
         return false;
       }
-      
+
       // get operating units being reviewed by user
       $ous = $user->reviews->pluck('id')->toArray();
+
       // get operating unit owner of project
       $ou = $project->operating_unit_id;
 
@@ -118,7 +121,7 @@ class ProjectPolicy
     /**
      * Allow review project if the user is reviewer
      * and is assigned to validate operating unit projects
-     * 
+     *
      * @param App\User $user
      * @param App\Models\Project $project
      */
@@ -128,7 +131,7 @@ class ProjectPolicy
       if ($user->role->name != 'reviewer') {
         return false;
       }
-      
+
       // get operating units being reviewed by user
       $ous = $user->reviews->pluck('id')->toArray();
       // get operating unit owner of project
@@ -144,7 +147,7 @@ class ProjectPolicy
     /**
      * Allow review project if the user is reviewer
      * and is assigned to return operating unit projects
-     * 
+     *
      * @param App\User $user
      * @param App\Models\Project $project
      */
@@ -154,7 +157,7 @@ class ProjectPolicy
       if ($user->role->name != 'reviewer') {
         return false;
       }
-      
+
       // get operating units being reviewed by user
       $ous = $user->reviews->pluck('id')->toArray();
       // get operating unit owner of project

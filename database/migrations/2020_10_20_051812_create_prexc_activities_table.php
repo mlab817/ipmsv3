@@ -21,6 +21,7 @@ class CreatePrexcActivitiesTable extends Migration
           $table->unsignedBigInteger('prexc_subprogram_id')->nullable();
           $table->unsignedBigInteger('banner_program_id')->nullable();
           $table->string('uacs_code')->nullable();
+          $table->unsignedBigInteger('project_id')->nullable();
 
           $table->decimal('investment_target_2016',14,2)->nullable()->default(0);
           $table->decimal('investment_target_2017',14,2)->nullable()->default(0);
@@ -86,6 +87,7 @@ class CreatePrexcActivitiesTable extends Migration
           $table->foreign('prexc_program_id')->references('id')->on('prexc_programs')->onDelete('set null');
           $table->foreign('prexc_subprogram_id')->references('id')->on('prexc_subprograms')->onDelete('set null');
           $table->foreign('banner_program_id')->references('id')->on('banner_programs')->onDelete('set null');
+          $table->foreign('project_id')->references('id')->on('projects')->onDelete('set null');
           $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');
           $table->foreign('updated_by')->references('id')->on('users')->onDelete('set null');
         });

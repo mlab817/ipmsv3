@@ -25,12 +25,13 @@ class PrexcActivity extends Model
     }
 
     protected $fillable = [
-    	'name',
+      'name',
       'operating_unit_id',
       'prexc_program_id',
       'prexc_subprogram_id',
       'banner_program_id',
       'uacs_code',
+      'project_id',
       'investment_target_2016',
       'investment_target_2017',
       'investment_target_2018',
