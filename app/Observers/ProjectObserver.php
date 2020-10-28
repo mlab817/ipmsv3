@@ -48,7 +48,7 @@ class ProjectObserver
         'operating_unit_id' => $project->operating_unit_id,
         'prexc_program_id' => $project->prexc_program_id,
         'prexc_subprogram_id' => $project->prexc_subprogram_id,
-        'uacs_code' => $project->uacs_code,
+        // 'uacs_code' => $project->uacs_code,
         'project_id' => $project->id
       ]);
     }
