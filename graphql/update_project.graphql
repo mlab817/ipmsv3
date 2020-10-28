@@ -77,8 +77,8 @@ input UpdateProjectInput {
   economic_benefit_cost_ratio: Float
   economic_internal_rate_return: Float
   economic_net_present_value: Float
-  ten_point_agenda: UpdateTenPointAgendaRelation
-  sustainable_development_goals: UpdateSustainableDevelopmentGoalRelation
+  ten_point_agenda: [ID]
+  sustainable_development_goals: [ID]
   has_fs: Boolean
   fs_target_2017: Float
   fs_target_2018: Float
@@ -188,49 +188,12 @@ input UpdateProjectInput {
   version: Int
   finalized: Boolean
   cip_type_id: ID
-  infrastructure_sectors: [ID]
+  infrastructure_subsectors: [ID]
   iccable: Boolean
   pdp_chapter_id: ID
   project_preparation_document_id: ID,
   project_preparation_document_others: String
-}
-
-input UpdateTechnicalReadinessesInput {
-  sync: [ID]
-}
-
-input UpdateSustainableDevelopmentGoalRelation {
-  sync: [ID]
-}
-
-input UpdateTenPointAgendaRelation {
-  sync: [ID]
-}
-
-input UpdateBasisRelation {
-  sync: [ID]
-}
-
-input UpdateProjectRegions {
-    sync: [SyncProjectRegions]
-}
-
-input SyncProjectRegions {
-    id: ID!
-}
-
-input UpdateProjectFundingSources {
-    sync: [SyncProjectFundingSources]
-}
-
-input SyncProjectFundingSources {
-    id: ID!
-}
-
-input UpdateProvinceRelation {
-  sync: [ID]
-}
-
-input UpdateDistrictInput {
-  sync: [ID]
+  rdc_endorsed: Boolean
+  rdc_endorsed_date: String
+  rdc_required: Boolean
 }
