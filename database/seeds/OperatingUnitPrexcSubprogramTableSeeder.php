@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Flynsarmy\CsvSeeder\CsvSeeder;
 
-class OperatingUnitPrexcSubrogramTableSeeder extends CsvSeeder
+class OperatingUnitPrexcSubprogramTableSeeder extends CsvSeeder
 {
     public function __construct()
     {
