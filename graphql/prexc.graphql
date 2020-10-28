@@ -23,7 +23,11 @@ extend type Mutation {
 
 	assignActivityToOus(id: ID!, operating_units: [ID]): PrexcActivity @field(resolver: "AssignActivityToOus")
 
+	"Finalize a single activity"
 	finalizePrexcActivity(id: ID!): PrexcActivity @field(resolver: "FinalizePrexcActivityMutation")
+
+	"Finalize multiple activities at once"
+	finalizePrexcActivities(id: [ID]!): [PrexcActivity] @field(resolver: "FinalizePrexcActivitiesMutation")
 }
 
 input CreatePrexcProgramInput {
