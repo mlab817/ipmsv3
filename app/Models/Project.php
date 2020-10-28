@@ -378,7 +378,7 @@ class Project extends Model
 
     public function funding_sources(): BelongsToMany
     {
-      return $this->belongsToMany(FundingSource::class,'project_funding_source');
+      return $this->belongsToMany(FundingSource::class,'project_funding_source','project_id','funding_source_id','id','id');
     }
 
     public function implementation_mode(): BelongsTo
@@ -453,7 +453,7 @@ class Project extends Model
 
     public function ten_point_agenda(): BelongsToMany
     {
-      return $this->belongsToMany(TenPointAgenda::class);
+      return $this->belongsToMany(TenPointAgenda::class,'project_ten_point_agenda','project_id','ten_point_agenda_id','id','id');
     }
 
     public function tier(): BelongsTo
