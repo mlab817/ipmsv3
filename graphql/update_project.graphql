@@ -184,6 +184,7 @@ input UpdateProjectInput {
   rdc_endorsed: Boolean
   rdc_endorsed_date: String
   rdc_required: Boolean
+  
   ten_point_agenda: [ID]
   sustainable_development_goals: [ID]
   technical_readinesses: [ID]
