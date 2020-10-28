@@ -19,8 +19,8 @@ class FinalizePrexcActivitiesMutation
         $userId = $context->user()->id;
         $now = Carbon::now();
 
-        $prexc_activities = PrexcActivity::whereIn('id', $ids)
-          ->update([
+        $prexc_activities = PrexcActivity::whereIn('id', $ids)->get()
+        $prexc_activities->update([
             'finalized' => true,
             'finalized_by' => $userId,
             'finalized_at' => $now
