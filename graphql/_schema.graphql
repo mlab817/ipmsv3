@@ -31,7 +31,6 @@ type Subscription
 #import process_project.graphql
 #import notifications.graphql
 #import pdp.graphql
-#import review_project.graphql
 #import transfer_project.graphql
 #import search_project.graphql
 #import image.graphql
