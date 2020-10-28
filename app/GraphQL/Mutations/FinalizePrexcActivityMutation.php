@@ -4,6 +4,7 @@ namespace App\GraphQL\Mutations;
 
 use App\Models\PrexcActivity;
 use Carbon\Carbon;
+use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
 class FinalizePrexcActivityMutation
 {
@@ -11,7 +12,7 @@ class FinalizePrexcActivityMutation
      * @param  null  $_
      * @param  array<string, mixed>  $args
      */
-    public function __invoke($_, array $args)
+    public function __invoke($_, array $args, GraphQLContext $context)
     {
         // TODO implement the resolver
         $prexc_activity = PrexcActivity::find($args['id']);
