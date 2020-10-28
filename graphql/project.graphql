@@ -281,8 +281,6 @@ type Project {
     latest_status: String
     latest_processing_status: ProjectProcessingStatus
     processing_status: ProcessingStatus @belongsTo
-    technical_readiness_id: ID
-    technical_readiness: TechnicalReadiness @belongsTo
     attachments: [Attachment] @hasMany
     funding_sources: [FundingSource] @belongsToMany
     uacs_code: String
