@@ -11,6 +11,8 @@ extend type Mutation @middleware(checks: ["auth:api"]) {
 
 "Input to create a new project."
 input CreateProjectInput {
+  prexc_program_id: ID
+  prexc_subprogram_id: ID
   pipol_url: String
   pipol_code: String
   pip: Boolean

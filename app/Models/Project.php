@@ -654,7 +654,7 @@ class Project extends Model
 
     public function pdp_indicators(): BelongsToMany
     {
-      return $this->belongsToMany(PdpIndicator::class,'project_pdp_indicators','project_id','pdp_indicator_id');
+      return $this->belongsToMany(PdpIndicator::class,'project_pdp_indicators','project_id','pdp_indicator_id','id','id');
     }
 
     public function latest_processing_status(): HasOne

@@ -24,7 +24,7 @@ class CreateProjectsTable extends Migration
             $table->string("pipol_code")->nullable();
             $table->boolean("pip")->default(0);
             $table->boolean("cip")->default(0);
-            $table->boolean("cip_type_id")->default(0);
+            $table->boolean("cip_type_id")->nullable();
             $table->boolean("trip")->default(0);
             $table->boolean("afmip")->default(0);
             $table->boolean("rdip")->default(0);
@@ -73,7 +73,7 @@ class CreateProjectsTable extends Migration
             $table->boolean('rdc_required')->default(0)->nullable();
             $table->boolean('rdc_endorsed')->default(0)->nullable();
             $table->date('rdc_endorsed_date')->nullable();
-            $table->boolean('iccable')->nullable();
+            $table->boolean('iccable')->default(0);
             $table->boolean('neda_submission')->default(0);
             $table->date('neda_submission_date')->nullable();
             $table->boolean('neda_secretariat_review')->default(0)->nullable();
