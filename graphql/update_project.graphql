@@ -77,8 +77,6 @@ input UpdateProjectInput {
   economic_benefit_cost_ratio: Float
   economic_internal_rate_return: Float
   economic_net_present_value: Float
-  ten_point_agenda: [ID]
-  sustainable_development_goals: [ID]
   has_fs: Boolean
   fs_target_2017: Float
   fs_target_2018: Float
@@ -172,23 +170,13 @@ input UpdateProjectInput {
   uacs_code: String
   updates: String
   updates_date: String @date
-  districts: [ID]
-  bases: [ID]
   region_id: ID
   province_id: ID
-  provinces: [ID]
   district_id: ID
   city_municipality_id: ID
-  technical_readinesses: [ID]
-  regions: [ID]
-  funding_sources: [ID]
-  pdp_chapters: [ID]
-  pdp_indicators: [ID]
-  paradigms: [ID]
   version: Int
   finalized: Boolean
   cip_type_id: ID
-  infrastructure_subsectors: [ID]
   iccable: Boolean
   pdp_chapter_id: ID
   project_preparation_document_id: ID,
@@ -196,4 +184,16 @@ input UpdateProjectInput {
   rdc_endorsed: Boolean
   rdc_endorsed_date: String
   rdc_required: Boolean
+  ten_point_agenda: [ID]
+  sustainable_development_goals: [ID]
+  technical_readinesses: [ID]
+  regions: [ID]
+  funding_sources: [ID]
+  pdp_chapters: [ID]
+  pdp_indicators: [ID]
+  paradigms: [ID]
+  infrastructure_subsectors: [ID]
+  provinces: [ID]
+  districts: [ID]
+  bases: [ID]
 }
