@@ -270,7 +270,7 @@ type Project {
     pdp_chapter_id: ID
     pdp_chapter: PdpChapter @belongsTo
     pdp_chapters: [PdpChapter] @belongsToMany
-    review: Review @hasOne
+    # review: Review @hasOne
     selected_sustainable_development_goals: [ID]
     selected_ten_point_agenda: [ID]
     selected_paradigms: [ID]
