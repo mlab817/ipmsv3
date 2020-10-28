@@ -315,7 +315,8 @@ class Project extends Model
       'processing_status_id',
       'signed_copy',
       'project_preparation_document_id',
-      'project_preparation_document_others'
+      'project_preparation_document_others',
+      "pdp_chapter_id"
       // 'version'
     ];
 
