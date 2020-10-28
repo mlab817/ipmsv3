@@ -480,7 +480,7 @@ class Project extends Model
      */
     public function getSelectedBasesAttribute()
     {
-      return $this->bases ?? $this->bases->pluck('id');
+      return $this->bases->pluck('id') ?? $this->bases->pluck('id');
     }
 
     public function getSelectedDistrictsAttribute()
