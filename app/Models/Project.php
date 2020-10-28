@@ -316,7 +316,8 @@ class Project extends Model
       'signed_copy',
       'project_preparation_document_id',
       'project_preparation_document_others',
-      "pdp_chapter_id"
+      "pdp_chapter_id",
+      'uacs_code'
       // 'version'
     ];
 
