@@ -302,6 +302,8 @@ type Project {
     project_preparation_document: ProjectPreparationDocument @belongsTo
     project_preparation_document_others: String
     selected_funding_sources: [ID]
+    cip_type_id: ID
+    cip_type: CipType @belongsTo
 }
 
 type CanUpdateResponse {

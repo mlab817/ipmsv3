@@ -331,6 +331,11 @@ class Project extends Model
       return $this->belongsToMany(Basis::class,'project_basis');
     }
 
+    public function cip_type(): BelongsTo
+    {
+      return $this->belongsTo(CipType::class);
+    }
+
     public function commodities(): BelongsToMany
     {
       return $this->belongsToMany(Commodity::class);
