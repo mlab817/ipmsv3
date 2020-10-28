@@ -440,7 +440,7 @@ class Project extends Model
 
     public function technical_readinesses(): BelongsToMany
     {
-      return $this->belongsToMany(TechnicalReadiness::class,'project_technical_readiness','project_id','tr_id');
+      return $this->belongsToMany(TechnicalReadiness::class,'project_technical_readiness','project_id','tr_id','id','id');
     }
 
     public function ten_point_agenda(): BelongsToMany
