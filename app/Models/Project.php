@@ -529,6 +529,11 @@ class Project extends Model
       return $this->pdp_indicators->pluck('id') ?? null;
     }
 
+    public function getSelectedFundingSourcesAttribute()
+    {
+      return $this->funding_sources->pluck('id') ?? null;
+    }
+
     /**
      * Attribute for when a user can update this project.
      *
