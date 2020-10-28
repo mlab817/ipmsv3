@@ -200,6 +200,8 @@ type PrexcActivity {
 	updater: User @belongsTo
 	created_at: String
 	updated_at: String
+	finalized: Boolean
+	reviewed: Boolean
 }
 
 input CreatePrexcActivityInput {

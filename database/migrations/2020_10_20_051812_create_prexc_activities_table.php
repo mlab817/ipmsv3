@@ -78,9 +78,16 @@ class CreatePrexcActivitiesTable extends Migration
           $table->decimal('disbursement_2024',14,2)->default(0)->nullable();
           $table->decimal('disbursement_2025',14,2)->default(0)->nullable();
           $table->decimal('disbursement_total',14,2)->default(0)->nullable();
+          $table->boolean('finalized')->default(0);
+          $table->boolean('reviewed')->default(0);
           $table->unsignedBigInteger('created_by')->nullable();
           $table->unsignedBigInteger('updated_by')->nullable();
+          $table->unsignedBigInteger('finalized_by')->nullable();
+          $table->unsignedBigInteger('reviewed_by')->nullable();
+          $table->unsignedBigInteger('deleted_by')->nullable();
           $table->timestamps();
+          $table->timestamp('finalized_at')->nullable();
+          $table->timestamp('reviewed_at')->nullable();
           $table->softDeletes();
 
           $table->foreign('operating_unit_id')->references('id')->on('operating_units')->onDelete('cascade');
@@ -90,6 +97,8 @@ class CreatePrexcActivitiesTable extends Migration
           $table->foreign('project_id')->references('id')->on('projects')->onDelete('set null');
           $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');
           $table->foreign('updated_by')->references('id')->on('users')->onDelete('set null');
+          $table->foreign('reviewed_by')->references('id')->on('users')->onDelete('set null');
+          $table->foreign('deleted_by')->references('id')->on('users')->onDelete('set null');
         });
     }
 
