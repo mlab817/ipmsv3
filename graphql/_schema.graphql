@@ -30,7 +30,6 @@ type Subscription
 #import endorse_projects.graphql
 #import process_project.graphql
 #import notifications.graphql
-#import review.graphql
 #import pdp.graphql
 #import review_project.graphql
 #import transfer_project.graphql
