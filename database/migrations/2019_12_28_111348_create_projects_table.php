@@ -24,6 +24,7 @@ class CreateProjectsTable extends Migration
             $table->string("pipol_code")->nullable();
             $table->boolean("pip")->default(0);
             $table->boolean("cip")->default(0);
+            $table->boolean("cip_type_id")->default(0);
             $table->boolean("trip")->default(0);
             $table->boolean("afmip")->default(0);
             $table->boolean("rdip")->default(0);
@@ -236,6 +237,7 @@ class CreateProjectsTable extends Migration
             $table->foreign('processing_status_id')->references('id')->on('processing_statuses')->onDelete('SET NULL');
             $table->foreign('processed_by')->references('id')->on('users')->onDelete('SET NULL');
 
+            $table->foreign('cip_type_id')->references('id')->on('cip_types')->onDelete('set null');
             $table->foreign('pdp_chapter_id')->references('id')->on('pdp_chapters')->onDelete('set null');
             $table->foreign('operating_unit_id')->references('id')->on('operating_units')->onDelete('set null');
             $table->foreign('main_funding_source_id')->references('id')->on('funding_sources')->onDelete('set null');
