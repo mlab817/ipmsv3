@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePdpIndicatorsTable extends Migration
+class CreatePdpOutcomesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePdpIndicatorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pdp_indicators', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('pdp_outcomes', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('pdp_suboutcome_id')->nullable();
+            $table->unsignedBigInteger('pdp_chapter_id')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreatePdpIndicatorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pdp_indicators');
+        Schema::dropIfExists('pdp_outcomes');
     }
 }

@@ -1,9 +1,12 @@
 extend type Query {
 	cost_structures: [CostStructure] @all
+
 	prexc_programs: [PrexcProgram] @all
 	prexc_program(id: ID! @eq): PrexcProgram @find
+
 	prexc_subprograms: [PrexcSubprogram] @all
 	prexc_subprogram(id: ID! @eq): PrexcSubprogram @find
+
 	prexc_activities: [PrexcActivity] @all
 	prexc_activity(id: ID! @eq): PrexcActivity @find
 }
