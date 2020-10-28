@@ -11,6 +11,8 @@ extend type Mutation @middleware(checks: ["auth:api"]) {
 
 "Input to create a new project."
 input CreateProjectInput {
+  prexc_program_id: ID
+  prexc_subprogram_id: ID
   pipol_url: String
   pipol_code: String
   pip: Boolean
@@ -32,12 +34,6 @@ input CreateProjectInput {
   tier_id: ID
   spatial_coverage_id: ID
   cities_municipalities: String
-  ten_point_agenda: CreateTenPointAgendaRelation
-  sustainable_development_goals: CreateSustainableDevelopmentGoalRelation
-  bases: CreateBasisRelation
-  regions: CreateRegionRelation
-  provinces: CreateProvinceRelation
-  districts: CreateDistrictRelation
   description: String
   components: String
   goals: String
@@ -76,8 +72,6 @@ input CreateProjectInput {
   economic_benefit_cost_ratio: Float
   economic_internal_rate_return: Float
   economic_net_present_value: Float
-  technical_readinesses: CreateTechnicalReadinessRelation
-  funding_sources: CreateFundingSourceRelation
   fs_target_2017: Float
   fs_target_2018: Float
   fs_target_2019: Float
@@ -164,68 +158,4 @@ input CreateProjectInput {
   disbursement_total: Float
   updates: String
   updates_date: String
-}
-
-input CreateTechnicalReadinessRelation {
-  connect: [ID!]
-  sync: [ID!]
-}
-
-input CreateBasisRelation {
-  connect: [ID!]
-  sync: [ID!]
-}
-
-input CreateTenPointAgendaRelation {
-  connect: [ID!]
-  sync: [ID!]
-}
-
-input CreateSustainableDevelopmentGoalRelation {
-  connect: [ID!]
-  sync: [ID!]
-}
-
-input CreateFundingSourceRelation {
-  connect: [CreateProjectFundingSourcesInput!]
-}
-
-input CreateProjectFundingSourcesInput {
-  id: ID!
-  target_2016: Float
-  target_2017: Float
-  target_2018: Float
-  target_2019: Float
-  target_2020: Float
-  target_2021: Float
-  target_2022: Float
-  target_2023: Float
-  target_total: Float
-}
-
-input CreateRegionRelation {
-  connect: [ConnectProjectRegionsInput!]
-}
-
-input CreateDistrictRelation {
-  connect: [ID!]
-  sync: [ID!]
-}
-
-input ConnectProjectRegionsInput {
-  id: ID!
-  target_2016: Float
-  target_2017: Float
-  target_2018: Float
-  target_2019: Float
-  target_2020: Float
-  target_2021: Float
-  target_2022: Float
-  target_2023: Float
-  target_total: Float
-}
-
-input CreateProvinceRelation {
-  connect: [ID!]
-  sync: [ID!]
 }

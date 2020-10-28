@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Models\FundingSource;
 use App\Models\Region;
+use App\Models\PrexcActivity;
 use App\Models\ProjectProcessingStatus;
 use App\Models\ProcessingStatus;
 use App\Models\Project;
@@ -31,16 +32,6 @@ class ProjectObserver
 
     public function created(Project $project)
     {
-      // create placeholder for regions
-      $regions = Region::all()->pluck('id');
-
-      $project->regions()->attach($regions);
-
-      // create placeholder for funding_sources
-      $fs = FundingSource::all()->pluck('id');
-
-      $project->funding_sources()->attach($fs);
-
       // set processing status id to 'draft'
       $project->processing_status_id = 1;
 
@@ -50,6 +41,16 @@ class ProjectObserver
       $project->uuid = $uuid;
 
       $project->slug = Str::slug($project->title . '-' . $project->id);
+
+      // create prexc activity based on project
+      PrexcActivity::create([
+        'name' => $project->title,
+        'operating_unit_id' => $project->operating_unit_id,
+        'prexc_program_id' => $project->prexc_program_id,
+        'prexc_subprogram_id' => $project->prexc_subprogram_id,
+        // 'uacs_code' => $project->uacs_code,
+        'project_id' => $project->id
+      ]);
     }
 
     public function updating(Project $project)
@@ -63,6 +64,10 @@ class ProjectObserver
       }
 
       $project->updated_by = auth()->user()->id;
+    }
+
+    public function updated(Project $project) {
+        // TODO: Update prexc_activity created here
     }
 
     public function deleting(Project $project)

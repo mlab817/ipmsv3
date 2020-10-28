@@ -169,6 +169,7 @@ class Project extends Model
       "cities_municipalities",
       "clearinghouse",
       "clearinghouse_date",
+      'iccable',
       'neda_submission',
       'neda_submission_date',
       'neda_secretariat_review',
@@ -312,7 +313,12 @@ class Project extends Model
       'reviewed',
       'approved',
       'processing_status_id',
-      'signed_copy'
+      'signed_copy',
+      'project_preparation_document_id',
+      'project_preparation_document_others',
+      "pdp_chapter_id",
+      'uacs_code',
+      'cip_type_id'
       // 'version'
     ];
 
@@ -323,6 +329,11 @@ class Project extends Model
     public function bases(): BelongsToMany
     {
       return $this->belongsToMany(Basis::class,'project_basis');
+    }
+
+    public function cip_type(): BelongsTo
+    {
+      return $this->belongsTo(CipType::class);
     }
 
     public function commodities(): BelongsToMany
@@ -367,7 +378,7 @@ class Project extends Model
 
     public function funding_sources(): BelongsToMany
     {
-      return $this->belongsToMany(FundingSource::class,'project_funding_source');
+      return $this->belongsToMany(FundingSource::class,'project_funding_source','project_id','funding_source_id','id','id');
     }
 
     public function implementation_mode(): BelongsTo
@@ -405,11 +416,6 @@ class Project extends Model
       return $this->belongsToMany(Province::class);
     }
 
-    // public function regions(): BelongsToMany
-    // {
-    //   return $this->belongsToMany(Region::class,'project_region','project_id','region_id');
-    // }
-
     public function region_financials(): HasMany
     {
       return $this->hasMany(RegionFinancial::class);
@@ -417,7 +423,7 @@ class Project extends Model
 
     public function socioeconomic_agendas(): BelongsToMany
     {
-      return $this->belongsToMany(SocioeconomicAgenda::class,'project_agenda','project_id','socioeconomic_agenda_id');
+      return $this->belongsToMany(SocioeconomicAgenda::class,'project_agenda','project_id','socioeconomic_agenda_id','id','id');
     }
 
     public function spatial_coverage(): BelongsTo
@@ -437,12 +443,12 @@ class Project extends Model
 
     public function technical_readinesses(): BelongsToMany
     {
-      return $this->belongsToMany(TechnicalReadiness::class,'project_technical_readiness','project_id','tr_id');
+      return $this->belongsToMany(TechnicalReadiness::class,'project_technical_readiness','project_id','tr_id','id','id');
     }
 
     public function ten_point_agenda(): BelongsToMany
     {
-      return $this->belongsToMany(TenPointAgenda::class);
+      return $this->belongsToMany(TenPointAgenda::class,'project_ten_point_agenda','project_id','ten_point_agenda_id','id','id');
     }
 
     public function tier(): BelongsTo
@@ -477,52 +483,57 @@ class Project extends Model
      */
     public function getSelectedBasesAttribute()
     {
-      return $this->bases ?? $this->bases->pluck('id');
+      return $this->bases->pluck('id') ?? null;
     }
 
     public function getSelectedDistrictsAttribute()
     {
-      return $this->districts ?? $this->districts->pluck('id');
+      return $this->districts->pluck('id') ?? null;
     }
 
     public function getSelectedProvincesAttribute()
     {
-      return $this->provinces ?? $this->provinces->pluck('id');
+      return $this->provinces->pluck('id') ?? null;
     }
 
     public function getSelectedRegionsAttribute()
     {
-      return $this->regions ?? $this->regions->pluck('id');
+      return $this->regions->pluck('id') ?? null;
     }
 
     public function getSelectedTechnicalReadinessesAttribute()
     {
-      return $this->technical_readinesses ?? $this->technical_readinesses->pluck('id');
+      return $this->technical_readinesses->pluck('id') ?? null;
     }
 
     public function getSelectedSustainableDevelopmentGoalsAttribute()
     {
-      return $this->sustainable_development_goals ?? $this->sustainable_development_goals->pluck('id');
+      return $this->sustainable_development_goals->pluck('id') ?? null;
     }
 
     public function getSelectedParadigmsAttribute()
     {
-      return $this->paradigms ?? $this->paradigms->pluck('id');
+      return $this->paradigms->pluck('id') ?? null;
     }
 
     public function getSelectedTenPointAgendaAttribute()
     {
-      return $this->ten_point_agenda ?? $this->ten_point_agenda->pluck('id');
+      return $this->ten_point_agenda->pluck('id') ?? null;
     }
 
     public function getSelectedPdpChaptersAttribute()
     {
-      return $this->pdp_chapters ?? $this->pdp_chapters->pluck('id');
+      return $this->pdp_chapters->pluck('id') ?? null;
     }
 
     public function getSelectedPdpIndicatorsAttribute()
     {
-      return $this->pdp_indicators ?? $this->pdp_indicators->pluck('id');
+      return $this->pdp_indicators->pluck('id') ?? null;
+    }
+
+    public function getSelectedFundingSourcesAttribute()
+    {
+      return $this->funding_sources->pluck('id') ?? null;
     }
 
     /**
@@ -626,14 +637,19 @@ class Project extends Model
       return $this->hasMany(FundingSourceFinancial::class,'project_id','id');
     }
 
+    public function pdp_chapter(): BelongsTo
+    {
+      return $this->belongsTo(PdpChapter::class);
+    }
+
     public function pdp_chapters(): BelongsToMany
     {
-      return $this->belongsToMany(PdpChapter::class,'project_pdp_chapter','project_id','pdp_chapter_id');
+      return $this->belongsToMany(PdpChapter::class,'project_pdp_chapter','project_id','pdp_chapter_id','id','id');
     }
 
     public function pdp_indicators(): BelongsToMany
     {
-      return $this->belongsToMany(PdpIndicator::class,'project_pdp_indicators','project_id','pdp_indicator_id');
+      return $this->belongsToMany(PdpIndicator::class,'project_pdp_indicators','project_id','pdp_indicator_id','id','id');
     }
 
     public function latest_processing_status(): HasOne
@@ -669,9 +685,29 @@ class Project extends Model
       return $this->belongsTo(PrexcActivity::class);
     }
 
+    public function project_preparation_document(): BelongsTo
+    {
+      return $this->belongsTo(ProjectPreparationDocument::class);
+    }
+
     public function gad_form(): BelongsTo
     {
       return $this->belongsTo(GadForm::class);
+    }
+
+    public function funding_source_infrastructures(): HasMany
+    {
+      return $this->hasMany(FundingSourceInfrastructure::class);
+    }
+
+    public function infrastructure_subsectors(): BelongsToMany
+    {
+      return $this->belongsToMany(InfrastructureSubsector::class,'infrastructure_subsector_project','project_id','infra_subsector_id','id','id');
+    }
+
+    public function getSelectedInfrastructureSubsectorsAttribute()
+    {
+      return $this->infrastructure_subsectors->pluck('id') ?? null;
     }
 
     public function getSignedCopyLinkAttribute()

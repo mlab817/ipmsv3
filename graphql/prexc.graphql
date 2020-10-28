@@ -1,14 +1,13 @@
 extend type Query {
 	cost_structures: [CostStructure] @all
-
-	prexc_programs: [PrexcProgram] @all
+	prexc_programs: [PrexcProgram] @field(resolver: "PrexcProgramsQuery")
 	prexc_program(id: ID! @eq): PrexcProgram @find
-
-	prexc_subprograms: [PrexcSubprogram] @all
+	prexc_subprograms: [PrexcSubprogram] @field(resolver: "PrexcSubprogramsQuery")
 	prexc_subprogram(id: ID! @eq): PrexcSubprogram @find
-
-	prexc_activities: [PrexcActivity] @all
+	prexc_activities: [PrexcActivity] @field(resolver: "PrexcActivitiesQuery")
 	prexc_activity(id: ID! @eq): PrexcActivity @find
+
+	paginatedPrexcActivities: [PrexcActivity] @paginate(type:"paginator", defaultCount:10, maxCount: 25) @softDeletes
 }
 
 extend type Mutation {
@@ -25,6 +24,12 @@ extend type Mutation {
 	deletePrexcActivity(id: ID!): PrexcActivity @delete
 
 	assignActivityToOus(id: ID!, operating_units: [ID]): PrexcActivity @field(resolver: "AssignActivityToOus")
+
+	"Finalize a single activity"
+	finalizePrexcActivity(id: ID!): PrexcActivity @field(resolver: "FinalizePrexcActivityMutation")
+
+	"Finalize multiple activities at once"
+	finalizePrexcActivities(id: [ID]!): [PrexcActivity] @field(resolver: "FinalizePrexcActivitiesMutation")
 }
 
 input CreatePrexcProgramInput {
@@ -140,6 +145,7 @@ type PrexcActivity {
 	prexc_subprogram: PrexcSubprogram @belongsTo
 	banner_program_id: ID
 	banner_program: BannerProgram @belongsTo
+	project_id: ID
 	uacs_code: String
 	investment_target_2016: Float
   investment_target_2017: Float
@@ -202,18 +208,16 @@ type PrexcActivity {
 	updater: User @belongsTo
 	created_at: String
 	updated_at: String
+	finalized: Boolean
+	reviewed: Boolean
 }
 
 input CreatePrexcActivityInput {
 	name: String
 	operating_unit_id: ID
-	operating_unit: OperatingUnit @belongsTo
 	prexc_program_id: ID
-	prexc_program: PrexcProgram @belongsTo
 	prexc_subprogram_id: ID
-	prexc_subprogram: PrexcSubprogram @belongsTo
 	banner_program_id: ID
-	banner_program: BannerProgram @belongsTo
 	investment_target_2016: Float
 	investment_target_2017: Float
 	investment_target_2018: Float
@@ -275,13 +279,9 @@ input UpdatePrexcActivityInput {
 	id: ID!
 	name: String
 	operating_unit_id: ID
-	operating_unit: OperatingUnit @belongsTo
 	prexc_program_id: ID
-	prexc_program: PrexcProgram @belongsTo
 	prexc_subprogram_id: ID
-	prexc_subprogram: PrexcSubprogram @belongsTo
 	banner_program_id: ID
-	banner_program: BannerProgram @belongsTo
 	investment_target_2016: Float
 	investment_target_2017: Float
 	investment_target_2018: Float

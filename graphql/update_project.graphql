@@ -77,8 +77,6 @@ input UpdateProjectInput {
   economic_benefit_cost_ratio: Float
   economic_internal_rate_return: Float
   economic_net_present_value: Float
-  ten_point_agenda: UpdateTenPointAgendaRelation
-  sustainable_development_goals: UpdateSustainableDevelopmentGoalRelation
   has_fs: Boolean
   fs_target_2017: Float
   fs_target_2018: Float
@@ -172,58 +170,67 @@ input UpdateProjectInput {
   uacs_code: String
   updates: String
   updates_date: String @date
-  districts: UpdateDistrictInput
-  # bases: UpdateBasisRelation
   region_id: ID
   province_id: ID
-  provinces: UpdateProvinceRelation
   district_id: ID
   city_municipality_id: ID
-  technical_readinesses: UpdateTechnicalReadinessesInput
-  # region_financials: UpdateRegionFinancialsHasMany
-  # funding_source_financials: UpdateFundingSourceFinancialsHasMany
-  regions: UpdateProjectRegions
-  funding_sources: UpdateProjectFundingSources
   version: Int
   finalized: Boolean
+  cip_type_id: ID
+  iccable: Boolean
+  pdp_chapter_id: ID
+  project_preparation_document_id: ID
+  project_preparation_document_others: String
+  rdc_endorsed: Boolean
+  rdc_endorsed_date: String
+  rdc_required: Boolean
+
+  ten_point_agenda: UpdateTenPointAgendaBelongsToMany
+  sustainable_development_goals: UpdateSustainableDevelopmentGoalsBelongsToMany
+  technical_readinesses: UpdateTechnicalReadinessesBelongsToMany
+  regions: UpdateRegionsBelongsToMany
+  funding_sources: UpdateFundingSourcesBelongsToMany
+  pdp_chapters: UpdatePdpChaptersBelongsToMany
+  pdp_indicators: UpdatePdpIndicatorsBelongsToMany
+  paradigms: [ID]
+  infrastructure_subsectors: UpdateInfrastructureSubsectorsBelongsToMany
+  provinces: [ID]
+  districts: [ID]
+  bases: UpdateBasesBelongsToMany
 }
 
-input UpdateTechnicalReadinessesInput {
+input UpdateTenPointAgendaBelongsToMany {
   sync: [ID]
 }
 
-input UpdateSustainableDevelopmentGoalRelation {
+input UpdateSustainableDevelopmentGoalsBelongsToMany {
   sync: [ID]
 }
 
-input UpdateTenPointAgendaRelation {
+input UpdateTechnicalReadinessesBelongsToMany {
   sync: [ID]
 }
 
-input UpdateBasisRelation {
+input UpdateRegionsBelongsToMany {
   sync: [ID]
 }
 
-input UpdateProjectRegions {
-    sync: [SyncProjectRegions]
-}
-
-input SyncProjectRegions {
-    id: ID!
-}
-
-input UpdateProjectFundingSources {
-    sync: [SyncProjectFundingSources]
-}
-
-input SyncProjectFundingSources {
-    id: ID!
-}
-
-input UpdateProvinceRelation {
+input UpdateFundingSourcesBelongsToMany {
   sync: [ID]
 }
 
-input UpdateDistrictInput {
+input UpdatePdpChaptersBelongsToMany {
+  sync: [ID]
+}
+
+input UpdatePdpIndicatorsBelongsToMany {
+  sync: [ID]
+}
+
+input UpdateInfrastructureSubsectorsBelongsToMany {
+  sync: [ID]
+}
+
+input UpdateBasesBelongsToMany {
   sync: [ID]
 }

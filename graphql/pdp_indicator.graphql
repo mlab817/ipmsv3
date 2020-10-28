@@ -1,8 +1,0 @@
-type PdpIndicator {
-	id: ID!
-	name: String
-}
-
-extend type Query {
-	pdp_indicators: [PdpIndicator] @all
-}

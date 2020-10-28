@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\PrexcActivityScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -12,13 +13,25 @@ class PrexcActivity extends Model
 {
     use SoftDeletes;
 
+    protected static function boot()
+    {
+      parent::boot();
+
+      $role = auth()->user() ? auth()->user()->role->name : '';
+
+      if (!($role === 'lead' || $role === 'chief')) {
+        static::addGlobalScope(new PrexcActivityScope);
+      }
+    }
+
     protected $fillable = [
-    	'name',
+      'name',
       'operating_unit_id',
       'prexc_program_id',
       'prexc_subprogram_id',
       'banner_program_id',
       'uacs_code',
+      'project_id',
       'investment_target_2016',
       'investment_target_2017',
       'investment_target_2018',
@@ -91,9 +104,9 @@ class PrexcActivity extends Model
     	return $this->belongsTo(PrexcSubprogram::class);
     }
 
-    public function operating_units(): BelongsToMany
+    public function operating_unit(): BelongsTo
     {
-    	return $this->belongsToMany(OperatingUnit::class,'operating_unit_prexc_activity','prexc_activity_id','operating_unit_id','id','id');
+    	return $this->belongsTo(OperatingUnit::class);
     }
 
     public function getLabelAttribute()

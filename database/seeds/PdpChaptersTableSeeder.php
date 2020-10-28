@@ -14,7 +14,7 @@ class PdpChaptersTableSeeder extends Seeder
         DB::table('pdp_chapters')->insert([
           [
             'id' => 0,
-            'name' => 'No chapter'
+            'name' => 'No chapter/Not Applicable'
           ],
         	[
         		"id" => 5,

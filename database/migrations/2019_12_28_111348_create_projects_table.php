@@ -24,6 +24,7 @@ class CreateProjectsTable extends Migration
             $table->string("pipol_code")->nullable();
             $table->boolean("pip")->default(0);
             $table->boolean("cip")->default(0);
+            $table->boolean("cip_type_id")->nullable();
             $table->boolean("trip")->default(0);
             $table->boolean("afmip")->default(0);
             $table->boolean("rdip")->default(0);
@@ -72,6 +73,7 @@ class CreateProjectsTable extends Migration
             $table->boolean('rdc_required')->default(0)->nullable();
             $table->boolean('rdc_endorsed')->default(0)->nullable();
             $table->date('rdc_endorsed_date')->nullable();
+            $table->boolean('iccable')->default(0);
             $table->boolean('neda_submission')->default(0);
             $table->date('neda_submission_date')->nullable();
             $table->boolean('neda_secretariat_review')->default(0)->nullable();
@@ -106,6 +108,7 @@ class CreateProjectsTable extends Migration
             $table->text("implementation_risk")->nullable();
             $table->text("mitigation_strategy")->nullable();
             $table->text("income_increase")->nullable();
+            $table->unsignedBigInteger('pdp_chapter_id')->nullable();
             $table->unsignedBigInteger('gad_id')->nullable();
             $table->decimal('row_target_2017',14,2)->nullable()->default(0);
             $table->decimal('row_target_2018',14,2)->nullable()->default(0);
@@ -193,6 +196,8 @@ class CreateProjectsTable extends Migration
             $table->decimal('disbursement_2025',14,2)->nullable()->default(0);
             $table->decimal('disbursement_total',14,2)->nullable()->default(0);
             $table->text('image_url')->nullable();
+            $table->unsignedBigInteger('project_preparation_document_id')->nullable();
+            $table->string('project_preparation_document_others')->nullable();
             $table->unsignedBigInteger('technical_readiness_id')->nullable(); // equivalent of project preparation details
             $table->string('technical_readiness_others')->nullable();
 
@@ -232,6 +237,8 @@ class CreateProjectsTable extends Migration
             $table->foreign('processing_status_id')->references('id')->on('processing_statuses')->onDelete('SET NULL');
             $table->foreign('processed_by')->references('id')->on('users')->onDelete('SET NULL');
 
+            $table->foreign('cip_type_id')->references('id')->on('cip_types')->onDelete('set null');
+            $table->foreign('pdp_chapter_id')->references('id')->on('pdp_chapters')->onDelete('set null');
             $table->foreign('operating_unit_id')->references('id')->on('operating_units')->onDelete('set null');
             $table->foreign('main_funding_source_id')->references('id')->on('funding_sources')->onDelete('set null');
             $table->foreign('funding_institution_id')->references('id')->on('funding_institutions')->onDelete('set null');
@@ -253,6 +260,7 @@ class CreateProjectsTable extends Migration
             // $table->foreign('validated_by')->references('id')->on('users');
             // $table->foreign('endorsement_id')->references('id')->on('endorsements')->onDelete('set null');
             $table->foreign('technical_readiness_id')->references('id')->on('technical_readinesses')->onDelete('set null');
+            $table->foreign('project_preparation_document_id')->references('id')->on('project_preparation_documents')->onDelete('set null');
         });
     }
 

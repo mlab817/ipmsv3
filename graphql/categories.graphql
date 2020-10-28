@@ -23,20 +23,32 @@ extend type Query {
   "Get all implementation modes"
   implementation_modes: [ImplementationMode] @all
 
+  "Get all infrastructure_sectors"
+  infrastructure_sectors: [InfrastructureSector] @all
+
   "Get all operating unit types"
   operating_unit_types: [OperatingUnitType] @all
 
   "Get all paradigms"
   paradigms: [Paradigm] @all
 
+  "Get all project preparation documents"
+  project_preparation_documents: [ProjectPreparationDocument] @all
+
   "Get all sustainable development goals"
   sustainable_development_goals: [SustainableDevelopmentGoal] @all
+
+  project_statuses: [ProjectStatus] @all
 
   "Get all provinces"
   provinces: [Province] @all
 
   "Get all readinesses"
   readinesses: [Readiness] @all
+
+  regions: [Region] @all
+
+  region(id: ID! @eq): Region @find
 
   "Get all spatial coverages"
   spatial_coverages: [SpatialCoverage] @all
@@ -155,6 +167,15 @@ type Readiness {
   name: String
 }
 
+type Region {
+    id: ID
+    name: String
+    label: String
+    provinces: [Province!]! @hasMany
+    projects: [Project!]! @belongsToMany
+}
+
+
 type TechnicalReadiness {
   id: ID!
   name: String!
@@ -189,4 +210,32 @@ type Year {
   id: Int!
   name: String
   projects: [Project] @hasMany
+}
+
+type InfrastructureSector {
+  id: ID
+  name: String
+  infrastructure_subsectors: [InfrastructureSubsector] @hasMany
+  value: ID @rename(attribute:"id")
+  label: String @rename(attribute:"name")
+  children: [InfrastructureSubsector] @hasMany
+}
+
+type InfrastructureSubsector {
+  id: ID
+  name: String
+  infrastructure_sector: InfrastructureSector @belongsTo
+  value: ID @rename(attribute:"id")
+  label: String @rename(attribute:"name")
+}
+
+type ProjectPreparationDocument {
+  id: ID
+  name: String
+}
+
+type ProjectStatus {
+    id: ID
+    name: String
+    projects: [Project] @hasMany
 }
