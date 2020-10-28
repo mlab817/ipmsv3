@@ -480,52 +480,52 @@ class Project extends Model
      */
     public function getSelectedBasesAttribute()
     {
-      return $this->bases->pluck('id') ?? $this->bases->pluck('id');
+      return $this->bases->pluck('id') ?? null;
     }
 
     public function getSelectedDistrictsAttribute()
     {
-      return $this->districts ?? $this->districts->pluck('id');
+      return $this->districts->pluck('id') ?? null;
     }
 
     public function getSelectedProvincesAttribute()
     {
-      return $this->provinces ?? $this->provinces->pluck('id');
+      return $this->provinces->pluck('id') ?? null;
     }
 
     public function getSelectedRegionsAttribute()
     {
-      return $this->regions ?? $this->regions->pluck('id');
+      return $this->regions->pluck('id') ?? null;
     }
 
     public function getSelectedTechnicalReadinessesAttribute()
     {
-      return $this->technical_readinesses ?? $this->technical_readinesses->pluck('id');
+      return $this->technical_readinesses->pluck('id') ?? null;
     }
 
     public function getSelectedSustainableDevelopmentGoalsAttribute()
     {
-      return $this->sustainable_development_goals ?? $this->sustainable_development_goals->pluck('id');
+      return $this->sustainable_development_goals->pluck('id') ?? null;
     }
 
     public function getSelectedParadigmsAttribute()
     {
-      return $this->paradigms ?? $this->paradigms->pluck('id');
+      return $this->paradigms->pluck('id') ?? null;
     }
 
     public function getSelectedTenPointAgendaAttribute()
     {
-      return $this->ten_point_agenda ?? $this->ten_point_agenda->pluck('id');
+      return $this->ten_point_agenda->pluck('id') ?? null;
     }
 
     public function getSelectedPdpChaptersAttribute()
     {
-      return $this->pdp_chapters ?? $this->pdp_chapters->pluck('id');
+      return $this->pdp_chapters->pluck('id') ?? null;
     }
 
     public function getSelectedPdpIndicatorsAttribute()
     {
-      return $this->pdp_indicators ?? $this->pdp_indicators->pluck('id');
+      return $this->pdp_indicators->pluck('id') ?? null;
     }
 
     /**
