@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use Log;
 use App\User;
 
 class UserObserver
@@ -14,6 +15,7 @@ class UserObserver
      */
     public function created(User $user)
     {
+      Log::debug('user created');
       $s = 80;
       $d = 'mp';
       $r = 'g';
