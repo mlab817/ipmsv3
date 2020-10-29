@@ -287,7 +287,6 @@ type Project {
     signed_copy: String
     validation_data: Boolean
     validation_signed: Boolean
-    validation_endorsed: Boolean
     finalized: Boolean
     endorsed: Boolean
     reviewed: Boolean
@@ -304,6 +303,7 @@ type Project {
     selected_funding_sources: [ID]
     cip_type_id: ID
     cip_type: CipType @belongsTo
+    validated: Boolean
 }
 
 type CanUpdateResponse {

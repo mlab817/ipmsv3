@@ -12,7 +12,6 @@ extend type Mutation {
     id: ID!
     validation_data: Boolean
     validation_signed: Boolean
-    validation_endorsed: Boolean
     remarks: String
   ): Project
     @field(resolver:"ValidateProjectMutation")

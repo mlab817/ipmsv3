@@ -307,7 +307,6 @@ class Project extends Model
       'rdc_required',
       'validation_data',
       'validation_signed',
-      'validation_endorsed',
       'finalized',
       'endorsed',
       'reviewed',
@@ -320,7 +319,8 @@ class Project extends Model
       'uacs_code',
       'cip_type_id',
       'prexc_program_id',
-      'prexc_subprogram_id'
+      'prexc_subprogram_id',
+      'validated'
       // 'version'
     ];
 
