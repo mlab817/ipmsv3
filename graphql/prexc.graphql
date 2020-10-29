@@ -30,6 +30,12 @@ extend type Mutation {
 
 	"Finalize multiple activities at once"
 	finalizePrexcActivities(id: [ID]!): [PrexcActivity] @field(resolver: "FinalizePrexcActivitiesMutation")
+
+	"Review a single activity"
+	reviewPrexcActivity(id: ID!): [PrexcActivity] @field(resolver: "ReviewPrexcActivityMutation")
+
+	"Review multiple activities at once"
+	reviewPrexcActivities(id: [ID]!): [PrexcActivity] @field(resolver: "ReviewPrexcActivitiesMutation")
 }
 
 input CreatePrexcProgramInput {
