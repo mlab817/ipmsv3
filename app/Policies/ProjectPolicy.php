@@ -59,14 +59,21 @@ class ProjectPolicy
      */
     public function update(User $user, Project $project, array $args)
     {
-        // TODO: check if the user is reviewing the operating unit
-        // $isReviewer =
-      // compare version
-      if (isset($args['version'])) {
-        return ($user->id == $project->created_by && $project->version == (int) $args['version']);
-      }
+      // TODO: check if the user is reviewing the operating unit
 
-      return $user->id == $project->created_by;
+      if (!$project->endorsed && !$project->finalized) {
+        // if the project has not been endorsed or finalized, compare version
+        if (isset($args['version'])) {
+          return ($user->id == $project->created_by && $project->version == (int) $args['version']);
+        }
+      } else {
+        // project already finalized or endorsed
+        // check if user is reviewer
+        if ($user->role && $user->role->name == 'reviewer') {
+          return true;
+        }
+        return false;
+      }
     }
 
     /**
