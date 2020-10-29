@@ -203,21 +203,23 @@ class CreateProjectsTable extends Migration
 
             $table->unsignedBigInteger("created_by")->nullable();
             $table->unsignedBigInteger("updated_by")->nullable();
+
+            $table->text('signed_copy')->nullable();
+            $table->boolean('validation_data')->nullable();
+            $table->boolean('validation_signed')->nullable();
+
+            $table->boolean('finalized')->default(false)->nullable();
             $table->unsignedBigInteger('finalized_by')->nullable();
             $table->timestamp('finalized_at')->nullable();
 
-            $table->text('signed_copy')->nullable();
+            $table->boolean('endorsed')->nullable()->default(false);
             $table->unsignedBigInteger('endorsed_by')->nullable();
             $table->timestamp('endorsed_at')->nullable();
 
-            $table->boolean('validation_data')->nullable();
-            $table->boolean('validation_signed')->nullable();
-            $table->boolean('validation_endorsed')->nullable();
+            $table->boolean('validated')->nullable()->default(false);
             $table->boolean('validated_by')->nullable();
             $table->timestamp('validated_at')->nullable();
 
-            $table->boolean('finalized')->default(false)->nullable();
-            $table->boolean('endorsed')->nullable()->default(false);
             $table->boolean('reviewed')->nullable()->default(false);
             $table->boolean('approved')->nullable()->default(false);
             $table->boolean('encoded')->nullable()->default(false);
