@@ -70,6 +70,7 @@ class ProjectPolicy
         // project already finalized or endorsed
         // check if user is reviewer
         if ($user->role && $user->role->name == 'reviewer') {
+          // TODO: additional checks can be done if the user is a reviewer of the operating unit
           return true;
         }
         return false;
