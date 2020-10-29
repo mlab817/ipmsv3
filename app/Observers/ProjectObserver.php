@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use Log;
 use App\Models\FundingSource;
 use App\Models\Region;
 use App\Models\PrexcActivity;
@@ -43,7 +44,7 @@ class ProjectObserver
       $project->slug = Str::slug($project->title . '-' . $project->id);
 
       // create prexc activity based on project
-      PrexcActivity::create([
+      $prexc_activity = PrexcActivity::create([
         'name' => $project->title,
         'operating_unit_id' => $project->operating_unit_id,
         'prexc_program_id' => $project->prexc_program_id,
@@ -51,6 +52,8 @@ class ProjectObserver
         // 'uacs_code' => $project->uacs_code,
         'project_id' => $project->id
       ]);
+
+      Log::debug(json_encode($prexc_activity));
     }
 
     public function updating(Project $project)
