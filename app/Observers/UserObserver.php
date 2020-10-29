@@ -19,10 +19,11 @@ class UserObserver
       $s = 80;
       $d = 'mp';
       $r = 'g';
-      $url = 'https://www.gravatar.com/avatar/';
-      $url .= md5( strtolower( trim( $user->email ) ) );
-      $url .= "?s=$s&d=$d&r=$r";
+      $url = 'https://robohash.org/';
+      $url .= strtolower( trim( $user->email ) );
+      $url .= "?set=set3";
       $user->avatar = $url;
+      $user->save();
     }
 
     /**
