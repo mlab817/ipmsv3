@@ -33,62 +33,30 @@ class ValidateProjectMutation
             if (!$project) {
                 return null;
             } else {
-                $processing_status = ProcessingStatus::where('name','returned')->first();
-
                 $validation_data = $args['validation_data'] ?? false;
                 $validation_signed = $args['validation_signed'] ?? false;
-                $validation_endorsed = $args['validation_endorsed'] ?? false;
 
-                $processing_status_id = null;
+                $processing_status = ProcessingStatus::where('name','validated')->first();
+                $processing_status_id = $processing_status->id;
 
-                // if any of the validation is false, return the project else validate
-                if (!$validation_data || !$validation_signed || !$validation_endorsed) {
-                    $processing_status = ProcessingStatus::where('name','returned')->first();
-                    $processing_status_id = $processing_status->id;                    
-                } else {
-                    $processing_status = ProcessingStatus::where('name','validated')->first();
-                    $processing_status_id = $processing_status->id;
-                }
-
-                // unfinalize to allow edit
-                // also need to changed signed copy since this will cause changes
-                if (!$validation_data) {
-                    $project->finalized = false;
-                    $project->signed_copy = null;
-                    $project->endorsed = false;
-                }
-
-                $project->processing_status_id = $processing_status_id;
                 // if validation data is false, encoder must be able to update data
                 $project->validation_data = $validation_data;
 
                 // if the signed copy is not present or invalid, user should change signed validation
                 $project->validation_signed = $validation_signed;
 
-                // remove signed copy
-                if (!$validation_signed) {
-                    $project->signed_copy = null;
-                }
-
-                // if the project is not included in endorsement, re-endorse
-                $project->validation_endorsed = $validation_endorsed;
-
-                // revert to un-endorsed status
-                if (!$validation_endorsed) {
-                    $project->endorsed = false;
-                }
+                // mark project as validated
+                $project->validated = true;
 
                 $project->processed_by = $user->id;
                 $project->save();
 
-                // ProjectProcessingStatus::create([
-                //     'project_id' => $project->id,
-                //     'processing_status_id' => $processing_status_id,
-                //     'processed_by' => $user->id,
-                //     'remarks' => $args['remarks']
-                // ]);
-
-                // notify encoder
+                ProjectProcessingStatus::create([
+                    'project_id' => $project->id,
+                    'processing_status_id' => $processing_status->id,
+                    'processed_by' => $user->id,
+                    'remarks' => $args['remarks'] ?? 'Validated'
+                ]);
 
                 return $project;
             }
