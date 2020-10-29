@@ -42,6 +42,7 @@ class UploadSignedCopy
         $project->processing_status_id = $processing_status->id;
         $project->processed_by = $user->id;
         $project->signed_copy = $uploadedFile;
+        $project->endorsed = true;
         $project->save();
 
         event(new SignedCopyUploaded($project));
