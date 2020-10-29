@@ -38,6 +38,6 @@ class AppServiceProvider extends ServiceProvider
 
         Project::observe(ProjectObserver::class);
         PrexcActivity::observe(PrexcActivityObserver::class);
-        User::observer(UserObserver::class);
+        User::observe(UserObserver::class);
     }
 }
