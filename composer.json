@@ -21,7 +21,6 @@
         "maatwebsite/excel": "^3.1",
         "mll-lab/laravel-graphql-playground": "^2.1",
         "mpociot/versionable": "^3.3",
-        "mtolhuys/laravel-schematics": "^0.10.3",
         "nao-pon/flysystem-google-drive": "~1.1",
         "nuwave/lighthouse": "^4.16",
         "pusher/pusher-php-server": "^4.1",
