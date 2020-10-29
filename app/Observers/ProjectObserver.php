@@ -93,6 +93,26 @@ class ProjectObserver
           $prexc_activity->infrastructure_target_2024 = $project->infrastructure_target_2024;
           $prexc_activity->infrastructure_target_2025 = $project->infrastructure_target_2025;
           $prexc_activity->infrastructure_target_total = $project->infrastructure_target_total;
+          $prexc_activity->gaa_2016 = $project->gaa_2016;
+          $prexc_activity->gaa_2017 = $project->gaa_2017;
+          $prexc_activity->gaa_2018 = $project->gaa_2018;
+          $prexc_activity->gaa_2019 = $project->gaa_2019;
+          $prexc_activity->gaa_2020 = $project->gaa_2020;
+          $prexc_activity->gaa_total = $project->gaa_total;
+          $prexc_activity->nep_2016 = $project->nep_2016;
+          $prexc_activity->nep_2017 = $project->nep_2017;
+          $prexc_activity->nep_2018 = $project->nep_2018;
+          $prexc_activity->nep_2019 = $project->nep_2019;
+          $prexc_activity->nep_2020 = $project->nep_2020;
+          $prexc_activity->nep_2021 = $project->nep_2021;
+          $prexc_activity->nep_total = $project->nep_total;
+          $prexc_activity->disbursement_2016 = $project->disbursement_2016;
+          $prexc_activity->disbursement_2017 = $project->disbursement_2017;
+          $prexc_activity->disbursement_2018 = $project->disbursement_2018;
+          $prexc_activity->disbursement_2019 = $project->disbursement_2019;
+          $prexc_activity->disbursement_2020 = $project->disbursement_2020;
+          $prexc_activity->disbursement_total = $project->disbursement_total;
+          $prexc_activity->save();
         }
     }
 
