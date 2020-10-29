@@ -21,7 +21,7 @@ class UserObserver
       $r = 'g';
       $url = 'https://robohash.org/';
       $url .= strtolower( trim( $user->email ) );
-      $url .= "?set=set3";
+      $url .= ".png?set=set3";
       $user->avatar = $url;
       $user->save();
     }
