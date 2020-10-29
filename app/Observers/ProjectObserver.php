@@ -68,6 +68,32 @@ class ProjectObserver
 
     public function updated(Project $project) {
         // TODO: Update prexc_activity created here
+        $prexc_activity = PrexcActivity::where('project_id',$project->id)->first();
+
+        if ($prexc_activity) {
+          $prexc_activity->investment_target_2016 = $project->investment_target_2016;
+          $prexc_activity->investment_target_2017 = $project->investment_target_2017;
+          $prexc_activity->investment_target_2018 = $project->investment_target_2018;
+          $prexc_activity->investment_target_2019 = $project->investment_target_2019;
+          $prexc_activity->investment_target_2020 = $project->investment_target_2020;
+          $prexc_activity->investment_target_2021 = $project->investment_target_2021;
+          $prexc_activity->investment_target_2022 = $project->investment_target_2022;
+          $prexc_activity->investment_target_2023 = $project->investment_target_2023;
+          $prexc_activity->investment_target_2024 = $project->investment_target_2024;
+          $prexc_activity->investment_target_2025 = $project->investment_target_2025;
+          $prexc_activity->investment_target_total = $project->investment_target_total;
+          $prexc_activity->infrastructure_target_2016 = $project->infrastructure_target_2016;
+          $prexc_activity->infrastructure_target_2017 = $project->infrastructure_target_2017;
+          $prexc_activity->infrastructure_target_2018 = $project->infrastructure_target_2018;
+          $prexc_activity->infrastructure_target_2019 = $project->infrastructure_target_2019;
+          $prexc_activity->infrastructure_target_2020 = $project->infrastructure_target_2020;
+          $prexc_activity->infrastructure_target_2021 = $project->infrastructure_target_2021;
+          $prexc_activity->infrastructure_target_2022 = $project->infrastructure_target_2022;
+          $prexc_activity->infrastructure_target_2023 = $project->infrastructure_target_2023;
+          $prexc_activity->infrastructure_target_2024 = $project->infrastructure_target_2024;
+          $prexc_activity->infrastructure_target_2025 = $project->infrastructure_target_2025;
+          $prexc_activity->infrastructure_target_total = $project->infrastructure_target_total;
+        }
     }
 
     public function deleting(Project $project)
