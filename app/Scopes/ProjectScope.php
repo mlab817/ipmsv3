@@ -36,7 +36,8 @@ class ProjectScope implements Scope
             if ($user->role->name == 'reviewer') {
                 $reviews = $user->reviews()->pluck('operating_units.id');
                 // Get projects of operating unit being reviewed where status is endorsed
-                $builder->whereIn('operating_unit_id',$reviews);
+                $builder->whereIn('operating_unit_id',$reviews)
+                  ->where('endorsed', true);
             }
 
             // Check if user is encoder
