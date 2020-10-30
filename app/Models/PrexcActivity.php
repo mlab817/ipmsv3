@@ -87,6 +87,7 @@ class PrexcActivity extends Model
       'disbursement_2024',
       'disbursement_2025',
       'disbursement_total',
+      'submission_status_id'
     ];
 
     public function banner_program(): BelongsTo
@@ -112,6 +113,11 @@ class PrexcActivity extends Model
     public function getLabelAttribute()
     {
       return $this->uacs_code . '_'. $this->name;
+    }
+
+    public function submission_status(): BelongsTo
+    {
+      return $this->belongsTo(SubmissionStatus::class);
     }
 
 }

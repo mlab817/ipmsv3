@@ -197,6 +197,7 @@ input UpdateProjectInput {
   provinces: [ID]
   districts: [ID]
   bases: UpdateBasesBelongsToMany
+  submission_status: ID
 }
 
 input UpdateTenPointAgendaBelongsToMany {

@@ -216,6 +216,8 @@ type PrexcActivity {
 	updated_at: String
 	finalized: Boolean
 	reviewed: Boolean
+	submission_status_id: ID
+	submission_status: SubmissionStatus @belongsTo
 }
 
 input CreatePrexcActivityInput {

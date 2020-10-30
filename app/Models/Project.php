@@ -320,7 +320,8 @@ class Project extends Model
       'cip_type_id',
       'prexc_program_id',
       'prexc_subprogram_id',
-      'validated'
+      'validated',
+      'submission_status_id',
       // 'version'
     ];
 
@@ -476,6 +477,11 @@ class Project extends Model
     public function shares(): HasMany
     {
       return $this-hasMany(Project::class,'project_id','id');
+    }
+
+    public function submission_status(): BelongsTo
+    {
+      return $this->belongsTo(SubmissionStatus::class);
     }
 
     /**
