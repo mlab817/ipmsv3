@@ -15,7 +15,7 @@ class SubmissionStatusesTableSeeder extends Seeder
 
         DB::table('submission_statuses')->truncate();
 
-        DB::insert('submission_statuses')->insert([
+        DB::table('submission_statuses')->insert([
           [
             'id' => 1,
             'name' => 'Draft'
