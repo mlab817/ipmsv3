@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
+use Log;
 use App\Models\SubmissionStatus;
 use App\Models\PrexcActivity;
 use Carbon\Carbon;
@@ -18,6 +19,8 @@ class FinalizePrexcActivityMutation
         // TODO implement the resolver
         $prexc_activity = PrexcActivity::find($args['id']);
         $submission_status = SubmissionStatus::where('name','Finalized')->first();
+
+        Log::debug($submission_status);
 
         if (! $prexc_activity) {
           return null;
