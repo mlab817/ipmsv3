@@ -304,6 +304,8 @@ type Project {
     cip_type_id: ID
     cip_type: CipType @belongsTo
     validated: Boolean
+    submission_status: SubmissionStatus @belongsTo
+    submission_status_id: ID
 }
 
 type CanUpdateResponse {
