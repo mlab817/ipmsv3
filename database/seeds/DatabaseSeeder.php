@@ -67,5 +67,6 @@ class DatabaseSeeder extends Seeder
         $this->call(InfrastructureSectorsTableSeeder::class);
         $this->call(InfrastructureSubsectorsTableSeeder::class);
         $this->call(ProjectPreparationDocumentsTableSeeder::class);
+        $this->call(SubmissionStatusesTableSeeder::class);
     }
 }
