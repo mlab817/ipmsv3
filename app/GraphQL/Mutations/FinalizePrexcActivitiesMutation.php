@@ -26,7 +26,7 @@ class FinalizePrexcActivitiesMutation
           'finalized' => true,
           'finalized_by' => $userId,
           'finalized_at' => $now,
-          'submission_status_id' => $submission_status['id']
+          'submission_status_id' => $submission_status->id // Finalized
         ]);
 
         return PrexcActivity::whereIn('id', $ids)->get();
