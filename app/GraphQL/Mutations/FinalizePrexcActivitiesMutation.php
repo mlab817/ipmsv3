@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Models\SubmissionStatus;
 use App\Models\PrexcActivity;
 use Carbon\Carbon;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
@@ -19,10 +20,13 @@ class FinalizePrexcActivitiesMutation
         $userId = $context->user()->id;
         $now = Carbon::now();
 
+        $submission_status = SubmissionStatus::where('name','Finalized')->first();
+
         $prexc_activities = PrexcActivity::whereIn('id', $ids)->update([
           'finalized' => true,
           'finalized_by' => $userId,
-          'finalized_at' => $now
+          'finalized_at' => $now,
+          'submission_status_id' => $submission_status->id
         ]);
 
         return PrexcActivity::whereIn('id', $ids)->get();
