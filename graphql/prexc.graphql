@@ -345,4 +345,5 @@ input UpdatePrexcActivityInput {
 	disbursement_2024: Float
 	disbursement_2025: Float
 	disbursement_total: Float
+	submission_status_id: ID
 }
