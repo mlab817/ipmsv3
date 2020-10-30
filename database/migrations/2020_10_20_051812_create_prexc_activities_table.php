@@ -100,7 +100,7 @@ class CreatePrexcActivitiesTable extends Migration
           $table->foreign('submission_status_id')->references('id')->on('submission_statuses')->onDelete('set null');
           $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');
           $table->foreign('updated_by')->references('id')->on('users')->onDelete('set null');
-          $table->foreign('reviewed_by')->references('id')->on('users')->onDelete('set null');
+          $table->foreign('validated_by')->references('id')->on('users')->onDelete('set null');
           $table->foreign('deleted_by')->references('id')->on('users')->onDelete('set null');
         });
     }
