@@ -201,6 +201,8 @@ class CreateProjectsTable extends Migration
             $table->unsignedBigInteger('technical_readiness_id')->nullable(); // equivalent of project preparation details
             $table->string('technical_readiness_others')->nullable();
 
+            $table->unsignedBigInteger('submission_status_id')->nullable()->default(1);
+
             $table->unsignedBigInteger("created_by")->nullable();
             $table->unsignedBigInteger("updated_by")->nullable();
 
@@ -263,6 +265,7 @@ class CreateProjectsTable extends Migration
             // $table->foreign('endorsement_id')->references('id')->on('endorsements')->onDelete('set null');
             $table->foreign('technical_readiness_id')->references('id')->on('technical_readinesses')->onDelete('set null');
             $table->foreign('project_preparation_document_id')->references('id')->on('project_preparation_documents')->onDelete('set null');
+            $table->foreign('submission_status_id')->references('id')->on('submission_statuses')->onDelete('set null');
         });
     }
 

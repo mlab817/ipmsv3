@@ -22,6 +22,7 @@ class CreatePrexcActivitiesTable extends Migration
           $table->unsignedBigInteger('banner_program_id')->nullable();
           $table->string('uacs_code')->nullable();
           $table->unsignedBigInteger('project_id')->nullable();
+          $table->boolean('trip')->default(0);
 
           $table->decimal('investment_target_2016',14,2)->nullable()->default(0);
           $table->decimal('investment_target_2017',14,2)->nullable()->default(0);
@@ -79,15 +80,16 @@ class CreatePrexcActivitiesTable extends Migration
           $table->decimal('disbursement_2025',14,2)->default(0)->nullable();
           $table->decimal('disbursement_total',14,2)->default(0)->nullable();
           $table->boolean('finalized')->default(0);
-          $table->boolean('reviewed')->default(0);
+          $table->boolean('validated')->default(0);
+          $table->unsignedBigInteger('submission_status_id')->nullable()->default(1);
           $table->unsignedBigInteger('created_by')->nullable();
           $table->unsignedBigInteger('updated_by')->nullable();
           $table->unsignedBigInteger('finalized_by')->nullable();
-          $table->unsignedBigInteger('reviewed_by')->nullable();
+          $table->unsignedBigInteger('validated_by')->nullable();
           $table->unsignedBigInteger('deleted_by')->nullable();
           $table->timestamps();
           $table->timestamp('finalized_at')->nullable();
-          $table->timestamp('reviewed_at')->nullable();
+          $table->timestamp('validated_at')->nullable();
           $table->softDeletes();
 
           $table->foreign('operating_unit_id')->references('id')->on('operating_units')->onDelete('cascade');
@@ -95,6 +97,7 @@ class CreatePrexcActivitiesTable extends Migration
           $table->foreign('prexc_subprogram_id')->references('id')->on('prexc_subprograms')->onDelete('set null');
           $table->foreign('banner_program_id')->references('id')->on('banner_programs')->onDelete('set null');
           $table->foreign('project_id')->references('id')->on('projects')->onDelete('set null');
+          $table->foreign('submission_status_id')->references('id')->on('submission_statuses')->onDelete('set null');
           $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');
           $table->foreign('updated_by')->references('id')->on('users')->onDelete('set null');
           $table->foreign('reviewed_by')->references('id')->on('users')->onDelete('set null');
