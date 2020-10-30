@@ -20,13 +20,13 @@ class FinalizePrexcActivitiesMutation
         $userId = $context->user()->id;
         $now = Carbon::now();
 
-        $submission_status = SubmissionStatus::where('name','Finalized')->first();
+        $submission_status = SubmissionStatus::where('name','Finalized')->first()->pluck('id');
 
         $prexc_activities = PrexcActivity::whereIn('id', $ids)->update([
           'finalized' => true,
           'finalized_by' => $userId,
           'finalized_at' => $now,
-          'submission_status_id' => $submission_status->id
+          'submission_status_id' => $submission_status
         ]);
 
         return PrexcActivity::whereIn('id', $ids)->get();
