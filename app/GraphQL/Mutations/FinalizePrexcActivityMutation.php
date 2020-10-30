@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Models\SubmissionStatus;
 use App\Models\PrexcActivity;
 use Carbon\Carbon;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
