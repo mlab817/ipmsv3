@@ -14,14 +14,17 @@ class SlackNotification extends Notification
 
     public $channel;
 
+    public $message;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($channel)
+    public function __construct($channel, $message)
     {
         $this->channel = $channel;
+        $this->message = $message;
     }
 
     public function routeNotificationForSlack($notification)
@@ -37,7 +40,7 @@ class SlackNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['slack'];
+        return ['slack','mail'];
     }
 
     /**
@@ -63,7 +66,7 @@ class SlackNotification extends Notification
               ->from('System')
               ->image($image)
               ->to('#notifications')
-              ->content('Fix service request by '.$message);
+              ->content($message);
     }
 
     /**

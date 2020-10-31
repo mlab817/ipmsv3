@@ -28,5 +28,6 @@ Route::get('/python','PythonController@run');
 Route::get('/slack', function() {
   $message = 'Go to hell';
 
-  (new App\Notifications\SlackNotification($message));
+  $user = App\User::find(1);
+  $user->notify(new SlackNotification($message));
 });
