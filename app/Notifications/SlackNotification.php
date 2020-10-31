@@ -24,6 +24,11 @@ class SlackNotification extends Notification
         $this->channel = $channel;
     }
 
+    public function routeNotificationForSlack($notification)
+    {
+        return env('SLACK_NOTIFICATION_WEBHOOK');
+    }
+
     /**
      * Get the notification's delivery channels.
      *
