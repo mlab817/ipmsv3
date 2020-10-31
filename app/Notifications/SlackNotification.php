@@ -65,7 +65,7 @@ class SlackNotification extends Notification
       return (new SlackMessage)
               ->from('System')
               ->image($image)
-              ->to('#notifications')
+              ->to($this->channel)
               ->content($message);
     }
 
