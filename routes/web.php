@@ -29,5 +29,5 @@ Route::get('/slack', function() {
   $message = 'Go to hell';
 
   $user = App\User::find(1);
-  $user->notify(new SlackNotification($message));
+  $user->notify(new App\Notifications\SlackNotification($message));
 });
