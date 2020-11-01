@@ -28,7 +28,7 @@ Route::get('/python','PythonController@run');
 Route::get('/slack', function() {
   $message = 'Go to hell';
 
-  \Slack::send('Test');
+  \Log::debug('Go to hell');
 });
 
 Route::get('/download', function() {
