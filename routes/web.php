@@ -31,3 +31,7 @@ Route::get('/slack', function() {
   $user = App\User::find(1);
   $user->notify(new App\Notifications\SlackNotification('#notifications', $message));
 });
+
+Route::get('/download', function() {
+   return (new \App\Exports\ProgramsExport())->download('programs.xlsx');
+});
