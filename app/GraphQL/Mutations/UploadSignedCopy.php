@@ -38,8 +38,10 @@ class UploadSignedCopy
         $uploadedFile = $file->storePubliclyAs('signed copies', $file_title, 'public');
 //        $uploadedFile = $this->uploadFile($args['signed_copy']);
         $processing_status = ProcessingStatus::where('name','endorsed')->first();
+        $ss = SubmissionStatus::where('name','Endorsed')->first();
 
         $project->processing_status_id = $processing_status->id;
+        $project->submission_status_id = $ss;
         $project->processed_by = $user->id;
         $project->signed_copy = $uploadedFile;
         $project->endorsed = true;
