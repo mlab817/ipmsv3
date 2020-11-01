@@ -42,3 +42,4 @@ type Subscription
 #import prexc.graphql
 #import financial.graphql
 #import release.graphql
+#import useful_link.graphql
