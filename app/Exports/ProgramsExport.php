@@ -6,7 +6,6 @@ use App\Models\PrexcActivity;
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\Exportable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
@@ -16,7 +15,7 @@ use Maatwebsite\Excel\Excel;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class ProgramsExport implements FromView, ShouldQueue, Responsable, ShouldAutoSize, WithColumnFormatting, WithStyles, WithColumnWidths
+class ProgramsExport implements FromView, Responsable, ShouldAutoSize, WithColumnFormatting, WithStyles, WithColumnWidths
 {
     use Exportable;
 
@@ -119,6 +118,5 @@ class ProgramsExport implements FromView, ShouldQueue, Responsable, ShouldAutoSi
             2 => ['font' => ['bold' => true ]],
         ];
     }
-
 
 }

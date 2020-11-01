@@ -8,6 +8,8 @@ extend type Query {
 	prexc_activity(id: ID! @eq): PrexcActivity @find
 
 	paginatedPrexcActivities: [PrexcActivity] @paginate(type:"paginator", defaultCount:10, maxCount: 25) @softDeletes
+
+    exportExcel: Link @field(resolver: "ExportExcelQuery") @guard(with:["api"])
 }
 
 extend type Mutation {
@@ -36,6 +38,10 @@ extend type Mutation {
 
 	"Review multiple activities at once"
 	reviewPrexcActivities(id: [ID]!): [PrexcActivity] @field(resolver: "ReviewPrexcActivitiesMutation")
+}
+
+type Link {
+    link: String
 }
 
 input CreatePrexcProgramInput {
