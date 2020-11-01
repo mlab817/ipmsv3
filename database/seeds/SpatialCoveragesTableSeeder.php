@@ -32,24 +32,6 @@ class SpatialCoveragesTableSeeder extends Seeder
                 'slug' => 'region-specific'
             ],
             [
-                'id' => 4,
-                'name' => 'Province-Specific',
-                'label' => 'Province-Specific',
-                'slug' => 'province-specific'
-            ],
-            [
-                'id' => 5,
-                'name' => 'District-Specific',
-                'label' => 'District-Specific',
-                'slug' => 'district-specific'
-            ],
-            [
-                'id' => 6,
-                'name' => 'City/Municipality-Specific',
-                'label' => 'City/Municipality-Specific',
-                'slug' => 'city-municipality-specific'
-            ],
-            [
                 'id' => 7,
                 'name' => 'Abroad',
                 'label' => 'Abroad',
