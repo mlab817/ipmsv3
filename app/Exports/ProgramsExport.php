@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Program;
+use App\Models\PrexcActivity;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -13,6 +13,6 @@ class ProgramsExport implements FromCollection, ShouldQueue
     */
     public function collection()
     {
-        return Program::all();
+        return PrexcActivity::all();
     }
 }
