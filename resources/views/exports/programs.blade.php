@@ -140,7 +140,61 @@
     <tfoot>
         <tr>
             <th colspan="5">Total</th>
-            <th>{{ $pa->sum('infrastructure_target_2016') }}</th>
+            <th>{{ $prexc_activities->sum('infrastructure_target_2016') }}</th>
+            <th>{{ $prexc_activities->sum('infrastructure_target_2017') }}</th>
+            <th>{{ $prexc_activities->sum('infrastructure_target_2018') }}</th>
+            <th>{{ $prexc_activities->sum('infrastructure_target_2019') }}</th>
+            <th>{{ $prexc_activities->sum('infrastructure_target_2020') }}</th>
+            <th>{{ $prexc_activities->sum('infrastructure_target_2021') }}</th>
+            <th>{{ $prexc_activities->sum('infrastructure_target_2022') }}</th>
+            <th>{{ $prexc_activities->sum('infrastructure_target_2023') }}</th>
+            <th>{{ $prexc_activities->sum('infrastructure_target_2024') }}</th>
+            <th>{{ $prexc_activities->sum('infrastructure_target_2025') }}</th>
+            <th>{{ $prexc_activities->sum('infrastructure_target_total') }}</th>
+            <th>{{ $prexc_activities->sum('investment_target_2016') }}</th>
+            <th>{{ $prexc_activities->sum('investment_target_2017') }}</th>
+            <th>{{ $prexc_activities->sum('investment_target_2018') }}</th>
+            <th>{{ $prexc_activities->sum('investment_target_2019') }}</th>
+            <th>{{ $prexc_activities->sum('investment_target_2020') }}</th>
+            <th>{{ $prexc_activities->sum('investment_target_2021') }}</th>
+            <th>{{ $prexc_activities->sum('investment_target_2022') }}</th>
+            <th>{{ $prexc_activities->sum('investment_target_2023') }}</th>
+            <th>{{ $prexc_activities->sum('investment_target_2024') }}</th>
+            <th>{{ $prexc_activities->sum('investment_target_2025') }}</th>
+            <th>{{ $prexc_activities->sum('investment_target_total') }}</th>
+            <th>{{ $prexc_activities->sum('gaa_2016') }}</th>
+            <th>{{ $prexc_activities->sum('gaa_2017') }}</th>
+            <th>{{ $prexc_activities->sum('gaa_2018') }}</th>
+            <th>{{ $prexc_activities->sum('gaa_2019') }}</th>
+            <th>{{ $prexc_activities->sum('gaa_2020') }}</th>
+            <th>{{ $prexc_activities->sum('gaa_2021') }}</th>
+            <th>{{ $prexc_activities->sum('gaa_2022') }}</th>
+            <th>{{ $prexc_activities->sum('gaa_2023') }}</th>
+            <th>{{ $prexc_activities->sum('gaa_2024') }}</th>
+            <th>{{ $prexc_activities->sum('gaa_2025') }}</th>
+            <th>{{ $prexc_activities->sum('gaa_total') }}</th>
+            <th>{{ $prexc_activities->sum('nep_2016') }}</th>
+            <th>{{ $prexc_activities->sum('nep_2017') }}</th>
+            <th>{{ $prexc_activities->sum('nep_2018') }}</th>
+            <th>{{ $prexc_activities->sum('nep_2019') }}</th>
+            <th>{{ $prexc_activities->sum('nep_2020') }}</th>
+            <th>{{ $prexc_activities->sum('nep_2021') }}</th>
+            <th>{{ $prexc_activities->sum('nep_2022') }}</th>
+            <th>{{ $prexc_activities->sum('nep_2023') }}</th>
+            <th>{{ $prexc_activities->sum('nep_2024') }}</th>
+            <th>{{ $prexc_activities->sum('nep_2025') }}</th>
+            <th>{{ $prexc_activities->sum('nep_total') }}</th>
+            <th>{{ $prexc_activities->sum('disbursement_2016') }}</th>
+            <th>{{ $prexc_activities->sum('disbursement_2017') }}</th>
+            <th>{{ $prexc_activities->sum('disbursement_2018') }}</th>
+            <th>{{ $prexc_activities->sum('disbursement_2019') }}</th>
+            <th>{{ $prexc_activities->sum('disbursement_2020') }}</th>
+            <th>{{ $prexc_activities->sum('disbursement_2021') }}</th>
+            <th>{{ $prexc_activities->sum('disbursement_2022') }}</th>
+            <th>{{ $prexc_activities->sum('disbursement_2023') }}</th>
+            <th>{{ $prexc_activities->sum('disbursement_2024') }}</th>
+            <th>{{ $prexc_activities->sum('disbursement_2025') }}</th>
+            <th>{{ $prexc_activities->sum('disbursement_total') }}</th>
         </tr>
     </tfoot>
 </table>

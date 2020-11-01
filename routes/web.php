@@ -42,10 +42,11 @@ Route::get('/download', function() {
 });
 
 Route::get('/programs', function() {
-    $user = \Illuminate\Support\Facades\Auth::user();
+    // $user = \Illuminate\Support\Facades\Auth::user();
+    $user = \App\User::find(4);
     $ou = $user->operating_unit;
     $pa = $ou->prexc_activities;
 
-//    return response()->json($pa);
-    return view('exports.programs')->with('prexc_activities',$pa);
+   // return response()->json($pa);
+    return view('exports.programs')->with('prexc_activities', $pa);
 });
