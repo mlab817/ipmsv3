@@ -12,7 +12,11 @@ class SpatialCoveragesTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('spatial_coverages')->insert([
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('spatial_coverages')->truncate();
+
+        DB::table('spatial_coverages')->insert([
             [
                 'id' => 1,
                 'name' => 'Nationwide',
@@ -38,5 +42,7 @@ class SpatialCoveragesTableSeeder extends Seeder
                 'slug' => 'abroad'
             ]
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
