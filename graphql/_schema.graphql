@@ -41,3 +41,4 @@ type Subscription
 #import permission.graphql
 #import prexc.graphql
 #import financial.graphql
+#import release.graphql
