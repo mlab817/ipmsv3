@@ -33,5 +33,10 @@ Route::get('/slack', function() {
 });
 
 Route::get('/download', function() {
-    return Excel::download(new \App\Exports\ProgramsExport, 'programs.xlsx');
+    $user = \Illuminate\Support\Facades\Auth::user();
+    $ou = $user->operating_unit;
+    $pa = $ou->prexc_activities;
+
+//    return response()->json($pa);
+    return new \App\Exports\ProgramsExport($pa);
 });
