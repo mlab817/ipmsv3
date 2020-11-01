@@ -49,7 +49,7 @@ class ValidateProjectMutation
                 // mark project as validated
                 $project->validated = true;
                 // change status to validated
-                $ss = SubmissionStatus::where('name','validated')->first();
+                $ss = SubmissionStatus::where('name','Validated')->first();
                 $project->submission_status_id = $ss;
 
                 $project->processed_by = $user->id;
