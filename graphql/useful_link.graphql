@@ -19,13 +19,13 @@ type UsefulLink {
 	updated_at: String
 }
 
-input CreateReleaseInput {
+input CreateUsefulLinkInput {
 	title: String
 	description: String
 	to: String
 }
 
-input UpdateReleaseInput {
+input UpdateUsefulLinkInput {
 	id: ID!
 	title: String
 	description: String
