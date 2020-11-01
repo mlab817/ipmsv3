@@ -72,6 +72,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function routeNotificationForSlack($notification)
+    {
+        return env('SLACK_NOTIFICATION_WEBHOOK', null);
+    }
+
     public function activities(): MorphMany
     {
       return $this->morphMany(\Spatie\Activitylog\Models\Activity::class,"causer");
