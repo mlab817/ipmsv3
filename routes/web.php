@@ -33,5 +33,5 @@ Route::get('/slack', function() {
 });
 
 Route::get('/download', function() {
-    return Maatwebsite\Excel\Excel::download(new \App\Exports\ProgramsExport, 'programs.xlsx');
+    return Excel::download(new \App\Exports\ProgramsExport, 'programs.xlsx');
 });
