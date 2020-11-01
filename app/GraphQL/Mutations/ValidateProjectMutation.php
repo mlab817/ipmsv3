@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Models\SubmissionStatus;
 use App\Models\ProcessingStatus;
 use App\Models\Project;
 use App\Models\ProjectProcessingStatus;
@@ -47,6 +48,9 @@ class ValidateProjectMutation
 
                 // mark project as validated
                 $project->validated = true;
+                // change status to validated
+                $ss = SubmissionStatus::where('name','validated')->first();
+                $project->submission_status_id = $ss;
 
                 $project->processed_by = $user->id;
                 $project->save();
