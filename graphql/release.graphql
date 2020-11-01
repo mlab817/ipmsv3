@@ -18,6 +18,8 @@ type Release {
 	notes: String
 	user_id: ID
 	user: User @belongsTo
+	created_at: String
+	updated_at: String
 }
 
 input CreateReleaseInput {
