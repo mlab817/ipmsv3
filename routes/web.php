@@ -28,8 +28,7 @@ Route::get('/python','PythonController@run');
 Route::get('/slack', function() {
   $message = 'Go to hell';
 
-  $user = App\User::find(1);
-  $user->notify(new App\Notifications\SlackNotification('#notifications', $message));
+  \Slack::send('Test');
 });
 
 Route::get('/download', function() {
