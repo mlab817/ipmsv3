@@ -3,6 +3,7 @@
 namespace App\GraphQL\Mutations;
 
 use App\Events\SignedCopyUploaded;
+use App\Models\SubmissionStatus;
 use App\Models\ProcessingStatus;
 use App\Models\Project;
 use App\Models\ProjectProcessingStatus;
@@ -31,9 +32,7 @@ class UploadSignedCopy
 
         $file = $args['signed_copy'];
 
-        $now = \Carbon\Carbon::now();
-        $timestamp = \Carbon\Carbon::parse($now)->timestamp;
-        $file_title = $timestamp . '_' . $file->getClientOriginalName();
+        $file_title = time() . '_' . $file->getClientOriginalName();
 
         $uploadedFile = $file->storePubliclyAs('signed copies', $file_title, 'public');
 //        $uploadedFile = $this->uploadFile($args['signed_copy']);
