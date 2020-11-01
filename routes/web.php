@@ -40,3 +40,12 @@ Route::get('/download', function() {
 //    return response()->json($pa);
     return new \App\Exports\ProgramsExport($pa);
 });
+
+Route::get('/programs', function() {
+    $user = \Illuminate\Support\Facades\Auth::user();
+    $ou = $user->operating_unit;
+    $pa = $ou->prexc_activities;
+
+//    return response()->json($pa);
+    return view('exports.programs')->with('prexc_activities',$pa);
+});
