@@ -36,7 +36,7 @@ class SpatialCoveragesTableSeeder extends Seeder
                 'slug' => 'region-specific'
             ],
             [
-                'id' => 7,
+                'id' => 4,
                 'name' => 'Abroad',
                 'label' => 'Abroad',
                 'slug' => 'abroad'
