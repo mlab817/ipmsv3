@@ -40,7 +40,7 @@ class UploadSignedCopy
         $ss = SubmissionStatus::where('name','Endorsed')->first();
 
         $project->processing_status_id = $processing_status->id;
-        $project->submission_status_id = $ss;
+        $project->submission_status_id = $ss->id;
         $project->processed_by = $user->id;
         $project->signed_copy = $uploadedFile;
         $project->endorsed = true;
