@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\SubmissionStatus;
 use App\Models\Project;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -66,22 +67,15 @@ class ProjectPolicy
 
       if ($status == 'Draft') {
          return true;
+      } else if ($status == 'Finalized) {
+         return false;
+      } else if ($status == 'Endorsed') {
+         return $user->role && $user->role->name == 'reviewer'    
+      } else if ($status == 'Validated') {
+         return false;
       }
-      
-      if (!$project->endorsed && !$project->finalized) {
-        // if the project has not been endorsed or finalized, compare version
-        if (isset($args['version'])) {
-          return ($user->id == $project->created_by && $project->version == (int) $args['version']);
-        }
-      } else {
-        // project already finalized or endorsed
-        // check if user is reviewer
-        if ($user->role && $user->role->name == 'reviewer') {
-          // TODO: additional checks can be done if the user is a reviewer of the operating unit
-          return true;
-        }
-        return false;
-      }
+      // if all else fails
+      return false;
     }
 
     /**
