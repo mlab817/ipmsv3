@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Events\ProjectEndorsedEvent;
 use App\Events\ProjectFinalized;
 use App\Events\ProjectProcessed;
 use App\Events\ProjectUpdated;
@@ -13,6 +14,7 @@ use App\Listeners\LogLoginEvent;
 use App\Listeners\NotifyReviewer;
 use App\Listeners\SendRoleChangedNotification;
 use App\Listeners\RecordProcessingEvent;
+use App\Listeners\ProjectEndorsedListener;
 use App\Listeners\ProjectUpdated as ProjectUpdatedListener;
 use App\Listeners\SendCompleteUserProfileNotification;
 use App\Listeners\SendProjectCreatedNotification;
@@ -53,6 +55,10 @@ class EventServiceProvider extends ServiceProvider
         ],
         SignedCopyUploaded::class => [
             NotifyReviewer::class
+        ],
+        ProjectEndorsedEvent::class => [
+            NotifyReviewer::class,
+            ProjectEndorsedListener::class,
         ]
     ];
 

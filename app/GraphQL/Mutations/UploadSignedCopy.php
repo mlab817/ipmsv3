@@ -45,8 +45,6 @@ class UploadSignedCopy
         $project->endorsed = true;
         $project->save();
 
-        event(new SignedCopyUploaded($project));
-
         return $project;
     }
 }
