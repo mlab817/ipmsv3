@@ -34,7 +34,7 @@ class ProjectFinalized
         $processing_status = ProcessingStatus::where('name','finalized')->first();
         $ss = SubmissionStatus::where('name','finalized')->first();
 
-        $project->submission_status_id = $project->$ss_id;
+        $project->submission_status_id = $ss->id;
         $project->save();
 
         ProjectProcessingStatus::create([
