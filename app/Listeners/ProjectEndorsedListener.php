@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Models\ProcessingStatus;
 use App\Models\ProjectProcessingStatus;
 use App\Models\SubmissionStatus;
 use Illuminate\Contracts\Queue\ShouldQueue;
