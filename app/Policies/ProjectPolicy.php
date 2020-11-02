@@ -68,16 +68,16 @@ class ProjectPolicy
       if ($status == 'Draft') {
          return true;
       } else if ($status == 'Finalized') {
-        Log::info($user->name '. was blocked from updating project');
+        Log::info($user->name . ' was blocked from updating project');
          return false;
       } else if ($status == 'Endorsed') {
          return $user->role && $user->role->name == 'reviewer';
       } else if ($status == 'Validated') {
-         Log::info($user->name '. was blocked from updating project since it is validated.');
+         Log::info($user->name .' was blocked from updating project since it is validated.');
          return false;
       }
       // if all else fails
-      Log::info($user->name '. was blocked from updating project for not having submission status.');
+      Log::info($user->name .' was blocked from updating project for not having submission status.');
 
       return false;
     }
