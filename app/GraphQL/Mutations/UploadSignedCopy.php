@@ -10,6 +10,7 @@ use App\Models\ProjectProcessingStatus;
 use GraphQL\Type\Definition\ResolveInfo;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
 class UploadSignedCopy
@@ -44,6 +45,8 @@ class UploadSignedCopy
         $project->signed_copy = $uploadedFile;
         $project->endorsed = true;
         $project->save();
+
+        Log::info('Project "' . $project->title . '" endorsed.');
 
         return $project;
     }
