@@ -60,7 +60,14 @@ class ProjectPolicy
     public function update(User $user, Project $project, array $args)
     {
       // TODO: check if the user is reviewing the operating unit
+      // check what submission_status is 
+      $ss = SubmissionStatus::find($project->submission_status_id);
+      $status = $ss->name ?? null;
 
+      if ($status == 'Draft') {
+         return true;
+      }
+      
       if (!$project->endorsed && !$project->finalized) {
         // if the project has not been endorsed or finalized, compare version
         if (isset($args['version'])) {
