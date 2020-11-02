@@ -53,7 +53,7 @@ class ProjectObserver
         'project_id' => $project->id
       ]);
 
-      Log::debug(json_encode($prexc_activity));
+      Log::info('Prexc Activity created for '. $project->id);
     }
 
     public function updating(Project $project)
@@ -117,6 +117,8 @@ class ProjectObserver
           $prexc_activity->disbursement_total = $project->disbursement_total;
           $prexc_activity->save();
         }
+
+        Log::info('Successfully updated ' . $prexc_activity->name . ' investment targets');
     }
 
     public function deleting(Project $project)
@@ -127,27 +129,5 @@ class ProjectObserver
     public function forceDeleting(Project $project)
     {
       // In case you want to write some information on who permanently deleted a model.
-    }
-
-    public function finalized(Project $project)
-    {
-        $project->finalized = true;
-    }
-
-    public function endorsed(Project $project)
-    {
-        $project->endorsed = true;
-
-        ProjectProcessingStatus::create([
-            'project_id' => $project->id,
-            'processing_status_id' => $project->processing_status->id,
-            'processed_by' => auth()->id,
-            'remarks' => null
-        ]);
-    }
-
-    public function reviewed(Project $project)
-    {
-        $project->reviewed = true;
     }
 }

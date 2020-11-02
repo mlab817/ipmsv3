@@ -29,12 +29,6 @@ class Project extends Model
 
     protected static $submitEmptyLogs = false;
 
-    protected $observables = [
-        'finalized',
-        'endorsed',
-        'reviewed'
-    ];
-
     public function getDescriptionForEvent(string $eventName): string
     {
         return "This project has been {$eventName}";
@@ -43,90 +37,6 @@ class Project extends Model
     protected static function boot()
     {
       parent::boot();
-
-      static::creating(function ($project) {
-          $project->uuid = Str::uuid();
-      });
-
-      static::saving(function ($project) {
-          $project->investment_target_total = (float) $project->investment_target_2016
-            + (float) $project->investment_target_2017
-            + (float) $project->investment_target_2018
-            + (float) $project->investment_target_2019
-            + (float) $project->investment_target_2020
-            + (float) $project->investment_target_2021
-            + (float) $project->investment_target_2022
-            + (float) $project->investment_target_2023
-            + (float) $project->investment_target_2024
-            + (float) $project->investment_target_2025;
-          $project->infrastructure_target_total = (float) $project->infrastructure_target_2016
-            + (float) $project->infrastructure_target_2017
-            + (float) $project->infrastructure_target_2018
-            + (float) $project->infrastructure_target_2019
-            + (float) $project->infrastructure_target_2020
-            + (float) $project->infrastructure_target_2021
-            + (float) $project->infrastructure_target_2022
-            + (float) $project->infrastructure_target_2023
-            + (float) $project->infrastructure_target_2024
-            + (float) $project->infrastructure_target_2025;
-          $project->gaa_total = (float) $project->gaa_2016
-            + (float) $project->gaa_2017
-            + (float) $project->gaa_2018
-            + (float) $project->gaa_2019
-            + (float) $project->gaa_2020
-            + (float) $project->gaa_2021
-            + (float) $project->gaa_2022
-            + (float) $project->gaa_2023
-            + (float) $project->gaa_2024
-            + (float) $project->gaa_2025;
-          $project->nep_total = (float) $project->nep_2016
-            + (float) $project->nep_2017
-            + (float) $project->nep_2018
-            + (float) $project->nep_2019
-            + (float) $project->nep_2020
-            + (float) $project->nep_2021
-            + (float) $project->nep_2022
-            + (float) $project->nep_2023
-            + (float) $project->nep_2024
-            + (float) $project->nep_2025;
-          $project->disbursement_total = (float) $project->disbursement_2016
-            + (float) $project->disbursement_2017
-            + (float) $project->disbursement_2018
-            + (float) $project->disbursement_2019
-            + (float) $project->disbursement_2020
-            + (float) $project->disbursement_2021
-            + (float) $project->disbursement_2022
-            + (float) $project->disbursement_2023
-            + (float) $project->disbursement_2024
-            + (float) $project->disbursement_2025;
-          $project->row_target_total = (float) $project->row_target_2017
-            + (float) $project->row_target_2018
-            + (float) $project->row_target_2019
-            + (float) $project->row_target_2020
-            + (float) $project->row_target_2021
-            + (float) $project->row_target_2022
-            + (float) $project->row_target_2023
-            + (float) $project->row_target_2024
-            + (float) $project->row_target_2025;
-          $project->rap_target_total = (float) $project->rap_target_2017
-            + (float) $project->rap_target_2018
-            + (float) $project->rap_target_2019
-            + (float) $project->rap_target_2020
-            + (float) $project->rap_target_2021
-            + (float) $project->rap_target_2022
-            + (float) $project->rap_target_2023
-            + (float) $project->rap_target_2024
-            + (float) $project->rap_target_2025;
-          $project->fs_target_total = (float) $project->fs_target_2017
-            + (float) $project->fs_target_2018
-            + (float) $project->fs_target_2019
-            + (float) $project->fs_target_2020
-            + (float) $project->fs_target_2021
-            + (float) $project->fs_target_2022
-            + (float) $project->fs_target_2023
-            + (float) $project->fs_target_2024
-            + (float) $project->fs_target_2025;
-      });
 
       $role = auth()->user() ? auth()->user()->role->name : '';
 
@@ -322,7 +232,6 @@ class Project extends Model
       'prexc_subprogram_id',
       'validated',
       'submission_status_id',
-      // 'version'
     ];
 
     protected $casts = [
