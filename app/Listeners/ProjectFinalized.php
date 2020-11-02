@@ -32,13 +32,6 @@ class ProjectFinalized
 
         $processing_status = ProcessingStatus::where('name','finalized')->first();
 
-        // Log::info(json_encode($event));
-        // $processing_status = ProcessingStatus::where('name','finalized')->first();
-        // $project->finalized = true;
-        // $project->save();
-
-//        $processing_status_name = $processing_status->name ?? '_';
-
         ProjectProcessingStatus::create([
             'project_id' => $project->id,
             'processing_status_id' => $processing_status->id,
