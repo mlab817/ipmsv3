@@ -58,19 +58,18 @@ class ProjectPolicy
      * @param App\User $user
      * @param App\Models\Project $project
      */
-    public function update(User $user, Project $project, array $args)
+    public function update(User $user, Project $project)
     {
-      // TODO: check if the user is reviewing the operating unit
-      // check what submission_status is 
+      // allow user to update based on status of the project
       $ss = SubmissionStatus::find($project->submission_status_id);
       $status = $ss->name ?? null;
 
       if ($status == 'Draft') {
          return true;
-      } else if ($status == 'Finalized) {
+      } else if ($status == 'Finalized') {
          return false;
       } else if ($status == 'Endorsed') {
-         return $user->role && $user->role->name == 'reviewer'    
+         return $user->role && $user->role->name == 'reviewer';
       } else if ($status == 'Validated') {
          return false;
       }
