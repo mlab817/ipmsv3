@@ -25,6 +25,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Joselfonseca\LighthouseGraphQLPassport\HasLoggedInTokens;
 use Joselfonseca\LighthouseGraphQLPassport\MustVerifyEmailGraphQL;
@@ -208,6 +209,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function setLoginLog()
     {
+      Log::info($this->name . ' logged in just now');
+
       $this->logins()->insert([
         'user_id' => Auth::user()->id,
         'login_at' => Carbon::now()
