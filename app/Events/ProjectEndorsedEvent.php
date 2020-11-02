@@ -25,6 +25,7 @@ class ProjectEndorsedEvent
     public function __construct(Project $project)
     {
         $this->project = $project;
+        $this->user = auth()->user() ?? null;
     }
 
     /**
