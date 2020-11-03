@@ -16,6 +16,7 @@ class CreatePrexcActivitiesTable extends Migration
         Schema::create('prexc_activities', function (Blueprint $table) {
           $table->id();
           $table->text('name')->nullable();
+          $table->string('acronym')->nullable();
           $table->unsignedBigInteger('operating_unit_id');
           $table->unsignedBigInteger('prexc_program_id')->nullable();
           $table->unsignedBigInteger('prexc_subprogram_id')->nullable();

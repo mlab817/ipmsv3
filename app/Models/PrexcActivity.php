@@ -32,6 +32,7 @@ class PrexcActivity extends Model
       'banner_program_id',
       'uacs_code',
       'project_id',
+      'trip',
       'investment_target_2016',
       'investment_target_2017',
       'investment_target_2018',

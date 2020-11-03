@@ -44,8 +44,8 @@ class ProgramsExport implements FromView, Responsable, ShouldAutoSize, WithColum
     public function columnWidths(): array
     {
         return [
-            'A' => 55,
-            'B' => 45,
+            'A' => 25,
+            'B:D' => 75,
         ];
     }
 

@@ -11,7 +11,13 @@ class BannerProgramsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('banner_programs')->truncate();
+
         DB::table('banner_programs')->insert([
+          [
+            'name' => 'Not Applicable',
+            'acronym' => 'N/A'
+          ],
           [
             'name' => 'National Rice Program',
             'acronym' => 'RICE'
@@ -27,6 +33,10 @@ class BannerProgramsTableSeeder extends Seeder
           [
             'name' => 'National Livestock Program',
             'acronym' => 'LIVESTOCK'
+          ],
+          [
+            'name' => 'National Organic Agriculture Program',
+            'acronym' => 'NOAP'
           ],
           [
             'name' => 'Halal Food Industry Development Program',

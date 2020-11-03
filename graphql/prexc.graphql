@@ -11,7 +11,7 @@ extend type Query {
 
   exportExcel: Link @field(resolver: "ExportExcelQuery") @guard(with:["api"])
 
-	bannerPrograms: [BannerProgram] @all
+	banner_programs: [BannerProgram] @all
 }
 
 extend type Mutation {
@@ -151,6 +151,7 @@ type BannerProgram {
 type PrexcActivity {
 	id: ID!
 	name: String
+	acronym: String
 	operating_unit_id: ID
 	operating_unit: OperatingUnit @belongsTo
 	prexc_program_id: ID
@@ -231,11 +232,13 @@ type PrexcActivity {
 
 input CreatePrexcActivityInput {
 	name: String
+	acronym: String
 	operating_unit_id: ID
 	prexc_program_id: ID
 	prexc_subprogram_id: ID
 	banner_program_id: ID
 	trip: Boolean
+	uacs_code: String
 	investment_target_2016: Float
 	investment_target_2017: Float
 	investment_target_2018: Float
@@ -296,11 +299,13 @@ input CreatePrexcActivityInput {
 input UpdatePrexcActivityInput {
 	id: ID!
 	name: String
+	acronym: String
 	operating_unit_id: ID
 	prexc_program_id: ID
 	prexc_subprogram_id: ID
 	banner_program_id: ID
 	trip: Boolean
+	uacs_code: String
 	investment_target_2016: Float
 	investment_target_2017: Float
 	investment_target_2018: Float
