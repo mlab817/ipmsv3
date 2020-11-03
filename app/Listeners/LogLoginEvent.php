@@ -29,6 +29,7 @@ class LogLoginEvent
     public function handle(Login $event)
     {
         // $event->user->setLoginLog();
+        Log::debug('LogLoginEvent triggered');
         $user = $event->user;
 
         Log::info($user->name . ' logged in just now');
