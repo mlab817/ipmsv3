@@ -2,7 +2,8 @@
 
 namespace App\Listeners;
 
-use Log;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -27,6 +28,14 @@ class LogLoginEvent
      */
     public function handle(Login $event)
     {
-        $event->user->setLoginLog();
+        // $event->user->setLoginLog();
+        $user = $event->user;
+
+        Log::info($user->name . ' logged in just now');
+
+        $user->logins()->insert([
+          'user_id' => $this->id,
+          'login_at' => Carbon::now()
+        ]);
     }
 }
