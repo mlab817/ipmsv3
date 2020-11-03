@@ -24,10 +24,7 @@ class ExportExcelQuery
         $filename = 'exports/'. time() . '_export.xlsx';
 
         $excel = (new ProgramsExport($pa))->store($filename, 'public');
-
-        Log::debug($excel);
-
-        // if successfully saved file, generate link
+        
         if ($excel) {
             $link = config('app.url') . Storage::url($filename);
         }
