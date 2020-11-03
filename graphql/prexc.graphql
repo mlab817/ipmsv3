@@ -9,7 +9,9 @@ extend type Query {
 
 	paginatedPrexcActivities: [PrexcActivity] @paginate(type:"paginator", defaultCount:10, maxCount: 25) @softDeletes
 
-    exportExcel: Link @field(resolver: "ExportExcelQuery") @guard(with:["api"])
+  exportExcel: Link @field(resolver: "ExportExcelQuery") @guard(with:["api"])
+
+	bannerPrograms: [BannerProgram] @all
 }
 
 extend type Mutation {
