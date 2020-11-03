@@ -214,7 +214,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function setLoginLog()
     {
-      Log::info($this->name . ' logged in just now');
+      Log::info($this->name . ' (' . $this->email  .') logged in just now');
+
       $this->logins()->insert([
         'user_id' => $this->id,
         'login_at' => Carbon::now()

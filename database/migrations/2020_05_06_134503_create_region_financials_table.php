@@ -44,7 +44,7 @@ class CreateRegionFinancialsTable extends Migration
 
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('region_id')->references('id')->on('regions')->onDelete('cascade');
-            $table->unique(['project_id','region_id'],'pr_index');
+            $table->unique(['project_id','region_id'],'prf_index');
         });
     }
 

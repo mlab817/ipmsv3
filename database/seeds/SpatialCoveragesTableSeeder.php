@@ -12,9 +12,9 @@ class SpatialCoveragesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-
-        DB::table('spatial_coverages')->truncate();
+        // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        //
+        // DB::table('spatial_coverages')->truncate();
 
         DB::table('spatial_coverages')->insert([
             [
@@ -43,6 +43,6 @@ class SpatialCoveragesTableSeeder extends Seeder
             ]
         ]);
 
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

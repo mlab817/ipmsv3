@@ -43,7 +43,7 @@ class CreateFundingSourceFinancialsTable extends Migration
 
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('funding_source_id')->references('id')->on('funding_sources')->onDelete('cascade');
-            $table->unique(['project_id','funding_source_id'],'pfs_index');
+            $table->unique(['project_id','funding_source_id'],'pfsf_index');
         });
     }
 

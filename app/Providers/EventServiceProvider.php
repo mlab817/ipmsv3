@@ -18,9 +18,9 @@ use App\Listeners\ProjectEndorsedListener;
 use App\Listeners\ProjectUpdated as ProjectUpdatedListener;
 use App\Listeners\SendCompleteUserProfileNotification;
 use App\Listeners\SendProjectCreatedNotification;
-use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Joselfonseca\LighthouseGraphQLPassport\Events\UserLoggedIn;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -30,7 +30,7 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        Login::class => [
+        UserLoggedIn::class => [
             LogLoginEvent::class
         ],
         Registered::class => [

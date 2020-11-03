@@ -4,7 +4,7 @@ namespace App\Listeners;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Auth\Events\Login;
+use Joselfonseca\LighthouseGraphQLPassport\Events\UserLoggedIn;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -26,17 +26,8 @@ class LogLoginEvent
      * @param  object  $event
      * @return void
      */
-    public function handle(Login $event)
+    public function handle(UserLoggedIn $event)
     {
-        // $event->user->setLoginLog();
-        Log::debug('LogLoginEvent triggered');
-        $user = $event->user;
-
-        Log::info($user->name . ' logged in just now');
-
-        $user->logins()->insert([
-          'user_id' => $this->id,
-          'login_at' => Carbon::now()
-        ]);
+        $event->user->setLoginLog();
     }
 }
