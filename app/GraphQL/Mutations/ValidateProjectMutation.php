@@ -50,7 +50,7 @@ class ValidateProjectMutation
                 $project->validated = true;
                 // change status to validated
                 $ss = SubmissionStatus::where('name','Validated')->first();
-                $project->submission_status_id = $ss;
+                $project->submission_status_id = $ss->id;
 
                 $project->processed_by = $user->id;
                 $project->save();
