@@ -15,7 +15,8 @@ class UserObserver
      */
     public function created(User $user)
     {
-      Log::debug('user created');
+      // Create a user avatar automatically
+      Log::info('user created');
       $s = 80;
       $d = 'mp';
       $r = 'g';
