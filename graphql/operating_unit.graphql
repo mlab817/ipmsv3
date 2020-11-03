@@ -7,32 +7,11 @@ extend type Query {
 extend type Mutation {
   "Create a new operating unit"
   createOperatingUnit(
-    name: String!
-    acronym: String!
-    address: String
-    image: String
-    agency_head_name: String
-    agency_head_designation: String
-    telephone_number: String
-    fax_number: String
-    email: String
-    operating_unit_type_id: ID
+    input: CreateOperatingUnitInput! @spread
   ): OperatingUnit @create
 
   "Update operating unit"
-  updateOperatingUnit(
-      id: ID!
-      name: String!
-      acronym: String!
-      address: String
-      image: String
-      agency_head_name: String
-      agency_head_designation: String
-      telephone_number: String
-      fax_number: String
-      email: String
-      operating_unit_type_id: ID
-  ): OperatingUnit @update
+  updateOperatingUnit(input: UpdateOperatingUnitInput! @spread): OperatingUnit @update
 
   "Delete operating unit"
   deleteOperatingUnit(id:ID!): OperatingUnit @delete
@@ -81,7 +60,6 @@ type OperatingUnit {
     prexc_activities: [PrexcActivity] @hasMany
     prexc_programs: [PrexcProgram] @belongsToMany
     prexc_subprograms: [PrexcSubprogram] @belongsToMany
-
 }
 
 input AssignReviewerInput {
@@ -93,4 +71,36 @@ type AssignReviewerResponse {
   status: String
   message: String
   operating_unit: OperatingUnit
+}
+
+input UpdatePrexcActivitiesHasMany {
+  update: [UpdatePrexcActivityInput]
+}
+
+input CreateOperatingUnitInput {
+  name: String!
+  acronym: String!
+  address: String
+  image: String
+  agency_head_name: String
+  agency_head_designation: String
+  telephone_number: String
+  fax_number: String
+  email: String
+  operating_unit_type_id: ID
+}
+
+input UpdateOperatingUnitInput {
+  id: ID!
+  name: String
+  acronym: String
+  address: String
+  image: String
+  agency_head_name: String
+  agency_head_designation: String
+  telephone_number: String
+  fax_number: String
+  email: String
+  operating_unit_type_id: ID
+  prexc_activities: UpdatePrexcActivitiesHasMany
 }

@@ -45,7 +45,9 @@ class ProgramsExport implements FromView, Responsable, ShouldAutoSize, WithColum
     {
         return [
             'A' => 25,
-            'B:D' => 75,
+            'B' => 75,
+            'C' => 75,
+            'D' => 75,
         ];
     }
 
