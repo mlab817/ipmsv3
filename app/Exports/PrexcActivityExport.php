@@ -5,13 +5,16 @@ namespace App\Exports;
 use App\Models\PrexcActivity;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Concerns\WithPreCalculateFormulas;
 use Maatwebsite\Excel\Excel;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class PrexcActivityExport implements FromCollection, WithMapping, WithColumnFormatting
+class PrexcActivityExport implements FromCollection, WithMapping, WithColumnFormatting, WithPreCalculateFormulas, WithHeadings, ShouldAutoSize
 {
     use Exportable;
 
@@ -53,7 +56,7 @@ class PrexcActivityExport implements FromCollection, WithMapping, WithColumnForm
             $prexc_activity->infrastructure_target_2023,
             $prexc_activity->infrastructure_target_2024,
             $prexc_activity->infrastructure_target_2025,
-            '=F2+G2+H2+I2+J2+K2+L2+M2+N2+O2+P2',
+            '=SUM(F2:P2)',
             $prexc_activity->investment_target_2016,
             $prexc_activity->investment_target_2017,
             $prexc_activity->investment_target_2018,
@@ -64,7 +67,7 @@ class PrexcActivityExport implements FromCollection, WithMapping, WithColumnForm
             $prexc_activity->investment_target_2023,
             $prexc_activity->investment_target_2024,
             $prexc_activity->investment_target_2025,
-            '=Q2+R2+S2+T2+U2+V2+W2+X2+Y2+Z2+AA2',
+            '=SUM(Q2:AA2)',
             $prexc_activity->nep_2016,
             $prexc_activity->nep_2017,
             $prexc_activity->nep_2018,
@@ -75,7 +78,7 @@ class PrexcActivityExport implements FromCollection, WithMapping, WithColumnForm
             $prexc_activity->nep_2023,
             $prexc_activity->nep_2024,
             $prexc_activity->nep_2025,
-            '=AA2+AB2+AC2+AD2+AE2+AF2+AG2+AH2+AI2+AJ2+AK2',
+            '=SUM(AA2:AK2)',
             $prexc_activity->gaa_2016,
             $prexc_activity->gaa_2017,
             $prexc_activity->gaa_2018,
@@ -86,7 +89,7 @@ class PrexcActivityExport implements FromCollection, WithMapping, WithColumnForm
             $prexc_activity->gaa_2023,
             $prexc_activity->gaa_2024,
             $prexc_activity->gaa_2025,
-            '=AM2+AN2+AO2+AP2+AQ2+AR2+AS2+AT2+AU2+AV2+AW2+AX2',
+            '=SUM(AM2:AX2)',
             $prexc_activity->disbursement_2016,
             $prexc_activity->disbursement_2017,
             $prexc_activity->disbursement_2018,
@@ -97,7 +100,7 @@ class PrexcActivityExport implements FromCollection, WithMapping, WithColumnForm
             $prexc_activity->disbursement_2023,
             $prexc_activity->disbursement_2024,
             $prexc_activity->disbursement_2025,
-            '=AY2+AZ2+BA2+BB2+BC2+BD2+BE2+BF2+BG2',
+            '=SUM(AY2:BG2)',
         ];
     }
 
@@ -168,6 +171,72 @@ class PrexcActivityExport implements FromCollection, WithMapping, WithColumnForm
         return [
             1 => ['font' => ['bold' => true ]],
             2 => ['font' => ['bold' => true ]],
+        ];
+    }
+
+    public function headings(): array
+    {
+        return [
+            'ID',
+            'Program',
+            'Subprogram',
+            'Activity',
+            'UACS Code',
+            'Infrastructure Investments (PhP)_2016 & Prior',
+            'Infrastructure Investments (PhP)_2017',
+            'Infrastructure Investments (PhP)_2018',
+            'Infrastructure Investments (PhP)_2019',
+            'Infrastructure Investments (PhP)_2020',
+            'Infrastructure Investments (PhP)_2021',
+            'Infrastructure Investments (PhP)_2022',
+            'Infrastructure Investments (PhP)_2023',
+            'Infrastructure Investments (PhP)_2024',
+            'Infrastructure Investments (PhP)_2025 & Beyond',
+            'Infrastructure Investments (PhP)_Total',
+            'Total Investments (PhP)_2016 & Prior',
+            'Total Investments (PhP)_2017',
+            'Total Investments (PhP)_2018',
+            'Total Investments (PhP)_2019',
+            'Total Investments (PhP)_2020',
+            'Total Investments (PhP)_2021',
+            'Total Investments (PhP)_2022',
+            'Total Investments (PhP)_2023',
+            'Total Investments (PhP)_2024',
+            'Total Investments (PhP)_2025 & Beyond',
+            'Total Investments (PhP)_Total',
+            'National Expenditure Program (PhP)_2016 & Prior',
+            'National Expenditure Program (PhP)_2017',
+            'National Expenditure Program (PhP)_2018',
+            'National Expenditure Program (PhP)_2019',
+            'National Expenditure Program (PhP)_2020',
+            'National Expenditure Program (PhP)_2021',
+            'National Expenditure Program (PhP)_2022',
+            'National Expenditure Program (PhP)_2023',
+            'National Expenditure Program (PhP)_2024',
+            'National Expenditure Program (PhP)_2025 & Beyond',
+            'National Expenditure Program (PhP)_Total',
+            'General Appropriations Act (PhP)_2016 & Prior',
+            'General Appropriations Act (PhP)_2017',
+            'General Appropriations Act (PhP)_2018',
+            'General Appropriations Act (PhP)_2019',
+            'General Appropriations Act (PhP)_2020',
+            'General Appropriations Act (PhP)_2021',
+            'General Appropriations Act (PhP)_2022',
+            'General Appropriations Act (PhP)_2023',
+            'General Appropriations Act (PhP)_2024',
+            'General Appropriations Act (PhP)_2025 & Beyond',
+            'General Appropriations Act (PhP)_Total',
+            'Actual Disbursements (PhP)_2016 & Prior',
+            'Actual Disbursements (PhP)_2017',
+            'Actual Disbursements (PhP)_2018',
+            'Actual Disbursements (PhP)_2019',
+            'Actual Disbursements (PhP)_2020',
+            'Actual Disbursements (PhP)_2021',
+            'Actual Disbursements (PhP)_2022',
+            'Actual Disbursements (PhP)_2023',
+            'Actual Disbursements (PhP)_2024',
+            'Actual Disbursements (PhP)_2025 & Beyond',
+            'Actual Disbursements (PhP)_Total',
         ];
     }
 }
