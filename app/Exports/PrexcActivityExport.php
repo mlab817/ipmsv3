@@ -10,11 +10,12 @@ use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithPreCalculateFormulas;
+use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Excel;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class PrexcActivityExport implements FromCollection, WithMapping, WithColumnFormatting, WithPreCalculateFormulas, WithHeadings, ShouldAutoSize
+class PrexcActivityExport implements FromCollection, WithMapping, WithColumnFormatting, WithPreCalculateFormulas, WithHeadings, ShouldAutoSize, WithStyles
 {
     use Exportable;
 
@@ -56,7 +57,8 @@ class PrexcActivityExport implements FromCollection, WithMapping, WithColumnForm
             $prexc_activity->infrastructure_target_2023,
             $prexc_activity->infrastructure_target_2024,
             $prexc_activity->infrastructure_target_2025,
-            '=SUM(F2:P2)',
+//            '=SUM(F2:O2)',
+            $prexc_activity->infrastructure_target_total,
             $prexc_activity->investment_target_2016,
             $prexc_activity->investment_target_2017,
             $prexc_activity->investment_target_2018,
@@ -67,7 +69,8 @@ class PrexcActivityExport implements FromCollection, WithMapping, WithColumnForm
             $prexc_activity->investment_target_2023,
             $prexc_activity->investment_target_2024,
             $prexc_activity->investment_target_2025,
-            '=SUM(Q2:AA2)',
+//            '=SUM(Q2:Z2)',
+            $prexc_activity->infrastructure_target_total,
             $prexc_activity->nep_2016,
             $prexc_activity->nep_2017,
             $prexc_activity->nep_2018,
@@ -78,7 +81,8 @@ class PrexcActivityExport implements FromCollection, WithMapping, WithColumnForm
             $prexc_activity->nep_2023,
             $prexc_activity->nep_2024,
             $prexc_activity->nep_2025,
-            '=SUM(AA2:AK2)',
+            $prexc_activity->nep_total,
+            // '=SUM(AA2:AK2)',
             $prexc_activity->gaa_2016,
             $prexc_activity->gaa_2017,
             $prexc_activity->gaa_2018,
@@ -89,7 +93,8 @@ class PrexcActivityExport implements FromCollection, WithMapping, WithColumnForm
             $prexc_activity->gaa_2023,
             $prexc_activity->gaa_2024,
             $prexc_activity->gaa_2025,
-            '=SUM(AM2:AX2)',
+            $prexc_activity->gaa_total,
+            // '=SUM(AM2:AV2)',
             $prexc_activity->disbursement_2016,
             $prexc_activity->disbursement_2017,
             $prexc_activity->disbursement_2018,
@@ -100,7 +105,8 @@ class PrexcActivityExport implements FromCollection, WithMapping, WithColumnForm
             $prexc_activity->disbursement_2023,
             $prexc_activity->disbursement_2024,
             $prexc_activity->disbursement_2025,
-            '=SUM(AY2:BG2)',
+            $prexc_activity->disbursement_total,
+//            '=SUM(AY2:BG2)',
         ];
     }
 
@@ -170,7 +176,6 @@ class PrexcActivityExport implements FromCollection, WithMapping, WithColumnForm
     {
         return [
             1 => ['font' => ['bold' => true ]],
-            2 => ['font' => ['bold' => true ]],
         ];
     }
 
