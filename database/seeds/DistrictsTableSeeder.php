@@ -23,9 +23,9 @@ class DistrictsTableSeeder extends CsvSeeder
         DB::disableQueryLog();
 
         // Uncomment the below to wipe the table clean before populating
-        // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        // DB::table($this->table)->truncate();
-        // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+         DB::table($this->table)->truncate();
+         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         parent::run();
     }
