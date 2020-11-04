@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Exports\PrexcActivityExport;
 use App\Exports\ProgramsExport;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -22,7 +23,8 @@ class ExportExcelMutation
         $pa = $ou->prexc_activities;
         $filename = 'exports/'. time() . '_export.xlsx';
 
-        $excel = (new ProgramsExport($pa))->store($filename, 'public');
+//        $excel = (new ProgramsExport($pa))->store($filename, 'public');
+        $excel = (new PrexcActivityExport)->store($filename, 'public');
 
         if ($excel) {
             $link = config('app.url') . Storage::url($filename);
