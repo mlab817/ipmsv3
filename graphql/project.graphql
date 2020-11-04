@@ -262,6 +262,8 @@ type Project {
     finalizedAt: String @rename(attribute:"finalized_at")
     reviewedAt: String @rename(attribute:"reviewed_at")
     endorsedAt: String @rename(attribute:"endorsed_at")
+    deleted_by: ID
+    deleted_at: String
     deletedAt: String @rename(attribute:"deleted_at")
     project_processing_statuses: [ProjectProcessingStatus] @hasMany
     latest_processing_status: ProjectProcessingStatus @hasOne
