@@ -19,12 +19,12 @@ class ExportExcelMutation
         $link = null;
         $user = $context->user();
 
-//        $ou = $user->operating_unit;
-//        $pa = $ou->prexc_activities;
+       $ou = $user->operating_unit;
+       $pa = $ou->prexc_activities;
         $filename = 'exports/'. time() . '_export.xlsx';
 
-//        $excel = (new ProgramsExport($pa))->store($filename, 'public');
-        $excel = (new PrexcActivityExport)->store($filename, 'public');
+       $excel = (new ProgramsExport($pa))->store($filename, 'public');
+//         $excel = (new PrexcActivityExport)->store($filename, 'public');
 
         if ($excel) {
             $link = config('app.url') . Storage::url($filename);
