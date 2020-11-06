@@ -21,7 +21,7 @@ class AssignSubprogramToOus
         }
 
         // empty is also ok
-        $program->operating_units()->sync($args['operating_units']);
+        $subprogram->operating_units()->sync($args['operating_units']);
 
         return $subprogram;
     }
