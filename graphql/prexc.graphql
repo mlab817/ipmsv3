@@ -26,6 +26,8 @@ extend type Mutation {
 	deletePrexcActivity(id: ID!): PrexcActivity @delete
 
 	assignActivityToOus(id: ID!, operating_units: [ID]): PrexcActivity @field(resolver: "AssignActivityToOus")
+	assignProgramToOus(id: ID!, operating_units: [ID]): PrexcProgram @field(resolver: "AssignProgramToOus")
+	assignSubprogramToOus(id: ID!, operating_units: [ID]): PrexcSubprogram @field(resolver: "AssignSubprogramToOus")
 
 	"Finalize a single activity"
 	finalizePrexcActivity(id: ID!): PrexcActivity @field(resolver: "FinalizePrexcActivityMutation")

@@ -103,4 +103,14 @@ input UpdateOperatingUnitInput {
   email: String
   operating_unit_type_id: ID
   prexc_activities: UpdatePrexcActivitiesHasMany
+  prexc_programs: UpdatePrexcProgramsBelongsToMany
+  prexc_subprograms: UpdatePrexcSubprogramsBelongsToMany
+}
+
+input UpdatePrexcProgramsBelongsToMany {
+  connect: [ID]
+}
+
+input UpdatePrexcSubprogramsBelongsToMany {
+  connect: [ID]
 }
