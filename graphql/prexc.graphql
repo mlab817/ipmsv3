@@ -123,6 +123,7 @@ type PrexcProgram {
 	cost_structure: CostStructure @belongsTo
 	prexc_subprograms: [PrexcSubprogram] @hasMany
 	children: [PrexcSubprogram] @hasMany
+	operating_units: [OperatingUnit] @belongsToMany
 }
 
 type PrexcSubprogram {
@@ -142,6 +143,7 @@ type PrexcSubprogram {
 	prexc_program: PrexcProgram @belongsTo
 	prexc_activities: [PrexcActivity] @hasMany
 	children: [PrexcActivity] @hasMany
+	operating_units: [OperatingUnit] @belongsToMany
 }
 
 type BannerProgram {
