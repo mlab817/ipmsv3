@@ -13,7 +13,8 @@ type Announcement {
     subject: String
     message: String
     created_at: String
-    created_by: User @belongsTo
+    created_by: ID
+    creator: User @belongsTo
 }
 
 input CreateAnnouncementInput {
