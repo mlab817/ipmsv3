@@ -13,6 +13,7 @@ type Mutation
 
 type Subscription
 
+#import announcement.graphql
 #import custom_auth.graphql
 #import activity.graphql
 #import categories.graphql
