@@ -76,6 +76,7 @@ type Project {
     outcomes: String
     purpose: String
     expected_outputs: String
+    iccable: Boolean
     clearinghouse: Boolean
     clearinghouse_date: Date
     target_start_year: Int
@@ -103,8 +104,6 @@ type Project {
     selected_districts: [ID]
     cities_municipalities: String
     total_project_cost: Float
-    currency_id: ID
-    currency: Currency @belongsTo
     updates: String
     updates_date: String
     project_status_id: ID
@@ -122,7 +121,7 @@ type Project {
     selected_technical_readinesses: [ID]
     implementation_mode_id: ID
     implementation_mode: ImplementationMode @belongsTo
-    paradigms: [Paradigm!] @belongsToMany
+    paradigms: [Paradigm] @belongsToMany
     ten_point_agenda: [TenPointAgenda] @belongsToMany
     sustainable_development_goals: [SustainableDevelopmentGoal] @belongsToMany
     regions: [Region] @belongsToMany
@@ -151,6 +150,9 @@ type Project {
     fs_target_2020: Float
     fs_target_2021: Float
     fs_target_2022: Float
+    fs_target_2023: Float
+    fs_target_2024: Float
+    fs_target_2025: Float
     fs_target_total: Float
     row_target_2017: Float
     row_target_2018: Float
@@ -158,8 +160,11 @@ type Project {
     row_target_2020: Float
     row_target_2021: Float
     row_target_2022: Float
+    row_target_2023: Float
+    row_target_2024: Float
+    row_target_2025: Float
     row_target_total: Float
-    row_affected: Int
+    row_affected: String
     rap_target_2017: Float
     rap_target_2018: Float
     rap_target_2019: Float
@@ -167,7 +172,7 @@ type Project {
     rap_target_2021: Float
     rap_target_2022: Float
     rap_target_total: Float
-    rap_affected: Int
+    rap_affected: String
     investment_target_2016: Float
     investment_target_2017: Float
     investment_target_2018: Float
@@ -176,6 +181,8 @@ type Project {
     investment_target_2021: Float
     investment_target_2022: Float
     investment_target_2023: Float
+    investment_target_2024: Float
+    investment_target_2025: Float
     investment_target_total: Float
     infrastructure_target_2016: Float
     infrastructure_target_2017: Float
@@ -185,6 +192,8 @@ type Project {
     infrastructure_target_2021: Float
     infrastructure_target_2022: Float
     infrastructure_target_2023: Float
+    infrastructure_target_2024: Float
+    infrastructure_target_2025: Float
     infrastructure_target_total: Float
     nep_2016: Float
     nep_2017: Float
@@ -203,6 +212,8 @@ type Project {
     gaa_2021: Float
     gaa_2022: Float
     gaa_2023: Float
+    gaa_2024: Float
+    gaa_2025: Float
     gaa_total: Float
     disbursement_2016: Float
     disbursement_2017: Float
@@ -212,6 +223,8 @@ type Project {
     disbursement_2021: Float
     disbursement_2022: Float
     disbursement_2023: Float
+    disbursement_2024: Float
+    disbursement_2025: Float
     disbursement_total: Float
     image_url: String
     priority_ranking: Int
@@ -249,36 +262,33 @@ type Project {
     finalizedAt: String @rename(attribute:"finalized_at")
     reviewedAt: String @rename(attribute:"reviewed_at")
     endorsedAt: String @rename(attribute:"endorsed_at")
+    deleted_by: ID
+    deleted_at: String
     deletedAt: String @rename(attribute:"deleted_at")
     project_processing_statuses: [ProjectProcessingStatus] @hasMany
     latest_processing_status: ProjectProcessingStatus @hasOne
-    project_gad_subquestions: [ProjectGadSubquestion] @hasMany
-    # region_financials: [RegionFinancial] @hasMany
-    # funding_source_financials: [FundingSourceFinancial] @hasMany
+    region_financials: [RegionFinancial] @hasMany
+    funding_source_financials: [FundingSourceFinancial] @hasMany
+    pdp_chapter_id: ID
+    pdp_chapter: PdpChapter @belongsTo
     pdp_chapters: [PdpChapter] @belongsToMany
-    review: Review @hasOne
+    # review: Review @hasOne
     selected_sustainable_development_goals: [ID]
     selected_ten_point_agenda: [ID]
     selected_paradigms: [ID]
     selected_pdp_chapters: [ID]
     selected_pdp_indicators: [ID]
     pdp_indicators: [PdpIndicator] @belongsToMany
-    # latest_processing_status_name: String # not working throwing error not found created_at
     latest_processing_status: ProjectProcessingStatus
     latest_status: String
     latest_processing_status: ProjectProcessingStatus
     processing_status: ProcessingStatus @belongsTo
-    gad_form: GadForm @belongsTo
-    gad_form_id: ID
-    technical_readiness_id: ID
-    technical_readiness: TechnicalReadiness @belongsTo
     attachments: [Attachment] @hasMany
     funding_sources: [FundingSource] @belongsToMany
     uacs_code: String
     signed_copy: String
     validation_data: Boolean
     validation_signed: Boolean
-    validation_endorsed: Boolean
     finalized: Boolean
     endorsed: Boolean
     reviewed: Boolean
@@ -286,20 +296,22 @@ type Project {
     encoded: Boolean
     version: Int
     signed_copy_link: String
+    funding_source_infrastructures: [FundingSourceInfrastructure] @hasMany
+    infrastructure_subsectors: [InfrastructureSubsector] @belongsToMany
+    selected_infrastructure_subsectors: [ID]
+    project_preparation_document_id: ID
+    project_preparation_document: ProjectPreparationDocument @belongsTo
+    project_preparation_document_others: String
+    selected_funding_sources: [ID]
+    cip_type_id: ID
+    cip_type: CipType @belongsTo
+    validated: Boolean
+    submission_status: SubmissionStatus @belongsTo
+    submission_status_id: ID
 }
 
 type CanUpdateResponse {
   userId: ID
   created_by: ID
   check: Boolean
-}
-
-type ProjectGadSubquestion {
-    id: ID!
-    project_id: ID!
-    project: Project @belongsTo
-    gad_subquestion_id: ID!
-    gad_subquestion: GadSubquestion @belongsTo
-    gad_choice_id: ID!
-    gad_choice: GadChoice @belongsTo
 }

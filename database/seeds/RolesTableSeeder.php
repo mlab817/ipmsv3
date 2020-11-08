@@ -12,6 +12,10 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('roles')->truncate();
+
         DB::table('roles')->insert([
           'id' => 1,
           'name' => 'superadmin',
@@ -83,6 +87,8 @@ class RolesTableSeeder extends Seeder
           'active' => 1,
           'level' => 99
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
     }
 }

@@ -1,9 +1,0 @@
-extend type Query {
-  paradigms: [Paradigm!]! @all
-}
-
-type Paradigm {
-  id: ID
-  name: String
-  projects: [Project!]! @belongsToMany
-}

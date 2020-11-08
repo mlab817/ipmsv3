@@ -21,6 +21,7 @@ class CreateOperatingUnitViewerTable extends Migration
 
             $table->foreign('operating_unit_id')->references('id')->on('operating_units')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unique(['operating_unit_id','user_id'],'ouv_index');
         });
     }
 

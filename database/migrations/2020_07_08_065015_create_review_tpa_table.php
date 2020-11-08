@@ -20,6 +20,7 @@ class CreateReviewTpaTable extends Migration
 
             $table->foreign('review_id')->references('id')->on('reviews')->onDelete('cascade');
             $table->foreign('tpa_id')->references('id')->on('ten_point_agendas')->onDelete('cascade');
+            $table->unique(['review_id','tpa_id'],'rtpa_index');
         });
     }
 

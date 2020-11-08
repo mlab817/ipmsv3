@@ -12,6 +12,10 @@ class YearsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('years')->truncate();
+
         $i = 0;
 
         for ($i = 0; $i < 30; $i++) {
@@ -22,5 +26,7 @@ class YearsTableSeeder extends Seeder
             ]
           ]);
         }
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

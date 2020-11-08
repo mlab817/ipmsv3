@@ -12,6 +12,10 @@ class BasesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('bases')->truncate();
+
         DB::table('bases')->insert([
           'id' => 1,
           'name' => 'National Expenditure Program (NEP)'
@@ -36,7 +40,7 @@ class BasesTableSeeder extends Seeder
           'id' => 5,
           'name' => 'List of Regional Development Council-endorsed projects'
         ]);
-        
+
         DB::table('bases')->insert([
           'id' => 6,
           'name' => 'Agreements (e.g. Peace agreements)'
@@ -46,5 +50,7 @@ class BasesTableSeeder extends Seeder
           'id' => 7,
           'name' => 'Existing laws, rules or regulations'
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

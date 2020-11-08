@@ -1,9 +1,0 @@
-extend type Query {
-	readinesses: [Readiness] @all
-}
-
-type Readiness {
-	id: ID!
-	name: String
-	projects: [Project] @hasMany
-}

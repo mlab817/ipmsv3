@@ -16,6 +16,7 @@ class CreatePdpIndicatorsTable extends Migration
         Schema::create('pdp_indicators', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->unsignedBigInteger('pdp_suboutcome_id')->nullable();
             $table->timestamps();
         });
     }

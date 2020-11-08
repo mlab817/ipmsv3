@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -14,74 +15,30 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
-        DB::table('users')->insert([
-          [
-            'name' => 'superadmin',
-            'email' => 'superadmin@gmail.com',
-            'password' => Hash::make('password'),
-            'active' => 1,
-            'role_id' => 1
-          ]
-        ]);
+        DB::table('users')->truncate();
 
-        DB::table('users')->insert([
-          [
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('password'),
-            'role_id' => 2
-          ]
-        ]);
+        $json = File::get(base_path(). '/database/seeds/json/users.json');
+        $users = json_decode($json);
 
-        DB::table('users')->insert([
-          [
-            'name' => 'ipd',
-            'email' => 'ipd@gmail.com',
-            'password' => Hash::make('password'),
-            'role_id' => 3
-          ]
-        ]);
+        foreach ($users as $user) {
+          User::create([
+            'name' => $user->name,
+            'nickname' => $user->nickname,
+            'email' => $user->email,
+            'role_id' => $user->role_id,
+            'password' => Hash::make($user->password),
+            'active' => $user->active,
+            'operating_unit_id' => $user->operating_unit_id,
+            'unit' => $user->unit,
+            'position' => $user->position,
+            'avatar' => $user->avatar,
+            'contact_number' => $user->contact_number,
+          ]);
+        }
 
-        DB::table('users')->insert([
-          [
-            'name' => 'encoder',
-            'email' => 'encoder@gmail.com',
-            'operating_unit_id' => 1,
-            'password' => Hash::make('password'),
-            'role_id' => 4
-          ]
-        ]);
-
-        DB::table('users')->insert([
-          [
-            'name' => 'viewer',
-            'email' => 'viewer@gmail.com',
-            'password' => Hash::make('password'),
-            'role_id' => 5
-          ]
-        ]);
-
-        DB::table('users')->insert([
-          [
-            'name' => 'lead',
-            'email' => 'lead@gmail.com',
-            'password' => Hash::make('password'),
-            'role_id' => 6
-          ]
-        ]);
-
-        DB::table('users')->insert([
-          [
-            'name' => 'chief',
-            'email' => 'chief@gmail.com',
-            'password' => Hash::make('password'),
-            'role_id' => 7
-          ]
-        ]);
-
-        // seed users with projects
-        // factory(App\User::class, 100)->create();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
     }
 }

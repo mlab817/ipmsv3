@@ -20,6 +20,7 @@ class CreateReviewParadigmTable extends Migration
 
             $table->foreign('review_id')->references('id')->on('reviews')->onDelete('cascade');
             $table->foreign('paradigm_id')->references('id')->on('paradigms')->onDelete('cascade');
+            $table->unique(['review_id','paradigm_id'],'rp_index');
         });
     }
 

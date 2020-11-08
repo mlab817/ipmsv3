@@ -11,7 +11,11 @@ class FundingSourcesTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    { 
+    {
+      DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+      DB::table('funding_sources')->truncate();
+
       DB::table('funding_sources')->insert([
         [
           'id' => 1,
@@ -42,5 +46,7 @@ class FundingSourcesTableSeeder extends Seeder
           'name' => 'Others'
         ]
       ]);
+
+      DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

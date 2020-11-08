@@ -20,6 +20,7 @@ class CreateReviewPdpChapterTable extends Migration
 
             $table->foreign('review_id')->references('id')->on('reviews')->onDelete('cascade');
             $table->foreign('pdp_chapter_id')->references('id')->on('pdp_chapters')->onDelete('cascade');
+            $table->unique(['review_id','pdp_chapter_id'],'rpch_index');
         });
     }
 

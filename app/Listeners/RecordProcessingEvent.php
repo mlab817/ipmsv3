@@ -33,7 +33,7 @@ class RecordProcessingEvent
 
         $processing_status = ProcessingStatus::find($project->processing_status_id);
 
-        Log::info(json_encode($event));
+        // Log::info(json_encode($event));
 
         $processing_status_name = $processing_status->name ?? '_';
 

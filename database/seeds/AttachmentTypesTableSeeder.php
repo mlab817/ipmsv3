@@ -11,6 +11,10 @@ class AttachmentTypesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('attachment_types')->truncate();
+
         DB::table('attachment_types')->insert([
         	[
         		'id' => 1,
@@ -37,5 +41,7 @@ class AttachmentTypesTableSeeder extends Seeder
         		'name' => 'Others'
         	]
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

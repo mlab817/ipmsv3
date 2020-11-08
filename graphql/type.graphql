@@ -1,9 +1,0 @@
-extend type Query {
-  types: [Type] @all
-}
-
-type Type {
-  id: ID
-  name: String
-  projects: [Project] @hasMany @guard(with:"api")
-}

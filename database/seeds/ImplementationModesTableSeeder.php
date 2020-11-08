@@ -12,6 +12,10 @@ class ImplementationModesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('implementation_modes')->truncate();
+
         // Updated id's to much PIPOL system
         DB::table('implementation_modes')->insert([
           'id' => 74,
@@ -37,5 +41,7 @@ class ImplementationModesTableSeeder extends Seeder
           'id' => 78,
           'name' => 'Others'
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

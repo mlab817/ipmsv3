@@ -20,6 +20,7 @@ class CreateReviewBasisTable extends Migration
 
             $table->foreign('review_id')->references('id')->on('reviews')->onDelete('cascade');
             $table->foreign('basis_id')->references('id')->on('bases')->onDelete('cascade');
+            $table->unique(['review_id','basis_id'],'rbasis_index');
         });
     }
 

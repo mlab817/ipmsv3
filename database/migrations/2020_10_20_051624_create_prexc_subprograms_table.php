@@ -17,8 +17,16 @@ class CreatePrexcSubprogramsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('acronym')->nullable();
+            $table->string('uacs_code')->nullable();
             $table->unsignedBigInteger('prexc_program_id')->nullable();
+            $table->string('title')->nullable();
+            $table->text('organizational_outcome')->nullable();
+            $table->text('objective_statement')->nullable();
+            $table->text('program_strategy')->nullable();
+            $table->text('outcome_indicators')->nullable();
+            $table->text('output_indicators')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('prexc_program_id')->references('id')->on('prexc_programs')->onDelete('cascade');
         });

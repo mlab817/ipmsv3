@@ -34,30 +34,34 @@ class TenPointAgendasTableSeeder extends Seeder
           'name' => "Promote rural and value chain development toward increasing agricultural and rural enterprise productivity and rural tourism."
         ],
         [
-          'id' => 6, 
+          'id' => 6,
           'name' => "Ensure security of land tenure to encourage investments, and address bottlenecks in land management and titling agencies."
         ],
         [
-          'id' => 7, 
+          'id' => 7,
           'name' => "Invest in human capital development, including health and education systems, and match skills and training to meet the demand of businesses and the private sector.",
         ],
         [
-          'id' => 8, 
+          'id' => 8,
           'name' => "Promote science, technology, and the creative arts to enhance innovation and creative capacity towards self-sustaining, inclusive development.",
         ],
         [
-          'id' => 9, 
+          'id' => 9,
           'name' => "Improve social protection programs, including the government's Conditional Cash Transfer program, to protect the poor against instability and economic shocks.",
         ],
         [
-          'id' => 10, 
+          'id' => 10,
           'name' => "Strengthen implementation of the Responsible Parenthood and Reproductive Health Law to enable especially poor couples to make informed choices on financial and family planning.",
         ],
         [
-          'id' => 0, 
+          'id' => 0,
           'name' => "Peace and Order"
         ]
       ];
+
+      DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+      DB::table('ten_point_agendas')->truncate();
 
       foreach ($seeds as $seed) {
           DB::table('ten_point_agendas')->insert([
@@ -65,5 +69,7 @@ class TenPointAgendasTableSeeder extends Seeder
             'name' => $seed['name']
           ]);
       }
+
+      DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

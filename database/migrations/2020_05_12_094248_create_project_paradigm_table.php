@@ -20,6 +20,7 @@ class CreateProjectParadigmTable extends Migration
 
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('paradigm_id')->references('id')->on('paradigms')->onDelete('cascade');
+            $table->unique(['project_id','paradigm_id'],'ppa_index');
         });
     }
 

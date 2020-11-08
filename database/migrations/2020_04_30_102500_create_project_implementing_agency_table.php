@@ -19,7 +19,8 @@ class CreateProjectImplementingAgencyTable extends Migration
             $table->timestamps();
 
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');;
-            $table->foreign('operating_unit_id')->references('id')->on('operating_units')->onDelete('cascade');;
+            $table->foreign('operating_unit_id')->references('id')->on('operating_units')->onDelete('cascade');
+            $table->unique(['project_id','operating_unit_id'],'pou_index');
         });
     }
 

@@ -11,6 +11,10 @@ class ReadinessesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('readinesses')->truncate();
+
         DB::table('readinesses')->insert([
         	[
         		'id' => 1,
@@ -45,5 +49,7 @@ class ReadinessesTableSeeder extends Seeder
                 'name' => 'Level 4 Non-CIP'
             ]
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

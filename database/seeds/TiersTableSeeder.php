@@ -12,6 +12,10 @@ class TiersTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('tiers')->truncate();
+
         DB::table('tiers')->insert([
           'id' => 1,
           'name' => 'Tier 1'
@@ -26,5 +30,7 @@ class TiersTableSeeder extends Seeder
           'id' => 3,
           'name' => 'Tier 2 (Expanded/Revised)'
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

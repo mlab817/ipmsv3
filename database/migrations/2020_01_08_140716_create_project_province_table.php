@@ -20,6 +20,7 @@ class CreateProjectProvinceTable extends Migration
 
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade');
+            $table->unique(['project_id','province_id'],'pp_index');
         });
     }
 

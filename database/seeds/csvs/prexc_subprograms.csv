@@ -1,14 +1,65 @@
-﻿name,acronym,id,prexc_program_id
-General Administration and Support,General Administration and Support,1,1
-Support to Operations,Support to Operations,2,2
-Production Support Services,Production Support Services,3,3
-Market Development Services,Market Development Services,4,3
-"Extension Support, Education and Training Services","Extension Support, Education and Training Services",5,3
-Research and Development,Research and Development,6,3
-"Agricultural Machinery, Equipment, and Facilities Support Services","Agricultural Machinery, Equipment, and Facilities Support Services",7,4
-Irrigation Network Services,Irrigation Network Services,8,4
-Farm-to-Market Roads,Farm-to-Market Roads,9,4
-"Formulation, monitoring and evaluation of agricultural and fishery policies, plans and programs","Formulation, monitoring and evaluation of agricultural and fishery policies, plans and programs",10,5
-Agriculture and Fishery Regulatory Support,Agriculture and Fishery Regulatory Support,11,6
-Locally-funded projects,Locally-funded projects,12,7
-Foreign-assisted projects,Foreign-assisted projects,13,7
+"id","name","acronym","uacs_code","prexc_program_id","title","organizational_outcome","objective_statement","program_strategy","outcome_indicators","output_indicators","created_at","updated_at","deleted_at"
+"1","General management and supervision",NULL,"100000100001000","1",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"2","Administration of Personnel Benefits",NULL,"100000100002000","2",NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2020-11-08 17:38:58","2020-11-08 17:38:58"
+"3","Administration of Personnel Benefits",NULL,"100000100002000","1",NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2020-11-08 17:39:02","2020-11-08 17:39:02"
+"4","Planning and policy formulation for soil and water resources conservation, management and development (BSWM)",NULL,"200000100001000","4",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"5","Development of organizational policies, plans and procedures",NULL,"200000100001000","5",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"6","Development of organizational policies, plans and procedures",NULL,"200000100001000","3",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"7","Coordination of agricultural research (BAR)",NULL,"200000100002000","6",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"8","Research and development",NULL,"200000100002000","3",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"9","Research and development",NULL,"200000100002000","19",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"10","Information and Communication Technology (ICT) management support",NULL,"200000100003000","7",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"11","Legal and advisory services",NULL,"200000100003000","3",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"12","Public information services",NULL,"200000100004000","8",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"13","Agri-business and marketing services",NULL,"200000100006000","9",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"14","International affairs coordination and liaisoning",NULL,"200000100007000","10",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"15","Operation and maintenance of the integrated laboratories",NULL,"200000100008000","11",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"16","Field program management activities",NULL,"200000100009000","12",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"17","Quick Response Fund",NULL,"200000100010000","13",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"18","Agro-Industry Modernization Credit and Financing Program (AMCFP) Administration",NULL,"310100100001000","15",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"19","Formulation, monitoring and evaluation of policies, plans and programs",NULL,"310100100001000","28",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"20","Formulation, Monitoring and Evaluation of Plans, Programs and Projects",NULL,"310100100001000","18",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"21","Formulation, monitoring and evaluation of policies, plans and programs",NULL,"310100100001000","19",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"22","Production Support Services",NULL,"310100100001000","19",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"23","Production Support Services",NULL,"310100100001000","20",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"24","Development and Coordination of Agriculture and Fishery Policies",NULL,"310100100001000","21",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"25","Policy formulation, research and advocacy, monitoring and evaluation of credit policies, plans and programs and capacity building",NULL,"310100100002000","15",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"26","Intensification of the National Upgrading Program",NULL,"310100100002000","18",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"27","Extension, Support, Education and Training Services",NULL,"310100100002000","19",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"28","Planning, Monitoring and Knowledge Management",NULL,"310100100002000","21",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"29","Carabao-Based Enterprise Development",NULL,"310100100003000","18",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"30","Partnership Development",NULL,"310100100003000","21",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"31","Knowledge Management and Support Services",NULL,"310100100004000","18",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"32","Research for Development",NULL,"310100100005000","18",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"33","Animal Genetic Resource Conservation and Utilization",NULL,"310100100006000","18",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"34","Locally-Funded Project(s)",NULL,"310100200000000","29",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"35","PRODUCTION SUPPORT SERVICES (PSS) SUB-PROGRAM",NULL,"310101000000000","14",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"36","CAPTURE FISHERIES SUB-PROGRAM",NULL,"310101000000000","16",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"37","MEAT SAFETY AND QUALITY ASSURANCE SUB-PROGRAM",NULL,"310101000000000","17",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"38","MARKET DEVELOPMENT SERVICES (MDS) SUB-PROGRAM",NULL,"310102000000000","14",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"39","AQUACULTURE SUB-PROGRAM",NULL,"310102000000000","16",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"40","LICENSING AND REGISTRATION SUB-PROGRAM",NULL,"310102000000000","17",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"41","EXTENSION SUPPORT, EDUCATION AND TRAINING SERVICES (ESETS) SUB-PROGRAM",NULL,"310103000000000","14",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"42","POST-HARVEST SUB-PROGRAM",NULL,"310103000000000","16",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"43","RESEARCH AND DEVELOPMENT (R&D) SUB-PROGRAM",NULL,"310104000000000","14",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"44","MARKET DEVELOPMENT SUB-PROGRAM",NULL,"310104000000000","16",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"45","LOCALLY-FUNDED AND FOREIGN-ASSISTED SUB-PROGRAM",NULL,"310105000000000","16",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"46","Foreign-Assisted Project(s)",NULL,"310105300000000","29",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"47","Quality control and inspection",NULL,"310200100001000","27",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"48","Quality control and inspection",NULL,"310200100001000","23",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"49","Monitoring, control and surveillance",NULL,"310200100001000","23",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"50","Quality control and inspection",NULL,"310200100001000","24",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"51","Registration and licensing",NULL,"310200100002000","27",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"52","Registration and licensing",NULL,"310200100002000","24",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"53","Quarantine, registration and licensing",NULL,"310200100003000","23",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"54","Coastal and inland fisheries resource management",NULL,"310200100004000","23",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"55","AGRICULTURAL MACHINERY, EQUIPMENT, AND FACILITIES SUPPORT SERVICES SUB-PROGRAM",NULL,"310201000000000","22",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"56","IRRIGATION NETWORK SERVICES (INS) SUB-PROGRAM",NULL,"310202000000000","22",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"57","FARM-TO-MARKET ROADS (FMR) SUB-PROGRAM",NULL,"310203000000000","22",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"58","Formulation, monitoring and evaluation of agricultural and fishery policies, plans and programs",NULL,"310300100001000","25",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"59","Extension Support, Education and Training Services (ESETS)",NULL,"310300100001000","26",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"60","Agriculture and fishery standards",NULL,"310400100002000","27",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"61","Quarantine services",NULL,"310400100003000","27",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"62","Meat establishment and meat inspection assistance to LGUs services",NULL,"320100100001000","30",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+"63","AGRICULTURAL MECHANIZATION AND POSTHARVEST RESEARCH, DEVELOPMENT AND EXTENSION PROGRAM","AMPRDEP","310100000000000","19",NULL,NULL,NULL,NULL,NULL,NULL,"2020-11-06 15:04:44","2020-11-06 15:04:44",NULL
+"64","DAIRY INDUSTRY DEVELOPMENT PROGRAM","DAIRY INDUSTRY DEVELOPMENT PROGRAM","310100000000000","40",NULL,NULL,NULL,NULL,NULL,NULL,"2020-11-08 16:51:52","2020-11-08 16:51:52",NULL

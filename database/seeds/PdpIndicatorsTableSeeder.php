@@ -11,6 +11,10 @@ class PdpIndicatorsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('pdp_indicators')->truncate();
+
         DB::table('pdp_indicators')->insert(
         [
 				  [
@@ -846,5 +850,7 @@ class PdpIndicatorsTableSeeder extends Seeder
 				    "id" =>  2033
 				  ]
 				]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

@@ -11,6 +11,10 @@ class FsStatusesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('fs_statuses')->truncate();
+
         DB::table('fs_statuses')->insert([
         	[
         		'id' => 1,
@@ -25,5 +29,8 @@ class FsStatusesTableSeeder extends Seeder
         		'name' => 'For Preparation'
         	]
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
     }
 }
