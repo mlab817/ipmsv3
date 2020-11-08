@@ -26,6 +26,11 @@ class TypesTableSeeder extends Seeder
             'id' => 2,
             'name' => 'Foreign Assisted Project',
             'label' => 'FAP'
+          ],
+          [
+            'id' => 3,
+            'name' => 'Program',
+            'label' => 'Program'
           ]
         ]);
 

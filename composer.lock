@@ -1385,16 +1385,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v7.29.2",
+            "version": "v7.29.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "0fb15ae253c3a043f2c5cbf9641427a7646ea77a"
+                "reference": "93f6d565a07045baa0e4b941ae1f733cd5984d65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/0fb15ae253c3a043f2c5cbf9641427a7646ea77a",
-                "reference": "0fb15ae253c3a043f2c5cbf9641427a7646ea77a",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/93f6d565a07045baa0e4b941ae1f733cd5984d65",
+                "reference": "93f6d565a07045baa0e4b941ae1f733cd5984d65",
                 "shasum": ""
             },
             "require": {
@@ -1543,7 +1543,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2020-10-29T18:57:35+00:00"
+            "time": "2020-11-03T14:12:58+00:00"
         },
         {
             "name": "laravel/passport",
@@ -1624,22 +1624,22 @@
         },
         {
             "name": "laravel/slack-notification-channel",
-            "version": "v2.2.0",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/slack-notification-channel.git",
-                "reference": "98e0fe5c8dda645e6af914285af7b742e167462a"
+                "reference": "f8a3893d9de36b86e941dac76c06c28141209970"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/slack-notification-channel/zipball/98e0fe5c8dda645e6af914285af7b742e167462a",
-                "reference": "98e0fe5c8dda645e6af914285af7b742e167462a",
+                "url": "https://api.github.com/repos/laravel/slack-notification-channel/zipball/f8a3893d9de36b86e941dac76c06c28141209970",
+                "reference": "f8a3893d9de36b86e941dac76c06c28141209970",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.0|^7.0",
                 "illuminate/notifications": "~5.8.0|^6.0|^7.0|^8.0",
-                "php": "^7.1.3"
+                "php": "^7.1.3|^8.0"
             },
             "require-dev": {
                 "mockery/mockery": "^1.0",
@@ -1679,9 +1679,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/slack-notification-channel/issues",
-                "source": "https://github.com/laravel/slack-notification-channel/tree/v2.2.0"
+                "source": "https://github.com/laravel/slack-notification-channel/tree/v2.3.0"
             },
-            "time": "2020-08-25T18:21:34+00:00"
+            "time": "2020-11-03T19:18:22+00:00"
         },
         {
             "name": "laravel/socialite",
@@ -1754,27 +1754,23 @@
         },
         {
             "name": "laravel/ui",
-            "version": "v2.4.1",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/ui.git",
-                "reference": "1c69ae3e8b52fe6c9eaf83b43c6dd8ef5c3f9e2c"
+                "reference": "d01a705763c243b07be795e9d1bb47f89260f73d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/ui/zipball/1c69ae3e8b52fe6c9eaf83b43c6dd8ef5c3f9e2c",
-                "reference": "1c69ae3e8b52fe6c9eaf83b43c6dd8ef5c3f9e2c",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/d01a705763c243b07be795e9d1bb47f89260f73d",
+                "reference": "d01a705763c243b07be795e9d1bb47f89260f73d",
                 "shasum": ""
             },
             "require": {
                 "illuminate/console": "^7.0",
                 "illuminate/filesystem": "^7.0",
                 "illuminate/support": "^7.0",
-                "php": "^7.2.5"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.0",
-                "phpunit/phpunit": "^8.0"
+                "php": "^7.2.5|^8.0"
             },
             "type": "library",
             "extra": {
@@ -1807,9 +1803,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/ui/issues",
-                "source": "https://github.com/laravel/ui/tree/v2.4.1"
+                "source": "https://github.com/laravel/ui/tree/v2.5.0"
             },
-            "time": "2020-09-22T16:51:51+00:00"
+            "time": "2020-11-03T19:45:19+00:00"
         },
         {
             "name": "lcobucci/jwt",
@@ -3377,16 +3373,16 @@
         },
         {
             "name": "opis/closure",
-            "version": "3.6.0",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opis/closure.git",
-                "reference": "c547f8262a5fa9ff507bd06cc394067b83a75085"
+                "reference": "943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/c547f8262a5fa9ff507bd06cc394067b83a75085",
-                "reference": "c547f8262a5fa9ff507bd06cc394067b83a75085",
+                "url": "https://api.github.com/repos/opis/closure/zipball/943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5",
+                "reference": "943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5",
                 "shasum": ""
             },
             "require": {
@@ -3436,9 +3432,9 @@
             ],
             "support": {
                 "issues": "https://github.com/opis/closure/issues",
-                "source": "https://github.com/opis/closure/tree/3.6.0"
+                "source": "https://github.com/opis/closure/tree/3.6.1"
             },
-            "time": "2020-10-11T21:42:15+00:00"
+            "time": "2020-11-07T02:01:34+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -7812,28 +7808,27 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.4.1",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "9fc6c3d3de5271a1b94cff19dce2c9295abf0ffa"
+                "reference": "81698c5e32837c74abf9bb764ff0c1b3e001afb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/9fc6c3d3de5271a1b94cff19dce2c9295abf0ffa",
-                "reference": "9fc6c3d3de5271a1b94cff19dce2c9295abf0ffa",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/81698c5e32837c74abf9bb764ff0c1b3e001afb3",
+                "reference": "81698c5e32837c74abf9bb764ff0c1b3e001afb3",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-mbstring": "*",
-                "facade/flare-client-php": "^1.0",
-                "facade/ignition-contracts": "^1.0",
+                "facade/flare-client-php": "^1.3.7",
+                "facade/ignition-contracts": "^1.0.2",
                 "filp/whoops": "^2.4",
                 "illuminate/support": "^7.0|^8.0",
                 "monolog/monolog": "^2.0",
-                "php": "^7.2.5",
-                "scrivo/highlight.php": "^9.15",
+                "php": "^7.2.5|^8.0",
                 "symfony/console": "^5.0",
                 "symfony/var-dumper": "^5.0"
             },
@@ -7886,29 +7881,29 @@
                 "issues": "https://github.com/facade/ignition/issues",
                 "source": "https://github.com/facade/ignition"
             },
-            "time": "2020-10-14T08:59:59+00:00"
+            "time": "2020-10-27T13:02:22+00:00"
         },
         {
             "name": "facade/ignition-contracts",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition-contracts.git",
-                "reference": "aeab1ce8b68b188a43e81758e750151ad7da796b"
+                "reference": "3c921a1cdba35b68a7f0ccffc6dffc1995b18267"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition-contracts/zipball/aeab1ce8b68b188a43e81758e750151ad7da796b",
-                "reference": "aeab1ce8b68b188a43e81758e750151ad7da796b",
+                "url": "https://api.github.com/repos/facade/ignition-contracts/zipball/3c921a1cdba35b68a7f0ccffc6dffc1995b18267",
+                "reference": "3c921a1cdba35b68a7f0ccffc6dffc1995b18267",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": "^7.3|^8.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.14",
-                "phpunit/phpunit": "^7.5|^8.0",
-                "vimeo/psalm": "^3.12"
+                "friendsofphp/php-cs-fixer": "^v2.15.8",
+                "phpunit/phpunit": "^9.3.11",
+                "vimeo/psalm": "^3.17.1"
             },
             "type": "library",
             "autoload": {
@@ -7937,9 +7932,9 @@
             ],
             "support": {
                 "issues": "https://github.com/facade/ignition-contracts/issues",
-                "source": "https://github.com/facade/ignition-contracts/tree/1.0.1"
+                "source": "https://github.com/facade/ignition-contracts/tree/1.0.2"
             },
-            "time": "2020-07-14T10:10:28+00:00"
+            "time": "2020-10-16T08:27:54+00:00"
         },
         {
             "name": "filp/whoops",
@@ -9231,85 +9226,6 @@
                 "source": "https://github.com/bobthecow/psysh/tree/master"
             },
             "time": "2020-05-03T19:32:03+00:00"
-        },
-        {
-            "name": "scrivo/highlight.php",
-            "version": "v9.18.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/scrivo/highlight.php.git",
-                "reference": "ee8007a215a27cb9c078e0328fb5de901d74ef9b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/scrivo/highlight.php/zipball/ee8007a215a27cb9c078e0328fb5de901d74ef9b",
-                "reference": "ee8007a215a27cb9c078e0328fb5de901d74ef9b",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "php": ">=5.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8|^5.7",
-                "sabberworm/php-css-parser": "^8.3",
-                "symfony/finder": "^2.8|^3.4",
-                "symfony/var-dumper": "^2.8|^3.4"
-            },
-            "suggest": {
-                "ext-dom": "Needed to make use of the features in the utilities namespace"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Highlight\\": "",
-                    "HighlightUtilities\\": ""
-                },
-                "files": [
-                    "HighlightUtilities/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Geert Bergman",
-                    "homepage": "http://www.scrivo.org/",
-                    "role": "Project Author"
-                },
-                {
-                    "name": "Vladimir Jimenez",
-                    "homepage": "https://allejo.io",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Martin Folkers",
-                    "homepage": "https://twobrain.io",
-                    "role": "Contributor"
-                }
-            ],
-            "description": "Server side syntax highlighter that supports 185 languages. It's a PHP port of highlight.js",
-            "keywords": [
-                "code",
-                "highlight",
-                "highlight.js",
-                "highlight.php",
-                "syntax"
-            ],
-            "support": {
-                "issues": "https://github.com/scrivo/highlight.php/issues",
-                "source": "https://github.com/scrivo/highlight.php"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/allejo",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-11-01T04:06:53+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
