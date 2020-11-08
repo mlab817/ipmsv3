@@ -1,0 +1,9 @@
+extend type Mutation {
+  exportProjectDocx(id: ID!): DocxLink
+    @field(resolver: "ExportProjectDocxMutation")
+    @guard(with:["api"])
+}
+
+type DocxLink {
+  link: String
+}
