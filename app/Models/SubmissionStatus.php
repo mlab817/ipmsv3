@@ -18,4 +18,9 @@ class SubmissionStatus extends Model
     {
         return $this->hasMany(Project::class);
     }
+
+    public function prexc_activities(): HasMany
+    {
+        return $this->hasMany(PrexcActivity::class);
+    }
 }

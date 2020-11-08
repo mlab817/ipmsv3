@@ -617,7 +617,7 @@
   },
   {
     "id": 57,
-    "operating_unit_type_id": 1,
+    "operating_unit_type_id": 2,
     "name": "AMAS - Agribusiness and Marketing Assistance Service",
     "acronym": "AMAS",
     "agency_head_name": "Ramon C. Yedra",
@@ -652,7 +652,7 @@
     "id": 60,
     "operating_unit_type_id": 7,
     "name": "NCI - National Convergence Initiative",
-    "acronym": "",
+    "acronym": "NCI",
     "agency_head_name": "Dr. Silvino Q. Tejada",
     "agency_head_designation": "National Focal Person",
     "telephone_number": "9295683",

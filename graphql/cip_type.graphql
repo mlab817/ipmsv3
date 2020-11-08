@@ -1,9 +1,0 @@
-extend type Query {
-	cip_types: [CipType] @all
-}
-
-type CipType {
-	id: ID!
-	name: String
-	projects: [Project] @belongsTo
-}

@@ -12,6 +12,10 @@ class TypologiesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('typologies')->truncate();
+
         DB::table('typologies')->insert([
           'id' => 1,
           'name' => 'Capital Investment Programs/Projects'
@@ -31,5 +35,7 @@ class TypologiesTableSeeder extends Seeder
           'id' => 4,
           'name' => 'Government Building'
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

@@ -29,16 +29,7 @@ class ProjectUpdated
      */
     public function handle($event)
     {
-        Log::info(json_encode($event));
-
         $processing_status = ProcessingStatus::where('name','updated')->first();
-
-//        $project = Project::find($event->project->id);
-        // $project->processing_status_id = $processing_status->id;
-        // $project->save();
-
-        // update version
-        // $project->increment('version');
 
         ProjectProcessingStatus::create([
             'project_id' => $event->project->id,

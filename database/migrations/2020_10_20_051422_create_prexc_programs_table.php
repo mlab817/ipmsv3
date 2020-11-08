@@ -17,8 +17,14 @@ class CreatePrexcProgramsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('acronym')->nullable();
+            $table->string('uacs_code')->nullable();
             $table->unsignedBigInteger('cost_structure_id')->nullable();
+            $table->string('title')->nullable();
+            $table->text('organizational_outcome')->nullable();
+            $table->text('objective_statement')->nullable();
+            $table->text('program_strategy')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('cost_structure_id')->references('id')->on('cost_structures')->onDelete('cascade');
         });

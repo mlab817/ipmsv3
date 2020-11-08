@@ -20,6 +20,7 @@ class CreateProjectPdpIndicatorsTable extends Migration
 
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('pdp_indicator_id')->references('id')->on('pdp_indicators')->onDelete('cascade');
+            $table->unique(['project_id','pdp_indicator_id'],'ppi_index');
         });
     }
 

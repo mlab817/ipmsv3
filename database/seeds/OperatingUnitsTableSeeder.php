@@ -16,7 +16,7 @@ class OperatingUnitsTableSeeder extends Seeder
     {
       // DB::table('operating_units')->truncate();
 
-      $json = \Illuminate\Support\Facades\File::get('database/data/operating_units.json');
+      $json = \Illuminate\Support\Facades\File::get('database/seeds/json/operating_units.json');
       $data = json_decode($json);
 
       foreach ($data as $obj) {
@@ -42,6 +42,6 @@ class OperatingUnitsTableSeeder extends Seeder
 
         DB::statement('ALTER SEQUENCE operating_units_id_seq RESTART WITH ' . intval($maxId + 1) . ';');
       }
-      
+
     }
 }

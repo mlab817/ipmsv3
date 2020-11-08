@@ -1,18 +1,25 @@
 extend type Mutation {
-  "Processes project"
-	processProject(
-		project_id: ID!
-		processing_status_id: ID!
-		remarks: String
-	): Project
-    @field(resolver:"ProcessProjectMutation")
+  finalizeProject(
+    input: UpdateProjectInput! @spread
+  ): Project
+    @update
+    @can(ability: "update", find: "id", injectArgs: true)
     @guard(with:["api"])
+    @event(dispatch: "App\\Events\\ProjectFinalized")
+
+  uploadSignedCopy(
+      id: ID!
+      signed_copy: Upload
+      remarks: String
+    ): Project
+    @field(resolver:"UploadSignedCopy")
+    @guard(with:["api"])
+    # @event(dispatch: "App\\Events\\ProjectEndorsedEvent")
 
   validateProject(
     id: ID!
     validation_data: Boolean
     validation_signed: Boolean
-    validation_endorsed: Boolean
     remarks: String
   ): Project
     @field(resolver:"ValidateProjectMutation")
@@ -27,14 +34,6 @@ extend type Mutation {
     @guard(with:["api"])
     @event(dispatch: "App\\Events\\ProjectProcessed")
 
-  finalizeProject(
-    input: UpdateProjectInput! @spread
-  ): Project
-    @update
-    @can(ability: "update", find: "id", injectArgs: true)
-    @guard(with:["api"])
-    @event(dispatch: "App\\Events\\ProjectFinalized")
-
   encodeProject(
     project_id: ID!
     pipol_id: Int!
@@ -44,21 +43,6 @@ extend type Mutation {
     @field(resolver:"EncodeProjectMutation")
     @guard(with:["api"])
 
-  uploadSignedCopy(
-      id: ID!
-      signed_copy: Upload
-      remarks: String
-    ): Project
-    @field(resolver:"UploadSignedCopy")
-    @guard(with:["api"])
-
-    endorseProject(
-        id: ID!
-        signed_copy: Upload
-        remarks: String
-    ): Project
-    @field(resolver: "UploadSignedCopy")
-    @guard(with:["api"])
 }
 
 type Query {

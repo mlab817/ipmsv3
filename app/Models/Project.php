@@ -29,12 +29,6 @@ class Project extends Model
 
     protected static $submitEmptyLogs = false;
 
-    protected $observables = [
-        'finalized',
-        'endorsed',
-        'reviewed'
-    ];
-
     public function getDescriptionForEvent(string $eventName): string
     {
         return "This project has been {$eventName}";
@@ -43,71 +37,6 @@ class Project extends Model
     protected static function boot()
     {
       parent::boot();
-
-      static::creating(function ($project) {
-          $project->uuid = Str::uuid();
-      });
-
-      static::saving(function ($project) {
-          $project->investment_target_total = (float) $project->investment_target_2016
-            + (float) $project->investment_target_2017
-            + (float) $project->investment_target_2018
-            + (float) $project->investment_target_2019
-            + (float) $project->investment_target_2020
-            + (float) $project->investment_target_2021
-            + (float) $project->investment_target_2022
-            + (float) $project->investment_target_2023;
-          $project->infrastructure_target_total = (float) $project->infrastructure_target_2016
-            + (float) $project->infrastructure_target_2017
-            + (float) $project->infrastructure_target_2018
-            + (float) $project->infrastructure_target_2019
-            + (float) $project->infrastructure_target_2020
-            + (float) $project->infrastructure_target_2021
-            + (float) $project->infrastructure_target_2022
-            + (float) $project->infrastructure_target_2023;
-          $project->gaa_total = (float) $project->gaa_2016
-            + (float) $project->gaa_2017
-            + (float) $project->gaa_2018
-            + (float) $project->gaa_2019
-            + (float) $project->gaa_2020
-            + (float) $project->gaa_2021
-            + (float) $project->gaa_2022
-            + (float) $project->gaa_2023;
-          $project->nep_total = (float) $project->nep_2016
-            + (float) $project->nep_2017
-            + (float) $project->nep_2018
-            + (float) $project->nep_2019
-            + (float) $project->nep_2020
-            + (float) $project->nep_2021
-            + (float) $project->nep_2022
-            + (float) $project->nep_2023;
-          $project->disbursement_total = (float) $project->disbursement_2016
-            + (float) $project->disbursement_2017
-            + (float) $project->disbursement_2018
-            + (float) $project->disbursement_2019
-            + (float) $project->disbursement_2020
-            + (float) $project->disbursement_2021
-            + (float) $project->disbursement_2022
-            + (float) $project->disbursement_2023;
-          $project->row_target_total = (float) $project->row_target_2017
-            + (float) $project->row_target_2018
-            + (float) $project->row_target_2019
-            + (float) $project->row_target_2020
-            + (float) $project->row_target_2021
-            + (float) $project->row_target_2022;
-          $project->rap_target_total = (float) $project->rap_target_2017
-            + (float) $project->rap_target_2018
-            + (float) $project->rap_target_2019
-            + (float) $project->rap_target_2020
-            + (float) $project->rap_target_2021
-            + (float) $project->rap_target_2022;
-          $project->fs_target_total = (float) $project->fs_target_2017
-            + (float) $project->fs_target_2018
-            + (float) $project->fs_target_2019
-            + (float) $project->fs_target_2020
-            + (float) $project->fs_target_2021
-            + (float) $project->fs_target_2022;
-      });
 
       $role = auth()->user() ? auth()->user()->role->name : '';
 
@@ -150,6 +79,7 @@ class Project extends Model
       "cities_municipalities",
       "clearinghouse",
       "clearinghouse_date",
+      'iccable',
       'neda_submission',
       'neda_submission_date',
       'neda_secretariat_review',
@@ -167,6 +97,9 @@ class Project extends Model
       'fs_target_2020',
       'fs_target_2021',
       'fs_target_2022',
+      'fs_target_2023',
+      'fs_target_2024',
+      'fs_target_2025',
       'fs_target_total',
       "description",
       'components',
@@ -195,6 +128,9 @@ class Project extends Model
       'row_target_2020',
       'row_target_2021',
       'row_target_2022',
+      'row_target_2023',
+      'row_target_2024',
+      'row_target_2025',
       'row_target_total',
       'row_affected',
       "has_rap",
@@ -204,6 +140,9 @@ class Project extends Model
       'rap_target_2020',
       'rap_target_2021',
       'rap_target_2022',
+      'rap_target_2023',
+      'rap_target_2024',
+      'rap_target_2025',
       'rap_target_total',
       'rap_affected',
       'investment_target_2016',
@@ -214,6 +153,8 @@ class Project extends Model
       'investment_target_2021',
       'investment_target_2022',
       'investment_target_2023',
+      'investment_target_2024',
+      'investment_target_2025',
       'investment_target_total',
       'infrastructure_target_2016',
       'infrastructure_target_2017',
@@ -223,6 +164,8 @@ class Project extends Model
       'infrastructure_target_2021',
       'infrastructure_target_2022',
       'infrastructure_target_2023',
+      'infrastructure_target_2024',
+      'infrastructure_target_2025',
       'infrastructure_target_total',
       'nep_2016',
       'nep_2017',
@@ -232,6 +175,8 @@ class Project extends Model
       'nep_2021',
       'nep_2022',
       'nep_2023',
+      'nep_2024',
+      'nep_2025',
       'nep_total',
       'gaa_2016',
       'gaa_2017',
@@ -241,6 +186,8 @@ class Project extends Model
       'gaa_2021',
       'gaa_2022',
       'gaa_2023',
+      'gaa_2024',
+      'gaa_2025',
       'gaa_total',
       'disbursement_2016',
       'disbursement_2017',
@@ -250,6 +197,8 @@ class Project extends Model
       'disbursement_2021',
       'disbursement_2022',
       'disbursement_2023',
+      'disbursement_2024',
+      'disbursement_2025',
       'disbursement_total',
       "estimated_project_life",
       "financial_benefit_cost_ratio",
@@ -268,14 +217,21 @@ class Project extends Model
       'rdc_required',
       'validation_data',
       'validation_signed',
-      'validation_endorsed',
       'finalized',
       'endorsed',
       'reviewed',
       'approved',
       'processing_status_id',
-      'signed_copy'
-      // 'version'
+      'signed_copy',
+      'project_preparation_document_id',
+      'project_preparation_document_others',
+      "pdp_chapter_id",
+      'uacs_code',
+      'cip_type_id',
+      'prexc_program_id',
+      'prexc_subprogram_id',
+      'validated',
+      'submission_status_id',
     ];
 
     protected $casts = [
@@ -285,6 +241,11 @@ class Project extends Model
     public function bases(): BelongsToMany
     {
       return $this->belongsToMany(Basis::class,'project_basis');
+    }
+
+    public function cip_type(): BelongsTo
+    {
+      return $this->belongsTo(CipType::class);
     }
 
     public function commodities(): BelongsToMany
@@ -329,8 +290,7 @@ class Project extends Model
 
     public function funding_sources(): BelongsToMany
     {
-      return $this->belongsToMany(FundingSource::class,'project_funding_source')
-        ->withPivot('target_2016','target_2017','target_2018','target_2019','target_2020','target_2021','target_2022','target_2023','target_total');
+      return $this->belongsToMany(FundingSource::class,'project_funding_source','project_id','funding_source_id','id','id');
     }
 
     public function implementation_mode(): BelongsTo
@@ -368,11 +328,6 @@ class Project extends Model
       return $this->belongsToMany(Province::class);
     }
 
-    // public function regions(): BelongsToMany
-    // {
-    //   return $this->belongsToMany(Region::class,'project_region','project_id','region_id');
-    // }
-
     public function region_financials(): HasMany
     {
       return $this->hasMany(RegionFinancial::class);
@@ -380,7 +335,7 @@ class Project extends Model
 
     public function socioeconomic_agendas(): BelongsToMany
     {
-      return $this->belongsToMany(SocioeconomicAgenda::class,'project_agenda','project_id','socioeconomic_agenda_id');
+      return $this->belongsToMany(SocioeconomicAgenda::class,'project_agenda','project_id','socioeconomic_agenda_id','id','id');
     }
 
     public function spatial_coverage(): BelongsTo
@@ -400,12 +355,12 @@ class Project extends Model
 
     public function technical_readinesses(): BelongsToMany
     {
-      return $this->belongsToMany(TechnicalReadiness::class,'project_technical_readiness','project_id','tr_id');
+      return $this->belongsToMany(TechnicalReadiness::class,'project_technical_readiness','project_id','tr_id','id','id');
     }
 
     public function ten_point_agenda(): BelongsToMany
     {
-      return $this->belongsToMany(TenPointAgenda::class);
+      return $this->belongsToMany(TenPointAgenda::class,'project_ten_point_agenda','project_id','ten_point_agenda_id','id','id');
     }
 
     public function tier(): BelongsTo
@@ -433,6 +388,11 @@ class Project extends Model
       return $this-hasMany(Project::class,'project_id','id');
     }
 
+    public function submission_status(): BelongsTo
+    {
+      return $this->belongsTo(SubmissionStatus::class);
+    }
+
     /**
      * Accessors for many-to-many relations
      *
@@ -440,52 +400,57 @@ class Project extends Model
      */
     public function getSelectedBasesAttribute()
     {
-      return $this->bases ?? $this->bases->pluck('id');
+      return $this->bases->pluck('id') ?? null;
     }
 
     public function getSelectedDistrictsAttribute()
     {
-      return $this->districts ?? $this->districts->pluck('id');
+      return $this->districts->pluck('id') ?? null;
     }
 
     public function getSelectedProvincesAttribute()
     {
-      return $this->provinces ?? $this->provinces->pluck('id');
+      return $this->provinces->pluck('id') ?? null;
     }
 
     public function getSelectedRegionsAttribute()
     {
-      return $this->regions ?? $this->regions->pluck('id');
+      return $this->regions->pluck('id') ?? null;
     }
 
     public function getSelectedTechnicalReadinessesAttribute()
     {
-      return $this->technical_readinesses ?? $this->technical_readinesses->pluck('id');
+      return $this->technical_readinesses->pluck('id') ?? null;
     }
 
     public function getSelectedSustainableDevelopmentGoalsAttribute()
     {
-      return $this->sustainable_development_goals ?? $this->sustainable_development_goals->pluck('id');
+      return $this->sustainable_development_goals->pluck('id') ?? null;
     }
 
     public function getSelectedParadigmsAttribute()
     {
-      return $this->paradigms ?? $this->paradigms->pluck('id');
+      return $this->paradigms->pluck('id') ?? null;
     }
 
     public function getSelectedTenPointAgendaAttribute()
     {
-      return $this->ten_point_agenda ?? $this->ten_point_agenda->pluck('id');
+      return $this->ten_point_agenda->pluck('id') ?? null;
     }
 
     public function getSelectedPdpChaptersAttribute()
     {
-      return $this->pdp_chapters ?? $this->pdp_chapters->pluck('id');
+      return $this->pdp_chapters->pluck('id') ?? null;
     }
 
     public function getSelectedPdpIndicatorsAttribute()
     {
-      return $this->pdp_indicators ?? $this->pdp_indicators->pluck('id');
+      return $this->pdp_indicators->pluck('id') ?? null;
+    }
+
+    public function getSelectedFundingSourcesAttribute()
+    {
+      return $this->funding_sources->pluck('id') ?? null;
     }
 
     /**
@@ -551,8 +516,7 @@ class Project extends Model
 
     public function regions(): BelongsToMany
     {
-      return $this->belongsToMany(Region::class,'project_region')
-        ->withPivot('target_2016','target_2017','target_2018','target_2019','target_2020','target_2021','target_2022','target_2023','target_total');
+      return $this->belongsToMany(Region::class,'project_region');
     }
 
     public function review(): HasOne
@@ -590,14 +554,19 @@ class Project extends Model
       return $this->hasMany(FundingSourceFinancial::class,'project_id','id');
     }
 
+    public function pdp_chapter(): BelongsTo
+    {
+      return $this->belongsTo(PdpChapter::class);
+    }
+
     public function pdp_chapters(): BelongsToMany
     {
-      return $this->belongsToMany(PdpChapter::class,'project_pdp_chapter','project_id','pdp_chapter_id');
+      return $this->belongsToMany(PdpChapter::class,'project_pdp_chapter','project_id','pdp_chapter_id','id','id');
     }
 
     public function pdp_indicators(): BelongsToMany
     {
-      return $this->belongsToMany(PdpIndicator::class,'project_pdp_indicators','project_id','pdp_indicator_id');
+      return $this->belongsToMany(PdpIndicator::class,'project_pdp_indicators','project_id','pdp_indicator_id','id','id');
     }
 
     public function latest_processing_status(): HasOne
@@ -622,7 +591,7 @@ class Project extends Model
     {
       return $this->belongsTo(PrexcProgram::class);
     }
-    
+
     public function prexc_subprogram(): BelongsTo
     {
       return $this->belongsTo(PrexcSubprogram::class);
@@ -633,9 +602,29 @@ class Project extends Model
       return $this->belongsTo(PrexcActivity::class);
     }
 
+    public function project_preparation_document(): BelongsTo
+    {
+      return $this->belongsTo(ProjectPreparationDocument::class);
+    }
+
     public function gad_form(): BelongsTo
     {
       return $this->belongsTo(GadForm::class);
+    }
+
+    public function funding_source_infrastructures(): HasMany
+    {
+      return $this->hasMany(FundingSourceInfrastructure::class);
+    }
+
+    public function infrastructure_subsectors(): BelongsToMany
+    {
+      return $this->belongsToMany(InfrastructureSubsector::class,'infrastructure_subsector_project','project_id','infra_subsector_id','id','id');
+    }
+
+    public function getSelectedInfrastructureSubsectorsAttribute()
+    {
+      return $this->infrastructure_subsectors->pluck('id') ?? null;
     }
 
     public function getSignedCopyLinkAttribute()

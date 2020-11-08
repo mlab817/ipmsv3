@@ -12,6 +12,10 @@ class ProcessingStatusesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('processing_statuses')->truncate();
+
         DB::table('processing_statuses')->insert([
             [
                 'id' => 1,
@@ -62,5 +66,7 @@ class ProcessingStatusesTableSeeder extends Seeder
                 'name' => 'encoded'
             ]
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

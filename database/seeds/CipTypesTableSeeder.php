@@ -11,6 +11,10 @@ class CipTypesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('cip_types')->truncate();
+
         DB::table('cip_types')->insert([
         	[
         		'id' => 1,
@@ -41,5 +45,7 @@ class CipTypesTableSeeder extends Seeder
         		'name' => 'All new PAPs which will require ICC approvals based on existing laws, rules and regulations'
         	],
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

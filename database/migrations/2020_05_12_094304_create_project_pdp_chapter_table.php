@@ -20,6 +20,7 @@ class CreateProjectPdpChapterTable extends Migration
 
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('pdp_chapter_id')->references('id')->on('pdp_chapters')->onDelete('cascade');
+            $table->unique(['project_id','pdp_chapter_id'],'ppdp_index');
         });
     }
 

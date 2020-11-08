@@ -11,7 +11,11 @@ class GadsTableSeeder extends Seeder
      */
     public function run()
     {
-        \Illuminate\Support\Facades\DB::table('gads')->insert([
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('gads')->truncate();
+
+        DB::table('gads')->insert([
             [
                 'id' => 1,
                 'name' => 'GAD is invisible in the project'
@@ -33,5 +37,7 @@ class GadsTableSeeder extends Seeder
                 'name' => 'Not applicable'
             ]
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

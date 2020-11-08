@@ -77,8 +77,6 @@ input UpdateProjectInput {
   economic_benefit_cost_ratio: Float
   economic_internal_rate_return: Float
   economic_net_present_value: Float
-  ten_point_agenda: UpdateTenPointAgendaRelation
-  sustainable_development_goals: UpdateSustainableDevelopmentGoalRelation
   has_fs: Boolean
   fs_target_2017: Float
   fs_target_2018: Float
@@ -86,6 +84,9 @@ input UpdateProjectInput {
   fs_target_2020: Float
   fs_target_2021: Float
   fs_target_2022: Float
+  fs_target_2023: Float
+  fs_target_2024: Float
+  fs_target_2025: Float
   fs_target_total: Float
   has_row: Boolean
   row_target_2017: Float
@@ -94,8 +95,11 @@ input UpdateProjectInput {
   row_target_2020: Float
   row_target_2021: Float
   row_target_2022: Float
+  row_target_2023: Float
+  row_target_2024: Float
+  row_target_2025: Float
   row_target_total: Float
-  row_affected: Int
+  row_affected: String
   has_rap: Boolean
   rap_target_2017: Float
   rap_target_2018: Float
@@ -103,8 +107,11 @@ input UpdateProjectInput {
   rap_target_2020: Float
   rap_target_2021: Float
   rap_target_2022: Float
+  rap_target_2023: Float
+  rap_target_2024: Float
+  rap_target_2025: Float
   rap_target_total: Float
-  rap_affected: Int
+  rap_affected: String
   investment_target_2016: Float
   investment_target_2017: Float
   investment_target_2018: Float
@@ -113,6 +120,8 @@ input UpdateProjectInput {
   investment_target_2021: Float
   investment_target_2022: Float
   investment_target_2023: Float
+  investment_target_2024: Float
+  investment_target_2025: Float
   investment_target_total: Float
   infrastructure_target_2016: Float
   infrastructure_target_2017: Float
@@ -122,6 +131,8 @@ input UpdateProjectInput {
   infrastructure_target_2021: Float
   infrastructure_target_2022: Float
   infrastructure_target_2023: Float
+  infrastructure_target_2024: Float
+  infrastructure_target_2025: Float
   infrastructure_target_total: Float
   nep_2016: Float
   nep_2017: Float
@@ -131,6 +142,8 @@ input UpdateProjectInput {
   nep_2021: Float
   nep_2022: Float
   nep_2023: Float
+  nep_2024: Float
+  nep_2025: Float
   nep_total: Float
   gaa_2016: Float
   gaa_2017: Float
@@ -140,6 +153,8 @@ input UpdateProjectInput {
   gaa_2021: Float
   gaa_2022: Float
   gaa_2023: Float
+  gaa_2024: Float
+  gaa_2025: Float
   gaa_total: Float
   disbursement_2016: Float
   disbursement_2017: Float
@@ -149,80 +164,74 @@ input UpdateProjectInput {
   disbursement_2021: Float
   disbursement_2022: Float
   disbursement_2023: Float
+  disbursement_2024: Float
+  disbursement_2025: Float
   disbursement_total: Float
   uacs_code: String
   updates: String
   updates_date: String @date
-  districts: UpdateDistrictInput
-  bases: UpdateBasisRelation
   region_id: ID
   province_id: ID
-  provinces: UpdateProvinceRelation
   district_id: ID
   city_municipality_id: ID
-  technical_readinesses: UpdateTechnicalReadinessesInput
-  # region_financials: UpdateRegionFinancialsHasMany
-  # funding_source_financials: UpdateFundingSourceFinancialsHasMany
-  regions: UpdateProjectRegions
-  funding_sources: UpdateProjectFundingSources
   version: Int
   finalized: Boolean
+  cip_type_id: ID
+  iccable: Boolean
+  pdp_chapter_id: ID
+  project_preparation_document_id: ID
+  project_preparation_document_others: String
+  rdc_endorsed: Boolean
+  rdc_endorsed_date: String
+  rdc_required: Boolean
+
+  ten_point_agenda: UpdateTenPointAgendaBelongsToMany
+  sustainable_development_goals: UpdateSustainableDevelopmentGoalsBelongsToMany
+  technical_readinesses: UpdateTechnicalReadinessesBelongsToMany
+  regions: UpdateRegionsBelongsToMany
+  funding_sources: UpdateFundingSourcesBelongsToMany
+  pdp_chapters: UpdatePdpChaptersBelongsToMany
+  pdp_indicators: UpdatePdpIndicatorsBelongsToMany
+  paradigms: [ID]
+  infrastructure_subsectors: UpdateInfrastructureSubsectorsBelongsToMany
+  provinces: [ID]
+  districts: [ID]
+  bases: UpdateBasesBelongsToMany
+  submission_status_id: ID
 }
 
-input UpdateTechnicalReadinessesInput {
+input UpdateTenPointAgendaBelongsToMany {
   sync: [ID]
 }
 
-input UpdateSustainableDevelopmentGoalRelation {
+input UpdateSustainableDevelopmentGoalsBelongsToMany {
   sync: [ID]
 }
 
-input UpdateTenPointAgendaRelation {
+input UpdateTechnicalReadinessesBelongsToMany {
   sync: [ID]
 }
 
-input UpdateBasisRelation {
+input UpdateRegionsBelongsToMany {
   sync: [ID]
 }
 
-input UpdateProjectRegions {
-    sync: [SyncProjectRegions]
-}
-
-input SyncProjectRegions {
-    id: ID!
-    target_2016: Float
-    target_2017: Float
-    target_2018: Float
-    target_2019: Float
-    target_2020: Float
-    target_2021: Float
-    target_2022: Float
-    target_2023: Float
-    target_total: Float
-}
-
-input UpdateProjectFundingSources {
-    sync: [SyncProjectFundingSources]
-}
-
-input SyncProjectFundingSources {
-    id: ID!
-    target_2016: Float
-    target_2017: Float
-    target_2018: Float
-    target_2019: Float
-    target_2020: Float
-    target_2021: Float
-    target_2022: Float
-    target_2023: Float
-    target_total: Float
-}
-
-input UpdateProvinceRelation {
+input UpdateFundingSourcesBelongsToMany {
   sync: [ID]
 }
 
-input UpdateDistrictInput {
+input UpdatePdpChaptersBelongsToMany {
+  sync: [ID]
+}
+
+input UpdatePdpIndicatorsBelongsToMany {
+  sync: [ID]
+}
+
+input UpdateInfrastructureSubsectorsBelongsToMany {
+  sync: [ID]
+}
+
+input UpdateBasesBelongsToMany {
   sync: [ID]
 }

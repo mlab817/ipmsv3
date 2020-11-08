@@ -11,4 +11,14 @@ class PdpChapter extends Model
     {
     	return $this->belongsToMany(Project::class,'project_pdp_chapter','pdp_chapter_id','project_id');
     }
+
+    public function pdp_outcomes(): HasMany
+    {
+      return $this->hasMany(PdpOutcome::class);
+    }
+
+    public function children(): HasMany
+    {
+      return $this->hasMany(PdpOutcome::class);
+    }
 }

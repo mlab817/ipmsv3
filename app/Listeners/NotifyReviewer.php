@@ -3,7 +3,7 @@
 namespace App\Listeners;
 
 use App\Models\OperatingUnit;
-use App\Notifications\DatabaseNotification;
+use App\Notifications\ProjectEndorsedNotification;
 use App\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
@@ -44,7 +44,7 @@ class NotifyReviewer
         ];
 
         if ($reviewers) {
-            Notification::send($reviewers, new DatabaseNotification($data));
+            Notification::send($reviewers, new ProjectEndorsedNotification($data));
         }
     }
 }

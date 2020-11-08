@@ -1,9 +1,0 @@
-extend type Query {
-  funding_institutions: [FundingInstitution] @all
-}
-
-type FundingInstitution {
-  id: ID!
-  name: String!
-  projects: [Project] @hasMany
-}

@@ -20,6 +20,7 @@ class CreateReviewSdgTable extends Migration
 
             $table->foreign('review_id')->references('id')->on('reviews')->onDelete('cascade');
             $table->foreign('sdg_id')->references('id')->on('sustainable_development_goals')->onDelete('cascade');
+            $table->unique(['review_id','sdg_id'],'rsdg_index');
         });
     }
 

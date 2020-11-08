@@ -12,6 +12,10 @@ class FundingInstitutionsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('funding_institutions')->truncate();
+
         DB::table('funding_institutions')->insert([
             [
                 "name" => 'Australia'
@@ -168,5 +172,7 @@ class FundingInstitutionsTableSeeder extends Seeder
                   "name" => 'Others'
               ]
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

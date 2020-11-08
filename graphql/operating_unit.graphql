@@ -7,32 +7,11 @@ extend type Query {
 extend type Mutation {
   "Create a new operating unit"
   createOperatingUnit(
-    name: String!
-    acronym: String!
-    address: String
-    image: String
-    agency_head_name: String
-    agency_head_designation: String
-    telephone_number: String
-    fax_number: String
-    email: String
-    operating_unit_type_id: ID
+    input: CreateOperatingUnitInput! @spread
   ): OperatingUnit @create
 
   "Update operating unit"
-  updateOperatingUnit(
-      id: ID!
-      name: String!
-      acronym: String!
-      address: String
-      image: String
-      agency_head_name: String
-      agency_head_designation: String
-      telephone_number: String
-      fax_number: String
-      email: String
-      operating_unit_type_id: ID
-  ): OperatingUnit @update
+  updateOperatingUnit(input: UpdateOperatingUnitInput! @spread): OperatingUnit @update
 
   "Delete operating unit"
   deleteOperatingUnit(id:ID!): OperatingUnit @delete
@@ -43,7 +22,7 @@ extend type Mutation {
   ): OperatingUnit @field(resolver:"UpdateOperatingUnitImageMutation")
 
   assignReviewer(
-    input: AssignReviewerInput! @spread): AssignReviewerResponse 
+    input: AssignReviewerInput! @spread): AssignReviewerResponse
     @field(resolver: "AssignReviewer")
     @guard(with:["api"])
 }
@@ -78,7 +57,9 @@ type OperatingUnit {
     investment_target_2022: Float
     investment_target_2023: Float
     project_count: Int
-    prexc_activities: [PrexcActivity] @belongsToMany
+    prexc_activities: [PrexcActivity] @hasMany
+    prexc_programs: [PrexcProgram] @belongsToMany
+    prexc_subprograms: [PrexcSubprogram] @belongsToMany
 }
 
 input AssignReviewerInput {
@@ -92,3 +73,44 @@ type AssignReviewerResponse {
   operating_unit: OperatingUnit
 }
 
+input UpdatePrexcActivitiesHasMany {
+  update: [UpdatePrexcActivityInput]
+}
+
+input CreateOperatingUnitInput {
+  name: String!
+  acronym: String!
+  address: String
+  image: String
+  agency_head_name: String
+  agency_head_designation: String
+  telephone_number: String
+  fax_number: String
+  email: String
+  operating_unit_type_id: ID
+}
+
+input UpdateOperatingUnitInput {
+  id: ID!
+  name: String
+  acronym: String
+  address: String
+  image: String
+  agency_head_name: String
+  agency_head_designation: String
+  telephone_number: String
+  fax_number: String
+  email: String
+  operating_unit_type_id: ID
+  prexc_activities: UpdatePrexcActivitiesHasMany
+  prexc_programs: UpdatePrexcProgramsBelongsToMany
+  prexc_subprograms: UpdatePrexcSubprogramsBelongsToMany
+}
+
+input UpdatePrexcProgramsBelongsToMany {
+  connect: [ID]
+}
+
+input UpdatePrexcSubprogramsBelongsToMany {
+  connect: [ID]
+}

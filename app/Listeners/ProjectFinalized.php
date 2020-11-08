@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Models\SubmissionStatus;
 use App\Models\ProcessingStatus;
 use App\Models\ProjectProcessingStatus;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -31,13 +32,10 @@ class ProjectFinalized
         $project = $event->project;
 
         $processing_status = ProcessingStatus::where('name','finalized')->first();
+        $ss = SubmissionStatus::where('name','finalized')->first();
 
-        // Log::info(json_encode($event));
-        // $processing_status = ProcessingStatus::where('name','finalized')->first();
-        // $project->finalized = true;
-        // $project->save();
-
-//        $processing_status_name = $processing_status->name ?? '_';
+        $project->submission_status_id = $ss->id;
+        $project->save();
 
         ProjectProcessingStatus::create([
             'project_id' => $project->id,

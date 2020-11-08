@@ -12,9 +12,12 @@ class ProjectStatusesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('project_statuses')->truncate();
         /**
          * Equivalent of Implementation Readiness in PIPOL
-         * 
+         *
          * $project->project_status_id
          */
         DB::table('project_statuses')->insert([
@@ -38,7 +41,7 @@ class ProjectStatusesTableSeeder extends Seeder
             'id' => 5,
             'name' => 'Approved but not yet ongoing'
           ],
-          
+
           [
             'id' => 6,
             'name' => 'Temporarily Stopped'
@@ -52,5 +55,7 @@ class ProjectStatusesTableSeeder extends Seeder
             'name' => 'Dropped from pipeline'
           ]
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

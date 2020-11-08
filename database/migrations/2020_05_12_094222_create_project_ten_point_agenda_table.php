@@ -20,6 +20,7 @@ class CreateProjectTenPointAgendaTable extends Migration
 
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('ten_point_agenda_id')->references('id')->on('ten_point_agendas')->onDelete('cascade');
+            $table->unique(['project_id','ten_point_agenda_id'],'ptpa_index');
         });
     }
 

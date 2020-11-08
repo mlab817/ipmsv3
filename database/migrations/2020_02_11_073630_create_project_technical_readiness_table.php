@@ -20,6 +20,7 @@ class CreateProjectTechnicalReadinessTable extends Migration
 
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('tr_id')->references('id')->on('technical_readinesses')->onDelete('cascade');
+            $table->unique(['project_id','tr_id'],'ptr_index');
         });
     }
 

@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\PrexcActivity;
 use App\Models\Project;
 use App\Policies\ProjectPolicy;
+use App\Policies\PrexcActivityPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Passport\Passport;
@@ -16,7 +18,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        Project::class => ProjectPolicy::class
+        Project::class => ProjectPolicy::class,
+        PrexcActivity::class => PrexcActivityPolicy::class,
     ];
 
     /**

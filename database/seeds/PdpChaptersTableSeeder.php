@@ -11,10 +11,14 @@ class PdpChaptersTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('pdp_chapters')->truncate();
+
         DB::table('pdp_chapters')->insert([
           [
-            'id' => 0,
-            'name' => 'No chapter'
+            'id' => 1,
+            'name' => 'No chapter/Not Applicable'
           ],
         	[
         		"id" => 5,
@@ -85,5 +89,7 @@ class PdpChaptersTableSeeder extends Seeder
             'name' => 'Administrative Building'
           ]
       ]);
+
+      DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
