@@ -11,9 +11,9 @@ class SubmissionStatusesTableSeeder extends Seeder
      */
     public function run()
     {
-        // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
-        // DB::table('submission_statuses')->truncate();
+        DB::table('submission_statuses')->truncate();
 
         DB::table('submission_statuses')->insert([
           [
@@ -34,6 +34,6 @@ class SubmissionStatusesTableSeeder extends Seeder
           ]
         ]);
 
-        // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

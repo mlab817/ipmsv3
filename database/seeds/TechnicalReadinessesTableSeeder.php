@@ -12,6 +12,10 @@ class TechnicalReadinessesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('technical_readinesses')->truncate();
+
         DB::table('technical_readinesses')->insert([
           [
             'id' => 1,
@@ -50,5 +54,7 @@ class TechnicalReadinessesTableSeeder extends Seeder
             'name' => 'Other Pre-Investment Activities'
           ]
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

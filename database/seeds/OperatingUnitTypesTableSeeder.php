@@ -12,6 +12,10 @@ class OperatingUnitTypesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('operating_unit_types')->truncate();
+
         DB::table('operating_unit_types')->insert([
           'id' => 1,
           'name' => 'service',
@@ -53,5 +57,7 @@ class OperatingUnitTypesTableSeeder extends Seeder
           'name' => 'others',
           'label' => 'Others'
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

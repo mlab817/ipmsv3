@@ -11,6 +11,10 @@ class ProjectPreparationDocumentsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('project_preparation_documents')->truncate();
+
         DB::table('project_preparation_documents')->insert([
           [
             'id' => 1,
@@ -33,5 +37,7 @@ class ProjectPreparationDocumentsTableSeeder extends Seeder
             'name' => 'Others'
           ]
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

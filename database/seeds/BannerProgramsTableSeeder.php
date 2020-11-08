@@ -11,6 +11,8 @@ class BannerProgramsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
         DB::table('banner_programs')->truncate();
 
         DB::table('banner_programs')->insert([
@@ -55,5 +57,7 @@ class BannerProgramsTableSeeder extends Seeder
             'acronym' => 'ILD'
           ]
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

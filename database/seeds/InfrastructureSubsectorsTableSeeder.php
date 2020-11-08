@@ -11,6 +11,10 @@ class InfrastructureSubsectorsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('infrastructure_subsectors')->truncate();
+
         DB::table('infrastructure_subsectors')->insert([
           [
             'id' => 1,
@@ -138,5 +142,7 @@ class InfrastructureSubsectorsTableSeeder extends Seeder
             'infrastructure_sector_id' => 6,
           ],
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

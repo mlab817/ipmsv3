@@ -12,6 +12,10 @@ class TypesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('types')->truncate();
+
         DB::table('types')->insert([
           [
             'id' => 1,
@@ -24,5 +28,7 @@ class TypesTableSeeder extends Seeder
             'label' => 'FAP'
           ]
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

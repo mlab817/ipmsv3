@@ -100,8 +100,14 @@ class SustainableDevelopmentGoalsTableSeeder extends Seeder
           ]
         ];
 
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        DB::table('sustainable_development_goals')->truncate();
+
         foreach ($sdgs as $sdg) {
           DB::table('sustainable_development_goals')->insert($sdg);
         }
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
