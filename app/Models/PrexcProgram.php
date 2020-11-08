@@ -13,6 +13,7 @@ class PrexcProgram extends Model
     use SoftDeletes;
 
     protected $fillable = [
+      'id',
     	'name',
     	'acronym',
       'uacs_code',

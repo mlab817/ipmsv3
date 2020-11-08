@@ -11,8 +11,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PrexcSubprogram extends Model
 {
     use SoftDeletes;
-    
+
     protected $fillable = [
+      'id',
     	'name',
     	'acronym',
       'uacs_code',
