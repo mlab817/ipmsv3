@@ -20,13 +20,18 @@ class ExportForConsolidation
         log($user);
 
         $ou = $user->operating_unit;
-        $pa = $ou->consolidates->banner_programs->prexc_activities;
-        $filename = 'exports/'. time() . '_export.xlsx';
+        $conso = $ou->consolidates;
+        if (!empty($conso)) {
+           $prexc_activities = PrexcActivity::withoutGlobalScopes()->whereIn('banner_program_id',$conso->pluck('id')->get();
+        
+           $filename = 'exports/'. time() . '_export.xlsx';
 
-        $excel = (new PrexcActivityExport($pa))->store($filename, 'public');
+           $excel = (new PrexcActivityExport($prexc_activities)->store($filename, 'public');
 
-        if ($excel) {
-            $link = config('app.url') . Storage::url($filename);
+           if ($excel) {
+              $link = config('app.url') . Storage::url($filename);
+           }
+
         }
 
         return [
