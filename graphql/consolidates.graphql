@@ -7,6 +7,13 @@ extend type Mutation {
   exportForConsolidaton(id: ID!):
     ConsolidatedFile
     @field(resolver:"ExportForConsolidation")
+    @guards(with: ["api"])
+}
+
+extend type Query {
+  consolidatedActivities: [PrexcActivity]
+    @guards(with: ["api"])
+    @field(resolver: "ConsolidatedActivitiesQuery")
 }
 
 type ConsolidatedFile {
