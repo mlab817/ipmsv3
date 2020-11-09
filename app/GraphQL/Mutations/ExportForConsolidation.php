@@ -2,7 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
-use App\Exports\PrexcActivityExport;
+use App\Exports\ForConsolidationExport;
 use Illuminate\Support\Facades\Storage;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
@@ -17,16 +17,15 @@ class ExportForConsolidation
         $link = null;
         $user = $context->user();
 
-        log($user);
-
         $ou = $user->operating_unit;
         $conso = $ou->consolidates;
+
         if (!empty($conso)) {
            $prexc_activities = PrexcActivity::withoutGlobalScopes()->whereIn('banner_program_id',$conso->pluck('id')->get();
         
            $filename = 'exports/'. time() . '_export.xlsx';
 
-           $excel = (new PrexcActivityExport($prexc_activities)->store($filename, 'public');
+           $excel = (new ForConsolidationExport($prexc_activities)->store($filename, 'public');
 
            if ($excel) {
               $link = config('app.url') . Storage::url($filename);
