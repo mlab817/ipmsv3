@@ -20,13 +20,7 @@ class AssignBannerProgramToOu
           return null;
         }
 
-        $banner_programs = BannerProgram::whereIn('id',$args['banner_program_id'])->get();
-
-        if (! $banner_programs) {
-          return null;
-        }
-
-        $operating_unit->consolidates()->sync($banner_programs);
+        $operating_unit->consolidates()->sync($args['banner_programs']);
 
         return $operating_unit;
     }
