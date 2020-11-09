@@ -3,4 +3,12 @@ extend type Mutation {
     operating_unit_id: ID!
     banner_programs: [ID!]!
     ): OperatingUnit @field(resolver:"AssignBannerProgramToOu")
+
+  exportForConsolidaton(id: ID!):
+    ConsolidatedFile
+    @field(resolver:"ExportForConsolidation")
+}
+
+type ConsolidatedFile {
+    link: String
 }
