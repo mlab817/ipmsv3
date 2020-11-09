@@ -137,4 +137,9 @@ class OperatingUnit extends Model
     {
         return $this->belongsToMany(PrexcSubprogram::class,'operating_unit_prexc_subprogram','operating_unit_id','prexc_subprogram_id','id','id');
     }
+
+    public function consolidates(): BelongsToMany
+    {
+      return $this->belongsToMany(BannerProgram::class);
+    }
 }
