@@ -1,0 +1,6 @@
+extend type Mutation {
+  assignBannerProgramToOu(
+    operating_unit_id: ID!
+    banner_program_id: [ID]!
+    ): OperatingUnit @field(resolver:"AssignBannerProgramToOu")
+}
