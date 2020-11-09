@@ -13,7 +13,7 @@ class BannerProgram extends Model
       'acronym'
     ];
 
-    public function consolidator(): BelongsToMany
+    public function consolidators(): BelongsToMany
     {
       return $this->belongsToMany(OperatingUnit::class);
     }

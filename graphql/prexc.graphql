@@ -151,6 +151,7 @@ type BannerProgram {
 	name: String
 	acronym: String
 	prexc_activities: [PrexcActivity] @hasMany
+    consolidators: [OperatingUnit] @belongsToMany
 }
 
 type PrexcActivity {
