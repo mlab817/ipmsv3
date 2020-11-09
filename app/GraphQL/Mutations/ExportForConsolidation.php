@@ -17,6 +17,8 @@ class ExportForConsolidation
         $link = null;
         $user = $context->user();
 
+        log($user);
+
         $ou = $user->operating_unit;
         $pa = $ou->consolidates->banner_programs->prexc_activities;
         $filename = 'exports/'. time() . '_export.xlsx';
