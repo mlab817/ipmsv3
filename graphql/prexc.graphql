@@ -150,6 +150,7 @@ type BannerProgram {
 	id: ID
 	name: String
 	acronym: String
+	prexc_activities: [PrexcActivity] @hasMany
 }
 
 type PrexcActivity {
