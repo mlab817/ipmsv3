@@ -2,7 +2,6 @@
 
 namespace App\GraphQL\Mutations;
 
-use App\Models\BannerProgram;
 use App\Models\OperatingUnit;
 
 class AssignBannerProgramToOu
