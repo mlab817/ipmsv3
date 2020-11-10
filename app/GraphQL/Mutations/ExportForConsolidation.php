@@ -15,7 +15,7 @@ class ExportForConsolidation
      */
     public function __invoke($_, array $args, GraphQLContext $context)
     {
-        $link = [];
+        $link = null;
         $user = $context->user();
 
         $ou = $user->operating_unit;
