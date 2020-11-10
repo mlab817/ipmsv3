@@ -60,6 +60,7 @@ type OperatingUnit {
     prexc_activities: [PrexcActivity] @hasMany
     prexc_programs: [PrexcProgram] @belongsToMany
     prexc_subprograms: [PrexcSubprogram] @belongsToMany
+    consolidates: [BannerProgram] @belongsToMany
 }
 
 input AssignReviewerInput {

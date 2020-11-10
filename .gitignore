@@ -11,3 +11,4 @@ yarn-error.log
 .env
 /storage/*.key
 ipmsv2.zip
+vendor.zip

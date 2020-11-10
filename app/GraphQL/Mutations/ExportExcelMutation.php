@@ -21,7 +21,7 @@ class ExportExcelMutation
 
        $ou = $user->operating_unit;
        $pa = $ou->prexc_activities;
-        $filename = 'exports/'. time() . '_export.xlsx';
+       $filename = 'exports/'. time() . '_export.xlsx';
 
        $excel = (new PrexcActivityExport($pa))->store($filename, 'public');
 //         $excel = (new PrexcActivityExport)->store($filename, 'public');

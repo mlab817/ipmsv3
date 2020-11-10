@@ -23,29 +23,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/python','PythonController@run');
-
-Route::get('/slack', function() {
-  $message = 'Go to hell';
-
-  \Log::debug('Go to hell');
-});
-
-Route::get('/download', function() {
-    $user = \Illuminate\Support\Facades\Auth::user();
-    $ou = $user->operating_unit;
-    $pa = $ou->prexc_activities;
-
-//    return response()->json($pa);
-    return new \App\Exports\ProgramsExport($pa);
-});
-
-Route::get('/programs', function() {
-    // $user = \Illuminate\Support\Facades\Auth::user();
-    $user = \App\User::find(4);
-    $ou = $user->operating_unit;
-    $pa = $ou->prexc_activities;
-
-   // return response()->json($pa);
-    return view('exports.programs')->with('prexc_activities', $pa);
+Route::get('/template', function() {
+  return \Illuminate\Support\Facades\Storage::disk('public')->download('project-profile.docx');
 });

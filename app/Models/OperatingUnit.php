@@ -78,51 +78,6 @@ class OperatingUnit extends Model
       return $this->belongsToMany(User::class,'operating_unit_viewer','operating_unit_id','user_id');
     }
 
-    public function getTotalInvestmentAttribute()
-    {
-      return $this->projects()->sum('investment_target_total') ?? 0; // showing 0 only
-    }
-
-    public function getInvestmentTarget2016Attribute()
-    {
-        return $this->projects()->sum('investment_target_2016') ?? 0; // showing 0 only
-    }
-
-    public function getInvestmentTarget2017Attribute()
-    {
-        return $this->projects()->sum('investment_target_2017') ?? 0; // showing 0 only
-    }
-
-    public function getInvestmentTarget2018Attribute()
-    {
-        return $this->projects()->sum('investment_target_2018') ?? 0; // showing 0 only
-    }
-
-    public function getInvestmentTarget2019Attribute()
-    {
-        return $this->projects()->sum('investment_target_2019') ?? 0; // showing 0 only
-    }
-
-    public function getInvestmentTarget2020Attribute()
-    {
-        return $this->projects()->sum('investment_target_2020') ?? 0; // showing 0 only
-    }
-
-    public function getInvestmentTarget2021Attribute()
-    {
-        return $this->projects()->sum('investment_target_2021') ?? 0; // showing 0 only
-    }
-
-    public function getInvestmentTarget2022Attribute()
-    {
-        return $this->projects()->sum('investment_target_2022') ?? 0; // showing 0 only
-    }
-
-    public function getInvestmentTarget2023Attribute()
-    {
-        return $this->projects()->sum('investment_target_2023') ?? 0; // showing 0 only
-    }
-
     public function prexc_activities(): HasMany
     {
         return $this->HasMany(PrexcActivity::class);
@@ -136,5 +91,10 @@ class OperatingUnit extends Model
     public function prexc_subprograms(): BelongsToMany
     {
         return $this->belongsToMany(PrexcSubprogram::class,'operating_unit_prexc_subprogram','operating_unit_id','prexc_subprogram_id','id','id');
+    }
+
+    public function consolidates(): BelongsToMany
+    {
+      return $this->belongsToMany(BannerProgram::class, 'banner_program_operating_unit','operating_unit_id','banner_program_id','id','id');
     }
 }
