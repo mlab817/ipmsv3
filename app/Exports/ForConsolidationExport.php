@@ -34,8 +34,8 @@ class ForConsolidationExport implements FromCollection, WithMapping, WithStyles,
 
     public function collection()
     {
-        log($this->prexc_activities);
-        
+        log(json_encode($this->prexc_activities));
+
         return $this->prexc_activities;
     }
 
