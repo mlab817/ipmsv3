@@ -7,12 +7,12 @@ extend type Mutation {
   exportForConsolidaton(id: ID!):
     ConsolidatedFile
     @field(resolver:"ExportForConsolidation")
-    @guards(with: ["api"])
+    @guard(with: ["api"])
 }
 
 extend type Query {
   consolidatedActivities: [PrexcActivity]
-    @guards(with: ["api"])
+    @guard(with: ["api"])
     @field(resolver: "ConsolidatedActivitiesQuery")
 }
 
