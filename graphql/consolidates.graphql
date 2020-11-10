@@ -4,7 +4,7 @@ extend type Mutation {
     banner_programs: [ID!]!
     ): OperatingUnit @field(resolver:"AssignBannerProgramToOu")
 
-  exportForConsolidaton(id: ID!):
+  exportForConsolidaton:
     ConsolidatedFile
     @field(resolver:"ExportForConsolidation")
     @guard(with: ["api"])
