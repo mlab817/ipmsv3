@@ -26,7 +26,7 @@ class ConsolidatedActivitiesQuery
         }
 
         return [
-          'prexc_activities' = $prexc_activities;
+          'prexc_activities' => $prexc_activities
         ];
     }
 }
