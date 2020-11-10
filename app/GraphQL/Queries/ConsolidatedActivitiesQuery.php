@@ -29,8 +29,6 @@ class ConsolidatedActivitiesQuery
               ->get();
         }
 
-        return [
-          'prexc_activities' => $prexc_activities
-        ];
+        return $prexc_activities;
     }
 }
