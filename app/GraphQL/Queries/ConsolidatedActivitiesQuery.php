@@ -1,13 +1,11 @@
 <?php
 
-namespace App\GraphQL\Mutations;
+namespace App\GraphQL\Queries;
 
-use App\Exports\ForConsolidationExport;
 use App\Models\PrexcActivity;
-use Illuminate\Support\Facades\Storage;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
-class ExportForConsolidation
+class ConsolidatedActivitiesQuery
 {
     /**
      * @param  null  $_
@@ -15,6 +13,8 @@ class ExportForConsolidation
      */
     public function __invoke($_, array $args, GraphQLContext $context)
     {
+        $prexc_activities = null;
+
         $link = null;
         $user = $context->user();
 
@@ -23,19 +23,10 @@ class ExportForConsolidation
 
         if (!empty($conso)) {
            $prexc_activities = PrexcActivity::withoutGlobalScopes()->whereIn('banner_program_id',$conso->pluck('id')->get();
-
-           $filename = 'exports/'. time() . '_export.xlsx';
-
-           $excel = (new ForConsolidationExport($prexc_activities)->store($filename, 'public');
-
-           if ($excel) {
-              $link = config('app.url') . Storage::url($filename);
-           }
-
         }
 
         return [
-            'link' => $link,
+          'prexc_activities' = $prexc_activities;
         ];
     }
 }
