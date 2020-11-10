@@ -25,7 +25,7 @@ class ExportForConsolidation
         if (!empty($conso)) {
            $prexc_activities = PrexcActivity::with(['operating_unit','prexc_program','prexc_subprogram','banner_program'])->withoutGlobalScopes()->whereIn('banner_program_id',$conso->pluck('id'))->get();
 
-           Log::info(json_encode($prexc_activities));
+           // Log::info(json_encode($prexc_activities));
 
            $filename = 'exports/'. time() . '_export.xlsx';
 
