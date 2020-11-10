@@ -13,7 +13,7 @@ class ConsolidatedActivitiesQuery
      */
     public function __invoke($_, array $args, GraphQLContext $context)
     {
-        $prexc_activities = [];
+        $prexc_activities = null;
 
         $link = null;
         $user = $context->user();
