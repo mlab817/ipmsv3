@@ -4,7 +4,7 @@ namespace App\Exports;
 
 use App\Models\PrexcActivity;
 use Maatwebsite\Excel\Concerns\Exportable;
-use Maatwebsite\Excel\Concerns\FromArray;
+use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
@@ -13,7 +13,7 @@ use Maatwebsite\Excel\Excel;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class ForConsolidationExport implements FromArray, WithMapping, WithStyles, WithColumnFormatting, WithHeadings
+class ForConsolidationExport implements FromCollection, WithMapping, WithStyles, WithColumnFormatting, WithHeadings
 {
     use Exportable;
 
@@ -27,12 +27,12 @@ class ForConsolidationExport implements FromArray, WithMapping, WithStyles, With
         'Content-Type' => 'text/csv'
     ];
 
-    public function __construct(array $prexc_activities)
+    public function __construct($prexc_activities)
     {
         $this->prexc_activities = $prexc_activities;
     }
 
-    public function array(): array
+    public function collection()
     {
         return $this->prexc_activities;
     }
