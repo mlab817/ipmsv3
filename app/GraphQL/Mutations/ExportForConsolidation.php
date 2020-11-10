@@ -22,7 +22,7 @@ class ExportForConsolidation
         $conso = $ou->consolidates;
 
         if (!empty($conso)) {
-           $prexc_activities = PrexcActivity::withoutGlobalScopes()->whereIn('banner_program_id',$conso->pluck('id'))->get();
+           $prexc_activities = PrexcActivity::with(['operating_unit','prexc_program','prexc_subprogram','banner_program'])->withoutGlobalScopes()->whereIn('banner_program_id',$conso->pluck('id'))->get();
 
            $filename = 'exports/'. time() . '_export.xlsx';
 
