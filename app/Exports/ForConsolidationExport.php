@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use Illuminate\Support\Facades\Log;
 use App\Models\PrexcActivity;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -34,7 +35,7 @@ class ForConsolidationExport implements FromCollection, WithMapping, WithStyles,
 
     public function collection()
     {
-        log(json_encode($this->prexc_activities));
+        Log::info(json_encode($this->prexc_activities));
 
         return $this->prexc_activities;
     }
