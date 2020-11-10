@@ -85,7 +85,7 @@ input CreatePrexcSubprogramInput {
 }
 
 input UpdatePrexcSubprogramInput {
-	id: ID
+	id: ID!
 	name: String
 	acronym: String
 	uacs_code: String
@@ -99,7 +99,7 @@ input UpdatePrexcSubprogramInput {
 }
 
 type CostStructure {
-	id: ID
+	id: ID!
 	name: String
 	acronym: String
 	value: ID! @rename(attribute: "id")
@@ -109,7 +109,7 @@ type CostStructure {
 }
 
 type PrexcProgram {
-	id: ID
+	id: ID!
 	name: String
 	acronym: String
 	uacs_code: String
@@ -127,7 +127,7 @@ type PrexcProgram {
 }
 
 type PrexcSubprogram {
-	id: ID
+	id: ID!
 	name: String
 	acronym: String
 	uacs_code: String
@@ -155,7 +155,7 @@ type BannerProgram {
 }
 
 type PrexcActivity {
-	id: ID
+	id: ID!
 	name: String
 	acronym: String
 	operating_unit_id: ID
