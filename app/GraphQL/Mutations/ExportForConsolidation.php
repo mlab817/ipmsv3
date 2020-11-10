@@ -26,7 +26,7 @@ class ExportForConsolidation
 
            $filename = 'exports/'. time() . '_export.xlsx';
 
-           $excel = (new ForConsolidationExport($prexc_activities)->store($filename, 'public');
+           $excel = (new ForConsolidationExport($prexc_activities))->store($filename, 'public');
 
            if ($excel) {
               $link = config('app.url') . Storage::url($filename);
