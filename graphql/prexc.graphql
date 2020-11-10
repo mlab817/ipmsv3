@@ -13,6 +13,10 @@ extend type Query {
 }
 
 extend type Mutation {
+	createBannerProgram(input: CreateBannerProgramInput! @spread): BannerProgram @create
+	updateBannerProgram(input: UpdateBannerProgramInput! @spread): BannerProgram @update
+	deleteBannerProgram(id: ID!): BannerProgram @delete
+
 	createPrexcProgram(input: CreatePrexcProgramInput! @spread): PrexcProgram @create
 	updatePrexcProgram(input: UpdatePrexcProgramInput! @spread): PrexcProgram @update
 	deletePrexcProgram(id: ID!): PrexcProgram @delete
@@ -151,7 +155,18 @@ type BannerProgram {
 	name: String
 	acronym: String
 	prexc_activities: [PrexcActivity] @hasMany
-    consolidators: [OperatingUnit] @belongsToMany
+  consolidators: [OperatingUnit] @belongsToMany
+}
+
+input CreateBannerProgramInput {
+	name: String
+	acronym: String
+}
+
+input UpdateBannerProgramInput {
+	id: ID!
+	name: String
+	acronym: String
 }
 
 type PrexcActivity {
