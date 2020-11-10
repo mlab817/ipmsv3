@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
+use Illuminate\Support\Facades\Log;
 use App\Exports\ForConsolidationExport;
 use App\Models\PrexcActivity;
 use Illuminate\Support\Facades\Storage;
@@ -23,6 +24,8 @@ class ExportForConsolidation
 
         if (!empty($conso)) {
            $prexc_activities = PrexcActivity::with(['operating_unit','prexc_program','prexc_subprogram','banner_program'])->withoutGlobalScopes()->whereIn('banner_program_id',$conso->pluck('id'))->get();
+
+           Log::info(json_encode($prexc_activities));
 
            $filename = 'exports/'. time() . '_export.xlsx';
 
