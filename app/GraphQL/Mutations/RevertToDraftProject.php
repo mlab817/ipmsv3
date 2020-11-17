@@ -18,7 +18,7 @@ class RevertToDraftProject
         $user = $context->user();
 
         $project = Project::find($args['id']);
-        $processing_status = ProcessingStatus::where('name','draft')->first();
+        $processing_status = ProcessingStatus::where('name','Draft')->first();
 
         if (! $project) {
           return null;
