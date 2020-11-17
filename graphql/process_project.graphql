@@ -7,6 +7,8 @@ extend type Mutation {
     @guard(with:["api"])
     @event(dispatch: "App\\Events\\ProjectFinalized")
 
+  revertToDraftProject(id: ID!): Project @field(resolver:"RevertToDraftProject") @guard(with:["api"])
+
   uploadSignedCopy(
       id: ID!
       signed_copy: Upload
