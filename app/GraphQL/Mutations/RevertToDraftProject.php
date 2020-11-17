@@ -28,7 +28,7 @@ class RevertToDraftProject
         $project->finalized = false;
         $project->endorsed = false;
         $project->validated = false;
-        $project->signed_copy_link = null;
+        $project->signed_copy = null;
         $project->submission_status_id = 1;
         $project->processing_status_id = 1;
         $project->save();
