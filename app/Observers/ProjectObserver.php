@@ -45,8 +45,6 @@ class ProjectObserver
 
     public function updating(Project $project)
     {
-      $project->increment('version');
-
       // if project is finalized set processing status id to finalized
       if ($this->request['finalized']) {
         $processing_status = ProcessingStatus::where('name','finalized')->first();
@@ -57,6 +55,9 @@ class ProjectObserver
 
       // replace slug if title changes
       $project->slug = Str::slug($project->title . '-' . $project->id);
+      if (! $project->uuid) {
+        $project->uuid = Str::uuid();
+      }
     }
 
     public function updated(Project $project) {
