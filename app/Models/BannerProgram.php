@@ -22,4 +22,9 @@ class BannerProgram extends Model
     {
       return $this->hasMany(PrexcActivity::class,'banner_program_id','id');
     }
+
+    public function projects(): HasMany
+    {
+    	return $this->hasMany(Project::class);
+    }
 }
