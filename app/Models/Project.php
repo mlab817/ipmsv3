@@ -232,11 +232,17 @@ class Project extends Model
       'prexc_subprogram_id',
       'validated',
       'submission_status_id',
+      'banner_program_id',
     ];
 
     protected $casts = [
       'can_update' => 'boolean'
     ];
+
+    public function banner_program(): BelongsTo
+    {
+    	return $this->belongsTo(BannerProgram::class);
+    }
 
     public function bases(): BelongsToMany
     {

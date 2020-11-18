@@ -1,9 +1,10 @@
 extend type Mutation {
+    "Deprecated"
     endorseProjects(
         projects: [ID!]! @rulesForArray(apply: ["min:1"])
         file: Upload!
     ): Endorsement
-        @field(resolver: "EndorseProjectsMutation") 
+        @field(resolver: "EndorseProjectsMutation")
         @guard(with:"api")
 }
 
