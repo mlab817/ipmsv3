@@ -3,15 +3,6 @@
 namespace App;
 
 use Carbon\Carbon;
-use App\Models\Login;
-use App\Models\Image;
-use App\Models\Followable;
-use App\Models\Message;
-use App\Models\OperatingUnit;
-use App\Models\Project;
-use App\Models\ProjectProcessingStatus;
-use App\Models\Role;
-use App\Models\Setting;
 use App\Notifications\ResetPassword;
 use App\Notifications\ResetPasswordNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

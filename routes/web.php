@@ -26,3 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/template', function() {
   return \Illuminate\Support\Facades\Storage::disk('public')->download('project-profile.docx');
 });
+
+Route::get('/login', 'Web\AppController@getLogin' )
+      ->name('login')
+      ->middleware('guest');
