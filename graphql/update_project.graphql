@@ -6,7 +6,7 @@ extend type Mutation @middleware(checks:["auth:api"]) {
     @update
     @can(ability: "update", find: "id", injectArgs: true)
     @event(dispatch: "App\\Events\\ProjectUpdated")
-    @updateProjectInputValidation
+    # @updateProjectInputValidation
     # @broadcast(subscription: "projectUpdated")
 }
 

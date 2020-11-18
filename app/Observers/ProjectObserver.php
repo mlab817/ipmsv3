@@ -38,29 +38,13 @@ class ProjectObserver
 
       // create uuid
       $uuid = Str::uuid();
-
       $project->uuid = $uuid;
-
       $project->slug = Str::slug($project->title . '-' . $project->id);
-
-      // create prexc activity based on project
-      // Disable create
-      // $prexc_activity = PrexcActivity::create([
-      //   'name' => $project->title,
-      //   'operating_unit_id' => $project->operating_unit_id,
-      //   'prexc_program_id' => $project->prexc_program_id,
-      //   'prexc_subprogram_id' => $project->prexc_subprogram_id,
-      //   // 'uacs_code' => $project->uacs_code,
-      //   'project_id' => $project->id
-      // ]);
-      //
-      // Log::info('Prexc Activity created for '. $project->id);
+      $project->save();
     }
 
     public function updating(Project $project)
     {
-      $project->increment('version');
-
       // if project is finalized set processing status id to finalized
       if ($this->request['finalized']) {
         $processing_status = ProcessingStatus::where('name','finalized')->first();
@@ -68,60 +52,16 @@ class ProjectObserver
       }
 
       $project->updated_by = auth()->user()->id;
+
+      // replace slug if title changes
+      $project->slug = Str::slug($project->title . '-' . $project->id);
+      if (! $project->uuid) {
+        $project->uuid = Str::uuid();
+      }
     }
 
     public function updated(Project $project) {
-        // TODO: Update prexc_activity created here
         //
-        // Disable creation of prexc_activity to avoid conflict in managing data in two places
-        // $prexc_activity = PrexcActivity::where('project_id',$project->id)->first();
-        //
-        // if ($prexc_activity) {
-        //   $prexc_activity->investment_target_2016 = $project->investment_target_2016;
-        //   $prexc_activity->investment_target_2017 = $project->investment_target_2017;
-        //   $prexc_activity->investment_target_2018 = $project->investment_target_2018;
-        //   $prexc_activity->investment_target_2019 = $project->investment_target_2019;
-        //   $prexc_activity->investment_target_2020 = $project->investment_target_2020;
-        //   $prexc_activity->investment_target_2021 = $project->investment_target_2021;
-        //   $prexc_activity->investment_target_2022 = $project->investment_target_2022;
-        //   $prexc_activity->investment_target_2023 = $project->investment_target_2023;
-        //   $prexc_activity->investment_target_2024 = $project->investment_target_2024;
-        //   $prexc_activity->investment_target_2025 = $project->investment_target_2025;
-        //   $prexc_activity->investment_target_total = $project->investment_target_total;
-        //   $prexc_activity->infrastructure_target_2016 = $project->infrastructure_target_2016;
-        //   $prexc_activity->infrastructure_target_2017 = $project->infrastructure_target_2017;
-        //   $prexc_activity->infrastructure_target_2018 = $project->infrastructure_target_2018;
-        //   $prexc_activity->infrastructure_target_2019 = $project->infrastructure_target_2019;
-        //   $prexc_activity->infrastructure_target_2020 = $project->infrastructure_target_2020;
-        //   $prexc_activity->infrastructure_target_2021 = $project->infrastructure_target_2021;
-        //   $prexc_activity->infrastructure_target_2022 = $project->infrastructure_target_2022;
-        //   $prexc_activity->infrastructure_target_2023 = $project->infrastructure_target_2023;
-        //   $prexc_activity->infrastructure_target_2024 = $project->infrastructure_target_2024;
-        //   $prexc_activity->infrastructure_target_2025 = $project->infrastructure_target_2025;
-        //   $prexc_activity->infrastructure_target_total = $project->infrastructure_target_total;
-        //   $prexc_activity->gaa_2016 = $project->gaa_2016;
-        //   $prexc_activity->gaa_2017 = $project->gaa_2017;
-        //   $prexc_activity->gaa_2018 = $project->gaa_2018;
-        //   $prexc_activity->gaa_2019 = $project->gaa_2019;
-        //   $prexc_activity->gaa_2020 = $project->gaa_2020;
-        //   $prexc_activity->gaa_total = $project->gaa_total;
-        //   $prexc_activity->nep_2016 = $project->nep_2016;
-        //   $prexc_activity->nep_2017 = $project->nep_2017;
-        //   $prexc_activity->nep_2018 = $project->nep_2018;
-        //   $prexc_activity->nep_2019 = $project->nep_2019;
-        //   $prexc_activity->nep_2020 = $project->nep_2020;
-        //   $prexc_activity->nep_2021 = $project->nep_2021;
-        //   $prexc_activity->nep_total = $project->nep_total;
-        //   $prexc_activity->disbursement_2016 = $project->disbursement_2016;
-        //   $prexc_activity->disbursement_2017 = $project->disbursement_2017;
-        //   $prexc_activity->disbursement_2018 = $project->disbursement_2018;
-        //   $prexc_activity->disbursement_2019 = $project->disbursement_2019;
-        //   $prexc_activity->disbursement_2020 = $project->disbursement_2020;
-        //   $prexc_activity->disbursement_total = $project->disbursement_total;
-        //   $prexc_activity->save();
-        // }
-        //
-        // Log::info('Successfully updated ' . $prexc_activity->name . ' investment targets');
     }
 
     public function deleting(Project $project)
