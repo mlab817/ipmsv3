@@ -177,17 +177,17 @@ return [
 
         \Nuwave\Lighthouse\Subscriptions\SubscriptionServiceProvider::class,
         // Provider for dropbox filesystem
-        App\Providers\DropboxServiceProvider::class,
+        // App\Providers\DropboxServiceProvider::class,
 
         // Provider for google drive filesystem
-        App\Providers\GoogleDriveServiceProvider::class,
-        
+        // App\Providers\GoogleDriveServiceProvider::class,
+
         /**
          * Include tracing for field level performance monitoring of GraphQL
          * This can be removed later
-         * 
+         *
          * See https://lighthouse-php.com/master/performance/tracing.html
-         */ 
+         */
         \Nuwave\Lighthouse\Tracing\TracingServiceProvider::class,
 
         Maatwebsite\Excel\ExcelServiceProvider::class,

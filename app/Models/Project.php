@@ -15,11 +15,12 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Spatie\Activitylog\Traits\LogsActivity;
+// use Spatie\Activitylog\Traits\LogsActivity;
 
 class Project extends Model
 {
-    use SoftDeletes, LogsActivity;
+    use SoftDeletes;
+    // use LogsActivity;
 
     protected static $logFillable = true;
 
